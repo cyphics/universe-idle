@@ -11,11 +11,13 @@
 #define UPGRADE_H 1
 
 #include "BigNum.h"
+#include "Resource.h"
 
 class Upgrade{
  private:
   std::string _name = "";
   BigNum _initial_cost;
+  Resource resource_type;
   double _price_factor;
   BigNum _cost_next_level;
   int _level = 0; // Equals number bought
@@ -25,7 +27,7 @@ class Upgrade{
  public:
   Upgrade(std::string name, BigNum initial_cost, double price_factor);
   ~Upgrade();
-  BigNum get_price(int number_levels) const;
+  BigNum get_cost(int number_levels) const;
   int get_current_level() const;
   void increase_level(int number_levels);
   std::string get_name() const;

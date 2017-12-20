@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 // Game.h
 //
 // last-edit-by: <>
@@ -16,13 +16,14 @@
 #include "History.h"
 #include "GameState.h"
 #include "UpgradesList.h"
+#include "Resource.h"
 
 class Game{
  private:
   BigNum _traveled_distance;
   BigNum _current_speed;
   BigNum _current_acceleration;
-  BigNum _current_energy;
+  Resource _current_energy;
   unsigned int _current_time;
   std::vector<Upgrade> _upgrades;
   History _history;
@@ -38,10 +39,10 @@ class Game{
   BigNum get_distance() const;
   BigNum get_speed() const;
   BigNum get_acceleration() const;
-  BigNum get_energy() const;
+  BigNum get_resource(std::string name_resource) const;
   unsigned int get_time() const;
   unsigned int time_until(Upgrade next_upgrade) const;
-  unsigned int time_until(BigNum) const;
+  unsigned int time_until(std::string) const;
   GameState get_gamestate() const;
 
   // Setters
@@ -59,6 +60,7 @@ class Game{
   std::string to_string() const;
   void wait(unsigned int time);
   void buy_upgrade(Upgrade upgrade);
+  void buy_upgrade(std::string upgrade_name);
 
   void click();
 

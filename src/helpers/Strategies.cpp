@@ -13,10 +13,12 @@
 #include "../../include/helpers/Strategy.h"
 
 
-Upgrade strategy:: strategy(std::string strategy_name, GameState gamestate){
+std::string strategy::strategy(std::string strategy_name, GameState gamestate){
   /**
    * Return the best upgrade to buy according to strategy
    */
+  if (strategy_name == "broken")
+    return "Small boost";
 
 }
 

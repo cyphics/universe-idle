@@ -22,7 +22,7 @@ class UpgradesList{
 
   std::vector<Upgrade> get_available_upgrades() const;
   std::vector<Upgrade> get_all_upgrades() const;
-
+  Upgrade get_upgrade(std::string name) const;
 
 };
 

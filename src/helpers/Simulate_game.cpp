@@ -7,11 +7,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "../../include/helpers/Simulate_game.h"
 #include "../../include/class/Upgrade.h"
-
+#include "../../include/class/Game.h"
+#include "../../include/helpers/Simulate_game.h"
 #include "../../include/helpers/Strategy.h"
-
 
 Game simulate_game(std::string strategy_name, unsigned int duration){
   /**
@@ -22,21 +21,22 @@ Game simulate_game(std::string strategy_name, unsigned int duration){
 
   Game game = Game();
   bool loop = true;
-  int time_to_wait = 0;
+  unsigned int time_to_wait = 0;
   while (loop) {
     if (game.get_time() > duration)
       loop = false;
     else{
       // Identify next upgrade according to strategy
-      Upgrade upgrade_to_buy = strategy::strategy(strategy_name, game.get_gamestate());
+      std::string upgrade_to_buy = strategy::strategy(strategy_name, game.get_gamestate());
 
 
-      if (upgrade_to_buy.get_name() == "None") {
+      if (upgrade_to_buy == "None") {
         game.wait(duration - game.get_time());
         loop = false;
       }
       else {
         time_to_wait = game.time_until(upgrade_to_buy);
+
         if (time_to_wait > duration - game.get_time()) {
           game.wait(duration - game.get_time());
           loop = false;

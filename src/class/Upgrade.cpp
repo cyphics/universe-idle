@@ -15,7 +15,7 @@ Upgrade::Upgrade(std::string name, BigNum initial_cost, double price_factor): _n
 
 Upgrade::~Upgrade(){}
 
-BigNum Upgrade::get_price(int number_levels) const{
+BigNum Upgrade::get_cost(int number_levels) const{
   /**
    * Get cost to buy <number_levels> new levels
      Return BigNum

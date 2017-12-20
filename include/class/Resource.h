@@ -1,4 +1,5 @@
 // -*- compile-command: "./../../compile.sh"; -*-
+// Resource.h
 //
 // last-edit-by: <>
 //
@@ -6,19 +7,24 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef STRATEGY_H
-#define STRATEGY_H 1
+#ifndef RESOURCE_H
+#define RESOURCE_H 1
 
-#include <iostream>
-#include "../class/Upgrade.h"
-#include "../class/GameState.h"
+#include "BigNum.h"
 
-namespace strategy{
+class Resource{
+ private:
+  BigNum _amount;
+  std::string _name;
 
-std::string strategy(std::string strategy_name, GameState gamestate);
-}
+ public:
+  Resource();
+  ~Resource();
 
-#endif // STRATEGY_H
+  BigNum get_current_amount();
+};
+
+#endif // RESOURCE_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
