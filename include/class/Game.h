@@ -15,6 +15,7 @@
 #include "Upgrade.h"
 #include "History.h"
 #include "GameState.h"
+#include "UpgradesList.h"
 
 class Game{
  private:
@@ -25,11 +26,13 @@ class Game{
   unsigned int _current_time;
   std::vector<Upgrade> _upgrades;
   History _history;
+  UpgradesList _upgrade_list;
 
 
  public:
   // Constructor
   Game();
+  ~Game();
 
   // Getters
   BigNum get_distance() const;

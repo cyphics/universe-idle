@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 // simulate_clicker.cpp
 //
 // last-edit-by: <>
@@ -7,11 +7,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "../include/Simulate_game.h"
-//#include "../include/Strategy.h"
-#include "../include/Upgrade.h"
+#include "../../include/helpers/Simulate_game.h"
+#include "../../include/class/Upgrade.h"
 
-#include "../include/Strategy.h"
+#include "../../include/helpers/Strategy.h"
 
 
 Game simulate_game(std::string strategy_name, unsigned int duration){
@@ -21,7 +20,6 @@ Game simulate_game(std::string strategy_name, unsigned int duration){
    Returns a Game object corresponding to the final state of the game.
    */
 
-  Upgrade upgrade_to_buy;
   Game game = Game();
   bool loop = true;
   int time_to_wait = 0;
@@ -30,7 +28,7 @@ Game simulate_game(std::string strategy_name, unsigned int duration){
       loop = false;
     else{
       // Identify next upgrade according to strategy
-      upgrade_to_buy = strategy::strategy(strategy_name, game.get_gamestate());
+      Upgrade upgrade_to_buy = strategy::strategy(strategy_name, game.get_gamestate());
 
 
       if (upgrade_to_buy.get_name() == "None") {

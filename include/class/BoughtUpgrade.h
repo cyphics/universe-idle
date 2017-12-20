@@ -13,15 +13,17 @@
 #include "Upgrade.h"
 
 class BoughtUpgrade{
+  /**
+   * Class used to store history of bought upgrades
+   */
  private:
   Upgrade _upgrade_type;
   int _time;
   BigNum _cost;
 
  public:
-  BoughtUpgrade(Upgrade, int, BigNum);
+  BoughtUpgrade(Upgrade related_upgrade, int time_when_bought, BigNum cost);
   ~BoughtUpgrade();
-
 
 };
 

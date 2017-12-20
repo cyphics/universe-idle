@@ -1,14 +1,7 @@
 // -*- compile-command: "./../compile.sh"; -*-
 
-// #include <libhello/french.h>
-// #include <libhello/english.h>
-// #include <class/a_class.h>
-
-#include <iostream>
-
-#include "../include/Simulate_game.h"
-#include "../include/Game.h"
-//#include "Strategies.cpp"
+#include "../include/helpers/Simulate_game.h"
+#include "../include/class/Game.h"
 
 int main()
 {

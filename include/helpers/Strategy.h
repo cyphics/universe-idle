@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 //
 // last-edit-by: <>
 //
@@ -10,8 +10,8 @@
 #define STRATEGY_H 1
 
 #include <iostream>
-#include "Upgrade.h"
-#include "GameState.h"
+#include "../class/Upgrade.h"
+#include "../class/GameState.h"
 
 namespace strategy{
 

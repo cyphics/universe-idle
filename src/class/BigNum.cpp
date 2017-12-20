@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 
 #include <iostream>
 #include <iomanip> // setprecision
@@ -7,7 +7,7 @@
 #include <vector>
 #include <assert.h>
 
-#include "../include/BigNum.h"
+#include "../../include/class/BigNum.h"
 
 BigNum::BigNum(){
   _num_value = 0;

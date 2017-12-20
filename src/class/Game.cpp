@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 // Game.cpp
 //
 // last-edit-by: <>
@@ -7,11 +7,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "../include/Game.h"
+#include "../../include/class/Game.h"
 
-Game::Game(){
-
-}
+Game::Game(){}
+Game::~Game(){}
 
 std::string Game::to_string() const{
   /**

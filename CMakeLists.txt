@@ -25,22 +25,30 @@ file(
   ${PROJECT_SOURCE_DIR}/main.cpp
   )
 
-# BigNum class
+
 file(   GLOB_RECURSE
-  src_bignum
-  ${PROJECT_SOURCE_DIR}/*
-  ${PROJECT_INCLUDE_DIR}/*
+  src_classes
+  ${PROJECT_SOURCE_DIR}/class/*
+  ${PROJECT_INCLUDE_DIR}/class/*
+)
+
+file(   GLOB_RECURSE
+  src_helpers
+  ${PROJECT_SOURCE_DIR}/helpers/*
+  ${PROJECT_INCLUDE_DIR}/helpers/*
 )
 
 
 add_library(
     bignum
     SHARED
-    ${src_bignum}
+    ${src_classes}
+    ${src_helpers}
   )
 
 add_executable(
   program
   ${main}
-  ${src_bignum}
+  ${src_classes}
+  ${src_helpers}
 )

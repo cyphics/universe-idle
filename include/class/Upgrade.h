@@ -14,21 +14,22 @@
 
 class Upgrade{
  private:
-  std::string _name;
+  std::string _name = "";
   BigNum _initial_cost;
   double _price_factor;
-  BigNum _current_cost;
-  int _number_bought;
+  BigNum _cost_next_level;
+  int _level = 0; // Equals number bought
+  bool _is_available = false;
 
 
  public:
-  Upgrade();
+  Upgrade(std::string name, BigNum initial_cost, double price_factor);
   ~Upgrade();
-  BigNum get_price() const;
-  int get_number_updates() const;
-  void buy();
-  int get_value() const;
+  BigNum get_price(int number_levels) const;
+  int get_current_level() const;
+  void increase_level(int number_levels);
   std::string get_name() const;
+  bool is_available() const;
 
 };
 
