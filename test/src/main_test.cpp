@@ -1,5 +1,5 @@
 // -*- compile-command: "make -sk"; -*-
-// french.h
+// test.cpp
 //
 // last-edit-by: <>
 //
@@ -7,18 +7,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef FRENCH_H
-#define FRENCH_H 1
-
-#include <iostream>
-
-namespace libhello
-
-{
-    const std::string say_hello_in_french();
-} //namespace libhello
-
-#endif // FRENCH_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"

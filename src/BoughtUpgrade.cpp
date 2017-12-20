@@ -1,5 +1,5 @@
-// -*- compile-command: "make -sk"; -*-
-// english.h
+// -*- compile-command: "./../compile.sh"; -*-
+// BoughtUpgrade.cpp
 //
 // last-edit-by: <>
 //
@@ -7,18 +7,12 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef ENGLISH_H
-#define ENGLISH_H 1
+#include "../include/BoughtUpgrade.h"
 
-namespace libhello
-
-{
-    const std::string say_hello_in_english();
-} //namespace libhello
+BoughtUpgrade::BoughtUpgrade(Upgrade, int, BigNum){}
+BoughtUpgrade::~BoughtUpgrade(){}
 
 
-
-#endif // ENGLISH_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

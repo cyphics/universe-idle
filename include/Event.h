@@ -1,5 +1,5 @@
 // -*- compile-command: "make -sk"; -*-
-// test.cpp
+// Event.h
 //
 // last-edit-by: <>
 //
@@ -7,16 +7,13 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#ifndef EVENT_H
+#define EVENT_H 1
+
+
+
+
+#endif // EVENT_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-
-// TEST_CASE( "example/less than 7", "The number is less than 7" )
-// {
-// }
-
-// TEST_CASE( "succeeding/Misc/Sections/nested", "nested SECTION tests" )
-// {
-// }

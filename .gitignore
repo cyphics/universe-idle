@@ -33,3 +33,7 @@
 
 build/*
 test/build/*
+GTAGS
+GRTAGS
+GPATH
+.gitignore

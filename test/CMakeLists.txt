@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.1)
 set (CMAKE_CXX_STANDARD 11)
 
 #Configuration du projet
-project(TestHello)
+project(test_bignum)
 
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
 
 #Inclusion de la bibliothèque Hello
@@ -22,14 +23,13 @@ file(
 )
 
 add_executable(
-        test_hello
+        test_bignum
         ${source_files}
 )
 
 #Configuration de l'édition de liens
 target_link_libraries(
-        test_hello
-        hello
-        class
+        test_bignum
+        bignum
         Catch
 )
