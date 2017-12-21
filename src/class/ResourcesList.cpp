@@ -1,0 +1,21 @@
+// -*- compile-command: "./../../compile.sh"; -*-
+// ResourcesList.cpp
+//
+// last-edit-by: <>
+//
+// Description:
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "../../include/class/ResourcesList.h"
+
+ResourcesList::ResourcesList(){
+
+}
+
+ResourcesList::~ResourcesList(){
+
+}
+//////////////////////////////////////////////////////////////////////
+// $Log:$
+//
