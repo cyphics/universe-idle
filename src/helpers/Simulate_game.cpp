@@ -12,7 +12,7 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/helpers/Strategy.h"
 
-Game simulate_game(std::string strategy_name, unsigned int duration){
+Game simulate_game(Strategy_ID strategy_id, unsigned int duration){
   /**
    Function to run a game simulation fro the given
    duration with the given stragety.
@@ -27,10 +27,10 @@ Game simulate_game(std::string strategy_name, unsigned int duration){
       loop = false;
     else{
       // Identify next upgrade according to strategy
-      std::string upgrade_to_buy = strategy::strategy(strategy_name, game.get_gamestate());
+      Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, game.get_gamestate());
 
 
-      if (upgrade_to_buy == "None") {
+      if (upgrade_to_buy == Upgrade_ID::empty_upgrade) {
         game.wait(duration - game.get_time());
         loop = false;
       }

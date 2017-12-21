@@ -10,12 +10,15 @@
 #define STRATEGY_H 1
 
 #include <iostream>
-#include "../class/Upgrade.h"
+#include "../class/UpgradesList.h"
 #include "../class/GameState.h"
+
+enum class Strategy_ID { broken, cheapest, expensive };
 
 namespace strategy{
 
-std::string strategy(std::string strategy_name, GameState gamestate);
+Upgrade_ID strategy(Strategy_ID strategy_id, GameState gamestate);
+
 }
 
 #endif // STRATEGY_H

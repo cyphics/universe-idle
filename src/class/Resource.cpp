@@ -1,4 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 // Resource.cpp
 //
 // last-edit-by: <>
@@ -8,14 +8,15 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/class/Resource.h"
-Resource::Resource(){
+
+Resource::Resource(Resource_ID resource_id){
 
 }
 Resource::~Resource(){
 
 }
 
-BigNum Resource::get_current_amount(){
+BigNum Resource::get_current_amount() const{
 
 }
 

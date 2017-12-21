@@ -12,22 +12,22 @@
 
 #include <vector>
 #include "BigNum.h"
-#include "Upgrade.h"
 #include "History.h"
 #include "GameState.h"
 #include "UpgradesList.h"
-#include "Resource.h"
+#include "ResourcesList.h"
+#include "../helpers/resources_helper.h"
 
 class Game{
  private:
   BigNum _traveled_distance;
   BigNum _current_speed;
   BigNum _current_acceleration;
-  Resource _current_energy;
   unsigned int _current_time;
-  std::vector<Upgrade> _upgrades;
   History _history;
-  UpgradesList _upgrade_list;
+  UpgradesList _upgrades_list;
+  ResourcesList _resources_list;
+
 
 
  public:
@@ -39,10 +39,9 @@ class Game{
   BigNum get_distance() const;
   BigNum get_speed() const;
   BigNum get_acceleration() const;
-  BigNum get_resource(std::string name_resource) const;
+  BigNum get_resource(Resource_ID) const;
   unsigned int get_time() const;
-  unsigned int time_until(Upgrade next_upgrade) const;
-  unsigned int time_until(std::string) const;
+  unsigned int time_until(Upgrade_ID next_upgrade) const;
   GameState get_gamestate() const;
 
   // Setters
@@ -59,8 +58,7 @@ class Game{
   // Misc
   std::string to_string() const;
   void wait(unsigned int time);
-  void buy_upgrade(Upgrade upgrade);
-  void buy_upgrade(std::string upgrade_name);
+  void buy_upgrade(Upgrade_ID upgrade);
 
   void click();
 

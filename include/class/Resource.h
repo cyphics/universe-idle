@@ -11,17 +11,23 @@
 #define RESOURCE_H 1
 
 #include "BigNum.h"
+#include "../helpers/resources_helper.h"
 
 class Resource{
  private:
+  Resource_ID resource_id;
   BigNum _amount;
-  std::string _name;
+  BigNum _max_amount;
 
  public:
-  Resource();
+  Resource(Resource_ID resource_id);
   ~Resource();
 
-  BigNum get_current_amount();
+  // Getters
+  BigNum get_current_amount() const;
+
+  void set_current_amount(BigNum new_amount);
+  void add(BigNum new_amount);
 };
 
 #endif // RESOURCE_H

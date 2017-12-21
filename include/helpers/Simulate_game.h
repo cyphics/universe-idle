@@ -13,7 +13,7 @@
 #include "../class/Game.h"
 #include "Strategy.h"
 
-Game simulate_game(std::string strategy_name, unsigned int duration);
+Game simulate_game(Strategy_ID strategy_id, unsigned int duration);
 
 
 #endif // SIMULATE_GAME_H

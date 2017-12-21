@@ -8,6 +8,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/class/Game.h"
+#include "../../include/helpers/resources_helper.h"
 
 Game::Game(){}
 Game::~Game(){}
@@ -54,26 +55,20 @@ GameState Game::get_gamestate() const{
 
 }
 
-BigNum Game::get_resource(std::string resource_name) const{
+BigNum Game::get_resource(Resource_ID resource_id) const{
   /**
    * Get current level of energy
    */
   //return _current_;
 }
 
-unsigned int Game::time_until(Upgrade next_upgrade) const{
+unsigned int Game::time_until(Upgrade_ID next_upgrade) const{
   /**
    * return time before you can afford given upgrade
    */
 
 }
 
-unsigned int Game::time_until(std::string next_upgrade_name) const{
-  /**
-   * return time before you can afford given upgrade
-   */
-
-}
 
 
 void Game::set_distance(){
@@ -122,18 +117,11 @@ void Game::wait(unsigned int time){
    */
 }
 
-void Game::buy_upgrade(Upgrade upgrade){
+void Game::buy_upgrade(Upgrade_ID upgrade){
   /**
    * Add ugprade if possible
      If not, do nothing
    */
-}
-
-void Game::buy_upgrade(std::string upgrade_name){
-  /**
-   * Add ugprade if possible
-   If not, do nothing
-  */
 }
 
 void Game::click(){

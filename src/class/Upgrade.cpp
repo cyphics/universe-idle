@@ -10,7 +10,7 @@
 #include <math.h>
 #include "../../include/class/Upgrade.h"
 
-Upgrade::Upgrade(std::string name, BigNum initial_cost, double price_factor): _name(name), _initial_cost(initial_cost), _price_factor(price_factor)
+Upgrade::Upgrade(Upgrade_ID upgrade_id, BigNum initial_cost, double price_factor): _initial_cost(initial_cost), _price_factor(price_factor)
 {}
 
 Upgrade::~Upgrade(){}
@@ -34,9 +34,6 @@ void Upgrade::increase_level(int number_levels){
    */
 }
 
-std::string Upgrade::get_name() const{
-  return _name;
-}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -8,17 +8,16 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include "../../include/class/Upgrade.h"
 #include "../../include/class/GameState.h"
 #include "../../include/helpers/Strategy.h"
 
 
-std::string strategy::strategy(std::string strategy_name, GameState gamestate){
+Upgrade_ID strategy::strategy(Strategy_ID strategy_id, GameState gamestate){
   /**
    * Return the best upgrade to buy according to strategy
    */
-  if (strategy_name == "broken")
-    return "Small boost";
+  if (strategy_id == Strategy_ID::broken)
+    return Upgrade_ID::empty_upgrade;
 
 }
 
