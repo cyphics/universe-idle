@@ -25,6 +25,7 @@ class UpgradesList{
   std::vector<Upgrade_ID> get_available_upgrades() const;
   std::vector<Upgrade_ID> get_all_upgrades() const;
   BigNum get_price_increase_level(int amount_new_levels, Upgrade_ID ugprade);
+  std::string get_name() const;
 
   void increase_upgrade_level(int amount_new_levels, Upgrade_ID upgrade);
 

@@ -55,6 +55,10 @@ GameState Game::get_gamestate() const{
 
 }
 
+History Game::get_history() const{
+  return _history;
+}
+
 
 unsigned int Game::time_until(Upgrade_ID next_upgrade) const{
   /**

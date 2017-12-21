@@ -17,6 +17,7 @@
 class Upgrade{
  private:
   Upgrade_ID _upgrade_id;
+  std::string _upgrade_name;
   BigNum _initial_cost;
   Resource_ID _resource_type;
   double _price_factor;
@@ -26,7 +27,7 @@ class Upgrade{
 
 
  public:
-  Upgrade(Upgrade_ID upgrade_id, BigNum initial_cost, double price_factor);
+  Upgrade(Upgrade_ID upgrade_id, std::string name, BigNum initial_cost, double price_factor);
   ~Upgrade();
   BigNum get_cost(int number_levels) const;
   int get_current_level() const;

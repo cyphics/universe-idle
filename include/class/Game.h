@@ -43,6 +43,7 @@ class Game{
   unsigned int get_time() const;
   unsigned int time_until(Upgrade_ID next_upgrade) const;
   GameState get_gamestate() const;
+  History get_history() const;
 
   // Setters
   void set_distance();

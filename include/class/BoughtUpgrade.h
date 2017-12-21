@@ -10,20 +10,24 @@
 #ifndef BOUGHTUPGRADE_H
 #define BOUGHTUPGRADE_H 1
 
-#include "Upgrade.h"
+#include "../helpers/upgrades_helper.h"
+#include "BigNum.h"
 
 class BoughtUpgrade{
   /**
    * Class used to store history of bought upgrades
    */
  private:
-  Upgrade _upgrade_type;
+  Upgrade_ID _upgrade_type;
+  std::string _upgrade_name;
   int _time;
   BigNum _cost;
 
  public:
-  BoughtUpgrade(Upgrade related_upgrade, int time_when_bought, BigNum cost);
+  BoughtUpgrade(Upgrade_ID related_upgrade, std::string ugprade_name, int time_when_bought, BigNum cost);
   ~BoughtUpgrade();
+
+  std::string to_string() const;
 
 };
 

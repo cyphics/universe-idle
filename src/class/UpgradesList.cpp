@@ -14,7 +14,7 @@ UpgradesList::UpgradesList(){
    * Constructor that sequentially adds all upgrades to vector
    */
 
-  _list_of_upgrades.push_back(Upgrade(Upgrade_ID::small_boost, BigNum(10), 1.1));
+  _list_of_upgrades.push_back(Upgrade(Upgrade_ID::small_boost, "small boost", BigNum(10), 1.1));
 }
 
 UpgradesList::~UpgradesList(){}

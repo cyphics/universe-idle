@@ -18,6 +18,9 @@ class History{
   std::vector<BoughtUpgrade> _history;
 
  public:
+  History();
+  ~History();
+
   void add_upgrade(BoughtUpgrade new_upgrade);
   std::string to_string();
 };

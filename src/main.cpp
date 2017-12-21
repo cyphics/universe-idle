@@ -10,9 +10,5 @@ int main()
 
   run_simulator(duration, Strategy_ID::broken);
 
-
-
-
-
   return 0;
 }

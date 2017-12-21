@@ -10,7 +10,7 @@
 #include <math.h>
 #include "../../include/class/Upgrade.h"
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, BigNum initial_cost, double price_factor): _initial_cost(initial_cost), _price_factor(price_factor)
+Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, BigNum initial_cost, double price_factor): _initial_cost(initial_cost), _price_factor(price_factor)
 {}
 
 Upgrade::~Upgrade(){}
