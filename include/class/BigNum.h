@@ -49,7 +49,9 @@ class BigNum
   friend bool operator <=(const BigNum&, const BigNum&);
 
   friend BigNum operator +(const BigNum&, const BigNum&);
+  void operator +=(const BigNum&);
   friend BigNum operator -(const BigNum&, const BigNum&);
+  void operator -=(const BigNum&);
   friend BigNum operator *(const BigNum&, const BigNum&);
   friend BigNum operator *(const BigNum&, const int&);
   friend BigNum operator /(const BigNum&, const BigNum&);

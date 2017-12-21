@@ -70,8 +70,16 @@ BigNum operator +(const BigNum& a, const BigNum& b){
   return BigNum(a.get_value() + b.get_value());
 }
 
+void BigNum::operator +=(const BigNum& b){
+  this->_num_value += b.get_value();
+}
+
 BigNum operator -(const BigNum& a, const BigNum& b){
   return BigNum(a.get_value() - b.get_value());
+}
+
+void BigNum::operator -=(const BigNum& b){
+  this->_num_value -= b.get_value();
 }
 
 BigNum operator *(const BigNum& a, const BigNum& b){
