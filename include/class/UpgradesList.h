@@ -27,7 +27,8 @@ class UpgradesList{
   BigNum get_price_increase_level(int amount_new_levels, Upgrade_ID ugprade);
   std::string get_name() const;
 
-  void increase_upgrade_level(int amount_new_levels, Upgrade_ID upgrade);
+  void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);
+
 
   //Upgrade get_upgrade(std::string name) const;
 

@@ -32,6 +32,10 @@ std::vector<Upgrade_ID> UpgradesList::get_available_upgrades() const{
   return available_upgrades;
 }
 
+void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount){
+
+}
+
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

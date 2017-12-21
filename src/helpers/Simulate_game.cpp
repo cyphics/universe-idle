@@ -43,7 +43,7 @@ Game simulate_game(Strategy_ID strategy_id, unsigned int duration){
         }
         else {
           game.wait(time_to_wait);
-          game.buy_upgrade(upgrade_to_buy);
+          game.buy_upgrade(upgrade_to_buy, 1);
         }
       }
     }

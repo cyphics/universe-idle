@@ -59,7 +59,8 @@ class Game{
   // Misc
   std::string to_string() const;
   void wait(unsigned int time);
-  void buy_upgrade(Upgrade_ID upgrade);
+  bool is_affordable(Upgrade_ID upgrade, int amount);
+  void buy_upgrade(Upgrade_ID upgrade, int amount);
 
   void click();
 

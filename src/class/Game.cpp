@@ -100,6 +100,7 @@ BigNum Game::compute_new_acceleration(unsigned int time) const{
 
 BigNum Game::compute_new_speed(unsigned int time) const{
   BigNum new_speed;
+  new_speed += _current_acceleration;
   return new_speed;
 }
 
@@ -113,13 +114,21 @@ void Game::wait(unsigned int time){
   /**
    * Postpone game state to given time and update game
    */
+  _current_time += time;
 }
 
-void Game::buy_upgrade(Upgrade_ID upgrade){
+void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
   /**
    * Add ugprade if possible
      If not, do nothing
    */
+  if (is_affordable(upgrade, amount)) {
+    _upgrades_list.increase_upgrade_level(upgrade, amount);
+  }
+}
+
+bool Game::is_affordable(Upgrade_ID upgrade, int amount){
+
 }
 
 void Game::click(){
