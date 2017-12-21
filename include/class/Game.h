@@ -39,7 +39,7 @@ class Game{
   BigNum get_distance() const;
   BigNum get_speed() const;
   BigNum get_acceleration() const;
-  BigNum get_resource(Resource_ID) const;
+  //BigNum get_resource_amount(Resource_ID) const;
   unsigned int get_time() const;
   unsigned int time_until(Upgrade_ID next_upgrade) const;
   GameState get_gamestate() const;

@@ -1,4 +1,4 @@
-// -*- compile-command: "make -sk"; -*-
+// -*- compile-command: "./../../compile.sh"; -*-
 // History.h
 //
 // last-edit-by: <>

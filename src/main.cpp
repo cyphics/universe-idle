@@ -1,14 +1,17 @@
 // -*- compile-command: "./../compile.sh"; -*-
 
-#include "../include/helpers/Simulate_game.h"
-#include "../include/class/Game.h"
-//#include "../include/helpers/Strategy.h"
+
+#include "../include/helpers/run_simulator.h"
+
 int main()
 {
 
-  int duration = 1000000;
+  int duration = 100000;
 
-  Game game = simulate_game(Strategy_ID::broken, duration);
+  run_simulator(duration, Strategy_ID::broken);
+
+
+
 
 
   return 0;

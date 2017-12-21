@@ -13,6 +13,10 @@
 #include "../class/Game.h"
 #include "Strategy.h"
 
+/**
+ * Runs a game with a given strategy, for a certain duration.
+   Returns a played game
+ */
 Game simulate_game(Strategy_ID strategy_id, unsigned int duration);
 
 

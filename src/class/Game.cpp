@@ -55,12 +55,6 @@ GameState Game::get_gamestate() const{
 
 }
 
-BigNum Game::get_resource(Resource_ID resource_id) const{
-  /**
-   * Get current level of energy
-   */
-  //return _current_;
-}
 
 unsigned int Game::time_until(Upgrade_ID next_upgrade) const{
   /**
