@@ -33,6 +33,13 @@ std::string History::to_string(){
 
 }
 
+void History::add_upgrade(Upgrade_ID upgrade_id, BigNum price, int time){
+
+}
+
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
+// Local Variables:
+// compile-command: "./../../compile.sh"; -*-
+// End:

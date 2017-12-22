@@ -34,7 +34,20 @@ void Upgrade::increase_level(int number_levels){
    */
 }
 
+bool Upgrade::has_id(Upgrade_ID upgrade_id) const{
+  /**
+   * Checks if upgrade has the correct ID
+   */
+  return upgrade_id == _upgrade_id;
+}
 
+Resource_ID Upgrade::get_resource() const{
+  /**
+   * Return ID of the resource required to buy the upgrade
+   */
+
+  return _resource_type;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

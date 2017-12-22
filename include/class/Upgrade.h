@@ -33,6 +33,8 @@ class Upgrade{
   int get_current_level() const;
   void increase_level(int number_levels);
   bool is_available() const;
+  bool has_id(Upgrade_ID) const;
+  Resource_ID get_resource() const;
 };
 
 

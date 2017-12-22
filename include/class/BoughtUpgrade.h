@@ -19,12 +19,13 @@ class BoughtUpgrade{
    */
  private:
   Upgrade_ID _upgrade_type;
-  std::string _upgrade_name;
   int _time;
   BigNum _cost;
+  int _number_bought;
+
 
  public:
-  BoughtUpgrade(Upgrade_ID related_upgrade, std::string ugprade_name, int time_when_bought, BigNum cost);
+  BoughtUpgrade(Upgrade_ID related_upgrade, std::string ugprade_name, int time_when_bought, BigNum cost, int amount_mought);
   ~BoughtUpgrade();
 
   std::string to_string() const;

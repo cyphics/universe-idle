@@ -124,6 +124,8 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
    */
   if (is_affordable(upgrade, amount)) {
     _upgrades_list.increase_upgrade_level(upgrade, amount);
+    _history.add_upgrade(upgrade, _upgrades_list.get_price_increase_level(amount, upgrade), _current_time);
+    //_history.add_upgrade(upgrade, _upgrades_list.get_price_increase_level(1, upgrade));
   }
 }
 
@@ -140,7 +142,6 @@ void Game::click(){
 void update_game_state(){
 
 }
-
 
 
 //////////////////////////////////////////////////////////////////////

@@ -19,6 +19,22 @@ UpgradesList::UpgradesList(){
 
 UpgradesList::~UpgradesList(){}
 
+Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id){
+  /**
+   * Return copy of
+   */
+  for (auto &upgrade : _list_of_upgrades) {
+    if (upgrade.has_id(upgrade_id)) {
+      return upgrade;
+    }
+  }
+  // Should never reach that point
+}
+
+// Upgrade& get_real_upgrade(Upgrade_ID upgrade_id){
+//   return get_real_upgrade(upgrade_id);
+// }
+
 std::vector<Upgrade_ID> UpgradesList::get_all_upgrades() const{
   /**
    * Return vector containing all upgrades
@@ -32,6 +48,20 @@ std::vector<Upgrade_ID> UpgradesList::get_available_upgrades() const{
   return available_upgrades;
 }
 
+Resource_ID UpgradesList::get_resource(Upgrade_ID upgrade_id) const{
+  /**
+   * Return ID of resource required to buy given upgrade
+   */
+  for (auto upgrade : _list_of_upgrades) {
+    if (upgrade.has_id(upgrade_id)) {
+      return upgrade.get_resource();
+    }
+  }
+}
+
+BigNum UpgradesList::get_price_increase_level(int amount_new_levels, Upgrade_ID upgrades_id){
+
+}
 void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount){
 
 }

@@ -21,7 +21,7 @@ class History{
   History();
   ~History();
 
-  void add_upgrade(BoughtUpgrade new_upgrade);
+  void add_upgrade(Upgrade_ID new_upgrade, BigNum price, int time);
   std::string to_string();
 };
 
