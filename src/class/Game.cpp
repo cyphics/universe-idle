@@ -122,15 +122,12 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
    * Add ugprade if possible
      If not, do nothing
    */
-  if (is_affordable(upgrade, amount)) {
-    _upgrades_list.increase_upgrade_level(upgrade, amount);
-    _history.add_upgrade(upgrade, _upgrades_list.get_price_increase_level(amount, upgrade), _current_time);
-    //_history.add_upgrade(upgrade, _upgrades_list.get_price_increase_level(1, upgrade));
+  if (_purchase_manager.is_affordable(upgrade, amount)) {
+    _purchase_manager.buy_upgrade(upgrade, amount);
   }
-}
-
-bool Game::is_affordable(Upgrade_ID upgrade, int amount){
-
+  else{
+    std::cout << "Upgrade " << _purchase_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
+  }
 }
 
 void Game::click(){

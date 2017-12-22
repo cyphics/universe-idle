@@ -12,23 +12,14 @@
 
 #include <vector>
 #include "BigNum.h"
-#include "History.h"
 #include "GameState.h"
-#include "UpgradesList.h"
-#include "ResourcesList.h"
-#include "../helpers/resources_helper.h"
+#include "PurchaseManager.h"
 
 class Game{
  private:
-  BigNum _traveled_distance;
-  BigNum _current_speed;
-  BigNum _current_acceleration;
-  unsigned int _current_time;
-  History _history;
-  UpgradesList _upgrades_list;
-  ResourcesList _resources_list;
 
-
+  GameState _game_state;
+  PurchaseManager _purchase_manager;
 
  public:
   // Constructor
