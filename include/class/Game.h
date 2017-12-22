@@ -31,8 +31,6 @@ class Game{
   BigNum get_speed() const;
   BigNum get_acceleration() const;
   //BigNum get_resource_amount(Resource_ID) const;
-  unsigned int get_time() const;
-  unsigned int time_until(Upgrade_ID next_upgrade) const;
   GameState get_gamestate() const;
   History get_history() const;
 
@@ -41,15 +39,17 @@ class Game{
   void set_speed();
   void set_acceleration();
   void set_time();
+  const GameState& state() const;
+  Time time_until(Upgrade_ID next_upgrade) const;
 
   // Compute game state
-  BigNum compute_new_acceleration(unsigned int time) const;
-  BigNum compute_new_speed(unsigned int time) const;
-  BigNum compute_new_distance(unsigned int time) const;
+  BigNum compute_new_acceleration(Time time) const;
+  BigNum compute_new_speed(Time time) const;
+  BigNum compute_new_distance(Time time) const;
 
   // Misc
   std::string to_string() const;
-  void wait(unsigned int time);
+  void wait(Time time);
   bool is_affordable(Upgrade_ID upgrade, int amount);
   void buy_upgrade(Upgrade_ID upgrade, int amount);
 

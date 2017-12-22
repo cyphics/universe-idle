@@ -93,28 +93,28 @@ void Game::set_time(){
    */
 }
 
-BigNum Game::compute_new_acceleration(unsigned int time) const{
+BigNum Game::compute_new_acceleration(Time time) const{
   BigNum new_acceleration;
   return new_acceleration;
 }
 
-BigNum Game::compute_new_speed(unsigned int time) const{
+BigNum Game::compute_new_speed(Time time) const{
   BigNum new_speed;
   new_speed += _current_acceleration;
   return new_speed;
 }
 
-BigNum Game::compute_new_distance(unsigned int time) const{
+BigNum Game::compute_new_distance(Time time) const{
   BigNum new_distance;
   return new_distance;
 }
 
 
-void Game::wait(unsigned int time){
+void Game::wait(Time time){
   /**
-   * Postpone game state to given time and update game
+   * Postpone game state to given time
    */
-  _current_time += time;
+  _game_state.increase_time(time);
 }
 
 void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
