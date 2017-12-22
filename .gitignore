@@ -36,5 +36,5 @@ test/build/*
 GTAGS
 GRTAGS
 GPATH
-.gitignore
 universe-idle.org
+.dir-locals.el
