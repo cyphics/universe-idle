@@ -18,7 +18,7 @@ History::History(){
 History::~History(){}
 
 
-std::string History::to_string(){
+std::string History::to_string() const{
   /**
    * Formats the history into a printable string
    */

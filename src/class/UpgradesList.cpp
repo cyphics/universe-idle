@@ -14,7 +14,7 @@ UpgradesList::UpgradesList(){
    * Constructor that sequentially adds all upgrades to vector
    */
 
-  _list_of_upgrades.push_back(Upgrade(Upgrade_ID::small_boost, "small boost", BigNum(10), 1.1));
+  //_list_of_upgrades.push_back(Upgrade(Upgrade_ID::small_boost, "small boost", BigNum(10), 1.1));
 }
 
 UpgradesList::~UpgradesList(){}
@@ -48,21 +48,12 @@ std::vector<Upgrade_ID> UpgradesList::get_available_upgrades() const{
   return available_upgrades;
 }
 
-Resource_ID UpgradesList::get_resource(Upgrade_ID upgrade_id) const{
-  /**
-   * Return ID of resource required to buy given upgrade
-   */
-  for (auto upgrade : _list_of_upgrades) {
-    if (upgrade.has_id(upgrade_id)) {
-      return upgrade.get_resource();
-    }
-  }
-}
 
-BigNum UpgradesList::get_price_increase_level(int amount_new_levels, Upgrade_ID upgrades_id){
-
-}
 void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount){
+
+}
+
+Price UpgradesList::get_price_increase_level(Upgrade_ID ugprade, int amount_new_levels) const{
 
 }
 

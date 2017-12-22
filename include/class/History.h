@@ -22,7 +22,7 @@ class History{
   ~History();
 
   void add_upgrade(Upgrade_ID new_upgrade, BigNum price, int time);
-  std::string to_string();
+  std::string to_string() const;
 };
 
 #endif // HISTORY_H

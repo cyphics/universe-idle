@@ -15,13 +15,14 @@
 
 class ResourcesList{
  private:
-  std::vector<Resource> list_of_resources;
+  std::vector<Resource> _list_of_resources;
+
 
  public:
   ResourcesList();
   ~ResourcesList();
 
-  //BigNum get_resource_amount(Resource resource);
+  BigNum get_resource_amount(Resource_ID resource) const;
 
 };
 

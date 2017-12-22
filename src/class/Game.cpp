@@ -13,85 +13,14 @@
 Game::Game(){}
 Game::~Game(){}
 
-std::string Game::to_string() const{
-  /**
-   * Return human readable string
-   */
-  std::string output = "";
-  return output;
+
+const GameState& Game::state() const{
+/**
+ * Returns a constant reference to the state of the game
+ */
+  return _game_state;
 }
 
-BigNum Game::get_distance() const{
-  /**
-   * Return traveled distance from beginning
-   */
-  return _traveled_distance;
-}
-
-BigNum Game::get_speed() const{
-  /**
-   * Return current speed
-   */
-  return _current_speed;
-}
-
-BigNum Game::get_acceleration() const{
-  /**
-   * Return current acceleration
-   */
-  return _current_acceleration;
-}
-
-unsigned int Game::get_time() const{
-  /**
-   * Return current time;
-   */
-  return _current_time;
-}
-
-
-
-GameState Game::get_gamestate() const{
-
-}
-
-History Game::get_history() const{
-  return _history;
-}
-
-
-unsigned int Game::time_until(Upgrade_ID next_upgrade) const{
-  /**
-   * return time before you can afford given upgrade
-   */
-
-}
-
-
-
-void Game::set_distance(){
-  /**
-   * Set current traveled distance
-   */
-}
-
-void Game::set_speed(){
-  /**
-   * set current speed
-   */
-}
-
-void Game::set_acceleration(){
-  /**
-   * Set current acceleration
-   */
-}
-
-void Game::set_time(){
-  /**
-   * Set current time
-   */
-}
 
 BigNum Game::compute_new_acceleration(Time time) const{
   BigNum new_acceleration;
@@ -100,7 +29,7 @@ BigNum Game::compute_new_acceleration(Time time) const{
 
 BigNum Game::compute_new_speed(Time time) const{
   BigNum new_speed;
-  new_speed += _current_acceleration;
+  //new_speed += _current_acceleration;
   return new_speed;
 }
 
@@ -136,8 +65,8 @@ void Game::click(){
    */
 }
 
-void update_game_state(){
-
+const PurchaseManager& Game::manage_purchase() const{
+  return _purchase_manager;
 }
 
 

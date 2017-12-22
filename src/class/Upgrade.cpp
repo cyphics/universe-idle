@@ -10,28 +10,37 @@
 #include <math.h>
 #include "../../include/class/Upgrade.h"
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, BigNum initial_cost, double price_factor): _initial_cost(initial_cost), _price_factor(price_factor)
+Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, std::vector<UpgradeCostTableElement> cost_table)
+    : _upgrade_cost_table(cost_table)
 {}
 
 Upgrade::~Upgrade(){}
 
-BigNum Upgrade::get_cost(int number_levels) const{
+Price Upgrade::get_cost_given_level(int level) const{
   /**
    * Get cost to buy <number_levels> new levels
      Return BigNum
    */
-  BigNum price = _initial_cost * pow(_price_factor, _level);
+
+  Price price;
+
+  for (int i = 0; i < _required_resources.size(); ++i) {
+
+  }
+
   return price;
 }
 
 int Upgrade::get_current_level() const{
-  return _level;
+  return _current_level;
 }
 
-void Upgrade::increase_level(int number_levels){
+void Upgrade::increase_level(int number_new_levels){
   /**
    * Increase current level with <number_levels>
    */
+
+  _current_level += number_new_levels;
 }
 
 bool Upgrade::has_id(Upgrade_ID upgrade_id) const{
@@ -41,13 +50,6 @@ bool Upgrade::has_id(Upgrade_ID upgrade_id) const{
   return upgrade_id == _upgrade_id;
 }
 
-Resource_ID Upgrade::get_resource() const{
-  /**
-   * Return ID of the resource required to buy the upgrade
-   */
-
-  return _resource_type;
-}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

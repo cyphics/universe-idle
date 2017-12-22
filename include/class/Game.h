@@ -27,20 +27,8 @@ class Game{
   ~Game();
 
   // Getters
-  BigNum get_distance() const;
-  BigNum get_speed() const;
-  BigNum get_acceleration() const;
-  //BigNum get_resource_amount(Resource_ID) const;
-  GameState get_gamestate() const;
-  History get_history() const;
-
-  // Setters
-  void set_distance();
-  void set_speed();
-  void set_acceleration();
-  void set_time();
   const GameState& state() const;
-  Time time_until(Upgrade_ID next_upgrade) const;
+  const PurchaseManager& manage_purchase() const;
 
   // Compute game state
   BigNum compute_new_acceleration(Time time) const;
@@ -48,15 +36,11 @@ class Game{
   BigNum compute_new_distance(Time time) const;
 
   // Misc
-  std::string to_string() const;
   void wait(Time time);
   bool is_affordable(Upgrade_ID upgrade, int amount);
   void buy_upgrade(Upgrade_ID upgrade, int amount);
 
   void click();
-
-  // Update
-  void update_game_state();
 };
 
 

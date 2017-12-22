@@ -20,10 +20,10 @@ bool PurchaseManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) con
    * If price of upgrade is lower that amount of resource, return true.
    */
 
-  Resource_ID resource = _upgrades_list.get_resource(upgrade);
-  BigNum price = _upgrades_list.get_price_increase_level(amount, upgrade);
+  Price price_upgrade =  _upgrades_list.get_price_increase_level(upgrade, amount);
 
-  return price < _resources_list.get_resource_amount(resource);
+  return price_upgrade.can_be_payed(_resources_list);
+
 }
 
 void PurchaseManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount){

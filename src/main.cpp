@@ -6,7 +6,8 @@
 int main()
 {
 
-  int duration = 100000;
+  Time duration;
+
 
   run_simulator(duration, Strategy_ID::broken);
 

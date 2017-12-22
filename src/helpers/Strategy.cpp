@@ -16,8 +16,20 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, GameState gamestate){
   /**
    * Return the best upgrade to buy according to strategy
    */
-  if (strategy_id == Strategy_ID::broken)
-    return Upgrade_ID::empty_upgrade;
+
+  switch (strategy_id) {
+    case Strategy_ID::broken: {
+      return Upgrade_ID::small_boost;
+      break;
+    }
+    case Strategy_ID::cheapest:{
+      return Upgrade_ID::small_boost;
+      break;
+    }
+    default:
+      return Upgrade_ID::empty_upgrade;
+      break;
+  }
 
 }
 

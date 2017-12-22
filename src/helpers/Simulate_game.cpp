@@ -12,7 +12,7 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/helpers/Strategy.h"
 
-Game simulate_game(Strategy_ID strategy_id, unsigned int duration){
+Game simulate_game(Strategy_ID strategy_id, Time duration){
   /**
    Function to run a game simulation fro the given
    duration with the given stragety.
@@ -21,24 +21,24 @@ Game simulate_game(Strategy_ID strategy_id, unsigned int duration){
 
   Game game = Game();
   bool loop = true;
-  unsigned int time_to_wait = 0;
+  Time time_to_wait(0);
   while (loop) {
-    if (game.get_time() > duration)
+    if (game.state().get_time() > duration)
       loop = false;
     else{
       // Identify next upgrade according to strategy
-      Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, game.get_gamestate());
+      Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, game.state());
 
-
+      // Useless debug case
       if (upgrade_to_buy == Upgrade_ID::empty_upgrade) {
-        game.wait(duration - game.get_time());
+        game.wait(duration - game.state().get_time());
         loop = false;
       }
       else {
-        time_to_wait = game.time_until(upgrade_to_buy);
+        time_to_wait = game.manage_purchase().time_until_affordable(upgrade_to_buy, 1);
 
-        if (time_to_wait > duration - game.get_time()) {
-          game.wait(duration - game.get_time());
+        if (time_to_wait > duration - game.state().get_time()) {
+          game.wait(duration - game.state().get_time());
           loop = false;
         }
         else {

@@ -14,6 +14,7 @@
 #include "ResourcesList.h"
 #include "History.h"
 #include "Time.h"
+#include "Price.h"
 #include "../helpers/upgrades_helper.h"
 #include "../helpers/resources_helper.h"
 

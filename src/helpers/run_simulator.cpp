@@ -12,10 +12,13 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/class/Game.h"
 
-void run_simulator(int duration, Strategy_ID strategy){
+void run_simulator(Time duration, Strategy_ID strategy){
 
+  // Run simulation
   Game game = simulate_game(strategy, duration);
-  std::cout <<  game.get_history().to_string() << "\n";
+
+  // Print history of upgrades puchased
+  std::cout <<  game.manage_purchase().get_purchase_history().to_string() << "\n";
 
 }
 

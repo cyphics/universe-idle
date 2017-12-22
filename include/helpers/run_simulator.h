@@ -12,7 +12,7 @@
 
 #include "Strategy.h"
 
-void run_simulator(int duration, Strategy_ID strategy);
+void run_simulator(Time duration, Strategy_ID strategy);
 
 
 #endif // RUN_STRATEGY_H

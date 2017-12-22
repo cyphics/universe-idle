@@ -9,10 +9,15 @@
 
 #ifndef UPGRADES_HELPER_H
 #define UPGRADES_HELPER_H 1
+#include "resources_helper.h"
 
 enum class Upgrade_ID { small_boost, big_boost, empty_upgrade};
 
-
+struct UpgradeCostTableElement{
+  Resource_ID resource;
+  BigNum initial_cost;
+  double increase_factor;
+};
 
 
 #endif // UPGRADES_HELPER_H
