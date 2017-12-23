@@ -18,8 +18,30 @@ class Time : public PhysicalUnit{
   Time(BigNum num_value);
   ~Time();
 
-  friend Time operator -(const Time&, const Time&);
+  Time& operator=(const Time& rhs);
+
+  Time& operator+=(const Time& rhs);
+  Time& operator-=(const Time& rhs);
+
 };
+
+inline bool operator==(const Time& lhs, const Time& rhs){ return lhs.get_numerical_value() == rhs.get_numerical_value(); }
+inline bool operator!=(const Time& lhs, const Time& rhs){return !operator==(lhs,rhs);}
+inline bool operator< (const Time& lhs, const Time& rhs){ return lhs.get_numerical_value() < rhs.get_numerical_value(); }
+inline bool operator> (const Time& lhs, const Time& rhs){return  operator< (rhs,lhs);}
+inline bool operator<=(const Time& lhs, const Time& rhs){return !operator> (lhs,rhs);}
+inline bool operator>=(const Time& lhs, const Time& rhs){return !operator< (lhs,rhs);}
+
+
+inline Time operator-(Time lhs, const Time& rhs){
+  lhs -= rhs;
+  return  lhs;
+}
+
+inline Time operator+(Time lhs, const Time& rhs){
+  lhs += rhs;
+  return  lhs;
+}
 
 
 #endif // TIME_H

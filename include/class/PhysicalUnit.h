@@ -13,34 +13,43 @@
 
 
 class PhysicalUnit{
- private:
+ protected:
   BigNum _numerical_value;
 
  public:
   PhysicalUnit(BigNum numerical_value);
   ~PhysicalUnit();
 
-  BigNum get_numerical_value() const;
+  const BigNum& get_numerical_value() const;
   std::string to_string() const;
 
 
-  friend bool operator ==(const PhysicalUnit&, const PhysicalUnit&);
-  friend bool operator !=(const PhysicalUnit&, const PhysicalUnit&);
-  friend bool operator <(const PhysicalUnit&, const PhysicalUnit&);
-  friend bool operator >(const PhysicalUnit&, const PhysicalUnit&);
-  friend bool operator >=(const PhysicalUnit&, const PhysicalUnit&);
-  friend bool operator <=(const PhysicalUnit&, const PhysicalUnit&);
+  // Assignment operator
+  PhysicalUnit& operator=(const PhysicalUnit& rhs);
 
-  friend PhysicalUnit operator +(const PhysicalUnit&, const PhysicalUnit&);
-  void operator +=(const PhysicalUnit&);
-  friend PhysicalUnit operator -(const PhysicalUnit&, const PhysicalUnit&);
-  void operator -=(const PhysicalUnit&);
-  friend PhysicalUnit operator *(const PhysicalUnit&, const PhysicalUnit&);
-  friend PhysicalUnit operator *(const PhysicalUnit&, const int&);
-  friend PhysicalUnit operator /(const PhysicalUnit&, const PhysicalUnit&);
-  friend PhysicalUnit operator /(const PhysicalUnit&, const PhysicalUnit&);
+  // Binary arithmetic operators
+  PhysicalUnit& operator+=(const PhysicalUnit& rhs);
+  PhysicalUnit& operator-=(const PhysicalUnit& rhs);
 
 };
+
+// Comparison operators
+inline bool operator==(const PhysicalUnit& lhs, const PhysicalUnit& rhs){ return lhs.get_numerical_value() == rhs.get_numerical_value(); }
+inline bool operator!=(const PhysicalUnit& lhs, const PhysicalUnit& rhs){return !operator==(lhs,rhs);}
+inline bool operator< (const PhysicalUnit& lhs, const PhysicalUnit& rhs){ return lhs.get_numerical_value() < rhs.get_numerical_value(); }
+inline bool operator> (const PhysicalUnit& lhs, const PhysicalUnit& rhs){return  operator< (rhs,lhs);}
+inline bool operator<=(const PhysicalUnit& lhs, const PhysicalUnit& rhs){return !operator> (lhs,rhs);}
+inline bool operator>=(const PhysicalUnit& lhs, const PhysicalUnit& rhs){return !operator< (lhs,rhs);}
+
+inline PhysicalUnit operator-(PhysicalUnit lhs, const PhysicalUnit& rhs){
+  lhs -= rhs;
+  return  lhs;
+}
+
+inline PhysicalUnit operator+(PhysicalUnit lhs, const PhysicalUnit& rhs){
+  lhs += rhs;
+  return  lhs;
+}
 
 #endif // PHYSICALUNIT_H
 //////////////////////////////////////////////////////////////////////

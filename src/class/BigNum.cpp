@@ -45,70 +45,52 @@ int BigNum::get_exponant() const{
   return _factorized_form.second;
 }
 
-/**
- * Overload == operator
- */
-bool operator ==(const BigNum& first, const BigNum& second) {
-  return first.get_significand() == second.get_significand() and first.get_exponant() == second.get_exponant();
-}
 
 /**
- * Overlad != operator
- */
-bool operator !=(const BigNum& first, const BigNum& second) {
-    return !(first == second);
-}
-
-/**
- * Overload << operator
+ * Operators
  */
 std::ostream& operator<<(std::ostream& os, const BigNum& num){
     return os <<  num.to_string();
 }
 
-BigNum operator +(const BigNum& a, const BigNum& b){
-  return BigNum(a.get_value() + b.get_value());
+
+
+BigNum& BigNum::operator=(const BigNum& rhs){
+  _num_value = rhs.get_value();
+  return *this;
 }
 
-void BigNum::operator +=(const BigNum& b){
-  this->_num_value += b.get_value();
+BigNum& BigNum::operator+=(const BigNum& rhs){
+  _num_value += rhs.get_value();
+  return *this;
 }
 
-BigNum operator -(const BigNum& a, const BigNum& b){
-  return BigNum(a.get_value() - b.get_value());
+BigNum& BigNum::operator-=(const BigNum& rhs){
+  _num_value -= rhs.get_value();
+  return *this;
 }
 
-void BigNum::operator -=(const BigNum& b){
-  this->_num_value -= b.get_value();
+BigNum& BigNum::operator*=(const BigNum& rhs){
+  _num_value *= rhs.get_value();
+  return *this;
 }
 
-BigNum operator *(const BigNum& a, const BigNum& b){
-  return BigNum(a.get_value() * b.get_value());
+BigNum& BigNum::operator*=(const int& rhs){
+  _num_value *= rhs;
+  return *this;
 }
 
-BigNum operator *(const BigNum& a, const int& b){
-  return BigNum(a.get_value() * b);
+BigNum& BigNum::operator/=(const BigNum& rhs){
+  _num_value /= rhs.get_value();
+  return *this;
 }
 
-BigNum operator /(const BigNum& a, const BigNum& b){
-  return BigNum(a.get_value() / b.get_value());
+BigNum& BigNum::operator/=(const int& rhs){
+  _num_value /= rhs;
+  return *this;
 }
 
-bool operator <(const BigNum& a, const BigNum& b){
-  return a.get_value() < b.get_value();
-}
 
-bool operator >(const BigNum& a, const BigNum& b){
-  return a.get_value() < b.get_value();
-}
-
-bool operator >=(const BigNum& a, const BigNum& b){
-  return a.get_value() >= b.get_value();
-}
-
-bool operator <=(const BigNum& a, const BigNum& b){
-  return a.get_value() <= b.get_value();
-}
 
 
 /**

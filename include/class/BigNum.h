@@ -41,23 +41,51 @@ class BigNum
   // Operators
   friend std::ostream& operator<<(std::ostream&, const BigNum&);
 
-  friend bool operator ==(const BigNum&, const BigNum&);
-  friend bool operator !=(const BigNum&, const BigNum&);
-  friend bool operator <(const BigNum&, const BigNum&);
-  friend bool operator >(const BigNum&, const BigNum&);
-  friend bool operator >=(const BigNum&, const BigNum&);
-  friend bool operator <=(const BigNum&, const BigNum&);
+  BigNum& operator=(const BigNum& rhs);
 
-  friend BigNum operator +(const BigNum&, const BigNum&);
-  void operator +=(const BigNum&);
-  friend BigNum operator -(const BigNum&, const BigNum&);
-  void operator -=(const BigNum&);
-  friend BigNum operator *(const BigNum&, const BigNum&);
-  friend BigNum operator *(const BigNum&, const int&);
-  friend BigNum operator /(const BigNum&, const BigNum&);
-  friend BigNum operator /(const BigNum&, const BigNum&);
+  BigNum& operator+=(const BigNum& rhs);
+  BigNum& operator-=(const BigNum& rhs);
+  BigNum& operator*=(const BigNum& rhs);
+  BigNum& operator*=(const int& rhs);
+  BigNum& operator/=(const BigNum& rhs);
+  BigNum& operator/=(const int& rhs);
 
 };
+
+inline bool operator ==(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() == rhs.get_value();}
+inline bool operator !=(const BigNum& lhs, const BigNum& rhs){ return !operator==(lhs, rhs);}
+inline bool operator <(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() < rhs.get_value(); }
+inline bool operator >(const BigNum& lhs, const BigNum& rhs){ return operator<(rhs, lhs);}
+inline bool operator >=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
+inline bool operator <=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
+
+inline BigNum operator +(BigNum& lhs, const BigNum& rhs){
+  lhs += rhs;
+  return lhs;
+}
+
+inline BigNum operator -(BigNum& lhs, const BigNum& rhs){
+  lhs -= rhs;
+  return lhs;
+}
+inline BigNum operator *(BigNum& lhs, const BigNum& rhs){
+  lhs *= rhs;
+  return lhs;
+}
+
+inline BigNum operator *(BigNum& lhs, const int& rhs){
+  lhs *= rhs;
+  return lhs;
+}
+inline BigNum operator /(BigNum& lhs, const int& rhs){
+  lhs *= rhs;
+  return lhs;
+}
+inline BigNum operator /(BigNum& lhs, const BigNum& rhs){
+  lhs *= rhs;
+  return lhs;
+}
+
 
 
 #endif // LIBBIGNUM_H

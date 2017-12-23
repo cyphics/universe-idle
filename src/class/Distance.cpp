@@ -23,6 +23,12 @@ Distance::Distance(BigNum num_distance)
 
 Distance::~Distance(){}
 
+Distance& Distance::operator=(const Distance& rhs){}
+
+Distance& Distance::operator+=(const Distance& rhs){}
+Distance& Distance::operator-=(const Distance& rhs){}
+
+
 
 
 //////////////////////////////////////////////////////////////////////

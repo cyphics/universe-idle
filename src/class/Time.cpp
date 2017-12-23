@@ -16,10 +16,17 @@ Time::Time(BigNum amount)
     :PhysicalUnit(amount)
 {}
 
-Time operator -(const Time& time1, const Time& time2){
-  return Time(time1 - time2);
-}
-
-
 
 Time::~Time(){}
+
+Time& Time::operator+=(const Time& rhs){
+  _numerical_value += rhs.get_numerical_value();
+  return *this;
+}
+
+Time& Time::operator-=(const Time& rhs){
+  _numerical_value -= rhs.get_numerical_value();
+  return *this;
+}
+
+Time& Time::operator=(const Time& rhs){}

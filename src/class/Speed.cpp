@@ -21,6 +21,9 @@ Speed::Speed(const Speed& speed)
 
 Speed::~Speed(){}
 
+Speed& Speed::operator=(const Speed& rhs){}
+Speed& Speed::operator+=(const Speed& rhs){}
+Speed& Speed::operator-=(const Speed& rhs){}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$
