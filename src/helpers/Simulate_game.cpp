@@ -31,7 +31,8 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
 
       // Useless debug case
       if (upgrade_to_buy == Upgrade_ID::empty_upgrade) {
-        game.wait(duration - game.state().get_time());
+        Time wait_time = duration;
+        game.wait(duration);// - game.state().get_time());
         loop = false;
       }
       else {

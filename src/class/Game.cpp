@@ -1,4 +1,3 @@
-// -*- compile-command: "./../../compile.sh"; -*-
 // Game.cpp
 //
 // last-edit-by: <>
@@ -8,11 +7,12 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/class/Game.h"
+#include "../../include/class/Speed.h"
 #include "../../include/helpers/resources_helper.h"
 
 Game::Game(){}
-Game::~Game(){}
 
+Game::~Game(){}
 
 const GameState& Game::state() const{
 /**
@@ -22,20 +22,30 @@ const GameState& Game::state() const{
 }
 
 
-BigNum Game::compute_new_acceleration(Time time) const{
-  BigNum new_acceleration;
+Acceleration Game::compute_new_acceleration(Time time) const{
+  Acceleration new_acceleration = Acceleration(state().get_acceleration());
+
+  // Add computation...
+
   return new_acceleration;
 }
 
-BigNum Game::compute_new_speed(Time time) const{
-  BigNum new_speed;
-  //new_speed += _current_acceleration;
-  return new_speed;
+Speed Game::compute_new_speed(Time time) const{
+  /**
+   * Compute speed
+   */
+
+  // WRONG CALCULATION!!
+  return Speed(state().get_acceleration().get_numerical_value() * time.get_numerical_value());
+
 }
 
-BigNum Game::compute_new_distance(Time time) const{
-  BigNum new_distance;
-  return new_distance;
+Distance Game::compute_new_distance(Time time) const{
+  /**
+   * Return the distance traveled at current speed, during given time
+   */
+
+  //return Distance(time, state().get_speed());
 }
 
 

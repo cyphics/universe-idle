@@ -14,12 +14,18 @@
 #include "BigNum.h"
 #include "GameState.h"
 #include "PurchaseManager.h"
+#include "Distance.h"
 
 class Game{
  private:
 
   GameState _game_state;
   PurchaseManager _purchase_manager;
+
+  // Compute game state
+  Acceleration compute_new_acceleration(Time time) const;
+  Speed compute_new_speed(Time time) const;
+  Distance compute_new_distance(Time time) const;
 
  public:
   // Constructor
@@ -30,10 +36,6 @@ class Game{
   const GameState& state() const;
   const PurchaseManager& manage_purchase() const;
 
-  // Compute game state
-  BigNum compute_new_acceleration(Time time) const;
-  BigNum compute_new_speed(Time time) const;
-  BigNum compute_new_distance(Time time) const;
 
   // Misc
   void wait(Time time);

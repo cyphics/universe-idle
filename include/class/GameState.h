@@ -12,25 +12,30 @@
 
 #include "BigNum.h"
 #include "Time.h"
+#include "Speed.h"
+#include "Distance.h"
+#include "Acceleration.h"
 
 class GameState{
  private:
-  BigNum _traveled_distance;
-  BigNum _current_speed;
-  BigNum _current_acceleration;
+  Distance _traveled_distance;
+  Speed _current_speed;
+  Acceleration _current_acceleration;
   Time _current_time;
 
  public:
+  GameState();
+  ~GameState();
   // Getters
-  BigNum get_distance() const;
-  BigNum get_speed() const;
-  BigNum get_acceleration() const;
+  Distance get_distance() const;
+  Speed get_speed() const;
+  Acceleration get_acceleration() const;
   Time get_time() const;
 
   // Setters
-  void add_distance(BigNum distance);
-  void add_speed(BigNum speed);
-  void increase_acceleration(BigNum acceleration);
+  void add_distance(Distance distance);
+  void add_speed(Speed speed);
+  void increase_acceleration(Acceleration acceleration);
   void increase_time(Time time);
 };
 

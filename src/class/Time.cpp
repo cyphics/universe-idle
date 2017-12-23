@@ -12,41 +12,14 @@
 
 #include "../../include/class/Time.h"
 
-Time::Time(){}
-Time::Time(unsigned int amount){}
+Time::Time(BigNum amount)
+    :PhysicalUnit(amount)
+{}
+
+Time operator -(const Time& time1, const Time& time2){
+  return Time(time1 - time2);
+}
+
+
 
 Time::~Time(){}
-
-bool operator ==(const Time&, const Time&){
-
-}
-bool operator !=(const Time&, const Time&){
-
-}
-bool operator <(const Time&, const Time&){
-
-}
-bool operator >(const Time&, const Time&){
-
-}
-bool operator >=(const Time&, const Time&){
-
-}
-bool operator <=(const Time&, const Time&){
-
-}
-
-Time operator +(const Time&, const Time&){
-
-}
-
-void Time::operator+=(const Time&){
-
-}
-
-Time operator -(const Time&, const Time&){
-
-}
-void Time::operator -=(const Time&){
-
-}

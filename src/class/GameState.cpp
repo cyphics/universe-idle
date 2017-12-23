@@ -9,15 +9,22 @@
 
 #include "../../include/class/GameState.h"
 
-BigNum GameState::get_distance() const{
+GameState::GameState()
+    :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
+{
+}
+
+GameState::~GameState(){}
+
+Distance GameState::get_distance() const{
   return _traveled_distance;
 }
 
-BigNum GameState::get_speed() const{
+Speed GameState::get_speed() const{
   return _current_speed;
 }
 
-BigNum GameState::get_acceleration() const{
+Acceleration GameState::get_acceleration() const{
   return _current_acceleration;
 }
 
@@ -26,15 +33,15 @@ Time GameState::get_time() const{
 }
 
 // Setters
-void GameState::add_distance(BigNum distance){
+void GameState::add_distance(Distance distance){
   _traveled_distance += distance;
 }
 
-void GameState::add_speed(BigNum speed){
+void GameState::add_speed(Speed speed){
   _current_speed += speed;
 }
 
-void GameState::increase_acceleration(BigNum acceleration){
+void GameState::increase_acceleration(Acceleration acceleration){
   _current_acceleration += acceleration;
 }
 

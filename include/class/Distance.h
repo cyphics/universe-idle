@@ -1,5 +1,4 @@
-// -*- compile-command: "./compile.sh"; -*-
-// Time.h
+// Distance.h
 //
 // last-edit-by: <>
 //
@@ -7,22 +6,25 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef TIME_H
-#define TIME_H 1
+#ifndef DISTANCE_H
+#define DISTANCE_H 1
+
+#include "Speed.h"
 
 #include "PhysicalUnit.h"
 #include "BigNum.h"
+#include "Time.h"
 
-class Time : public PhysicalUnit{
+class Distance: public PhysicalUnit{
+
  public:
-  Time(BigNum num_value);
-  ~Time();
+  Distance(BigNum numerical_value);
+  //Distance(const Time& elapsed_time, const Speed& speed);
+  ~Distance();
 
-  friend Time operator -(const Time&, const Time&);
 };
 
-
-#endif // TIME_H
+#endif // DISTANCE_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
