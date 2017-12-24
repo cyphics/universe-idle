@@ -14,7 +14,6 @@
 
 void run_simulator(Time duration, Strategy_ID strategy);
 
-
 #endif // RUN_STRATEGY_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -20,6 +20,9 @@ BigNum ResourcesList::get_resource_amount(Resource_ID resource_id) const{
   }
 }
 
+const std::vector<Resource>& ResourcesList::get_list_of_resources() const{
+
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

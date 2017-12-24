@@ -13,16 +13,18 @@
 #include <vector>
 #include "BigNum.h"
 #include "GameState.h"
-#include "PurchaseManager.h"
+#include "UpgradesManager.h"
+#include "ResourcesManager.h"
 #include "Distance.h"
 
 class Game{
  private:
 
-  UpgradesList _upgrades_list;
-  ResourcesList _resources_list;
+  UpgradesList _list_of_upgrades;
+  ResourcesList _stock_of_resources;
   GameState _game_state;
-  PurchaseManager _purchase_manager;
+  UpgradesManager _upgrades_manager;
+  ResourcesManager _resources_manager;
 
   // Compute game state
   Acceleration compute_new_acceleration(Time time) const;
@@ -37,7 +39,7 @@ class Game{
 
   // Getters
   const GameState& state() const;
-  const PurchaseManager& manage_purchase() const;
+  const UpgradesManager& manage_upgrades() const;
 
 
   // Misc

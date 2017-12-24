@@ -18,7 +18,7 @@ void run_simulator(Time duration, Strategy_ID strategy){
   Game game = simulate_game(strategy, duration);
 
   // Print history of upgrades puchased
-  std::cout <<  game.manage_purchase().get_purchase_history().to_string() << "\n";
+  std::cout <<  game.manage_upgrades().get_purchase_history().to_string() << "\n";
 
 }
 

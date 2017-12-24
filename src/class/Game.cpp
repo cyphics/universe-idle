@@ -11,7 +11,7 @@
 #include "../../include/helpers/resources_helper.h"
 
 Game::Game()
-    :_purchase_manager(_upgrades_list, _resources_list)
+    :_upgrades_manager(_list_of_upgrades, _stock_of_resources)
 {}
 
 Game::~Game(){}
@@ -66,12 +66,12 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
      If not, do nothing
    */
   std::cout << "about to buy"  << "\n";
-  if (_purchase_manager.is_affordable(upgrade, amount)) {
+  if (_upgrades_manager.is_affordable(upgrade, amount)) {
     std::cout << "affordable"  << "\n";
-    _purchase_manager.buy_upgrade(upgrade, amount);
+    _upgrades_manager.buy_upgrade(upgrade, amount);
   }
   else{
-    std::cout << "Upgrade " << _purchase_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
+    std::cout << "Upgrade " << _upgrades_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
   }
 }
 
@@ -81,11 +81,14 @@ void Game::click(){
    */
 }
 
-const PurchaseManager& Game::manage_purchase() const{
-  return _purchase_manager;
+const UpgradesManager& Game::manage_upgrades() const{
+  return _upgrades_manager;
 }
 
-void gather_resources(Time elapsed_time){
+void Game::gather_resources(Time elapsed_time){
+  for (auto resource : _stock_of_resources.get_list_of_resources() ) {
+    resource.compute_new_resource_amount(elapsed_time);
+  }
 
 }
 //////////////////////////////////////////////////////////////////////

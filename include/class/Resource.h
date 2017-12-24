@@ -31,6 +31,11 @@ class Resource{
 
   void set_current_amount(BigNum new_amount);
   void add(BigNum amount);
+  BigNum compute_new_resource_amount(Time elapsed_time){
+
+  }
+
+
 };
 
 #endif // RESOURCE_H

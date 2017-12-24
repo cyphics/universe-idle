@@ -7,8 +7,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef PURCHASEMANAGER_H
-#define PURCHASEMANAGER_H 1
+#ifndef UPGRADESMANAGER_H
+#define UPGRADESMANAGER_H 1
 
 #include "UpgradesList.h"
 #include "ResourcesList.h"
@@ -18,9 +18,9 @@
 #include "../helpers/upgrades_helper.h"
 #include "../helpers/resources_helper.h"
 
-class PurchaseManager{
+class UpgradesManager{
   /**
-   * Class that manages the amount of resources, the purchases of upgrades
+   * Class that  manages the purchases of upgrades
    */
 
  private:
@@ -29,8 +29,8 @@ class PurchaseManager{
   History _purchases_history;
 
  public:
-  PurchaseManager(UpgradesList&, ResourcesList&);
-  ~PurchaseManager();
+  UpgradesManager(UpgradesList&, ResourcesList&);
+  ~UpgradesManager();
 
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   const History& get_purchase_history() const;
