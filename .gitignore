@@ -38,4 +38,4 @@ GRTAGS
 GPATH
 universe-idle.org
 .dir-locals.el
-bin/program
+bin/
