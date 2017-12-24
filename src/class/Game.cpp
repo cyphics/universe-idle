@@ -11,7 +11,7 @@
 #include "../../include/helpers/resources_helper.h"
 
 Game::Game()
-    :_upgrades_manager(_list_of_upgrades, _stock_of_resources)
+    :_upgrades_manager(&_list_of_upgrades, &_stock_of_resources), _resources_manager(&_list_of_upgrades, &_stock_of_resources)
 {}
 
 Game::~Game(){}
@@ -58,6 +58,7 @@ void Game::wait(Time time){
    * Postpone game state to given time
    */
   _game_state.increase_time(time);
+  _resources_manager.gather_resources(time);
 }
 
 void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
@@ -86,9 +87,9 @@ const UpgradesManager& Game::manage_upgrades() const{
 }
 
 void Game::gather_resources(Time elapsed_time){
-  for (auto resource : _stock_of_resources.get_list_of_resources() ) {
-    resource.compute_new_resource_amount(elapsed_time);
-  }
+  // for (auto resource : _stock_of_resources.get_list_of_resources() ) {
+  //   resource.compute_new_resource_amount(elapsed_time);
+  // }
 
 }
 //////////////////////////////////////////////////////////////////////

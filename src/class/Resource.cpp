@@ -23,6 +23,9 @@ bool Resource::has_id(Resource_ID resource_id) const{
   return resource_id == _resource_id;
 }
 
+Resource_ID Resource::get_ID() const{
+  return _resource_id;
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

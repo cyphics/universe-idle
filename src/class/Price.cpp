@@ -34,7 +34,7 @@ void Price::add_resource(Resource_ID resource_id, BigNum amount){
 }
 
 
-bool Price::can_be_payed(const ResourcesList& stock_of_resources) const{
+bool Price::can_be_payed(const ResourcesList* stock_of_resources) const{
   /**
    * Take a list of required resources (contained in a Price object)
      and check availability in a ResourceList for each resource.
@@ -44,7 +44,7 @@ bool Price::can_be_payed(const ResourcesList& stock_of_resources) const{
   for (auto required_resource : _resources_to_pay) {
     Resource_ID resource_ID = required_resource._resource_ID;
     BigNum required_amount = required_resource._amount;
-    BigNum current_amount = stock_of_resources.get_resource_amount(resource_ID);
+    BigNum current_amount = stock_of_resources->get_resource_amount(resource_ID);
 
     if (current_amount < required_amount) return false;
   }

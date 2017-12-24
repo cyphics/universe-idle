@@ -26,6 +26,7 @@ class Resource{
 
   // Getters
   BigNum get_current_amount() const;
+  Resource_ID get_ID() const;
   std::string get_name() const;
   bool has_id(Resource_ID) const;
 

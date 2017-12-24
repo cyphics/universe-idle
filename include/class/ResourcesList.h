@@ -23,7 +23,7 @@ class ResourcesList{
   ~ResourcesList();
 
   BigNum get_resource_amount(Resource_ID resource) const;
-  const std::vector<Resource>& get_list_of_resources() const;
+  std::vector<Resource> get_list_of_resources();
 
 };
 

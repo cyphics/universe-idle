@@ -40,7 +40,7 @@ class Game{
   // Getters
   const GameState& state() const;
   const UpgradesManager& manage_upgrades() const;
-
+  const ResourcesManager& manage_resources() const;
 
   // Misc
   void wait(Time time);

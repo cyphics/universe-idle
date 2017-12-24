@@ -13,14 +13,14 @@ ResourcesList::ResourcesList(){}
 ResourcesList::~ResourcesList(){}
 
 BigNum ResourcesList::get_resource_amount(Resource_ID resource_id) const{
-  for (auto &resource : _list_of_resources) {
-    if (resource.has_id(resource_id)) {
-      return resource.get_current_amount();
-    }
-  }
+  // for (auto &resource : _list_of_resources) {
+  //   if (resource.has_id(resource_id)) {
+  //     return resource.get_current_amount();
+  //   }
+  // }
 }
 
-const std::vector<Resource>& ResourcesList::get_list_of_resources() const{
+std::vector<Resource> ResourcesList::get_list_of_resources(){
 
 }
 //////////////////////////////////////////////////////////////////////

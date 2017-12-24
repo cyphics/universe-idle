@@ -24,12 +24,12 @@ class UpgradesManager{
    */
 
  private:
-  UpgradesList _upgrades_list;
-  ResourcesList _resources_list;
+  UpgradesList* _upgrades_list;
+  ResourcesList* _resources_list;
   History _purchases_history;
 
  public:
-  UpgradesManager(UpgradesList&, ResourcesList&);
+  UpgradesManager(UpgradesList*, ResourcesList*);
   ~UpgradesManager();
 
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
