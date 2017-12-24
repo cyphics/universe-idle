@@ -8,6 +8,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <math.h>
+#include <assert.h>
 #include "../../include/class/Upgrade.h"
 
 Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, std::vector<UpgradeCostTableElement> cost_table)
@@ -16,15 +17,25 @@ Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, std::vector<Up
 
 Upgrade::~Upgrade(){}
 
-Price Upgrade::get_cost_given_level(int level) const{
+Price Upgrade::get_cost_given_level(int additional_levels) const{
   /**
    * Get cost to buy <number_levels> new levels
      Return BigNum
    */
+  assert(additional_levels > 0);
 
   Price price;
+  // Go through all required resources
+  for (auto resource_id : _required_resources) {
+    // Get required amount
 
-  for (int i = 0; i < _required_resources.size(); ++i) {
+    BigNum required_amout = _current_cost.get_resource_amount(resource_id); // Set at current amount first
+
+    for (int i = 0; i < additional_levels; ++i) {
+      required_amout *= get_resource_cost_factor(resource_id); // Increase it by factor, <level> times
+    }
+
+    price.add_resource(resource_id, required_amout); // Store it in Price object
 
   }
 
@@ -48,6 +59,18 @@ bool Upgrade::has_id(Upgrade_ID upgrade_id) const{
    * Checks if upgrade has the correct ID
    */
   return upgrade_id == _upgrade_id;
+}
+
+double Upgrade::get_resource_cost_factor(Resource_ID resource) const{
+  return get_cost_table_element(resource).increase_factor;
+}
+
+const UpgradeCostTableElement& Upgrade::get_cost_table_element(Resource_ID queried_resource_id) const{
+  for (auto const &resource : _upgrade_cost_table) {
+    if (queried_resource_id == resource.resource) {
+      return resource;
+    }
+  }
 }
 
 //////////////////////////////////////////////////////////////////////

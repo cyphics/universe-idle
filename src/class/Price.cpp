@@ -56,6 +56,10 @@ bool Price::can_be_payed(const ResourcesList& stock_of_resources) const{
 ResourceAmount& Price::get_existing_resource(Resource_ID resource_id){
 
 }
+
+BigNum Price::get_resource_amount(Resource_ID resource_id) const{
+
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

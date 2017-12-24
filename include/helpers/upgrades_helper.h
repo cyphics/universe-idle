@@ -17,6 +17,7 @@ struct UpgradeCostTableElement{
   Resource_ID resource;
   BigNum initial_cost;
   double increase_factor;
+  double get_factor() const;
 };
 
 

@@ -20,6 +20,7 @@ class UpgradesList{
  private:
   std::vector<Upgrade> _list_of_upgrades;
   Upgrade& get_real_upgrade(Upgrade_ID);
+  const Upgrade& get_real_upgrade(Upgrade_ID) const;
 
 
  public:

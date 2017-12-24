@@ -38,7 +38,9 @@ Speed Game::compute_new_speed(Time time) const{
    */
 
   // WRONG CALCULATION!!
-  return Speed(state().get_acceleration().get_numerical_value() * time.get_numerical_value());
+  BigNum acceleration = state().get_acceleration().get_numerical_value();
+  Speed speed = Speed(acceleration * time.get_numerical_value());
+  return speed;
 
 }
 
@@ -83,7 +85,9 @@ const PurchaseManager& Game::manage_purchase() const{
   return _purchase_manager;
 }
 
+void gather_resources(Time elapsed_time){
 
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
