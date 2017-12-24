@@ -12,14 +12,15 @@
 //
 #include "../../include/class/PurchaseManager.h"
 
-PurchaseManager::PurchaseManager(){}
+PurchaseManager::PurchaseManager(UpgradesList& upgrades_list, ResourcesList& resources_list)
+    : _upgrades_list(upgrades_list), _resources_list(resources_list)
+{}
 PurchaseManager::~PurchaseManager(){}
 
 bool PurchaseManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) const{
   /**
    * If price of upgrade is lower that amount of resource, return true.
    */
-
   Price price_upgrade =  _upgrades_list.get_price_increase_level(upgrade, amount);
 
   return price_upgrade.can_be_payed(_resources_list);

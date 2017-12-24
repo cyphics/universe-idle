@@ -19,6 +19,8 @@
 class Game{
  private:
 
+  UpgradesList _upgrades_list;
+  ResourcesList _resources_list;
   GameState _game_state;
   PurchaseManager _purchase_manager;
 

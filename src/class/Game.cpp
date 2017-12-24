@@ -10,7 +10,9 @@
 #include "../../include/class/Speed.h"
 #include "../../include/helpers/resources_helper.h"
 
-Game::Game(){}
+Game::Game()
+    :_purchase_manager(_upgrades_list, _resources_list)
+{}
 
 Game::~Game(){}
 

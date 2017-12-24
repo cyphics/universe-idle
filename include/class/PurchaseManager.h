@@ -29,7 +29,7 @@ class PurchaseManager{
   History _purchases_history;
 
  public:
-  PurchaseManager();
+  PurchaseManager(UpgradesList&, ResourcesList&);
   ~PurchaseManager();
 
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
