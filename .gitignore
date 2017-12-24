@@ -32,10 +32,10 @@
 *.app
 
 build/*
+bin/
 test/build/*
 GTAGS
 GRTAGS
 GPATH
 universe-idle.org
 .dir-locals.el
-bin/
