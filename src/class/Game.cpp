@@ -63,7 +63,9 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
    * Add ugprade if possible
      If not, do nothing
    */
+  std::cout << "about to buy"  << "\n";
   if (_purchase_manager.is_affordable(upgrade, amount)) {
+    std::cout << "affordable"  << "\n";
     _purchase_manager.buy_upgrade(upgrade, amount);
   }
   else{

@@ -43,7 +43,7 @@ const History& PurchaseManager::get_purchase_history() const{
 }
 
 Time PurchaseManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const{
-
+  return Time(1000);
 }
 
 std::string PurchaseManager::get_upgrade_name(Upgrade_ID) const{

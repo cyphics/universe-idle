@@ -12,6 +12,7 @@
 GameState::GameState()
     :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
 {
+  //std::cout << "Initialize game state";
 }
 
 GameState::~GameState(){}

@@ -37,7 +37,6 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
       }
       else {
         time_to_wait = game.manage_purchase().time_until_affordable(upgrade_to_buy, 1);
-
         if (time_to_wait > duration - game.state().get_time()) {
           game.wait(duration - game.state().get_time());
           loop = false;
