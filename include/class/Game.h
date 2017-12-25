@@ -30,7 +30,6 @@ class Game{
   Acceleration compute_new_acceleration(Time time) const;
   Speed compute_new_speed(Time time) const;
   Distance compute_new_distance(Time time) const;
-  void gather_resources(Time elapsed_time);
 
  public:
   // Constructor

@@ -27,6 +27,9 @@ Resource_ID Resource::get_ID() const{
   return _resource_id;
 }
 
+void Resource::add_resource_amount(BigNum amount){
+  _amount +=  amount;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

@@ -58,6 +58,9 @@ Price UpgradesList::get_price_increase_level(Upgrade_ID upgrade, int amount_new_
   return get_real_upgrade(upgrade).get_cost_given_level(amount_new_levels);
 }
 
+int UpgradesList::get_upgrade_level(Upgrade_ID upgrade) const{
+  return get_real_upgrade(upgrade).get_current_level();
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

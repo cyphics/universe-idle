@@ -89,12 +89,6 @@ const UpgradesManager& Game::manage_upgrades() const{
   return _upgrades_manager;
 }
 
-void Game::gather_resources(Time elapsed_time){
-  for (auto resource : _stock_of_resources.get_list_of_resources() ) {
-    resource.compute_new_resource_amount(elapsed_time);
-  }
-
-}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

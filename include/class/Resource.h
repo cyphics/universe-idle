@@ -19,6 +19,7 @@ class Resource{
   std::string _resource_name;
   BigNum _amount;
   BigNum _max_amount;
+  BigNum _amount_per_second;
 
  public:
   Resource(Resource_ID resource_id, std::string resource_name);
@@ -31,11 +32,7 @@ class Resource{
   bool has_id(Resource_ID) const;
 
   void set_current_amount(BigNum new_amount);
-  void add(BigNum amount);
-  BigNum compute_new_resource_amount(Time elapsed_time){
-
-  }
-
+  void add_resource_amount(BigNum amount);
 
 };
 

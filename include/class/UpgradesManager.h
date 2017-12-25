@@ -32,10 +32,11 @@ class UpgradesManager{
   UpgradesManager(UpgradesList*, ResourcesList*);
   ~UpgradesManager();
 
-  bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
+  // Getters
   const History& get_purchase_history() const;
   Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   std::string get_upgrade_name(Upgrade_ID) const;
+  bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
 
   void buy_upgrade(Upgrade_ID upgrade, unsigned int amount);
 };

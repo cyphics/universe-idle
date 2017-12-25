@@ -77,6 +77,7 @@ inline BigNum operator *(BigNum& lhs, const int& rhs){
   lhs *= rhs;
   return lhs;
 }
+
 inline BigNum operator /(BigNum& lhs, const int& rhs){
   lhs *= rhs;
   return lhs;
