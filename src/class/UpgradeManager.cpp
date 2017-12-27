@@ -12,8 +12,8 @@
 //
 #include "../../include/class/UpgradesManager.h"
 
-UpgradesManager::UpgradesManager(UpgradesList* upgrades_list, ResourcesList* resources_list)
-    : _upgrades_list(upgrades_list), _resources_list(resources_list)
+UpgradesManager::UpgradesManager(UpgradesList* upgrades_list, ResourcesManager* resource_manager)
+    : _list_of_upgrades(upgrades_list), _resources_manager(resource_manager)
 {}
 UpgradesManager::~UpgradesManager(){}
 
@@ -21,9 +21,10 @@ bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) con
   /**
    * If price of upgrade is lower that amount of resource, return true.
    */
-  Price price_upgrade =  _upgrades_list->get_price_increase_level(upgrade, amount);
+  Price price_upgrade =  _list_of_upgrades->get_price_increase_level(upgrade, amount);
 
-  return price_upgrade.can_be_payed(_resources_list);
+
+  return price_upgrade.can_be_payed(_resources_manager->get_resources_list());
 
 }
 
@@ -32,7 +33,7 @@ void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount){
    * Store amount of upgrade in the vector list
    */
 
-  _upgrades_list->increase_upgrade_level(upgrade, amount);
+  _list_of_upgrades->increase_upgrade_level(upgrade, amount);
 }
 
 const History& UpgradesManager::get_purchase_history() const{
@@ -43,9 +44,16 @@ const History& UpgradesManager::get_purchase_history() const{
 }
 
 Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const{
-  return Time(1000);
+
+  Price price = _list_of_upgrades->get_price_increase_level(upgrade, amount);
+
+  //return _resources_manager->get_resources_list()
 }
 
-std::string UpgradesManager::get_upgrade_name(Upgrade_ID) const{
+std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const{
+  return _list_of_upgrades->get_upgrade_name(upgrade_id);
+}
 
+const UpgradesList* UpgradesManager::get_list_of_upgrades() const{
+  return _list_of_upgrades;
 }

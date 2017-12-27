@@ -73,6 +73,9 @@ const UpgradeCostTableElement& Upgrade::get_cost_table_element(Resource_ID queri
   }
 }
 
+std::string Upgrade::get_name() const{
+  return _upgrade_name;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

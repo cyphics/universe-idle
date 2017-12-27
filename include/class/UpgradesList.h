@@ -31,7 +31,7 @@ class UpgradesList{
   std::vector<Upgrade_ID> get_available_upgrades() const;
   std::vector<Upgrade_ID> get_all_upgrades() const;
   Price get_price_increase_level(Upgrade_ID ugprade, int amount_new_levels) const;
-  std::string get_upgrade_name() const;
+  std::string get_upgrade_name(Upgrade_ID upgrade_id) const;
   int get_upgrade_level(Upgrade_ID upgrade) const;
 
   void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);

@@ -47,6 +47,9 @@ class Game{
   void buy_upgrade(Upgrade_ID upgrade, int amount);
 
   void click();
+
+  Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
+
 };
 
 

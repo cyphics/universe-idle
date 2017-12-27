@@ -61,6 +61,10 @@ Price UpgradesList::get_price_increase_level(Upgrade_ID upgrade, int amount_new_
 int UpgradesList::get_upgrade_level(Upgrade_ID upgrade) const{
   return get_real_upgrade(upgrade).get_current_level();
 }
+
+std::string UpgradesList::get_upgrade_name(Upgrade_ID upgrade_id) const{
+  return get_real_upgrade(upgrade_id).get_name();
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

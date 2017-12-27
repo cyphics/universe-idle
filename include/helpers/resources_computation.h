@@ -14,8 +14,8 @@
 #include "../class/UpgradesList.h"
 #include "../class/Time.h"
 
-BigNum compute_cinetic_energy(Time elapsed_time, UpgradesList* list_of_upgrades);
-BigNum compute_dark_matter(Time elapsed_time, UpgradesList* list_of_upgrades);
+BigNum compute_cinetic_energy(Time elapsed_time, const UpgradesList* list_of_upgrades);
+BigNum compute_dark_matter(Time elapsed_time, const UpgradesList* list_of_upgrades);
 
 
 #endif // RESOURCES_COMPUTATION_H

@@ -35,6 +35,7 @@ class Upgrade{
   Price get_cost_given_level(int level) const;
   int get_current_level() const;
   void increase_level(int number_levels);
+  std::string get_name() const;
   bool is_available() const;
   bool has_id(Upgrade_ID) const;
   double get_resource_cost_factor(Resource_ID resource) const;

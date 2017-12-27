@@ -14,7 +14,7 @@
 //     :_upgrades_manager(_list_of_upgrades, _stock_of_resources), _resources_manager(_list_of_upgrades, _stock_of_resources)
 // {}
 Game::Game()
-    :_upgrades_manager(&_list_of_upgrades, &_stock_of_resources), _resources_manager(&_list_of_upgrades, &_stock_of_resources)
+    :_upgrades_manager(&_list_of_upgrades, &_resources_manager), _resources_manager(&_stock_of_resources, &_upgrades_manager)
 {}
 
 Game::~Game(){}
