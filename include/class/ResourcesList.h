@@ -17,13 +17,14 @@ class ResourcesList{
  private:
   std::vector<Resource> _list_of_resources;
 
-
  public:
   ResourcesList();
   ~ResourcesList();
 
   BigNum get_resource_amount(Resource_ID resource) const;
-  std::vector<Resource> get_list_of_resources();
+  std::vector<Resource>& get_list_of_resources();
+  const std::vector<Resource>& get_list_of_resources() const;
+  Resource& get_resource(Resource_ID);
 
 };
 

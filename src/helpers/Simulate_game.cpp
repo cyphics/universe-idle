@@ -23,6 +23,7 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
   bool loop = true;
   Time time_to_wait(0);
   while (loop) {
+
     if (game.state().get_time() > duration)
       loop = false;
     else{

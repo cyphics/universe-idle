@@ -30,6 +30,10 @@ Resource_ID Resource::get_ID() const{
 void Resource::add_resource_amount(BigNum amount){
   _amount +=  amount;
 }
+
+BigNum Resource::get_amount_per_second() const{
+  return _amount_per_second;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

@@ -22,6 +22,7 @@ Price Upgrade::get_cost_given_level(int additional_levels) const{
    * Get cost to buy <number_levels> new levels
      Return BigNum
    */
+
   assert(additional_levels > 0);
 
   Price price;

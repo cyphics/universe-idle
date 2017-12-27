@@ -60,7 +60,9 @@ void Game::wait(Time time){
   /**
    * Postpone game state to given time
    */
+
   _game_state.increase_time(time);
+
   _resources_manager.gather_resources(time);
 }
 

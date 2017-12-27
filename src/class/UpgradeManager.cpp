@@ -11,6 +11,7 @@
 // $Log:$
 //
 #include "../../include/class/UpgradesManager.h"
+#include "../../include/class/ResourcesManager.h"
 
 UpgradesManager::UpgradesManager(UpgradesList* upgrades_list, ResourcesManager* resource_manager)
     : _list_of_upgrades(upgrades_list), _resources_manager(resource_manager)
@@ -23,8 +24,7 @@ bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) con
    */
   Price price_upgrade =  _list_of_upgrades->get_price_increase_level(upgrade, amount);
 
-
-  return price_upgrade.can_be_payed(_resources_manager->get_resources_list());
+  return price_upgrade.can_be_payed(_resources_manager);
 
 }
 
@@ -45,9 +45,14 @@ const History& UpgradesManager::get_purchase_history() const{
 
 Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const{
 
+  //Upgrade upgrade = get_list_of_upgrades()->
+  _list_of_upgrades->get_price_increase_level(upgrade, 1);
+  std::cout << "Not printed..."  << "\n";
   Price price = _list_of_upgrades->get_price_increase_level(upgrade, amount);
+  std::cout << "Not printed..."  << "\n";
 
-  //return _resources_manager->get_resources_list()
+
+  return _resources_manager->get_time_until_in_stock(price);
 }
 
 std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const{

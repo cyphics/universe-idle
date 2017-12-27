@@ -23,6 +23,7 @@ Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id){
   /**
    * Return copy of
    */
+
   for (auto &upgrade : _list_of_upgrades) {
     if (upgrade.has_id(upgrade_id)) {
       return upgrade;
@@ -32,6 +33,8 @@ Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id){
 }
 
 const Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id) const{
+  //std::cout << "Get real upgrade"  << "\n";
+
   return get_real_upgrade(upgrade_id);
 }
 
@@ -55,8 +58,11 @@ void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount){
 }
 
 Price UpgradesList::get_price_increase_level(Upgrade_ID upgrade, int amount_new_levels) const{
+
   return get_real_upgrade(upgrade).get_cost_given_level(amount_new_levels);
+
 }
+
 
 int UpgradesList::get_upgrade_level(Upgrade_ID upgrade) const{
   return get_real_upgrade(upgrade).get_current_level();
