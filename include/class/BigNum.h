@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 class BigNum
 {
@@ -40,7 +41,6 @@ class BigNum
 
   // Operators
   friend std::ostream& operator<<(std::ostream&, const BigNum&);
-
   BigNum& operator=(const BigNum& rhs);
 
   BigNum& operator+=(const BigNum& rhs);
@@ -51,6 +51,7 @@ class BigNum
   BigNum& operator/=(const int& rhs);
 
 };
+
 
 inline bool operator ==(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() == rhs.get_value();}
 inline bool operator !=(const BigNum& lhs, const BigNum& rhs){ return !operator==(lhs, rhs);}
@@ -87,6 +88,11 @@ inline BigNum operator /(BigNum& lhs, const BigNum& rhs){
   return lhs;
 }
 
+inline bool CompareBignums(BigNum& lhs, const BigNum& rhs){
+  double comparison_offset = 0.0000001;
+  BigNum diff = lhs - rhs;
+  return (std::abs(diff.get_value()) < comparison_offset);
+}
 
 
 #endif // LIBBIGNUM_H
