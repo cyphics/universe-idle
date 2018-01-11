@@ -20,6 +20,7 @@
 class Game{
  private:
 
+  Time _time_played = Time(0);
   UpgradesList _list_of_upgrades;
   ResourcesList _stock_of_resources;
   GameState _game_state;
@@ -38,8 +39,8 @@ class Game{
 
   // Getters
   const GameState& state() const;
-  const UpgradesManager& manage_upgrades() const;
-  const ResourcesManager& manage_resources() const;
+  const UpgradesManager* manage_upgrades() const;
+  const ResourcesManager* manage_resources() const;
 
   // Misc
   void wait(Time time);

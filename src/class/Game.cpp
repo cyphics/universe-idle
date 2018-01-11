@@ -67,7 +67,6 @@ void Game::wait(Time time){
   /**
    * Postpone game state to given time
    */
-
   _game_state.increase_time(time);
 
   _resources_manager.gather_resources(time);
@@ -78,10 +77,14 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
    * Add ugprade if possible
      If not, do nothing
    */
-  std::cout << "about to buy"  << "\n";
   if (_upgrades_manager.is_affordable(upgrade, amount)) {
-    std::cout << "affordable"  << "\n";
-    _upgrades_manager.buy_upgrade(upgrade, amount);
+
+    //std::cout << "Buy upgrade " + _list_of_upgrades.get_upgrade_name(upgrade);
+    //std::cout << " at cost:\n " << _list_of_upgrades.get_price_increase_level(upgrade, amount).to_string(&_resources_manager)  << "\n";
+
+    _upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
+
+    std::cout << _list_of_upgrades.get_upgrade_level(Upgrade_ID::small_boost)  << "\n";
   }
   else{
     std::cout << "Upgrade " << _upgrades_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
@@ -94,8 +97,12 @@ void Game::click(){
    */
 }
 
-const UpgradesManager& Game::manage_upgrades() const{
-  return _upgrades_manager;
+const UpgradesManager* Game::manage_upgrades() const{
+  return &_upgrades_manager;
+}
+
+const ResourcesManager* Game::manage_resources() const{
+  return &_resources_manager;
 }
 
 //////////////////////////////////////////////////////////////////////

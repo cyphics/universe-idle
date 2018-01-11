@@ -25,9 +25,9 @@ class UpgradesList{
 
  public:
   UpgradesList();
-  UpgradesList(std::vector<Upgrade>);
   ~UpgradesList();
 
+  void set_list_upgrades(std::vector<Upgrade>);
   // Getters
   std::vector<Upgrade_ID> get_available_upgrades() const;
   std::vector<Upgrade_ID> get_all_upgrades() const;

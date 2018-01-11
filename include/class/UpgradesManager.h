@@ -44,7 +44,7 @@ class UpgradesManager{
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   const UpgradesList& get_list_of_upgrades() const;
 
-  void buy_upgrade(Upgrade_ID upgrade, unsigned int amount);
+  void buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought);
 };
 
 

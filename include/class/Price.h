@@ -26,9 +26,11 @@ class Price{
   BigNum get_resource_amount(Resource_ID) const;
 
   void add_resource(Resource_ID, BigNum amount);
-  ResourceAmount& get_existing_resource(Resource_ID resource_id);
+  ResourceAmount get_existing_resource(Resource_ID resource_id);
 
   const std::vector<ResourceAmount>& get_resources_to_pay() const;
+
+  std::string to_string(const ResourcesManager*) const;
 };
 
 

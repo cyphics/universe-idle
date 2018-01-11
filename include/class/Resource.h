@@ -34,6 +34,7 @@ class Resource{
 
   void set_current_amount(BigNum new_amount);
   void add_resource_amount(BigNum amount);
+  void substract_resource_amount(BigNum amount);
 
 };
 

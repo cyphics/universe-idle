@@ -54,16 +54,34 @@ bool Price::can_be_payed(const ResourcesManager* resources_manager) const{
 
 }
 
-ResourceAmount& Price::get_existing_resource(Resource_ID resource_id){
-
+ResourceAmount Price::get_existing_resource(Resource_ID resource_id){
+  for (auto resourceAmount : _resources_to_pay) {
+    if (resourceAmount._resource_ID == resource_id) return resourceAmount;
+  }
 }
 
 BigNum Price::get_resource_amount(Resource_ID resource_id) const{
-
+  for (auto resourceAmount : _resources_to_pay) {
+    if (resourceAmount._resource_ID == resource_id) return resourceAmount._amount;
+  }
 }
 
 const std::vector<ResourceAmount>& Price::get_resources_to_pay() const{
   return _resources_to_pay;
+}
+
+std::string Price::to_string(const ResourcesManager* resources_manager) const{
+  std::string output = "Price:\n";
+
+  for (auto resourceAmount: _resources_to_pay) {
+    output += resources_manager->get_resource_name(resourceAmount._resource_ID);
+    output += " :";
+    output += resources_manager->get_resource_amount(resourceAmount._resource_ID).to_string();
+    output += "\n";
+  }
+
+
+  return output;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

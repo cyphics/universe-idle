@@ -44,10 +44,13 @@ class ResourcesManager{
   const ResourcesList& get_resources_list() const;
   ResourcesList& get_resources_list();
   BigNum get_resource_amount(Resource_ID) const;
+  std::string get_resource_name(Resource_ID) const;
+
 
   ResourcesManager& operator=(ResourcesManager&);
 
   void gather_resources(Time elapsed_time);
+  void pay_price(Price);
 
 
 

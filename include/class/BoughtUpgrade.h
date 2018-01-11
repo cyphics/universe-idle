@@ -1,4 +1,3 @@
-// -*- compile-command: "./../compile.sh"; -*-
 // BoughtUpgrade.h
 //
 // last-edit-by: <>
@@ -11,7 +10,8 @@
 #define BOUGHTUPGRADE_H 1
 
 #include "../helpers/upgrades_helper.h"
-#include "BigNum.h"
+#include "Price.h"
+#include "Time.h"
 
 class BoughtUpgrade{
   /**
@@ -19,16 +19,17 @@ class BoughtUpgrade{
    */
  private:
   Upgrade_ID _upgrade_type;
-  int _time;
-  BigNum _cost;
+  Time _time;
+  Price _cost;
   int _number_bought;
 
 
  public:
-  BoughtUpgrade(Upgrade_ID related_upgrade, std::string ugprade_name, int time_when_bought, BigNum cost, int amount_mought);
+  BoughtUpgrade(Upgrade_ID related_upgrade, Time time_when_bought, Price price, int amount_mought);
+  BoughtUpgrade(Upgrade_ID related_upgrade, Time time_when_bought, Price price);
   ~BoughtUpgrade();
 
-  std::string to_string() const;
+  std::string to_string(const ResourcesManager*) const;
 
 };
 

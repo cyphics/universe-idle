@@ -31,7 +31,6 @@ Price Upgrade::get_cost_given_level(int additional_levels) const{
    * Get cost to buy <number_levels> new levels
      Return BigNum
    */
-  std::cout << "get_cost_given_level"  << "\n";
   assert(additional_levels > 0);
 
   Price price;
@@ -40,9 +39,6 @@ Price Upgrade::get_cost_given_level(int additional_levels) const{
 
   for (auto resource_id : _required_resources) {
     // Get required amount
-    std::cout << "test"  << "\n";
-
-
     BigNum required_amout = _current_cost.get_resource_amount(resource_id); // Set at current amount first
 
     for (int i = 0; i < additional_levels; ++i) {

@@ -9,14 +9,15 @@
 
 #include "../../include/class/UpgradesList.h"
 
-UpgradesList::UpgradesList(){}
-
-UpgradesList::UpgradesList(std::vector<Upgrade> list_of_upgrades)
-    :_list_of_upgrades(list_of_upgrades)
-{}
+UpgradesList::UpgradesList(){
+  std::cout << "Create Upgrades List..."  << "\n";
+}
 
 UpgradesList::~UpgradesList(){}
 
+void UpgradesList::set_list_upgrades(std::vector<Upgrade> list_of_upgrades){
+  _list_of_upgrades = list_of_upgrades;
+}
 
 // CORRIGER LES DEUX get_real_upgrade
 Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id){
@@ -33,7 +34,6 @@ Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id){
 }
 
 const Upgrade& UpgradesList::get_real_upgrade(Upgrade_ID upgrade_id) const{
-  std::cout << "get_real_upgrade"  << "\n";
   for (auto &upgrade : _list_of_upgrades) {
     if (upgrade.has_id(upgrade_id)) {
       return upgrade;
@@ -62,7 +62,6 @@ void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount){
 }
 
 Price UpgradesList::get_price_increase_level(Upgrade_ID upgrade_id, int amount_new_levels) const{
-  std::cout << "get_price_increase_level"  << "\n";
   return get_real_upgrade(upgrade_id).get_cost_given_level(amount_new_levels);
 
 }

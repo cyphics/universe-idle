@@ -31,8 +31,16 @@ void Resource::add_resource_amount(BigNum amount){
   _amount +=  amount;
 }
 
+void Resource::substract_resource_amount(BigNum amount){
+  _amount -=  amount;
+}
+
 BigNum Resource::get_amount_per_second() const{
   return _amount_per_second;
+}
+
+std::string Resource::get_name() const{
+  return _resource_name;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

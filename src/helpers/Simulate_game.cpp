@@ -22,6 +22,7 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
   bool loop = true;
   Time time_to_wait(0);
   while (loop) {
+    std::cout << "LOOP"  << "\n";
     if (game.state().get_time() > duration)
       loop = false;
     else{
@@ -34,14 +35,20 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
         game.wait(duration);// - game.state().get_time());
         loop = false;
       }
+      // PURCHASE LOOP
       else {
-        time_to_wait = game.manage_upgrades().time_until_affordable(upgrade_to_buy, 1);
+
+        time_to_wait = game.manage_upgrades()->time_until_affordable(upgrade_to_buy, 1);
+
+        // Either time is over -> stop simulation
         if (time_to_wait > duration - game.state().get_time()) {
           game.wait(duration - game.state().get_time());
           loop = false;
         }
+        // Or we wait and buy
         else {
-          game.wait(time_to_wait);
+          game.wait(Time(10));
+          std::cout << "Game time: " << game.state().get_time().get_numerical_value()  << "\n";
           game.buy_upgrade(upgrade_to_buy, 1);
         }
       }

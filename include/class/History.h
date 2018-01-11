@@ -12,6 +12,8 @@
 
 #include <vector>
 #include "BoughtUpgrade.h"
+#include "Price.h"
+#include "Time.h"
 
 class History{
  private:
@@ -21,8 +23,8 @@ class History{
   History();
   ~History();
 
-  void add_upgrade(Upgrade_ID new_upgrade, BigNum price, int time);
-  std::string to_string() const;
+  void add_upgrade(Upgrade_ID new_upgrade, Price price, Time time_when_bought);
+  std::string to_string(const ResourcesManager*) const;
 };
 
 #endif // HISTORY_H

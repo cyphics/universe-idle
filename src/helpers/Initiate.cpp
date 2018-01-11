@@ -30,7 +30,8 @@ UpgradesList Init::initiate_upgrades_list(){
 
   std::vector<Upgrade> vector_of_upgrades = {small_boost};
 
-  UpgradesList upgrades_list = UpgradesList(vector_of_upgrades);
+  UpgradesList upgrades_list;
+  upgrades_list.set_list_upgrades(vector_of_upgrades);
   return upgrades_list;
 }
 ResourcesList Init::initiate_resources_list(){

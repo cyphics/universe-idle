@@ -12,7 +12,7 @@
 GameState::GameState()
     :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
 {
-  //std::cout << "Initialize game state";
+  std::cout << "Create game state" << "\n";
 }
 
 GameState::~GameState(){}
@@ -47,7 +47,10 @@ void GameState::increase_acceleration(Acceleration acceleration){
 }
 
 void GameState::increase_time(Time time){
-  //_current_time += time;
+  std::cout << "Increase time by " << time.get_numerical_value()  << "\n";
+  _current_time += time;
+
+  std::cout << "Time is now " << _current_time.get_numerical_value()  << "\n";
 }
 
 
