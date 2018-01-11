@@ -9,13 +9,11 @@
 
 #include "../../include/class/UpgradesList.h"
 
-UpgradesList::UpgradesList(){
-  /**
-   * Constructor that sequentially adds all upgrades to vector
-   */
+UpgradesList::UpgradesList(){}
 
-  //_list_of_upgrades.push_back(Upgrade(Upgrade_ID::small_boost, "small boost", BigNum(10), 1.1));
-}
+UpgradesList::UpgradesList(std::vector<Upgrade> list_of_upgrades)
+    :_list_of_upgrades(list_of_upgrades)
+{}
 
 UpgradesList::~UpgradesList(){}
 

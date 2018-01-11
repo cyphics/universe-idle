@@ -6,15 +6,43 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+
+#include <vector>
 #include "../../include/helpers/Initiate.h"
+#include "../../include/class/Upgrade.h"
 
 UpgradesList Init::initiate_upgrades_list(){
-  UpgradesList a_list;
-  return a_list;
+
+  // SMALL BOOST
+
+  // Build cost table
+  UpgradeCostTableElement small_boost_cinetic_energy;
+  small_boost_cinetic_energy.resource = Resource_ID::cinetic_energy;
+  small_boost_cinetic_energy.initial_cost = 10;
+  double small_boost_increase_factor = 1.2;
+
+  std::vector<UpgradeCostTableElement> cost_small_boost;
+  cost_small_boost.push_back(small_boost_cinetic_energy);
+
+
+  // Build object
+  Upgrade small_boost = Upgrade(Upgrade_ID::small_boost, "Small boost", cost_small_boost, small_boost_increase_factor);
+
+  std::vector<Upgrade> vector_of_upgrades = {small_boost};
+
+  UpgradesList upgrades_list = UpgradesList(vector_of_upgrades);
+  return upgrades_list;
 }
 ResourcesList Init::initiate_resources_list(){
-  ResourcesList a_list;
-  return a_list;
+
+  // CINETIC ENERGY
+  Resource cinetic_energy = Resource(Resource_ID::cinetic_energy, "Cinetic energy");
+  Resource dark_matter = Resource(Resource_ID::dark_matter, "Dark matter");
+
+  std::vector<Resource> vector_of_resources = {cinetic_energy, dark_matter};
+  ResourcesList resources_list = ResourcesList(vector_of_resources);
+
+  return resources_list;
 }
 
 

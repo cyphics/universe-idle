@@ -62,10 +62,7 @@ Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amo
 
   //Upgrade upgrade = get_list_of_upgrades()->
   _list_of_upgrades.get_price_increase_level(upgrade, 1);
-  std::cout << "Not printed..."  << "\n";
   Price price = _list_of_upgrades.get_price_increase_level(upgrade, amount);
-  std::cout << "Not printed..."  << "\n";
-
 
   return _resources_manager->get_time_until_in_stock(price);
 }

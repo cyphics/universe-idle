@@ -19,6 +19,7 @@ class ResourcesList{
 
  public:
   ResourcesList();
+  ResourcesList(std::vector<Resource>);
   ~ResourcesList();
 
   BigNum get_resource_amount(Resource_ID resource) const;

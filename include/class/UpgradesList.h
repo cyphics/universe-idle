@@ -25,6 +25,7 @@ class UpgradesList{
 
  public:
   UpgradesList();
+  UpgradesList(std::vector<Upgrade>);
   ~UpgradesList();
 
   // Getters

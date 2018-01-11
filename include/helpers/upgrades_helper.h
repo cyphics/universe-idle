@@ -16,8 +16,6 @@ enum class Upgrade_ID { small_boost, big_boost, empty_upgrade};
 struct UpgradeCostTableElement{
   Resource_ID resource;
   BigNum initial_cost;
-  double increase_factor;
-  double get_factor() const;
 };
 
 

@@ -8,8 +8,11 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/class/ResourcesList.h"
-
 ResourcesList::ResourcesList(){}
+
+ResourcesList::ResourcesList(std::vector<Resource> list_resources)
+    : _list_of_resources(list_resources)
+{}
 ResourcesList::~ResourcesList(){}
 
 BigNum ResourcesList::get_resource_amount(Resource_ID resource_id) const{

@@ -22,15 +22,16 @@ class Upgrade{
   std::string _upgrade_name;
   Price _initial_cost;
   Price _current_cost;
-  std::vector<UpgradeCostTableElement> _upgrade_cost_table;
+  std::vector<UpgradeCostTableElement> _cost_table;
   std::vector <Resource_ID> _required_resources;
+  double _increase_factor;
   int _current_level = 0; // Equals number bought
   bool _is_available = false;
 
   void compute_cost_next_level();
 
  public:
-  Upgrade(Upgrade_ID upgrade_id, std::string name, std::vector<UpgradeCostTableElement> cost_table);
+  Upgrade(Upgrade_ID upgrade_id, std::string name, std::vector<UpgradeCostTableElement> cost_table, double increase_factor);
   ~Upgrade();
   Price get_cost_given_level(int level) const;
   int get_current_level() const;
@@ -38,7 +39,6 @@ class Upgrade{
   std::string get_name() const;
   bool is_available() const;
   bool has_id(Upgrade_ID) const;
-  double get_resource_cost_factor(Resource_ID resource) const;
   const UpgradeCostTableElement& get_cost_table_element(Resource_ID queried_resource_id) const;
 };
 

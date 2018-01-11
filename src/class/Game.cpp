@@ -13,13 +13,14 @@
 #include "../../include/helpers/Initiate.h"
 
 Game::Game()
+    :_stock_of_resources(Init::initiate_resources_list()),
+     _list_of_upgrades(Init::initiate_upgrades_list())
 {
   std::cout << "Creation of the Game instance..."  << "\n";
-  _stock_of_resources = Init::initiate_resources_list();
-  _list_of_upgrades = Init::initiate_upgrades_list();
 
   _resources_manager.init_manager(_stock_of_resources, &_upgrades_manager);
   _upgrades_manager.init_manager(_list_of_upgrades, &_resources_manager);
+
   std::cout << "Game instance created!"  << "\n";
 }
 
