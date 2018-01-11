@@ -21,7 +21,7 @@ class Price{
   std::vector<ResourceAmount> _resources_to_pay;
 
  public:
-  bool can_be_payed(const ResourcesManager* resources_manager) const;
+  bool can_be_payed(const ResourcesManager& resources_manager) const;
   bool has_resource_already(Resource_ID) const;
   BigNum get_resource_amount(Resource_ID) const;
 

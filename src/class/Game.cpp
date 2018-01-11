@@ -1,3 +1,4 @@
+
 // Game.cpp
 //
 // last-edit-by: <>
@@ -9,13 +10,14 @@
 #include "../../include/class/Game.h"
 #include "../../include/class/Speed.h"
 #include "../../include/helpers/resources_helper.h"
+#include "../../include/helpers/Initiate.h"
 
-// Game::Game()
-//     :_upgrades_manager(_list_of_upgrades, _stock_of_resources), _resources_manager(_list_of_upgrades, _stock_of_resources)
-// {}
 Game::Game()
-    :_upgrades_manager(&_list_of_upgrades, &_resources_manager), _resources_manager(&_stock_of_resources, &_upgrades_manager)
-{}
+    :_resources_manager(Init::initiate_resources_manager(_list_of_upgrades, _stock_of_resources)), _upgrades_manager(Init::initiate_ugprades_manager(_list_of_upgrades, _stock_of_resources))
+{
+  _list_of_upgrades = Init::initiate_upgrades_list();
+  _stock_of_resources = Init::initiate_resources_list();
+}
 
 Game::~Game(){}
 

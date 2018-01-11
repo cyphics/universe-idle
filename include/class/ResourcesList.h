@@ -25,6 +25,7 @@ class ResourcesList{
   std::vector<Resource>& get_list_of_resources();
   const std::vector<Resource>& get_list_of_resources() const;
   Resource& get_resource(Resource_ID);
+  const Resource& get_resource(Resource_ID) const;
 
 };
 

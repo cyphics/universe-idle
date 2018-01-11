@@ -10,7 +10,9 @@
 #include <vector>
 #include "../../include/helpers/upgrades_helper.h"
 
-
+namespace O_Ugrades{
+Upgrade
+}
 
 
 

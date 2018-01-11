@@ -33,6 +33,17 @@ const std::vector<Resource>& ResourcesList::get_list_of_resources() const{
 
 Resource& ResourcesList::get_resource(Resource_ID resource_id){
   /**
+   * Takes resource_id, and return a reference to the resource.
+   */
+  for (auto &resource : get_list_of_resources()){
+    if (resource.has_id(resource_id)) {
+      return resource;
+    }
+  }
+}
+
+const Resource& ResourcesList::get_resource(Resource_ID resource_id) const{
+  /**
    * Takes resource_id, and return a constant reference to the resource.
    */
   for (auto &resource : get_list_of_resources()){
