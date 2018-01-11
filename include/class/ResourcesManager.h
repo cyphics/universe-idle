@@ -25,16 +25,18 @@ class ResourcesManager{
    */
  private:
   ResourcesList _stock_of_resources;
-  UpgradesManager& _upgrades_manager;
+  UpgradesManager* _upgrades_manager;
 
   // Private methods
   Resource& get_real_resource(Resource_ID resource);
   const Resource& get_real_resource(Resource_ID resource) const;
 
  public:
-  ResourcesManager(ResourcesList&, UpgradesManager&);
+  ResourcesManager();
   ResourcesManager(const ResourcesManager& original);
   ~ResourcesManager();
+
+  void init_manager(ResourcesList, UpgradesManager*);
 
   // Getters
   Time get_time_until_in_stock(const Price& price) const;

@@ -18,12 +18,10 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
    duration with the given stragety.
    Returns a Game object corresponding to the final state of the game.
    */
-
   Game game = Game();
   bool loop = true;
   Time time_to_wait(0);
   while (loop) {
-
     if (game.state().get_time() > duration)
       loop = false;
     else{

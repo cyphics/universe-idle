@@ -27,11 +27,12 @@ class UpgradesManager{
 
  private:
   UpgradesList _list_of_upgrades;
-  ResourcesManager& _resources_manager;
+  ResourcesManager* _resources_manager;// = new ResourcesManager;
   History _purchases_history;
 
  public:
-  UpgradesManager(UpgradesList& list_of_upgrades, ResourcesManager& resources_manager);
+  UpgradesManager();
+  void init_manager(UpgradesList list_of_ugprades, ResourcesManager* resources_manager);
   UpgradesManager(const UpgradesManager& original);
   ~UpgradesManager();
   UpgradesManager& operator=(UpgradesManager&);

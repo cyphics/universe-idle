@@ -13,9 +13,11 @@
 #include "../../include/class/UpgradesManager.h"
 #include "../../include/class/ResourcesManager.h"
 
-UpgradesManager::UpgradesManager(UpgradesList& upgrades_list, ResourcesManager& resources_manager)
-    : _list_of_upgrades(upgrades_list), _resources_manager(resources_manager)
-{}
+// UpgradesManager::UpgradesManager(UpgradesList& upgrades_list, ResourcesManager& resources_manager)
+//     : _list_of_upgrades(upgrades_list), _resources_manager(resources_manager)
+// {}
+
+UpgradesManager::UpgradesManager(){}
 
 UpgradesManager::UpgradesManager(const UpgradesManager& original)
     :_list_of_upgrades(original._list_of_upgrades), _resources_manager(original._resources_manager)
@@ -26,6 +28,12 @@ UpgradesManager::~UpgradesManager(){}
 UpgradesManager& UpgradesManager::operator=(UpgradesManager& original){
   return original;
 }
+
+void UpgradesManager::init_manager(UpgradesList upgrades, ResourcesManager* resourcesManager){
+  _list_of_upgrades = upgrades;
+  _resources_manager = resourcesManager;
+}
+
 
 bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) const{
   /**
@@ -59,7 +67,7 @@ Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amo
   std::cout << "Not printed..."  << "\n";
 
 
-  return _resources_manager.get_time_until_in_stock(price);
+  return _resources_manager->get_time_until_in_stock(price);
 }
 
 std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const{

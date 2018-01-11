@@ -11,20 +11,41 @@
 #include "../../include/helpers/resources_helper.h"
 #include "../../include/helpers/resources_computation.h"
 
-ResourcesManager::ResourcesManager(ResourcesList& stock_of_resources, UpgradesManager& upgrades_manager)
-    : _stock_of_resources(stock_of_resources), _upgrades_manager(upgrades_manager)
-{}
+/**
+ * Empty default constructor (necessarily empty to allow circular definition)
+ */
+ResourcesManager::ResourcesManager(){}
 
+/**
+ * Copy constructor
+ */
 ResourcesManager::ResourcesManager(const ResourcesManager& original)
     :_stock_of_resources(original._stock_of_resources),_upgrades_manager(original._upgrades_manager)
 {}
 
+/**
+ * Destrcutor
+ */
 ResourcesManager::~ResourcesManager(){}
 
+/**
+ * = Operator
+ */
 ResourcesManager& ResourcesManager::operator=(ResourcesManager& original){
   return original;
 }
 
+/**
+ * Init manager with existing members
+ */
+void ResourcesManager::init_manager(ResourcesList resources, UpgradesManager* upgrades_manager){
+  _stock_of_resources = resources;
+  _upgrades_manager = upgrades_manager;
+}
+
+/**
+ * Compute new resources gathered in given time
+ */
 void ResourcesManager::gather_resources(Time elapsed_time){
   // Gather resources one by one
   BigNum new_amount(0);
@@ -32,11 +53,11 @@ void ResourcesManager::gather_resources(Time elapsed_time){
   for (auto resource : _stock_of_resources.get_list_of_resources()){
     switch (resource.get_ID()) {
       case Resource_ID::cinetic_energy: {
-        new_amount = compute_cinetic_energy(elapsed_time, _upgrades_manager.get_list_of_upgrades());
+        new_amount = compute_cinetic_energy(elapsed_time, _upgrades_manager->get_list_of_upgrades());
         break;
       }
       case Resource_ID::dark_matter: {
-        new_amount = compute_dark_matter(elapsed_time, _upgrades_manager.get_list_of_upgrades());
+        new_amount = compute_dark_matter(elapsed_time, _upgrades_manager->get_list_of_upgrades());
         break;
       }
       default:
