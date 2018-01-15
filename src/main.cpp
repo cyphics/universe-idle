@@ -2,14 +2,18 @@
 
 
 #include "../include/helpers/run_simulator.h"
-#include "../include/class/PhysicalUnit.h"
+#include "../include/class/BigNum.h"
 
 int main(int argc, char *argv[])
 {
 
-  Time duration = Time(1000000);
+  BigNum a = BigNum(1);
+  BigNum b(200.2242434951);
+  a += b;
 
-  run_simulator(duration, Strategy_ID::broken);
+  std::cout << a  << "\n";
+
+  //  run_simulator(duration, Strategy_ID::broken);
 
   return 0;
 }

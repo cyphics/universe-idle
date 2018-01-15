@@ -9,7 +9,7 @@
 #ifndef DISTANCE_H
 #define DISTANCE_H 1
 
-#include "Speed.h"
+//#include "Speed.h"
 
 #include "PhysicalUnit.h"
 #include "BigNum.h"
@@ -35,6 +35,17 @@ inline bool operator> (const Distance& lhs, const Distance& rhs){return  operato
 inline bool operator<=(const Distance& lhs, const Distance& rhs){return !operator> (lhs,rhs);}
 inline bool operator>=(const Distance& lhs, const Distance& rhs){return !operator< (lhs,rhs);}
 
+inline Distance operator-(const Distance& lhs, const Distance& rhs){
+  Distance temp = lhs;
+  temp -= rhs;
+  return temp;
+}
+
+inline Distance operator+(const Distance& lhs, const Distance& rhs){
+  Distance temp = lhs;
+  temp += rhs;
+  return temp;
+}
 
 #endif // DISTANCE_H
 //////////////////////////////////////////////////////////////////////

@@ -17,7 +17,6 @@
 class Speed : public PhysicalUnit{
  public:
   Speed(BigNum num_value);
-  //Speed(const Distance& distance, const Time& time);
   Speed(const Speed&);
   ~Speed();
 
@@ -34,6 +33,17 @@ inline bool operator> (const Speed& lhs, const Speed& rhs){return  operator< (rh
 inline bool operator<=(const Speed& lhs, const Speed& rhs){return !operator> (lhs,rhs);}
 inline bool operator>=(const Speed& lhs, const Speed& rhs){return !operator< (lhs,rhs);}
 
+inline Speed operator-(const Speed& lhs, const Speed& rhs){
+  Speed temp = lhs;
+  temp -= rhs;
+  return temp;
+}
+
+inline Speed operator+(const Speed& lhs, const Speed& rhs){
+  Speed temp = lhs;
+  temp += rhs;
+  return temp;
+}
 
 
 #endif // SPEED_H

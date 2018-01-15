@@ -1,4 +1,3 @@
-// -*- compile-command: "./compile.sh"; -*-
 // Time.h
 //
 // last-edit-by: <>
@@ -33,14 +32,16 @@ inline bool operator<=(const Time& lhs, const Time& rhs){return !operator> (lhs,
 inline bool operator>=(const Time& lhs, const Time& rhs){return !operator< (lhs,rhs);}
 
 
-inline Time operator-(Time lhs, const Time& rhs){
-  lhs -= rhs;
-  return  lhs;
+inline Time operator-(const Time& lhs, const Time& rhs){
+  Time sub = lhs;
+  sub -= rhs;
+  return  sub;
 }
 
-inline Time operator+(Time lhs, const Time& rhs){
-  lhs += rhs;
-  return  lhs;
+inline Time operator+(const Time& lhs, const Time& rhs){
+  Time add = lhs;
+  add += rhs;
+  return  add;
 }
 
 

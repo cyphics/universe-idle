@@ -53,44 +53,48 @@ class BigNum
 };
 
 
-inline bool operator ==(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() == rhs.get_value();}
-inline bool operator !=(const BigNum& lhs, const BigNum& rhs){ return !operator==(lhs, rhs);}
-inline bool operator <(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() < rhs.get_value(); }
-inline bool operator >(const BigNum& lhs, const BigNum& rhs){ return operator<(rhs, lhs);}
-inline bool operator >=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
-inline bool operator <=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
+inline bool operator==(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() == rhs.get_value();}
+inline bool operator!=(const BigNum& lhs, const BigNum& rhs){ return !operator==(lhs, rhs);}
+inline bool operator<(const BigNum& lhs, const BigNum& rhs){ return lhs.get_value() < rhs.get_value(); }
+inline bool operator>(const BigNum& lhs, const BigNum& rhs){ return operator<(rhs, lhs);}
+inline bool operator>=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
+inline bool operator<=(const BigNum& lhs, const BigNum& rhs){ return !operator>(lhs, rhs);}
 
-inline BigNum operator +(BigNum& lhs, const BigNum& rhs){
-  lhs += rhs;
-  return lhs;
-}
-
-inline BigNum operator -(BigNum& lhs, const BigNum& rhs){
-  lhs -= rhs;
-  return lhs;
-}
-inline BigNum operator *(BigNum& lhs, const BigNum& rhs){
-  lhs *= rhs;
-  return lhs;
+inline BigNum operator+(const BigNum& lhs, const BigNum& rhs){
+  BigNum sum = lhs;
+  sum += rhs;
+  return sum;
 }
 
-inline BigNum operator *(BigNum& lhs, const int& rhs){
-  lhs *= rhs;
-  return lhs;
+inline BigNum operator-(const BigNum& lhs, const BigNum& rhs){
+  BigNum sub = lhs;
+  sub -= rhs;
+  return sub;
 }
 
-inline BigNum operator /(BigNum& lhs, const int& rhs){
-  lhs *= rhs;
-  return lhs;
-}
-inline BigNum operator /(BigNum& lhs, const BigNum& rhs){
-  lhs *= rhs;
-  return lhs;
+inline BigNum operator*(const BigNum& lhs, const BigNum& rhs){
+  BigNum mul = lhs;
+  mul *= rhs;
+  return mul;
 }
 
-inline bool CompareBignums(BigNum& lhs, const BigNum& rhs){
+
+inline BigNum operator/(const BigNum& lhs, const int& rhs){
+  BigNum div = lhs;
+  div *= rhs;
+  return div;
+}
+
+inline BigNum operator/(const BigNum& lhs, const BigNum& rhs){
+  BigNum div = lhs;
+  div *= rhs;
+  return div;
+}
+
+inline bool CompareBignums(BigNum lhs, BigNum rhs){
   double comparison_offset = 0.0000001;
-  BigNum diff = lhs - rhs;
+  BigNum diff = lhs;
+  diff -= rhs;
   return (std::abs(diff.get_value()) < comparison_offset);
 }
 

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <vector>
 #include <assert.h>
+//#include <boost/algorithm/string.hpp>
 
 #include "../../include/class/BigNum.h"
 
@@ -57,36 +58,43 @@ std::ostream& operator<<(std::ostream& os, const BigNum& num){
 
 BigNum& BigNum::operator=(const BigNum& rhs){
   _num_value = rhs.get_value();
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator+=(const BigNum& rhs){
   _num_value += rhs.get_value();
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator-=(const BigNum& rhs){
   _num_value -= rhs.get_value();
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator*=(const BigNum& rhs){
   _num_value *= rhs.get_value();
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator*=(const int& rhs){
   _num_value *= rhs;
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator/=(const BigNum& rhs){
   _num_value /= rhs.get_value();
+  factorize();
   return *this;
 }
 
 BigNum& BigNum::operator/=(const int& rhs){
   _num_value /= rhs;
+  factorize();
   return *this;
 }
 
@@ -148,8 +156,9 @@ std::string BigNum::to_string() const{
 
 
 
-  return final_string;
+   return final_string;
 
+   //  return std::to_string(_num_value);
 }
 /**
  * Form a displayable string properly formatted

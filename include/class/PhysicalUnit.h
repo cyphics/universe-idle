@@ -41,14 +41,16 @@ inline bool operator> (const PhysicalUnit& lhs, const PhysicalUnit& rhs){return 
 inline bool operator<=(const PhysicalUnit& lhs, const PhysicalUnit& rhs){return !operator> (lhs,rhs);}
 inline bool operator>=(const PhysicalUnit& lhs, const PhysicalUnit& rhs){return !operator< (lhs,rhs);}
 
-inline PhysicalUnit operator-(PhysicalUnit lhs, const PhysicalUnit& rhs){
-  lhs -= rhs;
-  return  lhs;
+inline PhysicalUnit operator-(const PhysicalUnit& lhs, const PhysicalUnit& rhs){
+  PhysicalUnit temp = lhs;
+  temp -= rhs;
+  return  temp;
 }
 
-inline PhysicalUnit operator+(PhysicalUnit lhs, const PhysicalUnit& rhs){
-  lhs += rhs;
-  return  lhs;
+inline PhysicalUnit operator+(const PhysicalUnit& lhs, const PhysicalUnit& rhs){
+  PhysicalUnit temp = lhs;
+  temp += rhs;
+  return  temp;
 }
 
 #endif // PHYSICALUNIT_H

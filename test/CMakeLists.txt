@@ -8,7 +8,7 @@ set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
 
 #Inclusion de la bibliothèque Hello
-include_directories(../include)
+include_directories(../../include)
 link_directories(${CMAKE_SOURCE_DIR}/../lib/)
 
 #Add Catch lib
