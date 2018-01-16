@@ -79,7 +79,6 @@ std::string Price::to_string() const{
     //output += " :";
     output += resourceAmount._amount.to_string() + " ";
     output += global::resource_name(resourceAmount._resource_ID);
-    output += "\n";
   }
 
 

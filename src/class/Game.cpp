@@ -11,6 +11,7 @@
 #include "../../include/class/Speed.h"
 #include "../../include/helpers/resources_helper.h"
 #include "../../include/helpers/Initiate.h"
+#include "../../include/helpers/game_global_variables.h"
 
 Game::Game()
     :_stock_of_resources(Init::initiate_resources_list()),
@@ -21,7 +22,7 @@ Game::Game()
   _resources_manager.init_manager(_stock_of_resources, &_upgrades_manager);
   _upgrades_manager.init_manager(_list_of_upgrades, &_resources_manager);
 
-  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(100));
+  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
 
   std::cout << "Game instance created!"  << "\n";
 }
@@ -69,6 +70,7 @@ void Game::wait(Time time){
   /**
    * Postpone game state to given time
    */
+  //  std::cout << "Waiting " << time.get_numerical_value()  << "\n";
   _game_state.increase_time(time);
 
   _resources_manager.gather_resources(time);
@@ -80,8 +82,9 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
      If not, do nothing
    */
   if (_upgrades_manager.is_affordable(upgrade, amount)) {
-
+    std::cout << "Buy upgrade " << global::upgrade_name(upgrade) << "\n";
     _upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
+    //std::cout << "Remaining resource: " << _resources_manager.get_resource_amount(Resource_ID::cinetic_energy)  << "\n";
 
   }
   else{

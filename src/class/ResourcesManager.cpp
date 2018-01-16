@@ -47,7 +47,6 @@ void ResourcesManager::gather_resources(Time elapsed_time){
    */
 
   // Gather resources one by one
-
   for (auto resource : _stock_of_resources.get_list_of_resources()){
     BigNum resource_per_second = computation::get_resource_per_second(resource.get_ID(), _upgrades_manager);
     BigNum new_amount = BigNum(resource_per_second * elapsed_time.get_numerical_value());
@@ -87,13 +86,15 @@ Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, B
  */
 
   Time time(0);
-  BigNum resource_per_second = get_real_resource(resource_id).get_amount_per_second(_upgrades_manager);
+
   BigNum current_amount = get_real_resource(resource_id).get_current_amount();
 
   BigNum needed_amount = required_amount - current_amount;
 
   // Compute
   if (needed_amount > 0){
+    BigNum resource_per_second = computation::get_resource_per_second(resource_id, _upgrades_manager);
+
     time = Time(needed_amount/resource_per_second);
   }
 

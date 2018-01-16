@@ -29,4 +29,7 @@ Time& Time::operator-=(const Time& rhs){
   return *this;
 }
 
-Time& Time::operator=(const Time& rhs){}
+Time& Time::operator=(const Time& rhs){
+  _numerical_value = rhs.get_numerical_value();
+  return *this;
+}

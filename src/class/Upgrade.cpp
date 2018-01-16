@@ -20,7 +20,7 @@ Upgrade::Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cos
     _initial_cost.add_resource(cost.resource, cost.initial_cost);
   }
 
-  _current_cost = _initial_cost;
+  //_cost_last_level = _initial_cost;
 
   // Set _required_resources
   for (auto cost_elem: _cost_table) {
@@ -30,30 +30,36 @@ Upgrade::Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cos
 
 Upgrade::~Upgrade(){}
 
-Price Upgrade::get_cost_given_level(int additional_levels) const{
+
+
+Price Upgrade::get_cost_increase_level(int additional_levels) const{
   /**
    * Get cost to buy <number_levels> new levels
-     Return BigNum
+     Return Price
    */
   assert(additional_levels > 0);
+
+  if (_current_level == 0) {
+    return _initial_cost;
+  }
 
   Price price;
 
   // Go through all required resources
   for (auto resource_id : _required_resources) {
-    // Get required amount
+    BigNum required_amount = _cost_last_level.get_resource_amount(resource_id); // Set at cost for last level first
 
-    BigNum required_amount = _current_cost.get_resource_amount(resource_id); // Set at current amount first
-    for (int i = 0; i < additional_levels; ++i) {
-      required_amount *= _increase_factor; // Increase it by factor, <level> times
+    for (int i = 0; i < additional_levels; i++) {
+      required_amount *= _increase_factor;
     }
 
     price.add_resource(resource_id, required_amount); // Store it in Price object
 
   }
-
   return price;
 }
+
+
 
 int Upgrade::get_current_level() const{
   return _current_level;
@@ -63,7 +69,7 @@ void Upgrade::increase_level(int number_new_levels){
   /**
    * Increase current level with <number_levels>
    */
-
+  _cost_last_level = get_cost_increase_level(number_new_levels);
   _current_level += number_new_levels;
 }
 
