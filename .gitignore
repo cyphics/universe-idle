@@ -39,6 +39,7 @@ build/*
 bin/
 doc/
 test/build/*
+debug/
 GTAGS
 GRTAGS
 GPATH

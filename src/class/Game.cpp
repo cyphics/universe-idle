@@ -21,6 +21,8 @@ Game::Game()
   _resources_manager.init_manager(_stock_of_resources, &_upgrades_manager);
   _upgrades_manager.init_manager(_list_of_upgrades, &_resources_manager);
 
+  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(100));
+
   std::cout << "Game instance created!"  << "\n";
 }
 
@@ -79,12 +81,8 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount){
    */
   if (_upgrades_manager.is_affordable(upgrade, amount)) {
 
-    //std::cout << "Buy upgrade " + _list_of_upgrades.get_upgrade_name(upgrade);
-    //std::cout << " at cost:\n " << _list_of_upgrades.get_price_increase_level(upgrade, amount).to_string(&_resources_manager)  << "\n";
-
     _upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
 
-    std::cout << _list_of_upgrades.get_upgrade_level(Upgrade_ID::small_boost)  << "\n";
   }
   else{
     std::cout << "Upgrade " << _upgrades_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";

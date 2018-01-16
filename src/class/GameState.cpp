@@ -47,10 +47,7 @@ void GameState::increase_acceleration(Acceleration acceleration){
 }
 
 void GameState::increase_time(Time time){
-  std::cout << "Increase time by " << time.get_numerical_value()  << "\n";
   _current_time += time;
-
-  std::cout << "Time is now " << _current_time.get_numerical_value()  << "\n";
 }
 
 

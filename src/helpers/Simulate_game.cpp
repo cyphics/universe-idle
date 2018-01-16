@@ -22,7 +22,6 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
   bool loop = true;
   Time time_to_wait(0);
   while (loop) {
-    std::cout << "LOOP"  << "\n";
     if (game.state().get_time() > duration)
       loop = false;
     else{
@@ -48,7 +47,6 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
         // Or we wait and buy
         else {
           game.wait(Time(10));
-          std::cout << "Game time: " << game.state().get_time().get_numerical_value()  << "\n";
           game.buy_upgrade(upgrade_to_buy, 1);
         }
       }
