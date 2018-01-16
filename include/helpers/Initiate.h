@@ -20,6 +20,7 @@ UpgradesManager& initiate_ugprades_manager(UpgradesList&, ResourcesList&);
 ResourcesManager& initiate_resources_manager(UpgradesList&, ResourcesList&);
 UpgradesList initiate_upgrades_list();
 ResourcesList initiate_resources_list();
+
 }
 
 

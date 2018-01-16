@@ -12,8 +12,12 @@
 
 #include <vector>
 #include "BoughtUpgrade.h"
-#include "Price.h"
-#include "Time.h"
+//#include "Price.h"
+//#include "Time.h"
+
+//class BoughtUpgrade;
+class Price;
+class Time;
 
 class History{
  private:

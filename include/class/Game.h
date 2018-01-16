@@ -11,11 +11,15 @@
 #define GAME_H 1
 
 #include <vector>
-#include "BigNum.h"
+#include <map>
+
+//#include "BigNum.h"
 #include "GameState.h"
 #include "UpgradesManager.h"
 #include "ResourcesManager.h"
-#include "Distance.h"
+//#include "Distance.h"
+
+class Distance;
 
 class Game{
  private:

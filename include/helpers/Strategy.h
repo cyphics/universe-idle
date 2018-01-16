@@ -10,8 +10,8 @@
 #define STRATEGY_H 1
 
 #include <iostream>
-#include "../class/UpgradesList.h"
 #include "../class/GameState.h"
+#include "../helpers/upgrades_helper.h"
 
 enum class Strategy_ID { broken, cheapest, expensive };
 

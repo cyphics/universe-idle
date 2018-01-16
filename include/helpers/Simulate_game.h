@@ -10,8 +10,10 @@
 #ifndef SIMULATE_GAME_H
 #define SIMULATE_GAME_H 1
 
-#include "../class/Game.h"
+//#include "../class/Game.h"
 #include "Strategy.h"
+
+class Game;
 
 /**
  * Runs a game with a given strategy, for a certain duration.

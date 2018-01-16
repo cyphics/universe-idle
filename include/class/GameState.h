@@ -10,7 +10,7 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H 1
 
-#include "BigNum.h"
+//#include "BigNum.h"
 #include "Time.h"
 #include "Speed.h"
 #include "Distance.h"

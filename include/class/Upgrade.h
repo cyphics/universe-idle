@@ -11,10 +11,10 @@
 #define UPGRADE_H 1
 
 #include <vector>
-#include "BigNum.h"
 #include "Price.h"
 #include "../helpers/resources_helper.h"
 #include "../helpers/upgrades_helper.h"
+
 
 class Upgrade{
  private:

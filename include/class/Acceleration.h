@@ -10,9 +10,11 @@
 #define ACCELERATION_H 1
 
 #include "PhysicalUnit.h"
-#include "BigNum.h"
-#include "Speed.h"
-#include "Time.h"
+//#include "BigNum.h"
+//#include "Speed.h"
+//#include "Time.h"
+
+class BigNum;
 
 class Acceleration : public PhysicalUnit{
 

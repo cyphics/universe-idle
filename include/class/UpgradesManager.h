@@ -11,11 +11,13 @@
 #define UPGRADESMANAGER_H 1
 
 #include "UpgradesList.h"
-#include "ResourcesManager.h"
+//#include "ResourcesManager.h"
 #include "History.h"
-#include "Time.h"
+//#include "Time.h"
 #include "../helpers/upgrades_helper.h"
 
+class ResourcesManager;
+class Time;
 
 class UpgradesManager{
   /**

@@ -10,9 +10,12 @@
 #define SPEED_CLASS_H 1
 
 #include "PhysicalUnit.h"
-#include "BigNum.h"
-#include "Distance.h"
-#include "Time.h"
+//#include "BigNum.h"
+//#include "Distance.h"
+//#include "Time.h"
+
+class BigNum;
+
 
 class Speed : public PhysicalUnit{
  public:

@@ -12,8 +12,10 @@
 //#include "Speed.h"
 
 #include "PhysicalUnit.h"
-#include "BigNum.h"
-#include "Time.h"
+//#include "BigNum.h"
+//#include "Time.h"
+
+class BigNum;
 
 class Distance: public PhysicalUnit{
 

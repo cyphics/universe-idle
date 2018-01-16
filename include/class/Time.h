@@ -10,7 +10,9 @@
 #define TIME_H 1
 
 #include "PhysicalUnit.h"
-#include "BigNum.h"
+//#include "BigNum.h"
+
+class BigNum;
 
 class Time : public PhysicalUnit{
  public:

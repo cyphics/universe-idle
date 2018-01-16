@@ -9,13 +9,15 @@
 #ifndef RESOURCESMANAGER_H
 #define RESOURCESMANAGER_H 1
 
-#include "Time.h"
+//#include "Time.h"
 #include "ResourcesList.h"
-#include "UpgradesManager.h"
-#include "Price.h"
+//#include "UpgradesManager.h"
+//#include "Price.h"
 #include "../helpers/resources_helper.h"
 
 class UpgradesManager;
+class Time;
+class Price;
 
 class ResourcesManager{
   /**
