@@ -99,8 +99,6 @@ BigNum& BigNum::operator/=(const int& rhs){
 }
 
 
-
-
 /**
  * Transforms _num_value into pair(x, e) so that _num_value = x*10^e
  */
@@ -134,7 +132,6 @@ std::string arr[] = {"atto", "femto", "pico", "nano", "micro", "milli", "", "k",
 
 const std::vector<std::string> BigNum::_scales(arr, arr + sizeof(arr)/sizeof(std::string));
 
-
 std::string BigNum::to_string() const{
   std::string final_string = "";
   std::stringstream stream;
@@ -153,17 +150,14 @@ std::string BigNum::to_string() const{
     final_string += std::to_string(get_exponant());
   }
 
-
-
-
    return final_string;
-
-   //  return std::to_string(_num_value);
 }
-/**
- * Form a displayable string properly formatted
- */
+
 std::string BigNum::to_string_human() const{
+  /**
+   * Form a displayable string properly formatted
+   */
+
   // Check tests
   assert (this->_factorized_form.second % 3 == 0);
 

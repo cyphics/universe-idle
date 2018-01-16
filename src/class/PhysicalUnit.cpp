@@ -50,6 +50,6 @@ std::string PhysicalUnit::to_string() const{
   return _numerical_value.to_string();
 }
 
-std::ostream& operator<<(std::ostream& os, const PhysicalUnit& num){
-  return os <<  num.to_string();
-}
+// std::ostream& operator<<(std::ostream& os, const PhysicalUnit& num){
+//   return os <<  num.to_string();
+// }

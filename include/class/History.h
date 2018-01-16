@@ -28,7 +28,7 @@ class History{
   ~History();
 
   void add_upgrade(Upgrade_ID new_upgrade, Price price, Time time_when_bought);
-  std::string to_string(const ResourcesManager*) const;
+  std::string to_string() const;
 };
 
 #endif // HISTORY_H

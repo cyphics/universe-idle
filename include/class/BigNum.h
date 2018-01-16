@@ -1,5 +1,4 @@
-// -*- compile-command: "./../compile.sh"; -*-
-// libbignum.h
+// BigNum.h
 //
 // last-edit-by: <cyphix>
 //
@@ -49,6 +48,8 @@ class BigNum
   BigNum& operator*=(const int& rhs);
   BigNum& operator/=(const BigNum& rhs);
   BigNum& operator/=(const int& rhs);
+
+  //friend std::ostream& operator<<(std::ostream& os, const BigNum& num);
 
 };
 

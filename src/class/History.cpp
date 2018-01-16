@@ -6,9 +6,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <vector>
-#include <algorithm>
+//#include <vector>
+//#include <algorithm>
 #include "../../include/class/History.h"
+#include "../../include/helpers/game_global_variables.h"
 
 History::History(){
 
@@ -17,17 +18,18 @@ History::History(){
 History::~History(){}
 
 
-std::string History::to_string(const ResourcesManager* resources_manager) const{
+std::string History::to_string() const{
   /**
    * Formats the history into a printable string
    */
 
+
   std::string history_output = "Game history :\n";
 
   for (auto purchase : _history) {
-    history_output += purchase.to_string(resources_manager);
+    // purchase is of type BoughtUpgrade
+    history_output += purchase.to_string();
   }
-
   return history_output;
 }
 

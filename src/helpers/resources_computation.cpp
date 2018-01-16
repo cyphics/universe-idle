@@ -7,7 +7,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/helpers/resources_computation.h"
-
+#include "../../include/class/Time.h"
+#include "../../include/class/UpgradesList.h"
 
 BigNum compute_cinetic_energy(Time elapsed_time, const UpgradesList& list_of_upgrades){
   int small_boost_level = list_of_upgrades.get_upgrade_level(Upgrade_ID::small_boost);

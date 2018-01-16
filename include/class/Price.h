@@ -30,7 +30,7 @@ class Price{
 
   const std::vector<ResourceAmount>& get_resources_to_pay() const;
 
-  std::string to_string(const ResourcesManager*) const;
+  std::string to_string() const;
 };
 
 
