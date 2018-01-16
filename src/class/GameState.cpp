@@ -12,7 +12,6 @@
 GameState::GameState()
     :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
 {
-  std::cout << "Create game state" << "\n";
 }
 
 GameState::~GameState(){}
@@ -34,16 +33,16 @@ Time GameState::get_time() const{
 }
 
 // Setters
-void GameState::add_distance(Distance distance){
-  _traveled_distance += distance;
+void GameState::set_distance(Distance distance){
+  _traveled_distance = distance;
 }
 
-void GameState::add_speed(Speed speed){
-  _current_speed += speed;
+void GameState::set_speed(Speed speed){
+  _current_speed = speed;
 }
 
-void GameState::increase_acceleration(Acceleration acceleration){
-  _current_acceleration += acceleration;
+void GameState::set_acceleration(Acceleration acceleration){
+  _current_acceleration = acceleration;
 }
 
 void GameState::increase_time(Time time){

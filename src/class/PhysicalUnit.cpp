@@ -18,7 +18,7 @@ PhysicalUnit::PhysicalUnit(BigNum numerical_value)
 
 PhysicalUnit::~PhysicalUnit(){}
 
-const BigNum& PhysicalUnit::get_numerical_value() const{
+const BigNum& PhysicalUnit::num() const{
   return _numerical_value;
 }
 
@@ -28,17 +28,17 @@ const BigNum& PhysicalUnit::get_numerical_value() const{
 
 
 PhysicalUnit& PhysicalUnit::operator=(const PhysicalUnit& rhs){
-  _numerical_value = rhs.get_numerical_value();
+  _numerical_value = rhs.num();
   return *this;
 }
 
 PhysicalUnit& PhysicalUnit::operator+=(const PhysicalUnit& rhs){
-  _numerical_value += rhs.get_numerical_value();
+  _numerical_value += rhs.num();
   return *this;
 }
 
 PhysicalUnit& PhysicalUnit::operator-=(const PhysicalUnit& rhs){
-  _numerical_value -= rhs.get_numerical_value();
+  _numerical_value -= rhs.num();
   return *this;
 }
 

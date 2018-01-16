@@ -10,7 +10,6 @@
 #include "../../include/class/UpgradesList.h"
 
 UpgradesList::UpgradesList(){
-  std::cout << "Create Upgrades List..."  << "\n";
 }
 
 UpgradesList::~UpgradesList(){}

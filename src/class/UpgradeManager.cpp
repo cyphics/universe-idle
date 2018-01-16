@@ -14,7 +14,6 @@
 #include "../../include/class/ResourcesManager.h"
 
 UpgradesManager::UpgradesManager(){
-  std::cout << "Create Upgrade Manager"  << "\n";
 }
 
 UpgradesManager::UpgradesManager(const UpgradesManager& original)

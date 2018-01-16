@@ -29,6 +29,7 @@ std::string History::to_string() const{
   for (auto purchase : _history) {
     // purchase is of type BoughtUpgrade
     history_output += purchase.to_string();
+    history_output += "\n";
   }
   return history_output;
 }

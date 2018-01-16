@@ -26,9 +26,9 @@ class Time : public PhysicalUnit{
 
 };
 
-inline bool operator==(const Time& lhs, const Time& rhs){ return lhs.get_numerical_value() == rhs.get_numerical_value(); }
+inline bool operator==(const Time& lhs, const Time& rhs){ return lhs.num() == rhs.num(); }
 inline bool operator!=(const Time& lhs, const Time& rhs){return !operator==(lhs,rhs);}
-inline bool operator< (const Time& lhs, const Time& rhs){ return lhs.get_numerical_value() < rhs.get_numerical_value(); }
+inline bool operator< (const Time& lhs, const Time& rhs){ return lhs.num() < rhs.num(); }
 inline bool operator> (const Time& lhs, const Time& rhs){return  operator< (rhs,lhs);}
 inline bool operator<=(const Time& lhs, const Time& rhs){return !operator> (lhs,rhs);}
 inline bool operator>=(const Time& lhs, const Time& rhs){return !operator< (lhs,rhs);}

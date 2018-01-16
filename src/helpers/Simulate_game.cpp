@@ -38,13 +38,8 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
       }
         // Or we wait and buy
       else {
-        std::cout << ""  << "\n";
-        std::cout << "Next price: " << game.manage_upgrades()->get_list_of_upgrades().get_price_increase_level(upgrade_to_buy, 1).to_string()  << "\n";
-        std::cout << "Current amount: " << game.manage_resources()->get_resource_amount(Resource_ID::cinetic_energy)  << "\n";
-        std::cout << "Waiting " << time_to_wait.to_string()  << "\n";
         game.wait(Time(time_to_wait + Time(1))); // Add Time(1) to avoid errors due to bad comparison
 
-        std::cout << "New amount: " << game.manage_resources()->get_resource_amount(Resource_ID::cinetic_energy)  << "\n";
 
         game.buy_upgrade(upgrade_to_buy, 1);
       }

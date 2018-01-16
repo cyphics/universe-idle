@@ -12,11 +12,11 @@ Speed::Speed(BigNum num_value)
 {}
 
 // Speed::Speed(const Distance& distance, const Time& time)
-//     : PhysicalUnit(distance.get_numerical_value() * time.get_numerical_value())
+//     : PhysicalUnit(distance.num() * time.num())
 // {}
 
 Speed::Speed(const Speed& speed)
-    : PhysicalUnit(speed.get_numerical_value())
+    : PhysicalUnit(speed.num())
 {}
 
 Speed::~Speed(){}

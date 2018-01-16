@@ -33,9 +33,9 @@ class GameState{
   Time get_time() const;
 
   // Setters
-  void add_distance(Distance distance);
-  void add_speed(Speed speed);
-  void increase_acceleration(Acceleration acceleration);
+  void set_distance(Distance distance);
+  void set_speed(Speed speed);
+  void set_acceleration(Acceleration acceleration);
   void increase_time(Time time);
 };
 

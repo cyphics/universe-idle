@@ -43,10 +43,12 @@ class Game{
 
   // Getters
   const GameState& state() const;
+  GameState& state();
   const UpgradesManager* manage_upgrades() const;
   const ResourcesManager* manage_resources() const;
 
   // Misc
+  void update_state();
   void wait(Time time);
   bool is_affordable(Upgrade_ID upgrade, int amount);
   void buy_upgrade(Upgrade_ID upgrade, int amount);

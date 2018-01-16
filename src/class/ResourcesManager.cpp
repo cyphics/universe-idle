@@ -10,14 +10,13 @@
 #include "../../include/class/ResourcesManager.h"
 #include "../../include/class/UpgradesManager.h"
 #include "../../include/helpers/resources_helper.h"
-#include "../../include/helpers/resources_computation.h"
+#include "../../include/helpers/computations.h"
 
 ResourcesManager::ResourcesManager(){
   /**
    * Empty default constructor (necessarily empty to allow circular definition)
    */
-  std::cout << "Create resource manager"  << "\n";
-}
+ }
 
 ResourcesManager::ResourcesManager(const ResourcesManager& original)
     :_stock_of_resources(original._stock_of_resources),_upgrades_manager(original._upgrades_manager)
@@ -49,7 +48,7 @@ void ResourcesManager::gather_resources(Time elapsed_time){
   // Gather resources one by one
   for (auto resource : _stock_of_resources.get_list_of_resources()){
     BigNum resource_per_second = computation::get_resource_per_second(resource.get_ID(), _upgrades_manager);
-    BigNum new_amount = BigNum(resource_per_second * elapsed_time.get_numerical_value());
+    BigNum new_amount = BigNum(resource_per_second * elapsed_time.num());
 
     add_resource_amount(resource.get_ID(), new_amount);
   }

@@ -8,7 +8,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/class/Resource.h"
-#include "../../include/helpers/resources_computation.h"
+#include "../../include/helpers/computations.h"
 #include "../../include/helpers/game_global_variables.h"
 
 
