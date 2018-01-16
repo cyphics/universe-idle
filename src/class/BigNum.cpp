@@ -115,9 +115,11 @@ void BigNum::factorize(){
   }
 
   //if mantissa is too small
-  while (mantissa < 0) {
-    mantissa *= 10;
-    exposant--;
+  if (mantissa != 0) {
+    while (abs(mantissa) < 1) {
+      mantissa *= 10;
+      exposant--;
+    }
   }
 
   while (exposant %3 != 0) {
