@@ -48,6 +48,7 @@ class ResourcesManager{
   BigNum get_resource_amount(Resource_ID) const;
   std::string get_resource_name(Resource_ID) const;
 
+  void add_resource_amount(Resource_ID, BigNum amount);
 
   ResourcesManager& operator=(ResourcesManager&);
 

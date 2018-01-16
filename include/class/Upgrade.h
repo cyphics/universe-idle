@@ -30,7 +30,7 @@ class Upgrade{
   void compute_cost_next_level();
 
  public:
-  Upgrade(Upgrade_ID upgrade_id, std::string name, std::vector<UpgradeCostTableElement> cost_table, double increase_factor);
+  Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cost_table, double increase_factor);
   ~Upgrade();
   Price get_cost_given_level(int level) const;
   int get_current_level() const;

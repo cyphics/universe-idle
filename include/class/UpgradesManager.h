@@ -1,4 +1,3 @@
-// -*- compile-command: "./compile.sh"; -*-
 // PurchaseManager.h
 //
 // last-edit-by: <>
@@ -45,8 +44,10 @@ class UpgradesManager{
   std::string get_upgrade_name(Upgrade_ID) const;
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   const UpgradesList& get_list_of_upgrades() const;
+  int get_upgrade_level(Upgrade_ID) const;
 
   void buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought);
+
 };
 
 

@@ -10,18 +10,22 @@
 #include <math.h>
 #include <assert.h>
 #include "../../include/class/Upgrade.h"
+#include "../../include/helpers/game_global_variables.h"
 
 Upgrade::Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cost_table, double increase_factor)
     : _upgrade_id(upgrade_id), _cost_table(cost_table), _increase_factor(increase_factor)
 {
   // Set _initial_cost
-  // _initial_cost = get_cost_given_level(1);
-  // _current_cost = _initial_cost;
-  // // Set _required_resources
-  // for (auto cost_elem: _cost_table) {
-  //   _required_resources.push_back(cost_elem.resource);
-  // }
+  for (auto cost: cost_table) {
+    _initial_cost.add_resource(cost.resource, cost.initial_cost);
+  }
 
+  _current_cost = _initial_cost;
+
+  // Set _required_resources
+  for (auto cost_elem: _cost_table) {
+    _required_resources.push_back(cost_elem.resource);
+  }
 }
 
 Upgrade::~Upgrade(){}
@@ -34,18 +38,17 @@ Price Upgrade::get_cost_given_level(int additional_levels) const{
   assert(additional_levels > 0);
 
   Price price;
-  // Go through all required resources
-  // ERROR
 
+  // Go through all required resources
   for (auto resource_id : _required_resources) {
     // Get required amount
-    BigNum required_amout = _current_cost.get_resource_amount(resource_id); // Set at current amount first
 
+    BigNum required_amount = _current_cost.get_resource_amount(resource_id); // Set at current amount first
     for (int i = 0; i < additional_levels; ++i) {
-      required_amout *= _increase_factor; // Increase it by factor, <level> times
+      required_amount *= _increase_factor; // Increase it by factor, <level> times
     }
 
-    price.add_resource(resource_id, required_amout); // Store it in Price object
+    price.add_resource(resource_id, required_amount); // Store it in Price object
 
   }
 
@@ -81,7 +84,7 @@ const UpgradeCostTableElement& Upgrade::get_cost_table_element(Resource_ID queri
 }
 
 std::string Upgrade::get_name() const{
-  return _upgrade_name;
+  return global::upgrade_name(_upgrade_id);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

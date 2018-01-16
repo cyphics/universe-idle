@@ -30,7 +30,7 @@ class Resource{
   Resource_ID get_ID() const;
   std::string get_name() const;
   bool has_id(Resource_ID) const;
-  BigNum get_amount_per_second() const;
+  BigNum get_amount_per_second(const UpgradesManager* upgrades_manager) const;
 
   void set_current_amount(BigNum new_amount);
   void add_resource_amount(BigNum amount);

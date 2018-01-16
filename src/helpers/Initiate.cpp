@@ -15,7 +15,7 @@ UpgradesList Init::initiate_upgrades_list(){
 
   // SMALL BOOST
 
-  // Build cost table
+  // Build cost table elements
   UpgradeCostTableElement small_boost_cinetic_energy;
   small_boost_cinetic_energy.resource = Resource_ID::cinetic_energy;
   small_boost_cinetic_energy.initial_cost = 10;

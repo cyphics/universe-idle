@@ -6,6 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+
 #include "../../include/class/ResourcesManager.h"
 #include "../../include/class/UpgradesManager.h"
 #include "../../include/helpers/resources_helper.h"
@@ -46,22 +47,12 @@ void ResourcesManager::gather_resources(Time elapsed_time){
    */
 
   // Gather resources one by one
-  BigNum new_amount(0);
 
   for (auto resource : _stock_of_resources.get_list_of_resources()){
-    switch (resource.get_ID()) {
-      case Resource_ID::cinetic_energy: {
-        new_amount = compute_cinetic_energy(elapsed_time, _upgrades_manager->get_list_of_upgrades());
-        break;
-      }
-      case Resource_ID::dark_matter: {
-        new_amount = compute_dark_matter(elapsed_time, _upgrades_manager->get_list_of_upgrades());
-        break;
-      }
-      default:
-        break;
-    }
-    resource.add_resource_amount(new_amount);
+    BigNum resource_per_second = computation::get_resource_per_second(resource.get_ID(), _upgrades_manager);
+    BigNum new_amount = BigNum(resource_per_second * elapsed_time.get_numerical_value());
+
+    add_resource_amount(resource.get_ID(), new_amount);
   }
 }
 
@@ -96,9 +87,9 @@ Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, B
  */
 
   Time time(0);
-
-  BigNum resource_per_second = get_real_resource(resource_id).get_amount_per_second();
+  BigNum resource_per_second = get_real_resource(resource_id).get_amount_per_second(_upgrades_manager);
   BigNum current_amount = get_real_resource(resource_id).get_current_amount();
+
   BigNum needed_amount = required_amount - current_amount;
 
   // Compute
@@ -152,6 +143,10 @@ void ResourcesManager::pay_price(Price price){
     BigNum amount_to_pay = price.get_resource_amount(resource_id);
     get_real_resource(resource_id).substract_resource_amount(amount_to_pay);
   }
+}
+
+void ResourcesManager::add_resource_amount(Resource_ID resource_id, BigNum amount){
+  get_real_resource(resource_id).add_resource_amount(amount);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

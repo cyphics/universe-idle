@@ -67,8 +67,8 @@ Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amo
    */
 
   // For now, only returns price for next level...
-  Price price = _list_of_upgrades.get_price_increase_level(upgrade, 1);
 
+  Price price = _list_of_upgrades.get_price_increase_level(upgrade, 1);
   return _resources_manager->get_time_until_in_stock(price);
 }
 
@@ -86,4 +86,8 @@ const UpgradesList& UpgradesManager::get_list_of_upgrades() const{
    */
 
   return _list_of_upgrades;
+}
+
+int UpgradesManager::get_upgrade_level(Upgrade_ID upgrade_id) const{
+  return get_list_of_upgrades().get_upgrade_level(upgrade_id);
 }
