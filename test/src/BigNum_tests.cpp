@@ -93,8 +93,8 @@ TEST_CASE( "Initialization" ) {
   REQUIRE( BigNum(1234567890, 0) == BigNum(1.234567890, 9) );
   //REQUIRE( BigNum(1234567890, 0) == BigNum(1.234567890, 9) );
   //0.0000001
-  REQUIRE( !CompareBignums( BigNum(2.3923121),  BigNum(2.3923122) ));
-  REQUIRE( CompareBignums( BigNum(2.39231211),  BigNum(2.39231212) ));
+  // REQUIRE( !CompareBignums( BigNum(2.3923121),  BigNum(2.3923122) ));
+  // REQUIRE( CompareBignums( BigNum(2.39231211),  BigNum(2.39231212) ));
 
 }
 

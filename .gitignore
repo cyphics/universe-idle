@@ -31,11 +31,18 @@
 *.out
 *.app
 
+# Emacs temp files
+.#*
+
+
 build/*
 bin/
+doc/
 test/build/*
 GTAGS
 GRTAGS
 GPATH
 universe-idle.org
 .dir-locals.el
+Doxyfile
+output
