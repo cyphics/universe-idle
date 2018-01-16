@@ -200,3 +200,8 @@ TEST_CASE( "MULTIPLICATION" ){
   REQUIRE( a == BigNum(400));
   //REQUIRE( BigNum(2, 9) * 0 == BigNum(0, 0) );
 }
+
+TEST_CASE( "DIVISION" ){
+  REQUIRE( BigNum(2) / BigNum(2) == BigNum(1));
+  REQUIRE( BigNum(10) / BigNum(10) == BigNum(1));
+}

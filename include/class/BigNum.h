@@ -82,13 +82,13 @@ inline BigNum operator*(const BigNum& lhs, const BigNum& rhs){
 
 inline BigNum operator/(const BigNum& lhs, const int& rhs){
   BigNum div = lhs;
-  div *= rhs;
+  div /= rhs;
   return div;
 }
 
 inline BigNum operator/(const BigNum& lhs, const BigNum& rhs){
   BigNum div = lhs;
-  div *= rhs;
+  div /= rhs;
   return div;
 }
 
