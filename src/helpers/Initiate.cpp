@@ -26,7 +26,8 @@ UpgradesList Init::initiate_upgrades_list(){
 
 
   // Build object
-  Upgrade small_boost = Upgrade(Upgrade_ID::small_boost, "Small boost", cost_small_boost, small_boost_increase_factor);
+  Upgrade small_boost = Upgrade(Upgrade_ID::small_boost, cost_small_boost, small_boost_increase_factor);
+  std::cout << small_boost.get_current_level()  << "\n";
 
   std::vector<Upgrade> vector_of_upgrades = {small_boost};
 
@@ -37,8 +38,8 @@ UpgradesList Init::initiate_upgrades_list(){
 ResourcesList Init::initiate_resources_list(){
 
   // CINETIC ENERGY
-  Resource cinetic_energy = Resource(Resource_ID::cinetic_energy, "Cinetic energy");
-  Resource dark_matter = Resource(Resource_ID::dark_matter, "Dark matter");
+  Resource cinetic_energy = Resource(Resource_ID::cinetic_energy);
+  Resource dark_matter = Resource(Resource_ID::dark_matter);
 
   std::vector<Resource> vector_of_resources = {cinetic_energy, dark_matter};
   ResourcesList resources_list = ResourcesList(vector_of_resources);

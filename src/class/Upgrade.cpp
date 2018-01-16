@@ -11,8 +11,8 @@
 #include <assert.h>
 #include "../../include/class/Upgrade.h"
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, std::string upgrade_name, std::vector<UpgradeCostTableElement> cost_table, double increase_factor)
-    : _upgrade_id(upgrade_id), _upgrade_name(upgrade_name), _cost_table(cost_table), _increase_factor(increase_factor)
+Upgrade::Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cost_table, double increase_factor)
+    : _upgrade_id(upgrade_id), _cost_table(cost_table), _increase_factor(increase_factor)
 {
   // Set _initial_cost
   // _initial_cost = get_cost_given_level(1);

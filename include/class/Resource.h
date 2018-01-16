@@ -11,18 +11,18 @@
 #define RESOURCE_H 1
 
 #include "BigNum.h"
+#include "UpgradesManager.h"
 #include "../helpers/resources_helper.h"
 
 class Resource{
  private:
   Resource_ID _resource_id;
-  std::string _resource_name;
   BigNum _amount;
   BigNum _max_amount;
   BigNum _amount_per_second;
 
  public:
-  Resource(Resource_ID resource_id, std::string resource_name);
+  Resource(Resource_ID resource_id);
   ~Resource();
 
   // Getters

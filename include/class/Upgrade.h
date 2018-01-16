@@ -19,7 +19,6 @@
 class Upgrade{
  private:
   Upgrade_ID _upgrade_id;
-  std::string _upgrade_name;
   Price _initial_cost;
   Price _current_cost;
   std::vector<UpgradeCostTableElement> _cost_table;

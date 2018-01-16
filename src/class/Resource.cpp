@@ -9,8 +9,9 @@
 
 #include "../../include/class/Resource.h"
 
-Resource::Resource(Resource_ID resource_id, std::string resource_name)
-    :_resource_id(resource_id), _resource_name(resource_name)
+
+Resource::Resource(Resource_ID resource_id)
+    :_resource_id(resource_id)
 {}
 
 Resource::~Resource(){}
@@ -40,7 +41,7 @@ BigNum Resource::get_amount_per_second() const{
 }
 
 std::string Resource::get_name() const{
-  return _resource_name;
+  return global::resource_name(_resource_id);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$
