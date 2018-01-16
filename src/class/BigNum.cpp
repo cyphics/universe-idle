@@ -86,6 +86,12 @@ BigNum& BigNum::operator*=(const int& rhs){
   return *this;
 }
 
+BigNum& BigNum::operator*=(const double& rhs){
+  _num_value *= rhs;
+  factorize();
+  return *this;
+}
+
 BigNum& BigNum::operator/=(const BigNum& rhs){
   _num_value /= rhs.get_value();
   factorize();

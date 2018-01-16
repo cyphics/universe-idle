@@ -46,6 +46,7 @@ class BigNum
   BigNum& operator-=(const BigNum& rhs);
   BigNum& operator*=(const BigNum& rhs);
   BigNum& operator*=(const int& rhs);
+  BigNum& operator*=(const double& rhs);
   BigNum& operator/=(const BigNum& rhs);
   BigNum& operator/=(const int& rhs);
 
@@ -79,6 +80,17 @@ inline BigNum operator*(const BigNum& lhs, const BigNum& rhs){
   return mul;
 }
 
+inline BigNum operator*(const BigNum& lhs, const int& rhs ){
+  BigNum mul = lhs;
+  mul *= rhs;
+  return mul;
+}
+
+inline BigNum operator*(const BigNum& lhs, const double& rhs ){
+  BigNum mul = lhs;
+  mul *= rhs;
+  return mul;
+}
 
 inline BigNum operator/(const BigNum& lhs, const int& rhs){
   BigNum div = lhs;
@@ -91,6 +103,7 @@ inline BigNum operator/(const BigNum& lhs, const BigNum& rhs){
   div /= rhs;
   return div;
 }
+
 
 inline bool CompareBignums(BigNum lhs, BigNum rhs){
   double comparison_offset = 0.0000001;
