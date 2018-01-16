@@ -29,7 +29,7 @@ class BoughtUpgrade{
   BoughtUpgrade(Upgrade_ID related_upgrade, Time time_when_bought, Price price);
   ~BoughtUpgrade();
 
-  std::string to_string(const ResourcesManager*) const;
+  std::string to_string() const;
 
 };
 
