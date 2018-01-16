@@ -57,10 +57,10 @@ Speed Game::compute_new_speed(Time time) const{
    * Compute speed
    */
 
-  // WRONG CALCULATION!!
-  BigNum acceleration = state().get_acceleration().get_numerical_value();
-  Speed speed = Speed(acceleration * time.get_numerical_value());
-  return speed;
+  // final_speed = (acceleration * time) + initial_speed
+  Speed new_speed = (state().get_acceleration().num() * time.num()) + state().get_speed().num();
+
+  return new_speed;
 
 }
 
@@ -69,7 +69,12 @@ Distance Game::compute_new_distance(Time time) const{
    * Return the distance traveled at current speed, during given time
    */
 
-  //return Distance(time, state().get_speed());
+
+
+// dist = init_speed * time + 1/2 acceleration * time^2
+  Distance new_dist = state().get_speed().num() * time.num() + 0.5 * state().get_acceleration().num() * time.num() * time.num();
+
+  return new_dist;
 }
 
 
@@ -78,7 +83,8 @@ void Game::wait(Time time){
    * Postpone game state to given time
    */
   _game_state.increase_time(time);
-
+  state().set_speed(compute_new_speed(time));
+  state().set_distance(compute_new_distance(time));
   _resources_manager.gather_resources(time);
 }
 
@@ -112,6 +118,10 @@ const ResourcesManager* Game::manage_resources() const{
   return &_resources_manager;
 }
 
+void Game::update_state(){
+  state().set_acceleration(computation::get_current_acceleration(&_upgrades_manager));
+
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
