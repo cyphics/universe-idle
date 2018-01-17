@@ -43,7 +43,6 @@ debug/
 GTAGS
 GRTAGS
 GPATH
-universe-idle.org
 .dir-locals.el
 Doxyfile
 output
