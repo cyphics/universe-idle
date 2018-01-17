@@ -12,7 +12,8 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/class/Game.h"
 
-void run_simulator(Time duration, Strategy_ID strategy){
+void run_simulator(Time duration, Strategy_ID strategy)
+{
 
   // Run simulation
   std::cout << "Start simulation..."  << "\n";

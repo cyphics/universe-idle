@@ -18,31 +18,38 @@ Resource::Resource(Resource_ID resource_id)
 
 Resource::~Resource(){}
 
-BigNum Resource::get_current_amount() const{
+BigNum Resource::get_current_amount() const
+{
   return _amount;
 }
 
-bool Resource::has_id(Resource_ID resource_id) const{
+bool Resource::has_id(Resource_ID resource_id) const
+{
   return resource_id == _resource_id;
 }
 
-Resource_ID Resource::get_ID() const{
+Resource_ID Resource::get_ID() const
+{
   return _resource_id;
 }
 
-void Resource::add_resource_amount(BigNum amount){
+void Resource::add_resource_amount(BigNum amount)
+{
   _amount +=  amount;
 }
 
-void Resource::substract_resource_amount(BigNum amount){
+void Resource::substract_resource_amount(BigNum amount)
+{
   _amount -=  amount;
 }
 
-BigNum Resource::get_amount_per_second(const UpgradesManager* upgradesManager) const{
+BigNum Resource::get_amount_per_second(const UpgradesManager* upgradesManager) const
+{
   return computation::get_resource_per_second(_resource_id, upgradesManager);
 }
 
-std::string Resource::get_name() const{
+std::string Resource::get_name() const
+{
   return global::resource_name(_resource_id);
 }
 //////////////////////////////////////////////////////////////////////

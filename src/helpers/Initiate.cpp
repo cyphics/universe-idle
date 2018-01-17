@@ -11,7 +11,8 @@
 #include "../../include/helpers/Initiate.h"
 #include "../../include/class/Upgrade.h"
 
-UpgradesList Init::initiate_upgrades_list(){
+UpgradesList Init::initiate_upgrades_list()
+{
 
   // SMALL BOOST
 
@@ -35,7 +36,11 @@ UpgradesList Init::initiate_upgrades_list(){
   upgrades_list.set_list_upgrades(vector_of_upgrades);
   return upgrades_list;
 }
-ResourcesList Init::initiate_resources_list(){
+
+
+
+ResourcesList Init::initiate_resources_list()
+{
 
   // CINETIC ENERGY
   Resource cinetic_energy = Resource(Resource_ID::cinetic_energy);

@@ -10,18 +10,21 @@
 
 #include "../../include/class/BigNum.h"
 
-BigNum::BigNum(){
+BigNum::BigNum()
+{
   _num_value = 0;
   _factorized_form = std::make_pair(0.0, 0);
 }
 
-BigNum::BigNum( double num_value ){
+BigNum::BigNum( double num_value )
+{
   _num_value = num_value;
   _factorized_form = std::make_pair(0.0, 0);
   this->factorize();
 }
 
-BigNum::BigNum( double num_value, int exponant ){
+BigNum::BigNum( double num_value, int exponant )
+{
   _num_value = num_value * pow(10, exponant);
   _factorized_form = std::make_pair(0.0, 0);
   this->factorize();
@@ -34,15 +37,18 @@ BigNum::~BigNum(){}
 /**
  * Return the float value of object
  */
-double BigNum::get_value() const{
+double BigNum::get_value() const
+{
     return _num_value;
 }
 
-double BigNum::get_significand() const{
+double BigNum::get_significand() const
+{
   return _factorized_form.first;
 }
 
-int BigNum::get_exponant() const{
+int BigNum::get_exponant() const
+{
   return _factorized_form.second;
 }
 
@@ -50,55 +56,64 @@ int BigNum::get_exponant() const{
 /**
  * Operators
  */
-std::ostream& operator<<(std::ostream& os, const BigNum& num){
+std::ostream& operator<<(std::ostream& os, const BigNum& num)
+{
     return os <<  num.to_string();
 }
 
 
 
-BigNum& BigNum::operator=(const BigNum& rhs){
+BigNum& BigNum::operator=(const BigNum& rhs)
+{
   _num_value = rhs.get_value();
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator+=(const BigNum& rhs){
+BigNum& BigNum::operator+=(const BigNum& rhs)
+{
   _num_value += rhs.get_value();
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator-=(const BigNum& rhs){
+BigNum& BigNum::operator-=(const BigNum& rhs)
+{
   _num_value -= rhs.get_value();
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator*=(const BigNum& rhs){
+BigNum& BigNum::operator*=(const BigNum& rhs)
+{
   _num_value *= rhs.get_value();
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator*=(const int& rhs){
+BigNum& BigNum::operator*=(const int& rhs)
+{
   _num_value *= rhs;
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator*=(const double& rhs){
+BigNum& BigNum::operator*=(const double& rhs)
+{
   _num_value *= rhs;
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator/=(const BigNum& rhs){
+BigNum& BigNum::operator/=(const BigNum& rhs)
+{
   _num_value /= rhs.get_value();
   factorize();
   return *this;
 }
 
-BigNum& BigNum::operator/=(const int& rhs){
+BigNum& BigNum::operator/=(const int& rhs)
+{
   _num_value /= rhs;
   factorize();
   return *this;
@@ -108,27 +123,32 @@ BigNum& BigNum::operator/=(const int& rhs){
 /**
  * Transforms _num_value into pair(x, e) so that _num_value = x*10^e
  */
-void BigNum::factorize(){
+void BigNum::factorize()
+{
   // compute exposant
   int exposant = (_num_value == 0) ? 0 : (int)(log10(fabs(_num_value) ) );
   // compute mantissa
 
   double mantissa = _num_value * pow(10 , -(exposant));
   // if mantissa is too big
-  while (mantissa >= 10) {
+  while (mantissa >= 10)
+  {
     mantissa /= 10;
     exposant++;
   }
 
   //if mantissa is too small
-  if (mantissa != 0) {
-    while (abs(mantissa) < 1) {
+  if (mantissa != 0)
+  {
+    while (abs(mantissa) < 1)
+    {
       mantissa *= 10;
       exposant--;
     }
   }
 
-  while (exposant %3 != 0) {
+  while (exposant %3 != 0)
+  {
     mantissa *= 10;
     exposant--;
   }
@@ -140,20 +160,24 @@ std::string arr[] = {"atto", "femto", "pico", "nano", "micro", "milli", "", "k",
 
 const std::vector<std::string> BigNum::_scales(arr, arr + sizeof(arr)/sizeof(std::string));
 
-std::string BigNum::to_string() const{
+std::string BigNum::to_string() const
+{
   std::string final_string = "";
   std::stringstream stream;
 
-  if (get_exponant() > 3) {
+  if (get_exponant() > 3)
+  {
     stream << std::fixed << std::setprecision(3) << get_significand();
   }
-  else {
+  else
+  {
     stream << get_significand();
   }
 
   final_string += stream.str();
 
-  if (this->get_exponant() > 0) {
+  if (this->get_exponant() > 0)
+  {
     final_string += "*10^";
     final_string += std::to_string(get_exponant());
   }
@@ -161,7 +185,8 @@ std::string BigNum::to_string() const{
    return final_string;
 }
 
-std::string BigNum::to_string_human() const{
+std::string BigNum::to_string_human() const
+{
   /**
    * Form a displayable string properly formatted
    */
@@ -182,15 +207,18 @@ std::string BigNum::to_string_human() const{
 
   // Check if beyond scales
 
-  if (exponant_scale_level > exponant_limit - 1){
+  if (exponant_scale_level > exponant_limit - 1)
+  {
     return "infinity";
   }
 
   // Set significand
-  if (numeric_exponant > 3) {
+  if (numeric_exponant > 3)
+  {
     stream << std::fixed << std::setprecision(3) << this->_factorized_form.first;
   }
-  else {
+  else
+  {
     stream << this->_factorized_form.first;
   }
 

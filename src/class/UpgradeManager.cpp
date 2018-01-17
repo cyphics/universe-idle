@@ -13,7 +13,8 @@
 #include "../../include/class/UpgradesManager.h"
 #include "../../include/class/ResourcesManager.h"
 
-UpgradesManager::UpgradesManager(){
+UpgradesManager::UpgradesManager()
+{
 }
 
 UpgradesManager::UpgradesManager(const UpgradesManager& original)
@@ -22,17 +23,20 @@ UpgradesManager::UpgradesManager(const UpgradesManager& original)
 
 UpgradesManager::~UpgradesManager(){}
 
-UpgradesManager& UpgradesManager::operator=(UpgradesManager& original){
+UpgradesManager& UpgradesManager::operator=(UpgradesManager& original)
+{
   return original;
 }
 
-void UpgradesManager::init_manager(UpgradesList upgrades, ResourcesManager* resourcesManager){
+void UpgradesManager::init_manager(UpgradesList upgrades, ResourcesManager* resourcesManager)
+{
   _list_of_upgrades = upgrades;
   _resources_manager = resourcesManager;
 }
 
 
-bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) const{
+bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) const
+{
   /**
    * If price of upgrade is lower that amount of resource, return true.
    */
@@ -41,7 +45,8 @@ bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) con
   return price_upgrade.can_be_payed(_resources_manager);
 }
 
-void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought){
+void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought)
+{
   /**
    * Increment level of upgrade, and pay price in resource manager
    */
@@ -51,7 +56,8 @@ void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time 
   _purchases_history.add_upgrade(upgrade, price_to_pay, time_when_bought);
 }
 
-const History& UpgradesManager::get_purchase_history() const{
+const History& UpgradesManager::get_purchase_history() const
+{
   /**
    * Return a constant reference to the purchase history
    */
@@ -59,7 +65,8 @@ const History& UpgradesManager::get_purchase_history() const{
   return _purchases_history;
 }
 
-Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const{
+Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const
+{
   /**
    * Take an upgrade_id and an amount of levels to increase
      Return time until purchase is available
@@ -71,7 +78,8 @@ Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amo
   return _resources_manager->get_time_until_in_stock(price);
 }
 
-std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const{
+std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const
+{
   /**
    * Take an upgrade_id
      Return the name of the upgrade, as a string
@@ -79,7 +87,8 @@ std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const{
   return _list_of_upgrades.get_upgrade_name(upgrade_id);
 }
 
-const UpgradesList& UpgradesManager::get_list_of_upgrades() const{
+const UpgradesList& UpgradesManager::get_list_of_upgrades() const
+{
   /**
    * Return a constant reference to the list of upgrades
    */
@@ -87,6 +96,7 @@ const UpgradesList& UpgradesManager::get_list_of_upgrades() const{
   return _list_of_upgrades;
 }
 
-int UpgradesManager::get_upgrade_level(Upgrade_ID upgrade_id) const{
+int UpgradesManager::get_upgrade_level(Upgrade_ID upgrade_id) const
+{
   return get_list_of_upgrades().get_upgrade_level(upgrade_id);
 }

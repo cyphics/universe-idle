@@ -22,7 +22,8 @@ BoughtUpgrade::BoughtUpgrade(Upgrade_ID upgrade_id, Time time_when_bought, Price
 BoughtUpgrade::~BoughtUpgrade(){}
 
 
-std::string BoughtUpgrade::to_string() const{
+std::string BoughtUpgrade::to_string() const
+{
   std::string output = "";
 
   //  output += upgrades_manager->get_upgrade_name(_upgrade_type) + " : ";

@@ -12,7 +12,8 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/helpers/Strategy.h"
 
-Game simulate_game(Strategy_ID strategy_id, Time duration){
+Game simulate_game(Strategy_ID strategy_id, Time duration)
+{
   /**
    Function to run a game simulation fro the given
    duration with the given stragety.
@@ -21,23 +22,27 @@ Game simulate_game(Strategy_ID strategy_id, Time duration){
   Game game = Game();
   bool loop = true;
   Time time_to_wait(0);
-  while (loop) {
+  while (loop)
+  {
     // check if time of game is over simulation time
     if (game.state().get_time() > duration)
       loop = false;
     // else it looks for next upgrade and buys it
-    else{
+    else
+    {
       // Identify next upgrade according to strategy
       Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, game.state());
 
       time_to_wait = game.manage_upgrades()->time_until_affordable(upgrade_to_buy, 1);
       // Either time is over -> stop simulation
-      if (time_to_wait > duration - game.state().get_time()) {
+      if (time_to_wait > duration - game.state().get_time())
+      {
         game.wait(duration - game.state().get_time());
         loop = false;
       }
         // Or we wait and buy
-      else {
+      else
+      {
         game.wait(Time(time_to_wait + Time(1))); // Add Time(1) to avoid errors due to bad comparison
 
 

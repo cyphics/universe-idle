@@ -8,7 +8,8 @@
 
 #include "../../include/helpers/game_global_variables.h"
 
-std::map<Upgrade_ID, std::string> global::upgrades_name_list(){
+std::map<Upgrade_ID, std::string> global::upgrades_name_list()
+{
   /**
    * Return a static (unique) const dictionary linking Upgrades_ID to the name of the upgrade
    */
@@ -17,7 +18,8 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list(){
   return output;
 }
 
-std::map<Resource_ID, std::string> global::resources_name_list(){
+std::map<Resource_ID, std::string> global::resources_name_list()
+{
   /**
    * Return a static (unique) const dictionary linking Resource_ID to the name of the resource
    */
@@ -27,14 +29,16 @@ std::map<Resource_ID, std::string> global::resources_name_list(){
   return output;
 }
 
-std::string global::upgrade_name(Upgrade_ID upgrade_id){
+std::string global::upgrade_name(Upgrade_ID upgrade_id)
+{
   /**
    * Helper that receives an ugprade ID and returns the name
    */
   return upgrades_name_list().find(upgrade_id)->second;
 }
 
-std::string global::resource_name(Resource_ID resource_id){
+std::string global::resource_name(Resource_ID resource_id)
+{
   /**
    * Helper that receives a resource ID and returns the name
    */

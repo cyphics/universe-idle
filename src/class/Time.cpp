@@ -19,17 +19,20 @@ Time::Time(BigNum amount)
 
 Time::~Time(){}
 
-Time& Time::operator+=(const Time& rhs){
+Time& Time::operator+=(const Time& rhs)
+{
   _numerical_value += rhs.num();
   return *this;
 }
 
-Time& Time::operator-=(const Time& rhs){
+Time& Time::operator-=(const Time& rhs)
+{
   _numerical_value -= rhs.num();
   return *this;
 }
 
-Time& Time::operator=(const Time& rhs){
+Time& Time::operator=(const Time& rhs)
+{
   _numerical_value = rhs.num();
   return *this;
 }

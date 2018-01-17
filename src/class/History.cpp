@@ -11,14 +11,16 @@
 #include "../../include/class/History.h"
 #include "../../include/helpers/game_global_variables.h"
 
-History::History(){
+History::History()
+{
 
 }
 
 History::~History(){}
 
 
-std::string History::to_string() const{
+std::string History::to_string() const
+{
   /**
    * Formats the history into a printable string
    */
@@ -26,7 +28,8 @@ std::string History::to_string() const{
 
   std::string history_output = "Game history :\n";
 
-  for (auto purchase : _history) {
+  for (auto purchase : _history)
+  {
     // purchase is of type BoughtUpgrade
     history_output += purchase.to_string();
     history_output += "\n";
@@ -34,7 +37,8 @@ std::string History::to_string() const{
   return history_output;
 }
 
-void History::add_upgrade(Upgrade_ID upgrade_id, Price price, Time time_when_bought){
+void History::add_upgrade(Upgrade_ID upgrade_id, Price price, Time time_when_bought)
+{
   /**
    * Build a BoughtUpgrade object, and store it
    */
