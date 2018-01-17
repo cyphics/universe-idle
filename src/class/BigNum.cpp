@@ -1,5 +1,3 @@
-// -*- compile-command: "./../../compile.sh"; -*-
-
 #include <iostream>
 #include <iomanip> // setprecision
 #include <sstream> // stringstream

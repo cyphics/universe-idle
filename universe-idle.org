@@ -1,0 +1,24 @@
+* Features
+** TODO Set physical constants and computation functions[0/1]
+- [ ] compute remaining time until destination
+
+
+
+
+* Improvment
+** TODO Better to_string() functions [0/3]
+Improve readability of to_string() functions associated with BigNum
+based classes
+- [ ] BigNum
+- [ ] Speed
+- [ ] Distance
+- [ ] Acceleration
+- [ ] Time
+
+** Refactorize
+
+*** TODO Split into dedicated modules [1/2]
+- [X] physics
+- [ ] computaiton
+
+* Testing

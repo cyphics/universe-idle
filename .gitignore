@@ -43,6 +43,5 @@ debug/
 GTAGS
 GRTAGS
 GPATH
-.dir-locals.el
 Doxyfile
 output
