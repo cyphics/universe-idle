@@ -17,6 +17,8 @@
 
 class BigNum;
 
+namespace Physics{
+
 class Distance: public PhysicalUnit{
 
  public:
@@ -49,6 +51,7 @@ inline Distance operator+(const Distance& lhs, const Distance& rhs){
   return temp;
 }
 
+}
 #endif // DISTANCE_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

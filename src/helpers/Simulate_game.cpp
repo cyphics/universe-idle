@@ -12,6 +12,8 @@
 #include "../../include/helpers/Simulate_game.h"
 #include "../../include/helpers/Strategy.h"
 
+using Physics::Time;
+
 Game simulate_game(Strategy_ID strategy_id, Time duration)
 {
   /**

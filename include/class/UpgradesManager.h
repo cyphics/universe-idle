@@ -12,11 +12,9 @@
 #include "UpgradesList.h"
 //#include "ResourcesManager.h"
 #include "History.h"
-//#include "Time.h"
 #include "../helpers/upgrades_helper.h"
 
 class ResourcesManager;
-class Time;
 
 class UpgradesManager{
   /**
@@ -40,13 +38,13 @@ class UpgradesManager{
 
   // Getters
   const History& get_purchase_history() const;
-  Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
+  Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   std::string get_upgrade_name(Upgrade_ID) const;
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   const UpgradesList& get_list_of_upgrades() const;
   int get_upgrade_level(Upgrade_ID) const;
 
-  void buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought);
+  void buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Physics::Time time_when_bought);
 
 };
 

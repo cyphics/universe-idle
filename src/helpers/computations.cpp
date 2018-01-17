@@ -7,8 +7,9 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "../../include/helpers/computations.h"
-#include "../../include/class/Time.h"
 #include "../../include/class/UpgradesManager.h"
+
+using Physics::Acceleration;
 
 BigNum computation::get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager)
 {

@@ -9,8 +9,9 @@
 #ifndef PHYSICALUNIT_H
 #define PHYSICALUNIT_H 1
 
-#include "BigNum.h"
+#include "../class/BigNum.h"
 
+namespace Physics{
 
 class PhysicalUnit{
  protected:
@@ -53,6 +54,7 @@ inline PhysicalUnit operator+(const PhysicalUnit& lhs, const PhysicalUnit& rhs){
   return  temp;
 }
 
+}
 #endif // PHYSICALUNIT_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -10,7 +10,9 @@
 // $Log:$
 //
 
-#include "../../include/class/PhysicalUnit.h"
+#include "../../include/physics/PhysicalUnit.h"
+
+using namespace Physics;
 
 PhysicalUnit::PhysicalUnit(BigNum numerical_value)
     :_numerical_value(numerical_value)

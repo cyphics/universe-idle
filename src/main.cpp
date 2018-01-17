@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
 
-  Time duration(2000);
+  Physics::Time duration(2000);
   run_simulator(duration, Strategy_ID::broken);
 
   return 0;

@@ -1,4 +1,3 @@
-// -*- compile-command: "./../../compile.sh"; -*-
 // ResourcesList.cpp
 //
 // last-edit-by: <>

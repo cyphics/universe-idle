@@ -9,15 +9,13 @@
 #ifndef RESOURCESMANAGER_H
 #define RESOURCESMANAGER_H 1
 
-//#include "Time.h"
+#include "../physics/Time.h"
 #include "ResourcesList.h"
-//#include "UpgradesManager.h"
-//#include "Price.h"
 #include "../helpers/resources_helper.h"
 
 class UpgradesManager;
-class Time;
 class Price;
+
 
 class ResourcesManager{
   /**
@@ -41,8 +39,8 @@ class ResourcesManager{
   void init_manager(ResourcesList, UpgradesManager*);
 
   // Getters
-  Time get_time_until_in_stock(const Price& price) const;
-  Time get_time_until_in_stock(const Resource_ID& resource_id,BigNum amount) const;
+  Physics::Time get_time_until_in_stock(const Price& price) const;
+  Physics::Time get_time_until_in_stock(const Resource_ID& resource_id,BigNum amount) const;
   const ResourcesList& get_resources_list() const;
   ResourcesList& get_resources_list();
   BigNum get_resource_amount(Resource_ID) const;
@@ -52,7 +50,7 @@ class ResourcesManager{
 
   ResourcesManager& operator=(ResourcesManager&);
 
-  void gather_resources(Time elapsed_time);
+  void gather_resources(Physics::Time elapsed_time);
   void pay_price(Price);
 
 

@@ -43,7 +43,7 @@ void ResourcesManager::init_manager(ResourcesList resources, UpgradesManager* up
   _upgrades_manager = upgrades_manager;
 }
 
-void ResourcesManager::gather_resources(Time elapsed_time)
+void ResourcesManager::gather_resources(Physics::Time elapsed_time)
 {
   /**
    * Compute new resources gathered in given time
@@ -69,13 +69,13 @@ ResourcesList& ResourcesManager::get_resources_list()
   return _stock_of_resources;
 }
 
-Time ResourcesManager::get_time_until_in_stock(const Price& price) const
+Physics::Time ResourcesManager::get_time_until_in_stock(const Price& price) const
 {
   /**
    * Take a Price as input
    * Return time to wait to have enough resources to pay price
    */
-  Time time(0);
+  Physics::Time time(0);
 
   for (auto resourceAmount : price.get_resources_to_pay())
   {
@@ -87,14 +87,14 @@ Time ResourcesManager::get_time_until_in_stock(const Price& price) const
   return time;
 }
 
-Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const
+Physics::Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const
 {
 /*
  * Take resource_ID and amount as input
  * Return time to wait to have indicated amount of resource
  */
 
-  Time time(0);
+  Physics::Time time(0);
 
   BigNum current_amount = get_real_resource(resource_id).get_current_amount();
 
@@ -105,7 +105,7 @@ Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, B
   {
     BigNum resource_per_second = computation::get_resource_per_second(resource_id, _upgrades_manager);
 
-    time = Time(needed_amount/resource_per_second);
+    time = Physics::Time(needed_amount/resource_per_second);
   }
 
   return time;

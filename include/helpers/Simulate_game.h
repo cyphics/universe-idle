@@ -19,7 +19,7 @@ class Game;
  * Runs a game with a given strategy, for a certain duration.
    Returns a played game
  */
-Game simulate_game(Strategy_ID strategy_id, Time duration);
+Game simulate_game(Strategy_ID strategy_id, Physics::Time duration);
 
 
 #endif // SIMULATE_GAME_H

@@ -16,6 +16,7 @@
 
 class BigNum;
 
+namespace Physics{
 
 class Speed : public PhysicalUnit{
  public:
@@ -48,7 +49,7 @@ inline Speed operator+(const Speed& lhs, const Speed& rhs){
   return temp;
 }
 
-
+}
 #endif // SPEED_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

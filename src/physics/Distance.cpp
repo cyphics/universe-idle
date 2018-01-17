@@ -6,8 +6,10 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "../../include/class/Distance.h"
-#include "../../include/class/Speed.h"
+#include "../../include/physics/Distance.h"
+#include "../../include/physics/Speed.h"
+
+using namespace Physics;
 
 Distance::Distance(BigNum num_distance)
     :PhysicalUnit(num_distance)

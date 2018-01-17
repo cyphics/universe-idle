@@ -16,6 +16,8 @@
 
 class BigNum;
 
+namespace Physics{
+
 class Acceleration : public PhysicalUnit{
 
  public:
@@ -27,6 +29,8 @@ class Acceleration : public PhysicalUnit{
   Acceleration& operator-=(const Acceleration& rhs);
 
 };
+
+
 
 inline bool operator==(const Acceleration& lhs, const Acceleration& rhs){ return lhs.num() == rhs.num(); }
 inline bool operator!=(const Acceleration& lhs, const Acceleration& rhs){return !operator==(lhs,rhs);}
@@ -48,7 +52,7 @@ inline Acceleration operator+(const Acceleration& lhs, const Acceleration& rhs){
 }
 
 
-
+}
 
 #endif // ACCELERATION_H
 //////////////////////////////////////////////////////////////////////

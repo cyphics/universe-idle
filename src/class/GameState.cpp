@@ -9,6 +9,11 @@
 
 #include "../../include/class/GameState.h"
 
+using Physics::Time;
+using Physics::Distance;
+using Physics::Speed;
+using Physics::Acceleration;
+
 GameState::GameState()
     :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
 {}

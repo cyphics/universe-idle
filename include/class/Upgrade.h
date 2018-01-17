@@ -1,4 +1,3 @@
-// -*- compile-command: "./../compile.sh"; -*-
 // Upgrade.h
 //
 // last-edit-by: <>

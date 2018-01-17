@@ -10,6 +10,7 @@
 #include "../../include/class/ResourcesManager.h"
 #include "../../include/helpers/game_global_variables.h"
 
+
 bool Price::has_resource_already(Resource_ID resource_id) const
 {
   /**

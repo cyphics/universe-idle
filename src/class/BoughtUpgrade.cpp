@@ -11,6 +11,8 @@
 #include "../../include/class/UpgradesList.h"
 #include "../../include/helpers/game_global_variables.h"
 
+using Physics::Time;
+
 BoughtUpgrade::BoughtUpgrade(Upgrade_ID upgrade_id, Time time_when_bought, Price cost, int amount_bought)
     : _upgrade_type(upgrade_id), _time(time_when_bought), _cost(cost), _number_bought(amount_bought)
 {}

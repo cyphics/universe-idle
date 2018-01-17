@@ -10,7 +10,9 @@
 // $Log:$
 //
 
-#include "../../include/class/Time.h"
+#include "../../include/physics/Time.h"
+
+using namespace Physics;
 
 Time::Time(BigNum amount)
     :PhysicalUnit(amount)

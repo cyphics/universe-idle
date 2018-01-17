@@ -25,6 +25,13 @@ file(
   ${PROJECT_SOURCE_DIR}/main.cpp
   )
 
+file(
+  GLOB
+  src_physics
+  ${PROJECT_SOURCE_DIR}/physics/*
+  ${PROJECT_INCLUDE_DIR}/physics/*
+  )
+
 
 file(   GLOB_RECURSE
   src_classes
@@ -38,6 +45,11 @@ file(   GLOB_RECURSE
   ${PROJECT_INCLUDE_DIR}/helpers/*
 )
 
+add_library(
+    physics
+    SHARED
+    ${src_physics}
+)
 
 add_library(
     bignum
@@ -51,4 +63,5 @@ add_executable(
   ${main}
   ${src_classes}
   ${src_helpers}
+  ${src_physics}
 )

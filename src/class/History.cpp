@@ -11,6 +11,8 @@
 #include "../../include/class/History.h"
 #include "../../include/helpers/game_global_variables.h"
 
+using Physics::Time;
+
 History::History()
 {
 

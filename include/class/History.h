@@ -12,12 +12,9 @@
 
 #include <vector>
 #include "BoughtUpgrade.h"
-//#include "Price.h"
-//#include "Time.h"
 
-//class BoughtUpgrade;
 class Price;
-class Time;
+
 
 class History{
  private:
@@ -27,7 +24,7 @@ class History{
   History();
   ~History();
 
-  void add_upgrade(Upgrade_ID new_upgrade, Price price, Time time_when_bought);
+  void add_upgrade(Upgrade_ID new_upgrade, Price price, Physics::Time time_when_bought);
   std::string to_string() const;
 };
 

@@ -5,7 +5,9 @@
 // Description:
 //
 //////////////////////////////////////////////////////////////////////
-#include "../../include/class/Speed.h"
+#include "../../include/physics/Speed.h"
+
+using namespace Physics;
 
 Speed::Speed(BigNum num_value)
     : PhysicalUnit(num_value)

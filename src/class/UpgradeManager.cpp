@@ -13,6 +13,8 @@
 #include "../../include/class/UpgradesManager.h"
 #include "../../include/class/ResourcesManager.h"
 
+using Physics::Time;
+
 UpgradesManager::UpgradesManager()
 {
 }

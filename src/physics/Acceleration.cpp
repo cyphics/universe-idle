@@ -7,8 +7,10 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <math.h>
-#include "../../include/class/PhysicalUnit.h"
-#include "../../include/class/Acceleration.h"
+#include "../../include/physics/PhysicalUnit.h"
+#include "../../include/physics/Acceleration.h"
+
+using namespace Physics;
 
 Acceleration::Acceleration(BigNum num_value)
     : PhysicalUnit(num_value)

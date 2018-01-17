@@ -11,7 +11,7 @@
 
 #include "../helpers/upgrades_helper.h"
 #include "Price.h"
-#include "Time.h"
+#include "../physics/Time.h"
 
 class BoughtUpgrade{
   /**
@@ -19,14 +19,14 @@ class BoughtUpgrade{
    */
  private:
   Upgrade_ID _upgrade_type;
-  Time _time;
+  Physics::Time _time;
   Price _cost;
   int _number_bought;
 
 
  public:
-  BoughtUpgrade(Upgrade_ID related_upgrade, Time time_when_bought, Price price, int amount_mought);
-  BoughtUpgrade(Upgrade_ID related_upgrade, Time time_when_bought, Price price);
+  BoughtUpgrade(Upgrade_ID related_upgrade, Physics::Time time_when_bought, Price price, int amount_mought);
+  BoughtUpgrade(Upgrade_ID related_upgrade, Physics::Time time_when_bought, Price price);
   ~BoughtUpgrade();
 
   std::string to_string() const;

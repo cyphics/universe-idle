@@ -14,6 +14,8 @@
 
 class BigNum;
 
+namespace Physics{
+
 class Time : public PhysicalUnit{
  public:
   Time(BigNum num_value);
@@ -46,7 +48,7 @@ inline Time operator+(const Time& lhs, const Time& rhs){
   return  add;
 }
 
-
+}
 #endif // TIME_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

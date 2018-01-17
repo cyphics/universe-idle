@@ -10,20 +10,16 @@
 #define RESOURCES_COMPUTATION_H 1
 
 #include "../helpers/resources_helper.h"
-#include "../class/Acceleration.h"
-//#include "../class/Resource.h"
-//#include "../class/UpgradesList.h"
-//#include "../class/Time.h"
+#include "../physics/Acceleration.h"
 
 class BigNum;
-class Time;
 class UpgradesManager;
 
 namespace computation{
 
 BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager);
 
-Acceleration get_current_acceleration(const UpgradesManager* upgrades_manager);
+Physics::Acceleration get_current_acceleration(const UpgradesManager* upgrades_manager);
 
 }
 

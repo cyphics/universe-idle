@@ -19,12 +19,11 @@
 #include "ResourcesManager.h"
 //#include "Distance.h"
 
-class Distance;
 
 class Game{
  private:
 
-  Time _time_played = Time(0);
+  Physics::Time _time_played = Physics::Time(0);
   UpgradesList _list_of_upgrades;
   ResourcesList _stock_of_resources;
   GameState _game_state;
@@ -32,9 +31,8 @@ class Game{
   ResourcesManager _resources_manager;
 
   // Compute game state
-  Acceleration compute_new_acceleration(Time time) const;
-  Speed compute_new_speed(Time time) const;
-  Distance compute_new_distance(Time time) const;
+  Physics::Speed compute_new_speed(Physics::Time time) const;
+  Physics::Distance compute_new_distance(Physics::Time time) const;
 
  public:
   // Constructor
@@ -49,13 +47,13 @@ class Game{
 
   // Misc
   void update_state();
-  void wait(Time time);
+  void wait(Physics::Time time);
   bool is_affordable(Upgrade_ID upgrade, int amount);
   void buy_upgrade(Upgrade_ID upgrade, int amount);
 
   void click();
 
-  Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
+  Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
 
 };
 
