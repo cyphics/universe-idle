@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_root="/home/cyphix/programmation/c++/universe-idle"
+project_root="$(pwd)"
 
 build_dir="$project_root"/build
 test_dir="$project_root"/test
@@ -10,7 +10,10 @@ bin_name="program"
 if [ "$1" == "clean" ]
 then
     rm -rf "$build_dir"/*
-    rm -rf "$project_root"/bin/*
+    rm -rf "$project_root"/bin
+    rm -rf "$project_root"/lib
+    rm -rf "$project_root"/debug
+    rm -rf "$project_root"/build
     rm -rf "$test_build_dir"/*
     exit 0
 fi
@@ -26,6 +29,7 @@ fi
 
 
 build_project(){
+    mkdir -p "$build_dir"
     cd "$build_dir"
     cmake ..
     make
