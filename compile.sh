@@ -32,6 +32,7 @@ build_project(){
 }
 
 build_test(){
+    mkdir -p $test_build_dir
     cd "$test_build_dir"
     cmake ..
     make
@@ -42,11 +43,12 @@ build_project
 if [ "$1" == run ]
 then
     cd "$project_root"
-    ./bin/"$bin_name"
+    ./bin/"$bin_name" $2
 fi
 
 if [ "$1" == "test" ]
 then
+    echo ""
     build_test
-    ./bin/*
+    #./bin/*
 fi

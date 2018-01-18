@@ -5,7 +5,7 @@
 // Description:
 //
 //////////////////////////////////////////////////////////////////////
-#include "../../include/physics/Speed.h"
+#include "physics/Speed.h"
 
 using namespace Physics;
 

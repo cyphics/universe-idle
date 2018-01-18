@@ -6,8 +6,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "../../include/physics/Distance.h"
-#include "../../include/physics/Speed.h"
+#include "physics/Distance.h"
+#include "physics/Speed.h"
 
 using namespace Physics;
 

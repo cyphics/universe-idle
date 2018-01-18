@@ -7,8 +7,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <math.h>
-#include "../../include/physics/PhysicalUnit.h"
-#include "../../include/physics/Acceleration.h"
+#include "physics/PhysicalUnit.h"
+#include "physics/Acceleration.h"
 
 using namespace Physics;
 

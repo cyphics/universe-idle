@@ -9,7 +9,7 @@
 #ifndef PHYSICALUNIT_H
 #define PHYSICALUNIT_H 1
 
-#include "../class/BigNum.h"
+#include "util/BigNum.h"
 
 namespace Physics{
 

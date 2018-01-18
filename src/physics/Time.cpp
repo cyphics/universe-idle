@@ -10,7 +10,7 @@
 // $Log:$
 //
 
-#include "../../include/physics/Time.h"
+#include "physics/Time.h"
 
 using namespace Physics;
 
@@ -37,4 +37,11 @@ Time& Time::operator=(const Time& rhs)
 {
   _numerical_value = rhs.num();
   return *this;
+}
+
+std::string Time::to_string() const{
+  std::string output = PhysicalUnit::to_string();
+  output += " sec";
+
+  return output;
 }

@@ -19,30 +19,41 @@ set(PROJECT_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 include_directories(${PROJECT_INCLUDE_DIR})
 
 
-file(
-  GLOB
-  main
-  ${PROJECT_SOURCE_DIR}/main.cpp
+file( GLOB_RECURSE
+  src_main
+  ${PROJECT_SOURCE_DIR}/main/*
+  ${PROJECT_INCLUDE_DIR}/main/*
   )
 
-file(
-  GLOB
+file( GLOB_RECURSE
   src_physics
   ${PROJECT_SOURCE_DIR}/physics/*
   ${PROJECT_INCLUDE_DIR}/physics/*
   )
 
 
-file(   GLOB_RECURSE
-  src_classes
-  ${PROJECT_SOURCE_DIR}/class/*
-  ${PROJECT_INCLUDE_DIR}/class/*
+file( GLOB_RECURSE
+  src_managment
+  ${PROJECT_SOURCE_DIR}/managment/*
+  ${PROJECT_INCLUDE_DIR}/managment/*
 )
 
-file(   GLOB_RECURSE
-  src_helpers
-  ${PROJECT_SOURCE_DIR}/helpers/*
-  ${PROJECT_INCLUDE_DIR}/helpers/*
+file( GLOB_RECURSE
+  src_ship
+  ${PROJECT_SOURCE_DIR}/ship/*
+  ${PROJECT_INCLUDE_DIR}/ship/*
+)
+
+file( GLOB_RECURSE
+  src_simulation
+  ${PROJECT_SOURCE_DIR}/simulation/*
+  ${PROJECT_INCLUDE_DIR}/simulation/*
+)
+
+file( GLOB_RECURSE
+  src_util
+  ${PROJECT_SOURCE_DIR}/util/*
+  ${PROJECT_INCLUDE_DIR}/util/*
 )
 
 add_library(
@@ -52,16 +63,41 @@ add_library(
 )
 
 add_library(
-    bignum
+    main
     SHARED
-    ${src_classes}
-    ${src_helpers}
+    ${src_main}
+  )
+
+add_library(
+    managment
+    SHARED
+    ${src_managment}
+  )
+
+add_library(
+    ship
+    SHARED
+    ${src_ship}
+  )
+
+add_library(
+    simulation
+    SHARED
+    ${src_simulation}
+  )
+
+add_library(
+    util
+    SHARED
+    ${src_util}
   )
 
 add_executable(
   program
-  ${main}
-  ${src_classes}
-  ${src_helpers}
+  ${src_main}
+  ${src_managment}
+  ${src_ship}
   ${src_physics}
+  ${src_simulation}
+  ${src_util}
 )

@@ -9,7 +9,7 @@
 #ifndef SPEED_CLASS_H
 #define SPEED_CLASS_H 1
 
-#include "PhysicalUnit.h"
+#include "physics/PhysicalUnit.h"
 //#include "BigNum.h"
 //#include "Distance.h"
 //#include "Time.h"

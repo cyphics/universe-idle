@@ -3,8 +3,9 @@
 - [ ] compute remaining time until destination
 
 
-
-
+* Messages
+** TODO Create message lib
+** TODO Implement output messages with priority (3 levels?)
 * Improvment
 ** TODO Better to_string() functions [0/3]
 Improve readability of to_string() functions associated with BigNum
@@ -22,3 +23,5 @@ based classes
 - [ ] computaiton
 
 * Testing
+* Useful resources
+https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-and-math-of-incremental-games--cms-24023

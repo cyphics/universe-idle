@@ -10,7 +10,7 @@
 // $Log:$
 //
 
-#include "../../include/physics/PhysicalUnit.h"
+#include "physics/PhysicalUnit.h"
 
 using namespace Physics;
 

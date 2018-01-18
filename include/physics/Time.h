@@ -9,7 +9,7 @@
 #ifndef TIME_H
 #define TIME_H 1
 
-#include "PhysicalUnit.h"
+#include "physics/PhysicalUnit.h"
 //#include "BigNum.h"
 
 class BigNum;
@@ -25,6 +25,9 @@ class Time : public PhysicalUnit{
 
   Time& operator+=(const Time& rhs);
   Time& operator-=(const Time& rhs);
+
+  std::string to_string() const;
+
 
 };
 
