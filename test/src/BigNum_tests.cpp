@@ -12,34 +12,34 @@
 //
 
 #include "catch.hpp"
-#include "../../include/class/BigNum.h"
+#include "util/BigNum.h"
 
 TEST_CASE( "Initialization" ) {
   REQUIRE( BigNum(0).get_significand() == 0 );
   REQUIRE( BigNum(0).get_exponant() == 0 );
-  REQUIRE( BigNum(0.1).get_significand() == 100 );
-  REQUIRE( BigNum(0.001).get_significand() == 1 );
+  REQUIRE( BigNum(0.1).get_significand() == 0.1 );
+  REQUIRE( BigNum(0.001).get_significand() == 0.001 );
   REQUIRE( BigNum(0.0001).get_significand() == 100 );
   REQUIRE( BigNum(0.00001).get_significand() == 10 );
   REQUIRE( BigNum(0.000001).get_significand() == 1 );
   REQUIRE( BigNum(1).get_significand() == 1 );
   REQUIRE( BigNum(10).get_significand() == 10 );
   REQUIRE( BigNum(100).get_significand() == 100 );
-  REQUIRE( BigNum(1000).get_significand() == 1 );
+  REQUIRE( BigNum(1000).get_significand() == 1000 );
   REQUIRE( BigNum(10000).get_significand() == 10 );
   REQUIRE( BigNum(100000).get_significand() == 100 );
   REQUIRE( BigNum(1000000).get_significand() == 1 );
 
-  REQUIRE( BigNum(0.1).get_exponant() == -3 );
-  REQUIRE( BigNum(0.01).get_exponant() == -3 );
-  REQUIRE( BigNum(0.001).get_exponant() == -3 );
+  REQUIRE( BigNum(0.1).get_exponant() == 0 );
+  REQUIRE( BigNum(0.01).get_exponant() == 0 );
+  REQUIRE( BigNum(0.001).get_exponant() == 0 );
   REQUIRE( BigNum(0.0001).get_exponant() == -6 );
   REQUIRE( BigNum(0.00001).get_exponant() == -6 );
   REQUIRE( BigNum(0.000001).get_exponant() == -6 );
   REQUIRE( BigNum(1).get_exponant() == 0 );
   REQUIRE( BigNum(10).get_exponant() == 0 );
   REQUIRE( BigNum(100).get_exponant() == 0 );
-  REQUIRE( BigNum(1000).get_exponant() == 3 );
+  REQUIRE( BigNum(1000).get_exponant() == 0 );
   REQUIRE( BigNum(10000).get_exponant() == 3 );
   REQUIRE( BigNum(100000).get_exponant() == 3 );
   REQUIRE( BigNum(1000000).get_exponant() == 6 );
@@ -50,13 +50,13 @@ TEST_CASE( "Initialization" ) {
   REQUIRE( BigNum(1, -6).get_exponant() == -6 );
   REQUIRE( BigNum(1, -5).get_exponant() == -6 );
   REQUIRE( BigNum(1, -4).get_exponant() == -6 );
-  REQUIRE( BigNum(1, -3).get_exponant() == -3 );
-  REQUIRE( BigNum(1, -2).get_exponant() == -3 );
-  REQUIRE( BigNum(1, -1).get_exponant() == -3 );
+  REQUIRE( BigNum(1, -3).get_exponant() == 0 );
+  REQUIRE( BigNum(1, -2).get_exponant() == 0 );
+  REQUIRE( BigNum(1, -1).get_exponant() == 0 );
   REQUIRE( BigNum(1, 0).get_exponant() == 0 );
   REQUIRE( BigNum(1, 1).get_exponant() == 0 );
   REQUIRE( BigNum(1, 2).get_exponant() == 0 );
-  REQUIRE( BigNum(1, 3).get_exponant() == 3 );
+  REQUIRE( BigNum(1, 3).get_exponant() == 0 );
   REQUIRE( BigNum(1, 4).get_exponant() == 3 );
   REQUIRE( BigNum(1, 5).get_exponant() == 3 );
   REQUIRE( BigNum(1, 6).get_exponant() == 6 );
@@ -70,13 +70,13 @@ TEST_CASE( "Initialization" ) {
   REQUIRE( BigNum(1, -6).get_significand() == 1 );
   REQUIRE( BigNum(1, -5).get_significand() == 10 );
   REQUIRE( BigNum(1, -4).get_significand() == 100 );
-  REQUIRE( BigNum(1, -3).get_significand() == 1 );
-  REQUIRE( BigNum(1, -2).get_significand() == 10 );
-  REQUIRE( BigNum(1, -1).get_significand() == 100 );
+  REQUIRE( BigNum(1, -3).get_significand() == 0.001 );
+  REQUIRE( BigNum(1, -2).get_significand() == 0.01 );
+  REQUIRE( BigNum(1, -1).get_significand() == 0.1 );
   REQUIRE( BigNum(1, 0).get_significand() == 1 );
   REQUIRE( BigNum(1, 1).get_significand() == 10 );
   REQUIRE( BigNum(1, 2).get_significand() == 100 );
-  REQUIRE( BigNum(1, 3).get_significand() == 1 );
+  REQUIRE( BigNum(1, 3).get_significand() == 1000 );
   REQUIRE( BigNum(1, 4).get_significand() == 10 );
   REQUIRE( BigNum(1, 5).get_significand() == 100 );
   REQUIRE( BigNum(1, 6).get_significand() == 1 );
@@ -144,26 +144,6 @@ TEST_CASE( "Normalization" ) {
 
 
 
-TEST_CASE( "To String Human" ) {
-  REQUIRE(BigNum(3, 20).to_string_human() == "300.000 ");
-  REQUIRE( BigNum(1).to_string_human() == "1 atto" );
-  REQUIRE( BigNum(10).to_string_human() == "10 atto" );
-  REQUIRE( BigNum(100).to_string_human() == "100 atto" );
-  REQUIRE( BigNum(1000).to_string_human() == "1 femto" );
-  REQUIRE( BigNum(1001).to_string_human() == "1.001 femto" );
-  REQUIRE( BigNum(1000000).to_string_human() == "1.000 pico" );
-  REQUIRE( BigNum(1, 6).to_string_human() == "1.000 pico" );
-  REQUIRE( BigNum(1, 12).to_string_human() == "1.000 micro" );
-  REQUIRE( BigNum(1, 18).to_string_human() == "1.000 " );
-  //  REQUIRE( BigNum(1, 24).to_string_human() == "1.000 mega" );
-  REQUIRE( BigNum(1, 30).to_string_human() == "1.000 tera" );
-  REQUIRE( BigNum(1, 36).to_string_human() == "1.000 exa" );
-  REQUIRE( BigNum(1, 38).to_string_human() == "100.000 exa" );
-  //REQUIRE( BigNum(1, 39).to_string_human() == "infinity" );
-  REQUIRE( BigNum(1, 40).to_string_human() == "infinity" );
-  REQUIRE( BigNum(1, 400).to_string_human() == "infinity" );
-
-}
 
 TEST_CASE( "ADDITION" ) {
 
@@ -175,11 +155,9 @@ TEST_CASE( "ADDITION" ) {
   REQUIRE( BigNum(100, 0) + BigNum(2, 0) == BigNum(1.02, 2));
   REQUIRE( BigNum(100, 18) + BigNum(1, 0) == BigNum(100, 18));
   REQUIRE( BigNum(100, 15) + BigNum(1, 0) == BigNum(100, 15));
-  REQUIRE( (BigNum(100, 15) + BigNum(9, 0)).to_string() == BigNum(100, 15).to_string());
   REQUIRE( BigNum(100, 14) + BigNum(1, 0) == BigNum(100, 14));
   REQUIRE( BigNum(100, 13) + BigNum(1, 0) != BigNum(100, 13));
   REQUIRE( BigNum(999, 36) + BigNum(1, 0) == BigNum(999, 36));
-  //REQUIRE( (BigNum(999, 36) + BigNum(1, 36)).to_string() == "1.000*10^39");
 
 }
 
@@ -205,3 +183,58 @@ TEST_CASE( "DIVISION" ){
   REQUIRE( BigNum(2) / BigNum(2) == BigNum(1));
   REQUIRE( BigNum(10) / BigNum(10) == BigNum(1));
 }
+
+
+// TEST_CASE( "To String" )
+// {
+//   REQUIRE(BigNum(1).to_string() == "1");
+//   REQUIRE(BigNum(2).to_string() == "2");
+//   REQUIRE(BigNum(10).to_string() == "10");
+//   REQUIRE(BigNum(100).to_string() == "100");
+//   REQUIRE(BigNum(9).to_string() == "9");
+//   REQUIRE(BigNum(99).to_string() == "99");
+//   REQUIRE(BigNum(1000).to_string() == "1000");
+//   REQUIRE(BigNum(1001).to_string() == "1001");
+//   REQUIRE(BigNum(9999).to_string() == "9999");
+//   REQUIRE(BigNum(10000).to_string() == "10e3");
+//   REQUIRE(BigNum(100000).to_string() == "100e3");
+//   REQUIRE(BigNum(1000000).to_string() == "1e6");
+//   REQUIRE(BigNum(9999999).to_string() == "9.999e6");
+//   REQUIRE(BigNum(10000000).to_string() == "1e9");
+//   REQUIRE(BigNum(1.2).to_string() == "1.2");
+//   REQUIRE(BigNum(1.23).to_string() == "1.23");
+//   REQUIRE(BigNum(1.234).to_string() == "1.234");
+//   REQUIRE(BigNum(1.2345).to_string() == "1.234");
+//   REQUIRE(BigNum(1.234524232).to_string() == "1.234");
+//   REQUIRE(BigNum(0.234524232).to_string() == "0.234");
+//   REQUIRE(BigNum(0.034524232).to_string() == "0.034");
+//   REQUIRE(BigNum(0.004524232).to_string() == "0.004");
+//   REQUIRE(BigNum(0.000524232).to_string() == "524.232e-6");
+//   REQUIRE(BigNum(0.000024232).to_string() == "24.232e-9");
+//   REQUIRE(BigNum(0.000004232).to_string() == "4.232e-9");
+
+//   REQUIRE(BigNum(-1).to_string() == "-1");
+//   REQUIRE(BigNum(-0.234524232).to_string() == "-0.234");
+
+// }
+
+// TEST_CASE( "To String Human" ) {
+//   REQUIRE(BigNum(3, 20).to_string_human() == "300.000 ");
+//   REQUIRE( BigNum(1).to_string_human() == "1 atto" );
+//   REQUIRE( BigNum(10).to_string_human() == "10 atto" );
+//   REQUIRE( BigNum(100).to_string_human() == "100 atto" );
+//   REQUIRE( BigNum(1000).to_string_human() == "1 femto" );
+//   REQUIRE( BigNum(1001).to_string_human() == "1.001 femto" );
+//   REQUIRE( BigNum(1000000).to_string_human() == "1.000 pico" );
+//   REQUIRE( BigNum(1, 6).to_string_human() == "1.000 pico" );
+//   REQUIRE( BigNum(1, 12).to_string_human() == "1.000 micro" );
+//   REQUIRE( BigNum(1, 18).to_string_human() == "1.000 " );
+//   //  REQUIRE( BigNum(1, 24).to_string_human() == "1.000 mega" );
+//   REQUIRE( BigNum(1, 30).to_string_human() == "1.000 tera" );
+//   REQUIRE( BigNum(1, 36).to_string_human() == "1.000 exa" );
+//   REQUIRE( BigNum(1, 38).to_string_human() == "100.000 exa" );
+//   //REQUIRE( BigNum(1, 39).to_string_human() == "infinity" );
+//   REQUIRE( BigNum(1, 40).to_string_human() == "infinity" );
+//   REQUIRE( BigNum(1, 400).to_string_human() == "infinity" );
+
+// }

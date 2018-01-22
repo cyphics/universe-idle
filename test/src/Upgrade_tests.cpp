@@ -7,9 +7,9 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "catch.hpp"
-#include "../../include/class/Upgrade.h"
-#include "../../include/class/UpgradesList.h"
-#include "../../include/helpers/Initiate.h"
+#include "ship/Upgrade.h"
+#include "ship/UpgradesList.h"
+#include "main/initiate.h"
 
 TEST_CASE( "Upgrade initialization" ) {
 

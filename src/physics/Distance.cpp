@@ -8,6 +8,7 @@
 
 #include "physics/Distance.h"
 #include "physics/Speed.h"
+#include "physics/constants_physics.h"
 
 using namespace Physics;
 
@@ -56,6 +57,31 @@ Distance& Distance::operator*=(const double& rhs){
   return *this;
 }
 
+
+std::string Distance::to_string() const
+{
+  std::string output = "";
+  if ( *this < Physics::Units::kilometer)
+  {
+    int exposant = _numerical_value.get_exponant() - Physics::Units::meter.num().get_exponant();
+    int mantissa = _numerical_value.get_significand();
+    output += std::to_string(mantissa);
+    output += "e";
+    output += std::to_string(exposant);
+    output += " meters";
+  }
+  else if (*this < Physics::Units::astro_unit)
+  {
+    int exposant = _numerical_value.get_exponant() - Physics::Units::kilometer.num().get_exponant();
+    //std::cout << num().get_significand()  << "\n";
+    double mantissa = _numerical_value.get_significand();
+    output += std::to_string(mantissa);
+    output += "e";
+    output += std::to_string(exposant);
+    output += " kilometers";
+  }
+  return output;
+}
 
 
 //////////////////////////////////////////////////////////////////////
