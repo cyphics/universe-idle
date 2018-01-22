@@ -11,21 +11,17 @@
 BigNum::BigNum()
 {
   _num_value = 0;
-  _factorized_form = std::make_pair(0.0, 0);
 }
 
 BigNum::BigNum( double num_value )
 {
-  _num_value = num_value;
-  _factorized_form = std::make_pair(0.0, 0);
-  this->factorize();
+  set_value(num_value);
 }
 
 BigNum::BigNum( double num_value, int exponant )
 {
-  _num_value = num_value * pow(10, exponant);
   _factorized_form = std::make_pair(0.0, 0);
-  this->factorize();
+  set_value(num_value * pow(10, exponant));
 }
 
 BigNum::~BigNum(){}
@@ -37,7 +33,7 @@ BigNum::~BigNum(){}
  */
 double BigNum::get_value() const
 {
-    return _num_value;
+  return _num_value;
 }
 
 double BigNum::get_significand() const
@@ -56,67 +52,65 @@ int BigNum::get_exponant() const
  */
 std::ostream& operator<<(std::ostream& os, const BigNum& num)
 {
-    return os <<  num.to_string();
+  return os <<  num.to_string();
 }
 
 
 
 BigNum& BigNum::operator=(const BigNum& rhs)
 {
-  _num_value = rhs.get_value();
-  factorize();
+  set_value(rhs.get_value());
+
   return *this;
 }
 
 BigNum& BigNum::operator+=(const BigNum& rhs)
 {
-  _num_value += rhs.get_value();
-  factorize();
+  set_value(_num_value + rhs.get_value());
   return *this;
 }
 
 BigNum& BigNum::operator-=(const BigNum& rhs)
 {
-  _num_value -= rhs.get_value();
-  factorize();
+  set_value(_num_value - rhs.get_value());
   return *this;
 }
 
 BigNum& BigNum::operator*=(const BigNum& rhs)
 {
-  _num_value *= rhs.get_value();
-  factorize();
+  set_value(_num_value * rhs.get_value());
   return *this;
 }
 
 BigNum& BigNum::operator*=(const int& rhs)
 {
-  _num_value *= rhs;
-  factorize();
+  set_value(_num_value * rhs);
   return *this;
 }
 
 BigNum& BigNum::operator*=(const double& rhs)
 {
-  _num_value *= rhs;
-  factorize();
+  set_value(_num_value * rhs);
   return *this;
 }
 
 BigNum& BigNum::operator/=(const BigNum& rhs)
 {
-  _num_value /= rhs.get_value();
-  factorize();
+  set_value(_num_value / rhs.get_value());
   return *this;
 }
 
 BigNum& BigNum::operator/=(const int& rhs)
 {
-  _num_value /= rhs;
-  factorize();
+  set_value(_num_value / rhs);
   return *this;
 }
 
+BigNum& BigNum::operator%=(const BigNum& rhs)
+{
+  set_value(fmod(_num_value, rhs.get_value()));
+  return *this;
+}
 
 /**
  * Transforms _num_value into pair(x, e) so that _num_value = x*10^e
@@ -125,35 +119,47 @@ void BigNum::factorize()
 {
   /**
    * Get exposant and mantissa.
-    1) Put absoute mantissa between 1 and 10
-    2) adjust so exposant is % 3
    */
-  int exposant = (_num_value == 0) ? 0 : (int)(log10(fabs(_num_value) ) );
-  double mantissa = _num_value * pow(10 , -(exposant));
 
-  // Put mantissa under 10
-  while (abs(mantissa) >= 10)
+  // If value between 0.001 and 9999, do nothing
+  if (_num_value >= 0.001 && _num_value < 10000)
   {
-    mantissa /= 10;
-    exposant++;
+    _factorized_form.second = 0;
+    _factorized_form.first = _num_value;
+    return;
   }
-
-  // Put mantissa above 1
-  if (mantissa != 0)
+  // 1) Put absoute mantissa between 1 and 10
+  // 2) adjust so exposant is % 3
+  else
   {
-    while (abs(mantissa) < 1)
+    int exposant = (_num_value == 0) ? 0 : (int)(log10(fabs(_num_value) ) );
+    double mantissa = _num_value * pow(10 , -(exposant));
+
+    // Put mantissa under 10
+    while (abs(mantissa) >= 10)
+    {
+      mantissa /= 10;
+      exposant++;
+    }
+
+    // Put mantissa above 1
+    if (mantissa != 0)
+    {
+      while (abs(mantissa) < 1)
+      {
+        mantissa *= 10;
+        exposant--;
+      }
+    }
+
+    while (exposant %3 != 0)
     {
       mantissa *= 10;
       exposant--;
     }
-  }
+    _factorized_form = std::make_pair(mantissa,exposant);
 
-  while (exposant %3 != 0)
-  {
-    mantissa *= 10;
-    exposant--;
   }
-  _factorized_form = std::make_pair(mantissa,exposant);
 }
 
 
@@ -165,7 +171,14 @@ std::string BigNum::to_string() const
 {
   std::string final_string = "";
   std::stringstream stream;
-  std::cout << get_significand() << "e" << get_exponant()  << "\n";
+
+  // First, deal with cases like 1.0000000000001 that should equal 1 and not 1.000
+
+  // If value is between 0.001 and 9999,
+  if (_num_value > 0.001 && _num_value < 9999) {
+
+    return std::to_string(_num_value);
+  }
   // Sets significand precision
   if (get_significand() > 3)
   {
@@ -185,7 +198,7 @@ std::string BigNum::to_string() const
     final_string += std::to_string(get_exponant());
   }
 
-   return final_string;
+  return final_string;
 }
 
 std::string BigNum::to_string_human() const
@@ -237,4 +250,9 @@ std::string BigNum::to_string_human() const
   final_string += scale;
 
   return final_string;
+}
+void BigNum::set_value(double new_value)
+{
+  _num_value = new_value;
+  factorize();
 }

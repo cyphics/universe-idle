@@ -18,7 +18,8 @@ class BigNum
 {
  private:
   double _num_value;
-  std::pair<double, int> _factorized_form;
+  std::pair<double, int> _factorized_form  = std::make_pair(0.0, 0);
+;
   static const std::vector<std::string> _scales;
 
   void factorize();
@@ -38,6 +39,8 @@ class BigNum
   std::string to_string() const;
   std::string to_string_human() const;
 
+  void set_value(double new_value);
+
   // Operators
   friend std::ostream& operator<<(std::ostream&, const BigNum&);
   BigNum& operator=(const BigNum& rhs);
@@ -49,9 +52,7 @@ class BigNum
   BigNum& operator*=(const double& rhs);
   BigNum& operator/=(const BigNum& rhs);
   BigNum& operator/=(const int& rhs);
-
-  //friend std::ostream& operator<<(std::ostream& os, const BigNum& num);
-
+  BigNum& operator%=(const BigNum& rhs);
 };
 
 
