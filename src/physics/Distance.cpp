@@ -25,11 +25,36 @@ Distance::Distance(BigNum num_distance)
 
 Distance::~Distance(){}
 
-Distance& Distance::operator=(const Distance& rhs){}
+Distance& Distance::operator=(const Distance& rhs){
+  _numerical_value = rhs.num();
+  return *this;
+}
 
-Distance& Distance::operator+=(const Distance& rhs){}
-Distance& Distance::operator-=(const Distance& rhs){}
+Distance& Distance::operator+=(const Distance& rhs){
+  _numerical_value += rhs.num();
+  return *this;
+}
 
+Distance& Distance::operator-=(const Distance& rhs)
+{
+  _numerical_value -= rhs.num();
+  return *this;
+}
+
+Distance& Distance::operator*=(const int& rhs){
+  _numerical_value *= rhs;
+  return *this;
+}
+
+// Distance& Distance::operator*=(const long& rhs){
+//   _numerical_value *= rhs;
+//   return *this;
+// }
+
+Distance& Distance::operator*=(const double& rhs){
+  _numerical_value *= rhs;
+  return *this;
+}
 
 
 

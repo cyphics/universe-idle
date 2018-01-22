@@ -19,10 +19,10 @@
 
 class GameState{
  private:
-  Physics::Distance _traveled_distance;
-  Physics::Speed _current_speed;
   Physics::Acceleration _current_acceleration;
+  Physics::Speed _current_speed;
   Physics::Time _current_time;
+  Physics::Distance _traveled_distance;
 
  public:
   GameState();

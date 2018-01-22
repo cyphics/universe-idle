@@ -29,7 +29,10 @@ class Distance: public PhysicalUnit{
   Distance& operator=(const Distance& rhs);
   Distance& operator+=(const Distance& rhs);
   Distance& operator-=(const Distance& rhs);
-
+  Distance& operator*=(const int& rhs);
+  //Distance& operator*=(const long& rhs);
+  Distance& operator*=(const double& rhs);
+  std::string to_string() const;
 };
 
 inline bool operator==(const Distance& lhs, const Distance& rhs){ return lhs.num() == rhs.num(); }
@@ -48,6 +51,24 @@ inline Distance operator-(const Distance& lhs, const Distance& rhs){
 inline Distance operator+(const Distance& lhs, const Distance& rhs){
   Distance temp = lhs;
   temp += rhs;
+  return temp;
+}
+
+inline Distance operator*(const Distance& lhs, const int& rhs){
+  Distance temp = lhs;
+  temp *= rhs;
+  return temp;
+}
+
+// inline Distance operator*(const Distance& lhs, const long& rhs){
+//   Distance temp = lhs;
+//   temp *= rhs;
+//   return temp;
+// }
+
+inline Distance operator*(const Distance& lhs, const double& rhs){
+  Distance temp = lhs;
+  temp *= rhs;
   return temp;
 }
 

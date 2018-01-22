@@ -23,9 +23,22 @@ Speed::Speed(const Speed& speed)
 
 Speed::~Speed(){}
 
-Speed& Speed::operator=(const Speed& rhs){}
-Speed& Speed::operator+=(const Speed& rhs){}
-Speed& Speed::operator-=(const Speed& rhs){}
+Speed& Speed::operator=(const Speed& rhs)
+{
+  _numerical_value = rhs.num();
+  return *this;
+}
+Speed& Speed::operator+=(const Speed& rhs)
+{
+  _numerical_value += rhs.num();
+  return *this;
+}
+
+Speed& Speed::operator-=(const Speed& rhs)
+{
+  _numerical_value += rhs.num();
+  return *this;
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

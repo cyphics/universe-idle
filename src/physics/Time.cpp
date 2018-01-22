@@ -42,6 +42,11 @@ Time& Time::operator=(const Time& rhs)
 std::string Time::to_string() const{
   std::string output = PhysicalUnit::to_string();
   output += " sec";
+Time& Time::operator*=(const int& rhs){
+  _numerical_value *= rhs;
+  return *this;
+}
+
 
   return output;
 }

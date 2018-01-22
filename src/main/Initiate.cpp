@@ -58,7 +58,8 @@ UpgradesList Init::initiate_upgrades_list()
 
 ResourcesList Init::initiate_resources_list()
 {
-
+  // FAKE ENERGY
+  //Resource fake_energy = Resource(Resource_ID::fake_energy);
   // CINETIC ENERGY
   Resource cinetic_energy = Resource(Resource_ID::cinetic_energy);
   Resource dark_matter = Resource(Resource_ID::dark_matter);

@@ -25,6 +25,7 @@ class Time : public PhysicalUnit{
 
   Time& operator+=(const Time& rhs);
   Time& operator-=(const Time& rhs);
+  Time& operator*=(const int& rhs);
 
   std::string to_string() const;
 
@@ -48,6 +49,12 @@ inline Time operator-(const Time& lhs, const Time& rhs){
 inline Time operator+(const Time& lhs, const Time& rhs){
   Time add = lhs;
   add += rhs;
+  return  add;
+}
+
+inline Time operator*(const Time& lhs, const int& rhs){
+  Time add = lhs;
+  add *= rhs;
   return  add;
 }
 

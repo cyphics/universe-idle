@@ -16,11 +16,13 @@ ResourcesList::~ResourcesList(){}
 
 BigNum ResourcesList::get_resource_amount(Resource_ID resource_id) const
 {
-  // for (auto &resource : _list_of_resources) {
-  //   if (resource.has_id(resource_id)) {
-  //     return resource.get_current_amount();
-  //   }
-  // }
+  for (auto &resource : _list_of_resources) {
+    if (resource.has_id(resource_id)) {
+      return resource.get_current_amount();
+    }
+  }
+  std::cout << "Error, resource not present"  << "\n";
+  return BigNum(0);
 }
 
 std::vector<Resource>& ResourcesList::get_list_of_resources()
@@ -48,6 +50,7 @@ Resource& ResourcesList::get_resource(Resource_ID resource_id)
       return resource;
     }
   }
+  std::cout << "Error, resource not present"  << "\n";
 }
 
 const Resource& ResourcesList::get_resource(Resource_ID resource_id) const
@@ -60,6 +63,7 @@ const Resource& ResourcesList::get_resource(Resource_ID resource_id) const
     if (resource.has_id(resource_id))
       return resource;
   }
+  std::cout << "Error, resource not present"  << "\n";
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

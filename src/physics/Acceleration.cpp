@@ -18,9 +18,19 @@ Acceleration::Acceleration(BigNum num_value)
 
 Acceleration::~Acceleration(){}
 
-Acceleration& Acceleration::operator=(const Acceleration& rhs){}
-Acceleration& Acceleration::operator+=(const Acceleration& rhs){}
-Acceleration& Acceleration::operator-=(const Acceleration& rhs){}
+Acceleration& Acceleration::operator=(const Acceleration& rhs){
+  _numerical_value = rhs.num();
+  return *this;
+}
+
+Acceleration& Acceleration::operator+=(const Acceleration& rhs){
+  _numerical_value += rhs.num();
+  return *this;
+}
+Acceleration& Acceleration::operator-=(const Acceleration& rhs){
+  _numerical_value -= rhs.num();
+  return *this;
+}
 
 
 //////////////////////////////////////////////////////////////////////

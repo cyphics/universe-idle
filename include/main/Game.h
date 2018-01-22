@@ -24,8 +24,8 @@ class Game{
  private:
 
   Physics::Time _time_played = Physics::Time(0);
-  UpgradesList _list_of_upgrades;
   ResourcesList _stock_of_resources;
+  UpgradesList _list_of_upgrades;
   GameState _game_state;
   UpgradesManager _upgrades_manager;
   ResourcesManager _resources_manager;

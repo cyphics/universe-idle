@@ -68,6 +68,8 @@ ResourceAmount Price::get_existing_resource(Resource_ID resource_id)
   {
     if (resourceAmount._resource_ID == resource_id) return resourceAmount;
   }
+  std::cout << "Resource not present"  << "\n";
+  return ResourceAmount(Resource_ID::fake_energy, BigNum(0));
 }
 
 BigNum Price::get_resource_amount(Resource_ID resource_id) const
@@ -76,6 +78,8 @@ BigNum Price::get_resource_amount(Resource_ID resource_id) const
   {
     if (resourceAmount._resource_ID == resource_id) return resourceAmount._amount;
   }
+  std::cout << "Resource not present"  << "\n";
+  return BigNum(0);
 }
 
 const std::vector<ResourceAmount>& Price::get_resources_to_pay() const
