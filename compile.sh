@@ -4,17 +4,18 @@ project_root="$(pwd)"
 
 build_dir="$project_root"/build
 test_dir="$project_root"/test
-test_build_dir="$test_dir"/build
+bin_dir="$project_root"/bin
+
 bin_name="program"
+test_name="test_app"
 
 if [ "$1" == "clean" ]
 then
-    rm -rf "$build_dir"/*
+    echo "$project_root"
     rm -rf "$project_root"/bin
     rm -rf "$project_root"/lib
     rm -rf "$project_root"/debug
     rm -rf "$project_root"/build
-    rm -rf "$test_build_dir"/*
     exit 0
 fi
 
@@ -35,24 +36,14 @@ build_project(){
     make
 }
 
-build_test(){
-    mkdir -p $test_build_dir
-    cd "$test_build_dir"
-    cmake ..
-    make
-}
-
 build_project
 
 if [ "$1" == run ]
 then
-    cd "$project_root"
-    ./bin/"$bin_name" $2
+    "$bin_dir"/"$bin_name" $2
 fi
 
 if [ "$1" == "test" ]
 then
-    echo ""
-    build_test
-    #./bin/*
+    "$bin_dir/$test_name"
 fi

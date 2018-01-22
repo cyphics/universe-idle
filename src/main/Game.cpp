@@ -1,4 +1,3 @@
-
 // Game.cpp
 //
 // last-edit-by: <>
@@ -11,9 +10,9 @@
 #include <cmath>
 #include "main/Game.h"
 #include "main/initiate.h"
+#include "main/game_global_variables.h"
 #include "physics/Speed.h"
 #include "ship/resources_helper.h"
-#include "main/game_global_variables.h"
 #include "ship/computations.h"
 
 using Physics::Time;
@@ -48,15 +47,10 @@ GameState& Game::state()
 
 Speed Game::compute_new_speed(Time time) const
 {
-  /**
-   * Compute speed
-   */
-
   // final_speed = (acceleration * time) + initial_speed
   Speed new_speed = (state().get_acceleration().num() * time.num()) + state().get_speed().num();
 
   return new_speed;
-
 }
 
 Distance Game::compute_new_distance(Time time) const
