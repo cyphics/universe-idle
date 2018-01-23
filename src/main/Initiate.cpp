@@ -15,7 +15,6 @@ UpgradesList Init::initiate_upgrades_list()
 {
 
   // SMALL BOOST
-
   // Build cost table elements
   UpgradeCostTableElement small_boost_cinetic_energy;
   small_boost_cinetic_energy.resource = Resource_ID::cinetic_energy;
@@ -30,11 +29,10 @@ UpgradesList Init::initiate_upgrades_list()
   Upgrade small_boost = Upgrade(Upgrade_ID::small_boost, cost_small_boost, small_boost_increase_factor);
 
   // BIG BOOST
-
   // Build cost table elements
   UpgradeCostTableElement big_boost_cinetic_energy;
   big_boost_cinetic_energy.resource = Resource_ID::cinetic_energy;
-  big_boost_cinetic_energy.initial_cost = 10;
+  big_boost_cinetic_energy.initial_cost = 150;
   double big_boost_increase_factor = 1.15;
 
   std::vector<UpgradeCostTableElement> cost_big_boost;
@@ -51,6 +49,7 @@ UpgradesList Init::initiate_upgrades_list()
 
   UpgradesList upgrades_list;
   upgrades_list.set_list_upgrades(vector_of_upgrades);
+
   return upgrades_list;
 }
 

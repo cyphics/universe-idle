@@ -74,7 +74,6 @@ void UpgradesList::increase_upgrade_level(Upgrade_ID upgrade, int amount)
 Price UpgradesList::get_price_increase_level(Upgrade_ID upgrade_id, int amount_new_levels) const
 {
   return get_real_upgrade(upgrade_id).get_cost_increase_level(amount_new_levels);
-
 }
 
 

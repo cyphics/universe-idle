@@ -43,7 +43,7 @@ Price Upgrade::get_cost_increase_level(int additional_levels) const
      Return Price
    */
   assert(additional_levels > 0);
-
+  assert(_current_level >= 0);
   if (_current_level == 0)
   {
     return _initial_cost;
@@ -79,7 +79,9 @@ void Upgrade::increase_level(int number_new_levels)
   /**
    * Increase current level with <number_levels>
    */
+  std::cout << "HO"  << "\n";
   _cost_last_level = get_cost_increase_level(number_new_levels);
+
   _current_level += number_new_levels;
 }
 
