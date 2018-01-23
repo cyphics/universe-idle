@@ -1,4 +1,4 @@
-#include "FenCodeGenere.h"
+#include "gui/FenCodeGenere.h"
 
 FenCodeGenere::FenCodeGenere(QString &code, QWidget *parent = 0) : QDialog(parent)
 {

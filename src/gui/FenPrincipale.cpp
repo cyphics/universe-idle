@@ -1,5 +1,5 @@
-#include "FenPrincipale.h"
-#include "FenCodeGenere.h"
+#include "gui/FenPrincipale.h"
+#include "gui/FenCodeGenere.h"
 
 FenPrincipale::FenPrincipale()
 {

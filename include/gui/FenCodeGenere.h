@@ -13,5 +13,4 @@ class FenCodeGenere : public QDialog
         QPushButton *fermer;
 };
 
-
 #endif

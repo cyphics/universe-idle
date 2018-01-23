@@ -1,1 +1,9 @@
 -I/home/cyphics/programmation/c++/universe-idle/include
+-I/usr/include/qt
+-I/usr/include/qt/QtWidgets
+-I/usr/include/qt/QtGui
+-I/usr/include/qt/QtCore
+-I/usr/include
+-std=c++11
+-w
+-fPIC
