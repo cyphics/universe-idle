@@ -44,6 +44,7 @@ set(
   src/simulation/Simulate_game.cpp
   src/simulation/Strategy.cpp
   src/util/BigNum.cpp
+  src/gui/GameGui.cpp
   src/gui/FenCodeGenere.cpp
   src/gui/FenPrincipale.cpp
   )
@@ -77,6 +78,7 @@ set(
   include/simulation/Simulate_game.h
   include/simulation/Strategy.h
   include/util/BigNum.h
+  include/gui/GameGui.h
   include/gui/FenCodeGenere.h
   include/gui/FenPrincipale.h
   )

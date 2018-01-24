@@ -8,7 +8,8 @@
 #include "physics/constants_physics.h"
 #include "physics/compute_physics.h"
 #include "physics/Distance.h"
-#include "gui/FenPrincipale.h"
+//#include "gui/FenPrincipale.h"
+#include "gui/GameGui.h"
 
 //#include "gui/FenPrincipale.h"
 
@@ -19,9 +20,13 @@ int main(int argc, char *argv[])
 
 
   QApplication app(argc, argv);
+  Ui::MainWindow main_window;
+  QMainWindow a_window;
 
-  FenPrincipale fenetre;
-  fenetre.show();
+  main_window.setupUi(&a_window);
+  a_window.show();
+  // FenPrincipale fenetre;
+  // fenetre.show();
 
   return app.exec();
 
