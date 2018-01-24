@@ -29,10 +29,10 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* up
       }
     case Strategy_ID::cheapest:
       {
-        Time remaining_time(BigNum(1, 99));
+        Time remaining_time(BigNum(1, 99)); // arbitrarily huge value
         Upgrade_ID good_ID;
 
-        for (auto upgrade_id: upgrades_manager->get_list_of_upgrades().get_all_upgrades()) {
+        for (auto upgrade_id: upgrades_manager->get_list_of_upgrades().get_available_upgrades()) {
           Time buy_time = upgrades_manager->time_until_affordable(upgrade_id, 1);
           if (buy_time < remaining_time)
           {

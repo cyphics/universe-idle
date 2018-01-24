@@ -1,5 +1,4 @@
-// -*- compile-command: "make -sk"; -*-
-// test.cpp
+// upgrades_configuration.cpp
 //
 // last-edit-by: <>
 //
@@ -10,5 +9,15 @@
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
-#define CATCH_CONFIG_MAIN
-#include "../include/catch.hpp"
+
+namespace Congif
+{
+
+namespace Upgrade{
+
+bool small_boost_availability = true;
+bool big_boost_availability = false;
+
+}
+
+}

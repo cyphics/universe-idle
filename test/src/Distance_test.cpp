@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
-#include "catch.hpp"
+#include "../include/catch.hpp"
 #include "physics/Distance.h"
 
 using Physics::Distance;

@@ -6,7 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "catch.hpp"
+#include "../include/catch.hpp"
 #include "ship/Upgrade.h"
 #include "ship/UpgradesList.h"
 #include "main/initiate.h"

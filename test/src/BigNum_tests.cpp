@@ -11,7 +11,7 @@
 // $Log:$
 //
 
-#include "catch.hpp"
+#include "../include/catch.hpp"
 #include "util/BigNum.h"
 
 TEST_CASE( "Initialization" ) {

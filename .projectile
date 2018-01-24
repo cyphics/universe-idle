@@ -1,4 +1,13 @@
-- bin/
-- debug/
-- build/
-- G*
++/src/
++/include/
++/test/src/
+-/G*
+-/bin/
+-/test/include/catch.hpp
+
+# -/bin/
+# -/debug/
+# -/build/
+# -/.gitignore
+# -/test/build/
+# -/test/src/catch.hpp

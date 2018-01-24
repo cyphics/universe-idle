@@ -6,7 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "catch.hpp"
+#include "../include/catch.hpp"
 #include "physics/Time.h"
 #include "physics/constants_physics.h"
 

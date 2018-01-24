@@ -54,14 +54,24 @@ std::vector<Upgrade_ID> UpgradesList::get_all_upgrades() const
   /**
    * Return vector containing all upgrades
    */
-  //return _list_of_upgrades;
+  std::vector<Upgrade_ID> upgrade_vector;
+
+  for (auto upgrade : _list_of_upgrades) {
+    upgrade_vector.push_back(upgrade.get_ID());
+  }
+
+  return upgrade_vector;
 
 }
 
 std::vector<Upgrade_ID> UpgradesList::get_available_upgrades() const
 {
   std::vector<Upgrade_ID> available_upgrades;
-
+  for (auto upgrade : _list_of_upgrades) {
+    if (upgrade.is_available()) {
+      available_upgrades.push_back(upgrade.get_ID());
+    }
+  }
   return available_upgrades;
 }
 
