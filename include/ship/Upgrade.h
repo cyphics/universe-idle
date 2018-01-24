@@ -36,7 +36,9 @@ class Upgrade{
   void increase_level(int number_levels);
   std::string get_name() const;
   bool is_available() const;
+  void set_availability(bool availability);
   bool has_id(Upgrade_ID) const;
+  Upgrade_ID get_ID() const;
   const UpgradeCostTableElement& get_cost_table_element(Resource_ID queried_resource_id) const;
 };
 

@@ -12,6 +12,7 @@
 
 //#include "../class/Game.h"
 #include "simulation/Strategy.h"
+#include "ship/UpgradesManager.h"
 
 class Game;
 

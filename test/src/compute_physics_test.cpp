@@ -5,7 +5,7 @@
 // Description:
 //
 //////////////////////////////////////////////////////////////////////
-#include "catch.hpp"
+#include "../include/catch.hpp"
 #include "physics/compute_physics.h"
 
 TEST_CASE( "Compute Remaining Time" ) {

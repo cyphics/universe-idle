@@ -25,10 +25,10 @@ int main(int argc, char *argv[])
 
   return app.exec();
 
-  Time c_time = compute_remaining_time(Physics::Units::diameter_universe, Speed(BigNum(1, 0)), Acceleration(BigNum(1, 0)));
-  std::cout << "c_time: " << c_time.to_string()  << "\n";
-  //Physics::Time duration(1000);
-  //run_simulator(duration, Strategy_ID::broken);
+  // Time c_time = compute_remaining_time(Physics::Units::diameter_universe, Speed(BigNum(1, 0)), Acceleration(BigNum(1, 0)));
+  // std::cout << "c_time: " << c_time.to_string()  << "\n";
+  Physics::Time duration(1000);
+  run_simulator(duration, Strategy_ID::cheapest);
 
   return 0;
 }

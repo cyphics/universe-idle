@@ -3,7 +3,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 project(universe_idle)
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall")
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}")
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
 set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
 
@@ -12,9 +12,9 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed.
 SET(CMAKE_AUTOMOC ON)
+
 # Find the QtWidgets library
 find_package(Qt5Widgets)
-
 
 include_directories(include/)
 
@@ -90,11 +90,16 @@ file( GLOB_RECURSE
 add_library(app_lib ${SOURCES} ${HEADERS})
 
 # build main exec against lib
+
 add_executable( program src/main.cpp )
 #target_link_libraries(program PRIVATE app_lib)
 target_link_libraries(program PRIVATE app_lib Qt5::Widgets)
 target_link_libraries(app_lib Qt5::Widgets)
 
+
 # build test exec against lib
 add_executable(test_app ${TEST_SOURCES})
 target_link_libraries(test_app PRIVATE app_lib)
+
+# Use the Widgets module from Qt 5.
+# target_link_libraries(program Qt5::Widgets)

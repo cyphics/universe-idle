@@ -10,9 +10,11 @@
 #include <iostream>
 #include "managment/GameState.h"
 #include "simulation/Strategy.h"
+#include "physics/Time.h"
 
+using Physics::Time;
 
-Upgrade_ID strategy::strategy(Strategy_ID strategy_id, GameState gamestate)
+Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* upgrades_manager)
 {
   /**
    * Return the best upgrade to buy according to strategy
@@ -27,11 +29,23 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, GameState gamestate)
       }
     case Strategy_ID::cheapest:
       {
-      return Upgrade_ID::small_boost;
+        Time remaining_time(BigNum(1, 99)); // arbitrarily huge value
+        Upgrade_ID good_ID;
+
+        for (auto upgrade_id: upgrades_manager->get_list_of_upgrades().get_available_upgrades()) {
+          Time buy_time = upgrades_manager->time_until_affordable(upgrade_id, 1);
+          if (buy_time < remaining_time)
+          {
+            remaining_time = buy_time;
+            good_ID = upgrade_id;
+          }
+        }
+
+        return good_ID;
       break;
       }
     default:
-      return Upgrade_ID::empty_upgrade;
+      std::cout << "ERROR: Strategy returned nothing!"  << "\n";
       break;
   }
 

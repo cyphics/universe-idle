@@ -43,17 +43,17 @@ Price Upgrade::get_cost_increase_level(int additional_levels) const
      Return Price
    */
   assert(additional_levels > 0);
-
+  //assert(_current_level >= 0);
   if (_current_level == 0)
   {
     return _initial_cost;
   }
 
   Price price;
-
   // Go through all required resources
   for (auto resource_id : _required_resources)
   {
+
     BigNum required_amount = _cost_last_level.get_resource_amount(resource_id); // Set at cost for last level first
 
     for (int i = 0; i < additional_levels; i++)
@@ -80,6 +80,7 @@ void Upgrade::increase_level(int number_new_levels)
    * Increase current level with <number_levels>
    */
   _cost_last_level = get_cost_increase_level(number_new_levels);
+
   _current_level += number_new_levels;
 }
 
@@ -106,6 +107,21 @@ const UpgradeCostTableElement& Upgrade::get_cost_table_element(Resource_ID queri
 std::string Upgrade::get_name() const
 {
   return global::upgrade_name(_upgrade_id);
+}
+
+Upgrade_ID Upgrade::get_ID() const
+{
+  return _upgrade_id;
+}
+
+bool Upgrade::is_available() const
+{
+  return _is_available;
+}
+
+void Upgrade::set_availability(bool availability)
+{
+  _is_available = availability;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

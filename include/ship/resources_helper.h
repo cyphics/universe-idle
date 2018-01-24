@@ -13,7 +13,7 @@
 #include "util/BigNum.h"
 //#include "../physics/Time.h"
 
-enum class Resource_ID { fake_energy, cinetic_energy, dark_matter };
+enum class Resource_ID { cinetic_energy, dark_matter };
 
 struct ResourceAmount {
   Resource_ID _resource_ID;

@@ -12,12 +12,14 @@
 #include <iostream>
 #include "managment/GameState.h"
 #include "ship/upgrades_helper.h"
+#include "ship/UpgradesManager.h"
+
 
 enum class Strategy_ID { broken, cheapest, expensive };
 
 namespace strategy{
 
-Upgrade_ID strategy(Strategy_ID strategy_id, GameState gamestate);
+Upgrade_ID strategy(Strategy_ID strategy_id, const UpgradesManager* upgrades_manager);
 
 }
 

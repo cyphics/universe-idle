@@ -86,11 +86,7 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
    */
   if (_upgrades_manager.is_affordable(upgrade, amount))
   {
-    //std::cout << "Buy upgrade " << global::upgrade_name(upgrade) << "\n";
     _upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
-
-    //std::cout << "Remaining resource: " << _resources_manager.get_resource_amount(Resource_ID::cinetic_energy)  << "\n";
-
   }
   else
   {
