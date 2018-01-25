@@ -38,6 +38,8 @@ Game simulate_game(Strategy_ID strategy_id, Time duration)
 
       time_to_wait = game.manage_upgrades()->time_until_affordable(upgrade_to_buy, 1);
 
+
+
       // Either time is over -> stop simulation
       if (time_to_wait > duration - game.state().get_time())
       {

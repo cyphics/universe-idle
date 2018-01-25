@@ -89,6 +89,7 @@ bool Upgrade::has_id(Upgrade_ID upgrade_id) const
   /**
    * Checks if upgrade has the correct ID
    */
+  Upgrade_ID an = upgrade_id;
   return upgrade_id == _upgrade_id;
 }
 

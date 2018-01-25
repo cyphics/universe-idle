@@ -29,18 +29,21 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* up
       }
     case Strategy_ID::cheapest:
       {
+        std::cout << "cheapest"  << "\n";
         Time remaining_time(BigNum(1, 99)); // arbitrarily huge value
         Upgrade_ID good_ID;
 
-        for (auto upgrade_id: upgrades_manager->get_list_of_upgrades().get_available_upgrades()) {
+        for (auto upgrade_id: upgrades_manager->get_available_upgrades()) {
+          std::cout << upgrades_manager->get_upgrade_name(upgrade_id) << "\n";
           Time buy_time = upgrades_manager->time_until_affordable(upgrade_id, 1);
+          std::cout << buy_time.to_string()  << "\n";
           if (buy_time < remaining_time)
           {
             remaining_time = buy_time;
             good_ID = upgrade_id;
           }
         }
-
+        std::cout << "end cheapest"  << "\n";
         return good_ID;
       break;
       }

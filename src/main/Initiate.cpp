@@ -12,7 +12,7 @@
 #include "ship/Upgrade.h"
 #include "ship/upgrades_configuration.h"
 
-UpgradesList Init::initiate_upgrades_list()
+std::vector<Upgrade> Init::initiate_upgrades_list()
 {
 
   // SMALL BOOST
@@ -48,34 +48,31 @@ UpgradesList Init::initiate_upgrades_list()
 
   std::vector<Upgrade> vector_of_upgrades = {small_boost, big_boost};
 
-  UpgradesList upgrades_list;
-  upgrades_list.set_list_upgrades(vector_of_upgrades);
-
-  std::cout << "available:"  << "\n";
-  for (auto an_upgrade : upgrades_list.get_available_upgrades()) {
-    std::cout << upgrades_list.get_upgrade_name(an_upgrade)  << "\n";
-  }
-
-  std::cout << "ok"  << "\n";
-
-
-
-  return upgrades_list;
+  return vector_of_upgrades;
 }
 
 
 
-ResourcesList Init::initiate_resources_list()
+std::vector<Resource> Init::initiate_resources_list()
 {
   Resource cinetic_energy = Resource(Resource_ID::cinetic_energy);
   Resource dark_matter = Resource(Resource_ID::dark_matter);
 
   std::vector<Resource> vector_of_resources = {cinetic_energy, dark_matter};
-  ResourcesList resources_list = ResourcesList(vector_of_resources);
-
-  return resources_list;
+  return vector_of_resources;
 }
 
+UpgradesManager& Init::initiate_upgrades_manager()
+{
+  UpgradesManager manager(initiate_upgrades_list());
+  return manager;
+}
+
+ResourcesManager& Init::initiate_resources_manager()
+{
+  ResourcesManager manager(initiate_resources_list());
+  return manager;
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

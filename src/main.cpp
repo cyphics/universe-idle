@@ -19,16 +19,16 @@ int main(int argc, char *argv[])
 {
 
 
-  QApplication app(argc, argv);
-  Ui::MainWindow main_window;
-  QMainWindow a_window;
+  // QApplication app(argc, argv);
+  // Ui::MainWindow main_window;
+  // QMainWindow a_window;
 
-  main_window.setupUi(&a_window);
-  a_window.show();
+  // main_window.setupUi(&a_window);
+  //a_window.show();
   // FenPrincipale fenetre;
   // fenetre.show();
 
-  return app.exec();
+  //  return app.exec();
 
   // Time c_time = compute_remaining_time(Physics::Units::diameter_universe, Speed(BigNum(1, 0)), Acceleration(BigNum(1, 0)));
   // std::cout << "c_time: " << c_time.to_string()  << "\n";

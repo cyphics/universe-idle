@@ -15,8 +15,9 @@
 
 using Physics::Time;
 
-UpgradesManager::UpgradesManager()
+UpgradesManager::UpgradesManager(std::vector<Upgrade> list_upgrades)
 {
+  _list_of_upgrades = list_upgrades;
 }
 
 UpgradesManager::UpgradesManager(const UpgradesManager& original)
@@ -30,9 +31,8 @@ UpgradesManager& UpgradesManager::operator=(UpgradesManager& original)
   return original;
 }
 
-void UpgradesManager::init_manager(UpgradesList upgrades, ResourcesManager* resourcesManager)
+void UpgradesManager::set_resources_manager(ResourcesManager* resourcesManager)
 {
-  _list_of_upgrades = upgrades;
   _resources_manager = resourcesManager;
 }
 
@@ -43,7 +43,7 @@ bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) con
    * If price of upgrade is lower that amount of resource, return true.
    */
 
-  Price price_upgrade =  _list_of_upgrades.get_price_increase_level(upgrade, amount);
+  Price price_upgrade =  get_price_increase_level(upgrade, amount);
   return price_upgrade.can_be_payed(_resources_manager);
 }
 
@@ -52,8 +52,8 @@ void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time 
   /**
    * Increment level of upgrade, and pay price in resource manager
    */
-  Price price_to_pay = _list_of_upgrades.get_price_increase_level(upgrade, amount);
-  _list_of_upgrades.increase_upgrade_level(upgrade, amount);
+  Price price_to_pay = get_price_increase_level(upgrade, amount);
+  increase_upgrade_level(upgrade, amount);
   _resources_manager->pay_price(price_to_pay);
   _purchases_history.add_upgrade(upgrade, price_to_pay, time_when_bought);
 }
@@ -75,7 +75,8 @@ Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amo
    */
 
   // For now, only returns price for next level...
-  Price price = _list_of_upgrades.get_price_increase_level(upgrade, 1);
+  Price price = get_price_increase_level(upgrade, 1);
+  std::cout << price.to_string()  << "\n";
   return _resources_manager->get_time_until_in_stock(price);
 }
 
@@ -85,19 +86,74 @@ std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const
    * Take an upgrade_id
      Return the name of the upgrade, as a string
    */
-  return _list_of_upgrades.get_upgrade_name(upgrade_id);
+  return get_upgrade(upgrade_id).get_name();
 }
 
-const UpgradesList& UpgradesManager::get_list_of_upgrades() const
-{
-  /**
-   * Return a constant reference to the list of upgrades
-   */
-
-  return _list_of_upgrades;
-}
 
 int UpgradesManager::get_upgrade_level(Upgrade_ID upgrade_id) const
 {
-  return get_list_of_upgrades().get_upgrade_level(upgrade_id);
+  std::cout << "yes"  << "\n";
+  return get_upgrade(upgrade_id).get_current_level();
+}
+
+
+Price UpgradesManager::get_price_increase_level(Upgrade_ID upgrade_id, int amount_new_levels) const
+{
+  return get_upgrade(upgrade_id).get_cost_increase_level(amount_new_levels);
+}
+
+
+void UpgradesManager::increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels)
+{
+  get_upgrade(upgrade).increase_level(amount_new_levels);
+}
+
+
+std::vector<Upgrade_ID> UpgradesManager::get_available_upgrades() const
+{
+  std::vector<Upgrade_ID> available_upgrades;
+  for (auto upgrade : _list_of_upgrades) {
+    if (upgrade.is_available()) {
+      available_upgrades.push_back(upgrade.get_ID());
+    }
+  }
+  return available_upgrades;
+
+}
+
+std::vector<Upgrade_ID> UpgradesManager::get_all_upgrades() const
+{
+  /**
+   * Return vector containing all upgrades
+   */
+  std::vector<Upgrade_ID> upgrade_vector;
+
+  for (auto upgrade : _list_of_upgrades) {
+    upgrade_vector.push_back(upgrade.get_ID());
+  }
+
+  return upgrade_vector;
+
+}
+
+Upgrade& UpgradesManager::get_upgrade(Upgrade_ID upgrade_id)
+{
+  for (auto &upgrade : _list_of_upgrades)
+  {
+    if (upgrade.has_id(upgrade_id))
+    {
+      return upgrade;
+    }
+  }
+}
+
+const Upgrade& UpgradesManager::get_upgrade(Upgrade_ID upgrade_id) const
+{
+  for (auto &upgrade : _list_of_upgrades)
+  {
+    if (upgrade.has_id(upgrade_id))
+    {
+      return upgrade;
+    }
+  }
 }

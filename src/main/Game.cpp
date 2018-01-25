@@ -20,12 +20,9 @@ using Physics::Speed;
 using Physics::Distance;
 
 Game::Game()
-    :_stock_of_resources(Init::initiate_resources_list()),
-     _list_of_upgrades(Init::initiate_upgrades_list())
+    :_resources_manager(Init::initiate_resources_manager()),
+     _upgrades_manager(Init::initiate_upgrades_manager())
 {
-
-  _resources_manager.init_manager(_stock_of_resources, &_upgrades_manager);
-  _upgrades_manager.init_manager(_list_of_upgrades, &_resources_manager);
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
 
 }
@@ -81,7 +78,7 @@ void Game::wait(Time time)
 void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
 {
   /**
-   * Add ugprade if possible
+   * Add upgrade if possible
      If not, do nothing
    */
   if (_upgrades_manager.is_affordable(upgrade, amount))
@@ -91,7 +88,7 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
   else
   {
     std::cout << "Upgrade " << _upgrades_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
-    BigNum cost = _upgrades_manager.get_list_of_upgrades().get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::cinetic_energy);
+    BigNum cost = _upgrades_manager.get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::cinetic_energy);
     BigNum current_amount = _resources_manager.get_resource_amount(Resource_ID::cinetic_energy);
     std::cout << current_amount << " < " << cost  << "\n";
   }
@@ -102,6 +99,8 @@ void Game::click()
   /**
    *
    */
+  BigNum new_amount = 1;
+  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
 }
 
 const UpgradesManager* Game::manage_upgrades() const

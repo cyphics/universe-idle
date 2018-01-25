@@ -13,8 +13,10 @@ using Physics::Acceleration;
 
 BigNum computation::get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager)
 {
+
   int small_boost_level = upgrades_manager->get_upgrade_level(Upgrade_ID::small_boost);
   int big_boost_level = upgrades_manager->get_upgrade_level(Upgrade_ID::big_boost);
+
   switch (resource_id)
   {
     case Resource_ID::cinetic_energy:

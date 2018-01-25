@@ -16,10 +16,10 @@
 
 namespace Init{
 
-UpgradesManager& initiate_ugprades_manager(UpgradesList&, ResourcesList&);
-ResourcesManager& initiate_resources_manager(UpgradesList&, ResourcesList&);
-UpgradesList initiate_upgrades_list();
-ResourcesList initiate_resources_list();
+std::vector<Resource> initiate_resources_list();
+std::vector<Upgrade> initiate_upgrades_list();
+UpgradesManager& initiate_upgrades_manager();
+ResourcesManager& initiate_resources_manager();
 
 }
 
