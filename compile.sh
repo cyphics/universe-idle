@@ -11,11 +11,12 @@ test_name="test_app"
 
 if [ "$1" == "clean" ]
 then
-    echo "$project_root"
     rm -rf "$project_root"/bin
     rm -rf "$project_root"/lib
     rm -rf "$project_root"/debug
     rm -rf "$project_root"/build
+    rm -rf "$project_root"/test/bin
+    rm -rf "$project_root"/test/build
     exit 0
 fi
 

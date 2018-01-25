@@ -2,10 +2,8 @@ set (CMAKE_CXX_STANDARD 11)
 
 add_custom_target(check)
 
-#Configuration du projet
-
-set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
+#set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
+#set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
 
 #Inclusion de la bibliothèque Hello
 include_directories(../include)
@@ -16,8 +14,7 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE . )
 
 #Configuration de l'exécutable
-file(
-        GLOB_RECURSE
+file(   GLOB_RECURSE
         source_files
         src/*.cpp
 )

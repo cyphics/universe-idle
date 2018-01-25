@@ -35,11 +35,9 @@ set(
   src/ship/computations.cpp
   src/ship/Price.cpp
   src/ship/Resource.cpp
-  src/ship/ResourcesList.cpp
   src/ship/ResourcesManager.cpp
   src/ship/Upgrade.cpp
   src/ship/UpgradeManager.cpp
-  src/ship/UpgradesList.cpp
   src/simulation/run_simulator.cpp
   src/simulation/Simulate_game.cpp
   src/simulation/Strategy.cpp
@@ -65,12 +63,10 @@ set(
   include/ship/computations.h
   include/ship/Price.h
   include/ship/Resource.h
-  include/ship/ResourcesList.h
   include/ship/ResourcesManager.h
   include/ship/resources_helper.h
   include/ship/Upgrade.h
   include/ship/UpgradesManager.h
-  include/ship/UpgradesList.h
   include/ship/upgrades_helper
   include/simulation/run_simulator.h
   include/simulation/Simulate_game.h
@@ -85,6 +81,7 @@ add_library(app_lib ${SOURCES} ${HEADERS})
 # build main exec against lib
 
 add_executable( program src/main.cpp )
+
 #target_link_libraries(program PRIVATE app_lib)
 target_link_libraries(program PRIVATE app_lib)
 target_link_libraries(app_lib PUBLIC Qt5::Widgets)
