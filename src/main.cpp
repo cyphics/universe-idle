@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <SFML/Graphics.hpp>
 
 
 #include "simulation/run_simulator.h"
@@ -9,7 +10,10 @@
 #include "physics/compute_physics.h"
 #include "physics/Distance.h"
 //#include "gui/FenPrincipale.h"
-#include "gui/GameGui.h"
+//#include "gui/GameGui.h"
+#include "main/Game.h"
+#include "main/UniverseIdle.h"
+#include "gui/ui_UniverseIdleGUI.h"
 
 //#include "gui/FenPrincipale.h"
 
@@ -18,23 +22,21 @@ using Physics::Distance;
 int main(int argc, char *argv[])
 {
 
+  QApplication app(argc, argv);
 
-  // QApplication app(argc, argv);
-  // Ui::MainWindow main_window;
-  // QMainWindow a_window;
+  // QMainWindow *window = new QMainWindow;
+  // Ui::UniverseIdleMainWindow ui;
+  // ui.setupUi(window);
 
-  // main_window.setupUi(&a_window);
-  //a_window.show();
-  // FenPrincipale fenetre;
-  // fenetre.show();
+  // window->show();
 
-  //  return app.exec();
+  // return app.exec();
 
-  // Time c_time = compute_remaining_time(Physics::Units::diameter_universe, Speed(BigNum(1, 0)), Acceleration(BigNum(1, 0)));
-  // std::cout << "c_time: " << c_time.to_string()  << "\n";
+  UniverseIdle universe;
+  universe.run();
+
   Physics::Time duration(1000);
   run_simulator(duration, Strategy_ID::cheapest);
 
   return 0;
 }
-// 52632154.556140 galactic years

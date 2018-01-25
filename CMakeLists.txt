@@ -16,11 +16,14 @@ SET(CMAKE_AUTOMOC ON)
 # Find the QtWidgets library
 find_package(Qt5Widgets)
 
+find_package(SFML 2 REQUIRED network audio graphics window system)
+
 include_directories(include/)
 
 set(
   SOURCES
   src/main/Game.cpp
+  src/main/UniverseIdle.cpp
   src/main/game_global_variables.cpp
   src/main/Initiate.cpp
   src/managment/BoughtUpgrade.cpp
@@ -42,48 +45,24 @@ set(
   src/simulation/Simulate_game.cpp
   src/simulation/Strategy.cpp
   src/util/BigNum.cpp
-  src/gui/GameGui.cpp
   )
 
-set(
-  HEADERS
-  include/main/Game.h
-  include/main/game_global_variables.h
-  include/main/initiate.h
-  include/managment/BoughtUpgrade.h
-  include/managment/GameState.h
-  include/managment/History.h
-  include/physics/Acceleration.h
-  include/physics/compute_physics.h
-  include/physics/constants_physics.h
-  include/physics/Distance.h
-  include/physics/PhysicalUnit.h
-  include/physics/Speed.h
-  include/physics/Time.h
-  include/ship/computations.h
-  include/ship/Price.h
-  include/ship/Resource.h
-  include/ship/ResourcesManager.h
-  include/ship/resources_helper.h
-  include/ship/Upgrade.h
-  include/ship/UpgradesManager.h
-  include/ship/upgrades_helper
-  include/simulation/run_simulator.h
-  include/simulation/Simulate_game.h
-  include/simulation/Strategy.h
-  include/util/BigNum.h
-  include/gui/GameGui.h
-  )
 
 # build app library
-add_library(app_lib ${SOURCES} ${HEADERS})
+add_library(app_lib ${SOURCES})
 
 # build main exec against lib
 
 add_executable( program src/main.cpp )
 
 #target_link_libraries(program PRIVATE app_lib)
-target_link_libraries(program PRIVATE app_lib)
+target_link_libraries(
+  program
+  PRIVATE
+  app_lib
+  ${SFML_LIBRARIES}
+  ${SFML_DEPENDENCIES}
+  )
 target_link_libraries(app_lib PUBLIC Qt5::Widgets)
 
 

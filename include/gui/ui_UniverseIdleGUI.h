@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'UniverseIdleGUIKMKtHm.ui'
+** Form generated from reading UI file 'UniverseIdleGUIOwzDTV.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UNIVERSEIDLEGUIKMKTHM_H
-#define UNIVERSEIDLEGUIKMKTHM_H
+#ifndef UNIVERSEIDLEGUIOWZDTV_H
+#define UNIVERSEIDLEGUIOWZDTV_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -28,7 +28,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class GameGui
+class Ui_UniverseIdleMainWindow
 {
 public:
     QWidget *centralwidget;
@@ -52,8 +52,8 @@ public:
     QLabel *acceleration_value_label;
     QWidget *formLayoutWidget_2;
     QFormLayout *resources_layout;
-    QLabel *label_9;
-    QLabel *label_13;
+    QLabel *cinetic_energy_label;
+    QLabel *dark_matter_label;
     QWidget *verticalLayoutWidget_6;
     QVBoxLayout *upgrades_layout;
     QGroupBox *groupBox;
@@ -72,12 +72,12 @@ public:
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
-    void setupUi(QMainWindow *MainWindow)
+    void setupUi(QMainWindow *UniverseIdleMainWindow)
     {
-        if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1113, 917);
-        centralwidget = new QWidget(MainWindow);
+        if (UniverseIdleMainWindow->objectName().isEmpty())
+            UniverseIdleMainWindow->setObjectName(QStringLiteral("UniverseIdleMainWindow"));
+        UniverseIdleMainWindow->resize(1113, 917);
+        centralwidget = new QWidget(UniverseIdleMainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -151,15 +151,15 @@ public:
         resources_layout = new QFormLayout(formLayoutWidget_2);
         resources_layout->setObjectName(QStringLiteral("resources_layout"));
         resources_layout->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(formLayoutWidget_2);
-        label_9->setObjectName(QStringLiteral("label_9"));
+        cinetic_energy_label = new QLabel(formLayoutWidget_2);
+        cinetic_energy_label->setObjectName(QStringLiteral("cinetic_energy_label"));
 
-        resources_layout->setWidget(0, QFormLayout::LabelRole, label_9);
+        resources_layout->setWidget(0, QFormLayout::LabelRole, cinetic_energy_label);
 
-        label_13 = new QLabel(formLayoutWidget_2);
-        label_13->setObjectName(QStringLiteral("label_13"));
+        dark_matter_label = new QLabel(formLayoutWidget_2);
+        dark_matter_label->setObjectName(QStringLiteral("dark_matter_label"));
 
-        resources_layout->setWidget(1, QFormLayout::LabelRole, label_13);
+        resources_layout->setWidget(1, QFormLayout::LabelRole, dark_matter_label);
 
 
         infoLayout->addWidget(infoGroup);
@@ -229,51 +229,51 @@ public:
 
         verticalLayout->addWidget(mainGroup);
 
-        MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
+        UniverseIdleMainWindow->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(UniverseIdleMainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
         menubar->setGeometry(QRect(0, 0, 1113, 20));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
+        UniverseIdleMainWindow->setMenuBar(menubar);
+        statusbar = new QStatusBar(UniverseIdleMainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
-        MainWindow->setStatusBar(statusbar);
+        UniverseIdleMainWindow->setStatusBar(statusbar);
 
-        retranslateUi(MainWindow);
+        retranslateUi(UniverseIdleMainWindow);
 
-        QMetaObject::connectSlotsByName(MainWindow);
+        QMetaObject::connectSlotsByName(UniverseIdleMainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow)
+    void retranslateUi(QMainWindow *UniverseIdleMainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Universe Idle", nullptr));
-        mainGroup->setTitle(QApplication::translate("MainWindow", "main group", nullptr));
-        displayGroup->setTitle(QApplication::translate("MainWindow", "display Group", nullptr));
-        infoGroup->setTitle(QApplication::translate("MainWindow", "infoBox", nullptr));
-        speed_label->setText(QApplication::translate("MainWindow", "Speed :", nullptr));
-        speed_value_labep->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        distance_label->setText(QApplication::translate("MainWindow", "Distance traveled :", nullptr));
-        distance_value_label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        acceleration_label->setText(QApplication::translate("MainWindow", "Acceleration : ", nullptr));
-        time_label->setText(QApplication::translate("MainWindow", "Time until destination :", nullptr));
-        time_value_label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        acceleration_value_label->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        label_9->setText(QApplication::translate("MainWindow", "Cinetic energy :", nullptr));
-        label_13->setText(QApplication::translate("MainWindow", "Dark Matter :", nullptr));
-        groupBox->setTitle(QApplication::translate("MainWindow", "GroupBox", nullptr));
-        small_boost_remaining_time->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        small_boost_button->setText(QApplication::translate("MainWindow", "Small boost", nullptr));
-        small_boost_price->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        big_boost_remaining_time->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
-        big_boost_button->setText(QApplication::translate("MainWindow", "Small boost", nullptr));
-        big_boost_price->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        UniverseIdleMainWindow->setWindowTitle(QApplication::translate("UniverseIdleMainWindow", "Universe Idle", nullptr));
+        mainGroup->setTitle(QApplication::translate("UniverseIdleMainWindow", "main group", nullptr));
+        displayGroup->setTitle(QApplication::translate("UniverseIdleMainWindow", "display Group", nullptr));
+        infoGroup->setTitle(QApplication::translate("UniverseIdleMainWindow", "infoBox", nullptr));
+        speed_label->setText(QApplication::translate("UniverseIdleMainWindow", "Speed :", nullptr));
+        speed_value_labep->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        distance_label->setText(QApplication::translate("UniverseIdleMainWindow", "Distance traveled :", nullptr));
+        distance_value_label->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        acceleration_label->setText(QApplication::translate("UniverseIdleMainWindow", "Acceleration : ", nullptr));
+        time_label->setText(QApplication::translate("UniverseIdleMainWindow", "Time until destination :", nullptr));
+        time_value_label->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        acceleration_value_label->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        cinetic_energy_label->setText(QApplication::translate("UniverseIdleMainWindow", "Cinetic energy :", nullptr));
+        dark_matter_label->setText(QApplication::translate("UniverseIdleMainWindow", "Dark Matter :", nullptr));
+        groupBox->setTitle(QApplication::translate("UniverseIdleMainWindow", "GroupBox", nullptr));
+        small_boost_remaining_time->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        small_boost_button->setText(QApplication::translate("UniverseIdleMainWindow", "Small boost", nullptr));
+        small_boost_price->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        big_boost_remaining_time->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        big_boost_button->setText(QApplication::translate("UniverseIdleMainWindow", "Small boost", nullptr));
+        big_boost_price->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MainWindow: public GameGui {};
+    class UniverseIdleMainWindow: public Ui_UniverseIdleMainWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UNIVERSEIDLEGUIKMKTHM_H
+#endif // UNIVERSEIDLEGUIOWZDTV_H
