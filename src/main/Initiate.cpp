@@ -62,13 +62,13 @@ std::vector<Resource> Init::initiate_resources_list()
   return vector_of_resources;
 }
 
-UpgradesManager& Init::initiate_upgrades_manager()
+UpgradesManager Init::initiate_upgrades_manager()
 {
   UpgradesManager manager(initiate_upgrades_list());
   return manager;
 }
 
-ResourcesManager& Init::initiate_resources_manager()
+ResourcesManager Init::initiate_resources_manager()
 {
   ResourcesManager manager(initiate_resources_list());
   return manager;

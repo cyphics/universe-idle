@@ -23,6 +23,9 @@ Game::Game()
     :_resources_manager(Init::initiate_resources_manager()),
      _upgrades_manager(Init::initiate_upgrades_manager())
 {
+  _resources_manager.set_upgrades_manager(&_upgrades_manager);
+  _upgrades_manager.set_resources_manager(&_resources_manager);
+
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
 
 }

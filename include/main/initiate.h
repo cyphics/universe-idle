@@ -18,8 +18,8 @@ namespace Init{
 
 std::vector<Resource> initiate_resources_list();
 std::vector<Upgrade> initiate_upgrades_list();
-UpgradesManager& initiate_upgrades_manager();
-ResourcesManager& initiate_resources_manager();
+UpgradesManager initiate_upgrades_manager();
+ResourcesManager initiate_resources_manager();
 
 }
 

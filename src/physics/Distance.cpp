@@ -73,7 +73,6 @@ std::string Distance::to_string() const
   else if (*this < Physics::Units::astro_unit)
   {
     int exposant = _numerical_value.get_exponant() - Physics::Units::kilometer.num().get_exponant();
-    //std::cout << num().get_significand()  << "\n";
     double mantissa = _numerical_value.get_significand();
     output += std::to_string(mantissa);
     output += "e";

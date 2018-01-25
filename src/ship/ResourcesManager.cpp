@@ -20,7 +20,7 @@ ResourcesManager::ResourcesManager(std::vector<Resource> stock_resources)
    * Empty default constructor (necessarily empty to allow circular definition)
    */
   _stock_of_resources = stock_resources;
- }
+}
 
 ResourcesManager::ResourcesManager(const ResourcesManager& original)
     :_stock_of_resources(original._stock_of_resources),_upgrades_manager(original._upgrades_manager)
@@ -67,7 +67,6 @@ Time ResourcesManager::get_time_until_in_stock(const Price& price) const
    * Return time to wait to have enough resources to pay price
    */
   Time time(0);
-  std::cout << "get_time"  << "\n";
 
   for (auto resourceAmount : price.get_resources_to_pay())
   {

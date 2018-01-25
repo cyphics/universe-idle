@@ -20,6 +20,8 @@ then
     exit 0
 fi
 
+
+
 if [ "$1" == "debug" ]
 then
     mkdir -p debug
@@ -29,22 +31,20 @@ then
     exit 0
 fi
 
-
-build_project(){
-    mkdir -p "$build_dir"
-    cd "$build_dir"
-    cmake ..
-    make
-}
-
-build_project
-
-if [ "$1" == run ]
-then
-    "$bin_dir"/"$bin_name" $2
-fi
+# Configure
+mkdir -p "$build_dir"
+cd "$build_dir"
+cmake ..
 
 if [ "$1" == "test" ]
 then
-    "$bin_dir/$test_name"
+    make check
+    "$project_root"/build/test/bin/test_app
+    exit 0
+fi
+
+make
+if [ "$1" == run ]
+then
+    "$bin_dir"/"$bin_name" $2
 fi
