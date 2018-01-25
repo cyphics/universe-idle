@@ -32,6 +32,13 @@ Resource_ID big_boost_resource = Resource_ID::cinetic_energy;
 BigNum big_boost_initial_cost = 150;
 
 
+// Click boost
+bool click_boost_availability = true;
+bool click_boost_uniqueness = true;
+double click_boost_increase_factor = 1;
+Resource_ID click_boost_resource = Resource_ID::cinetic_energy;
+BigNum click_boost_initial_cost = 1500;
+
 }
 
 }

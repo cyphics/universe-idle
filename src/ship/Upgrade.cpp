@@ -79,8 +79,12 @@ void Upgrade::increase_level(int number_new_levels)
   /**
    * Increase current level with <number_levels>
    */
-  _cost_last_level = get_cost_increase_level(number_new_levels);
 
+  if (_uniqueness) {
+    _current_level = 1;
+    _is_available = false;
+  }
+  _cost_last_level = get_cost_increase_level(number_new_levels);
   _current_level += number_new_levels;
 }
 
@@ -123,6 +127,11 @@ bool Upgrade::is_available() const
 void Upgrade::set_availability(bool availability)
 {
   _is_available = availability;
+}
+
+void Upgrade::set_uniqueness(bool uniqueness)
+{
+  _uniqueness = uniqueness;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

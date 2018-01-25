@@ -14,6 +14,22 @@
 
 std::vector<Upgrade> Init::initiate_upgrades_list()
 {
+  // CLick boost
+
+  UpgradeCostTableElement click_boost_cinetic_energy;
+
+  click_boost_cinetic_energy.resource = Congif::Upgrade::click_boost_resource;
+  click_boost_cinetic_energy.initial_cost = Congif::Upgrade::click_boost_initial_cost;
+  double click_boost_increase_factor = Congif::Upgrade::click_boost_increase_factor;
+  std::vector<UpgradeCostTableElement> cost_click_boost;
+  cost_click_boost.push_back(click_boost_cinetic_energy);
+
+
+  // Build object
+  Upgrade click_boost = Upgrade(Upgrade_ID::click_boost, cost_click_boost, click_boost_increase_factor);
+  click_boost.set_availability(Congif::Upgrade::click_boost_availability);
+  click_boost.set_uniqueness(Congif::Upgrade::click_boost_uniqueness);
+
 
   // SMALL BOOST
   // Build cost table elements
@@ -46,7 +62,7 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
   Upgrade big_boost = Upgrade(Upgrade_ID::big_boost, cost_big_boost, big_boost_increase_factor);
   big_boost.set_availability(Congif::Upgrade::big_boost_availability);
 
-  std::vector<Upgrade> vector_of_upgrades = {small_boost, big_boost};
+  std::vector<Upgrade> vector_of_upgrades = {small_boost, big_boost, click_boost};
 
   return vector_of_upgrades;
 }

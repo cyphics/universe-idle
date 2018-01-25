@@ -53,10 +53,7 @@ static Time galactical_year = year * 250000000;
 }
 
 
-//std::map<Units::DistanceUnit, Distance> DistanceConstants({ {Units::DistanceUnit::meter, meter}, {Units::Distance::kilometer, kilometer} });
 
-
-//static const std::map<Upgrade_ID, std::string> output({ {Upgrade_ID::small_boost, "Small boost"}, {Upgrade_ID::big_boost, "Big boost"}, {Upgrade_ID::empty_upgrade, "Empty upgrade"} });
 }
 
 

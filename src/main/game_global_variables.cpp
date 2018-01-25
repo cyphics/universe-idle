@@ -13,7 +13,7 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
   /**
    * Return a static (unique) const dictionary linking Upgrades_ID to the name of the upgrade
    */
-  static const std::map<Upgrade_ID, std::string> output({ {Upgrade_ID::small_boost, "Small boost"}, {Upgrade_ID::big_boost, "Big boost"} });
+  static const std::map<Upgrade_ID, std::string> output({ {Upgrade_ID::click_boost, "Click boost"}, {Upgrade_ID::small_boost, "Small boost"}, {Upgrade_ID::big_boost, "Big boost"} });
 
   return output;
 }

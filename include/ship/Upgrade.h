@@ -25,21 +25,24 @@ class Upgrade{
   double _increase_factor;
   int _current_level = 0; // Equals number bought
   bool _is_available = false;
-
-  void compute_cost_next_level();
+  bool _uniqueness = false;
 
  public:
   Upgrade(Upgrade_ID upgrade_id, std::vector<UpgradeCostTableElement> cost_table, double increase_factor);
   ~Upgrade();
+
+  // Getters
   Price get_cost_increase_level(int level) const;
   int get_current_level() const;
-  void increase_level(int number_levels);
   std::string get_name() const;
   bool is_available() const;
-  void set_availability(bool availability);
   bool has_id(Upgrade_ID) const;
   Upgrade_ID get_ID() const;
   const UpgradeCostTableElement& get_cost_table_element(Resource_ID queried_resource_id) const;
+
+  void increase_level(int number_levels);
+  void set_availability(bool availability);
+  void set_uniqueness(bool availability);
 };
 
 
