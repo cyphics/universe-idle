@@ -1,6 +1,6 @@
 set (CMAKE_CXX_STANDARD 11)
 
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND})
+add_custom_target(check)
 
 #Configuration du projet
 
@@ -22,33 +22,13 @@ file(
         src/*.cpp
 )
 
-message("source_files ${source_files}")
 
-add_executable(
-        test_bignum
-        ${source_files}
-)
-
-#Configuration de l'édition de liens
-target_link_libraries(
-        test_bignum
-        Catch
-        app_lib
-)
-add_test(test_bignum ${CMAKE_CURRENT_BINARY_DIR}/bin/test_bignum)
-add_dependencies(check test_bignum)
-
-
-
-file( 
+file(
     GLOB TEST_SOURCES src/*.cpp)
 
-    
+
 
 add_executable(test_app ${TEST_SOURCES})
 target_link_libraries(test_app PRIVATE app_lib Catch)
 add_dependencies(check test_app)
 add_test(test_app ${CMAKE_CURRENT_BINARY_DIR}/bin/test_app)
-
-
-
