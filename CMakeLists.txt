@@ -45,8 +45,6 @@ set(
   src/simulation/Strategy.cpp
   src/util/BigNum.cpp
   src/gui/GameGui.cpp
-  src/gui/FenCodeGenere.cpp
-  src/gui/FenPrincipale.cpp
   )
 
 set(
@@ -79,14 +77,7 @@ set(
   include/simulation/Strategy.h
   include/util/BigNum.h
   include/gui/GameGui.h
-  include/gui/FenCodeGenere.h
-  include/gui/FenPrincipale.h
   )
-
-file( GLOB_RECURSE
-  TEST_SOURCES
-  test/*
-)
 
 # build app library
 add_library(app_lib ${SOURCES} ${HEADERS})
@@ -95,13 +86,11 @@ add_library(app_lib ${SOURCES} ${HEADERS})
 
 add_executable( program src/main.cpp )
 #target_link_libraries(program PRIVATE app_lib)
-target_link_libraries(program PRIVATE app_lib Qt5::Widgets)
-target_link_libraries(app_lib Qt5::Widgets)
+target_link_libraries(program PRIVATE app_lib)
+target_link_libraries(app_lib PUBLIC Qt5::Widgets)
 
 
-# build test exec against lib
-add_executable(test_app ${TEST_SOURCES})
-target_link_libraries(test_app PRIVATE app_lib)
-
+enable_testing()
+add_subdirectory(test EXCLUDE_FROM_ALL)
 # Use the Widgets module from Qt 5.
 # target_link_libraries(program Qt5::Widgets)
