@@ -8,6 +8,7 @@
 
 #include "main/UniverseIdle.h"
 #include "gui/ui_UniverseIdleGUI.h"
+#include "main/GameController.h"
 
 UniverseIdle::UniverseIdle(){
   _gui.setupUi(&_window);
@@ -15,26 +16,28 @@ UniverseIdle::UniverseIdle(){
 
 UniverseIdle::~UniverseIdle(){}
 
-int UniverseIdle::run()
+void UniverseIdle::run()
 {
-  _game.buy_upgrade(Upgrade_ID::small_boost, 1);
-  Game my_game;
-  my_game.buy_upgrade(Upgrade_ID::small_boost, 1);
-  sf::Time tick = sf::seconds(0.2);
-  sf::Time elapsed;
 
-  // Run GUI
+  Game my_game;
+
+  GameController controller(&my_game);
+
   QMainWindow *window = new QMainWindow;
   Ui::UniverseIdleMainWindow ui;
   ui.setupUi(window);
 
+  connect(controller, ui);
+
   window->show();
-
-  return QApplication::instance()->exec();
-
+  QApplication::instance()->exec();
 }
 
-
+void UniverseIdle::connect(GameController& controller, Ui::UniverseIdleMainWindow& ui)
+{
+  QObject::connect(ui.clickButton, &QPushButton::clicked, &controller, &GameController::click);
+  // QObject::connect(controller, &GameController::updateStuff, ui, &Ui::UniverseIdleMainWindow::update);
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

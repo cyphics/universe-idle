@@ -23,6 +23,7 @@ include_directories(include/)
 set(
   SOURCES
   src/main/Game.cpp
+  src/main/GameController.cpp
   src/main/UniverseIdle.cpp
   src/main/game_global_variables.cpp
   src/main/Initiate.cpp

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'UniverseIdleGUIOwzDTV.ui'
+** Form generated from reading UI file 'UniverseIdleGUIAehiYZ.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UNIVERSEIDLEGUIOWZDTV_H
-#define UNIVERSEIDLEGUIOWZDTV_H
+#ifndef UNIVERSEIDLEGUIAEHIYZ_H
+#define UNIVERSEIDLEGUIAEHIYZ_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -69,6 +69,9 @@ public:
     QLabel *big_boost_price;
     QWidget *gridLayoutWidget;
     QGridLayout *quitLayout;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *clickButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -226,6 +229,17 @@ public:
         quitLayout = new QGridLayout(gridLayoutWidget);
         quitLayout->setObjectName(QStringLiteral("quitLayout"));
         quitLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayoutWidget_3 = new QWidget(mainGroup);
+        verticalLayoutWidget_3->setObjectName(QStringLiteral("verticalLayoutWidget_3"));
+        verticalLayoutWidget_3->setGeometry(QRect(490, 760, 160, 80));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_3);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        clickButton = new QPushButton(verticalLayoutWidget_3);
+        clickButton->setObjectName(QStringLiteral("clickButton"));
+
+        verticalLayout_2->addWidget(clickButton);
+
 
         verticalLayout->addWidget(mainGroup);
 
@@ -266,6 +280,7 @@ public:
         big_boost_remaining_time->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
         big_boost_button->setText(QApplication::translate("UniverseIdleMainWindow", "Small boost", nullptr));
         big_boost_price->setText(QApplication::translate("UniverseIdleMainWindow", "TextLabel", nullptr));
+        clickButton->setText(QApplication::translate("UniverseIdleMainWindow", "Click!", nullptr));
     } // retranslateUi
 
 };
@@ -276,4 +291,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UNIVERSEIDLEGUIOWZDTV_H
+#endif // UNIVERSEIDLEGUIAEHIYZ_H

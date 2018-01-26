@@ -9,16 +9,16 @@
 #ifndef UNIVERSEIDLE_H
 #define UNIVERSEIDLE_H 1
 
-#include <SFML/Graphics.hpp>
 #include "Game.h"
 #include "gui/ui_UniverseIdleGUI.h"
+#include "GameController.h"
 
 class UniverseIdle
 {
  private:
   Game _game;
-  sf::Time _timer;
-  sf::Clock _clock;
+  //sf::Time _timer;
+  //sf::Clock _clock;
   Ui::UniverseIdleMainWindow _gui;
   QMainWindow _window;
 
@@ -26,7 +26,8 @@ class UniverseIdle
  public:
   UniverseIdle();
   ~UniverseIdle();
-  int run();
+  void run();
+  void connect(GameController& controller, Ui::UniverseIdleMainWindow& ui);
 
 
 };

@@ -102,6 +102,7 @@ void Game::click()
   /**
    *
    */
+  std::cout << "CLICKED!!!"  << "\n";
   BigNum new_amount = 1;
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
 }
@@ -120,6 +121,14 @@ void Game::update_state()
 {
   state().set_acceleration(computation::get_current_acceleration(&_upgrades_manager));
 
+}
+
+std::vector<std::string> Game::ui_data()
+{
+  std::vector<std::string> data;
+  data.push_back(_resources_manager.get_resource_amount(Resource_ID::cinetic_energy).to_string());
+
+  return data;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -22,18 +22,12 @@ using Physics::Distance;
 int main(int argc, char *argv[])
 {
 
-  QApplication app(argc, argv);
-
-  // QMainWindow *window = new QMainWindow;
-  // Ui::UniverseIdleMainWindow ui;
-  // ui.setupUi(window);
-
-  // window->show();
-
-  // return app.exec();
-
-  UniverseIdle universe;
-  universe.run();
+  if (std::string(argv[1]) == "gui") {
+    QApplication app(argc, argv);
+    UniverseIdle universe;
+    universe.run();
+    return 0;
+  }
 
   Physics::Time duration(1000);
   run_simulator(duration, Strategy_ID::cheapest);

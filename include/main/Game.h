@@ -52,7 +52,7 @@ class Game{
   void click();
 
   Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
-
+  std::vector<std::string> ui_data();
 };
 
 
