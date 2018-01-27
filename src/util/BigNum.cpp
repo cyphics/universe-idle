@@ -171,31 +171,34 @@ std::string BigNum::to_string() const
 {
   std::string final_string = "";
   std::stringstream stream;
+  double mantissa;
+  int exposant;
 
-  // First, deal with cases like 1.0000000000001 that should equal 1 and not 1.000
-  if (fmod(_num_value, 1) < 0.001) {
-    double tmp = _num_value;
-    tmp += 0.5;
-    int int_value = (int)tmp;
-    return std::to_string(int_value);
-  }
+
+  // // First, deal with cases like 1.0000000000001 that should equal 1 and not 1.000
+  // if (fmod(_num_value, 1) < 0.001) {
+  //   double tmp = _num_value;
+  //   tmp += 0.5;
+  //   int int_value = (int)tmp;
+  //   return std::to_string(int_value);
+  // }
 
   // If value is between 0.001 and 9999,
   if (_num_value > 0.001 && _num_value < 9999) {
-
-    return std::to_string(_num_value);
+    mantissa = _num_value;
+    exposant = 0;
   }
-  // Sets significand precision
-  if (get_significand() > 3)
-  {
-    stream << std::fixed << std::setprecision(3) << get_significand();
-  }
-  else
-  {
-    stream << get_significand();
+  else {
+    mantissa = get_significand();
+    exposant = get_exponant();
   }
 
-  final_string += stream.str();
+
+
+
+  // BUild output
+  stream << std::fixed << std::setprecision(3) << mantissa;
+  final_string = stream.str();
 
   if (this->get_exponant() > 0)
   {
@@ -203,6 +206,7 @@ std::string BigNum::to_string() const
     final_string += "e";
     final_string += std::to_string(get_exponant());
   }
+
 
   return final_string;
 }
