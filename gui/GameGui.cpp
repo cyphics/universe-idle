@@ -51,17 +51,22 @@ void GameGui::update()
   ui.distance_value_label->setText(_distance_value);
 
   // Adapt button's names
-  update_button(ui.boost_1_button, Upgrade_ID::boost_1);
-  ui.boost_1_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_1, 1).to_string()));
-  ui.boost_1_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_1, 1).to_string()));
 
-  update_button(ui.boost_2_button, Upgrade_ID::boost_2);
-  ui.boost_2_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_2, 1).to_string()));
-  ui.boost_2_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_2, 1).to_string()));
+  update_update_box(ui.boost_1_widget, Upgrade_ID::boost_1);
+  update_update_box(ui.boost_2_widget, Upgrade_ID::boost_2);
+  update_update_box(ui.boost_3_widget, Upgrade_ID::click_boost);
+
+  // update_button(ui.boost_1_button, Upgrade_ID::boost_1);
+  // ui.boost_1_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_1, 1).to_string()));
+  // ui.boost_1_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_1, 1).to_string()));
+
+  // update_button(ui.boost_2_button, Upgrade_ID::boost_2);
+  // ui.boost_2_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_2, 1).to_string()));
+  // ui.boost_2_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_2, 1).to_string()));
 
 }
 
-void GameGui::on_clickButton_clicked()
+void GameGui::on_click_button_clicked()
 {
   _game->click();
 }
@@ -76,6 +81,11 @@ void GameGui::on_boost_2_button_clicked()
   _game->buy_upgrade(Upgrade_ID::boost_2, 1);
 }
 
+void GameGui::on_boost_3_button_clicked()
+{
+  _game->buy_upgrade(Upgrade_ID::click_boost, 1);
+}
+
 
 void GameGui::update_button(QPushButton* button, Upgrade_ID upgrade_id)
 {
@@ -84,7 +94,7 @@ void GameGui::update_button(QPushButton* button, Upgrade_ID upgrade_id)
   QString new_name = toqstr(_game->manage_upgrades()->get_upgrade_name(upgrade_id));
   int level = _game->manage_upgrades()->get_upgrade_level(upgrade_id);
 
-  if (level > 0) {
+  if (level > 0 && !_game->manage_upgrades()->is_unique(upgrade_id)) {
     new_name += " (";
     new_name += QString::number(level);
     new_name += ")";
@@ -94,11 +104,23 @@ void GameGui::update_button(QPushButton* button, Upgrade_ID upgrade_id)
 
   // Set availability
 
-  if (_game->manage_upgrades()->is_affordable(upgrade_id, 1))
+  if (_game->manage_upgrades()->is_affordable(upgrade_id, 1) && _game->manage_upgrades()->is_available(upgrade_id))
   {
     button->setEnabled(true);
   }
   else button->setDisabled(true);
+}
+
+void GameGui::update_update_box(QWidget* widget, Upgrade_ID upgrade_id)
+{
+  QList<QPushButton*> button = widget->findChildren<QPushButton*>();
+  update_button(button.at(0), upgrade_id);
+
+  QList<QLabel*> labels = widget->findChildren<QLabel*>();
+  QString price = toqstr(_game->manage_upgrades()->get_price_increase_level(upgrade_id, 1).to_string());
+  QString time = toqstr(_game->manage_upgrades()->time_until_affordable(upgrade_id, 1).to_string());
+  labels.at(0)->setText(price);
+  labels.at(1)->setText(time);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

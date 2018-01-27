@@ -11,7 +11,7 @@
 
 
 #include <QApplication>
-#include <QtWidgets/QMainWindow>
+#include <QtWidgets>
 #include <QTimer>
 #include "ui_UniverseIdleGUI.h"
 #include "main/Game.h"
@@ -29,10 +29,12 @@ class GameGui : public QMainWindow
  private slots:
   void update();
   //void on_
-  void on_clickButton_clicked();
+  void on_click_button_clicked();
   void on_boost_1_button_clicked();
   void on_boost_2_button_clicked();
+  void on_boost_3_button_clicked();
 private:
+  void update_update_box(QWidget* widget, Upgrade_ID upgrade_id);
   void update_button(QPushButton* button, Upgrade_ID upgrade_id);
   QString _boost_1_button_name;
   QString _cinetic_button_name;
