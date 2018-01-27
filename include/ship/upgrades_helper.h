@@ -12,7 +12,7 @@
 
 #include "ship/resources_helper.h"
 
-enum class Upgrade_ID { click_boost, small_boost, big_boost };
+enum class Upgrade_ID { click_boost, boost_1, boost_2 };
 
 struct UpgradeCostTableElement{
   Resource_ID resource;

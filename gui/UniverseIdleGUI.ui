@@ -187,23 +187,23 @@
                  <height>24</height>
                 </rect>
                </property>
-               <layout class="QGridLayout" name="small_boost_layout">
+               <layout class="QGridLayout" name="boost_1_layout">
                 <item row="0" column="3">
-                 <widget class="QLabel" name="small_boost_remaining_time">
+                 <widget class="QLabel" name="boost_1_remaining_time">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="0">
-                 <widget class="QPushButton" name="small_boost_button">
+                 <widget class="QPushButton" name="boost_1_button">
                   <property name="text">
                    <string>Small boost</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="2">
-                 <widget class="QLabel" name="small_boost_price">
+                 <widget class="QLabel" name="boost_1_price">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>
@@ -220,23 +220,23 @@
                  <height>24</height>
                 </rect>
                </property>
-               <layout class="QGridLayout" name="big_boost_layout">
+               <layout class="QGridLayout" name="boost_2_layout">
                 <item row="0" column="3">
-                 <widget class="QLabel" name="big_boost_remaining_time">
+                 <widget class="QLabel" name="boost_2_remaining_time">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="0">
-                 <widget class="QPushButton" name="big_boost_button">
+                 <widget class="QPushButton" name="boost_2_button">
                   <property name="text">
                    <string>Small boost</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="2">
-                 <widget class="QLabel" name="big_boost_price">
+                 <widget class="QLabel" name="boost_2_price">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>

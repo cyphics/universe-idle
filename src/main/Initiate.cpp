@@ -34,35 +34,35 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
   // SMALL BOOST
   // Build cost table elements
 
-  UpgradeCostTableElement small_boost_cinetic_energy;
+  UpgradeCostTableElement boost_1_cinetic_energy;
 
-  small_boost_cinetic_energy.resource = Congif::Upgrade::small_boost_resource;
-  small_boost_cinetic_energy.initial_cost = Congif::Upgrade::small_boost_initial_cost;
-  double small_boost_increase_factor = Congif::Upgrade::small_boost_increase_factor;
-  std::vector<UpgradeCostTableElement> cost_small_boost;
-  cost_small_boost.push_back(small_boost_cinetic_energy);
+  boost_1_cinetic_energy.resource = Congif::Upgrade::boost_1_resource;
+  boost_1_cinetic_energy.initial_cost = Congif::Upgrade::boost_1_initial_cost;
+  double boost_1_increase_factor = Congif::Upgrade::boost_1_increase_factor;
+  std::vector<UpgradeCostTableElement> cost_boost_1;
+  cost_boost_1.push_back(boost_1_cinetic_energy);
 
 
   // Build object
-  Upgrade small_boost = Upgrade(Upgrade_ID::small_boost, cost_small_boost, small_boost_increase_factor);
-  small_boost.set_availability(Congif::Upgrade::small_boost_availability);
+  Upgrade boost_1 = Upgrade(Upgrade_ID::boost_1, cost_boost_1, boost_1_increase_factor);
+  boost_1.set_availability(Congif::Upgrade::boost_1_availability);
 
   // BIG BOOST
   // Build cost table elements
-  UpgradeCostTableElement big_boost_cinetic_energy;
-  big_boost_cinetic_energy.resource = Congif::Upgrade::big_boost_resource;
-  big_boost_cinetic_energy.initial_cost = Congif::Upgrade::big_boost_initial_cost;
-  double big_boost_increase_factor = Congif::Upgrade::big_boost_increase_factor;
+  UpgradeCostTableElement boost_2_cinetic_energy;
+  boost_2_cinetic_energy.resource = Congif::Upgrade::boost_2_resource;
+  boost_2_cinetic_energy.initial_cost = Congif::Upgrade::boost_2_initial_cost;
+  double boost_2_increase_factor = Congif::Upgrade::boost_2_increase_factor;
 
-  std::vector<UpgradeCostTableElement> cost_big_boost;
-  cost_big_boost.push_back(big_boost_cinetic_energy);
+  std::vector<UpgradeCostTableElement> cost_boost_2;
+  cost_boost_2.push_back(boost_2_cinetic_energy);
 
 
   // Build object
-  Upgrade big_boost = Upgrade(Upgrade_ID::big_boost, cost_big_boost, big_boost_increase_factor);
-  big_boost.set_availability(Congif::Upgrade::big_boost_availability);
+  Upgrade boost_2 = Upgrade(Upgrade_ID::boost_2, cost_boost_2, boost_2_increase_factor);
+  boost_2.set_availability(Congif::Upgrade::boost_2_availability);
 
-  std::vector<Upgrade> vector_of_upgrades = {small_boost, big_boost, click_boost};
+  std::vector<Upgrade> vector_of_upgrades = {boost_1, boost_2, click_boost};
 
   return vector_of_upgrades;
 }

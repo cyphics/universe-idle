@@ -30,11 +30,11 @@ class GameGui : public QMainWindow
   void update();
   //void on_
   void on_clickButton_clicked();
-  void on_small_boost_button_clicked();
-  void on_big_boost_button_clicked();
+  void on_boost_1_button_clicked();
+  void on_boost_2_button_clicked();
 private:
   void update_button(QPushButton* button, Upgrade_ID upgrade_id);
-  QString _small_boost_button_name;
+  QString _boost_1_button_name;
   QString _cinetic_button_name;
   QString _acceleration_value;
   QString _cinetic_energy_value;

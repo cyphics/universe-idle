@@ -19,7 +19,7 @@ GameGui::GameGui(QMainWindow *parent)
 {
   ui.setupUi(this);
   _timer = new QTimer(this);
-  _small_boost_button_name = toqstr(_game->manage_upgrades()->get_upgrade_name(Upgrade_ID::small_boost));
+  _boost_1_button_name = toqstr(_game->manage_upgrades()->get_upgrade_name(Upgrade_ID::boost_1));
 
 }
 
@@ -51,14 +51,14 @@ void GameGui::update()
   ui.distance_value_label->setText(_distance_value);
 
   // Adapt button's names
-  update_button(ui.small_boost_button, Upgrade_ID::small_boost);
-  ui.small_boost_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::small_boost, 1).to_string()));
-  ui.small_boost_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::small_boost, 1).to_string()));
+  update_button(ui.boost_1_button, Upgrade_ID::boost_1);
+  ui.boost_1_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_1, 1).to_string()));
+  ui.boost_1_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_1, 1).to_string()));
 
-  update_button(ui.big_boost_button, Upgrade_ID::big_boost);
-  ui.big_boost_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::big_boost, 1).to_string()));
-  ui.big_boost_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::big_boost, 1).to_string()));
-  ui.
+  update_button(ui.boost_2_button, Upgrade_ID::boost_2);
+  ui.boost_2_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_2, 1).to_string()));
+  ui.boost_2_remaining_time->setText(toqstr(_game->manage_upgrades()->time_until_affordable(Upgrade_ID::boost_2, 1).to_string()));
+
 }
 
 void GameGui::on_clickButton_clicked()
@@ -66,14 +66,14 @@ void GameGui::on_clickButton_clicked()
   _game->click();
 }
 
-void GameGui::on_small_boost_button_clicked()
+void GameGui::on_boost_1_button_clicked()
 {
-  _game->buy_upgrade(Upgrade_ID::small_boost, 1);
+  _game->buy_upgrade(Upgrade_ID::boost_1, 1);
 }
 
-void GameGui::on_big_boost_button_clicked()
+void GameGui::on_boost_2_button_clicked()
 {
-  _game->buy_upgrade(Upgrade_ID::big_boost, 1);
+  _game->buy_upgrade(Upgrade_ID::boost_2, 1);
 }
 
 
