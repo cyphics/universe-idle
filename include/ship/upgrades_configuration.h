@@ -12,7 +12,7 @@
 
 #include "ship/upgrades_helper.h"
 
-namespace Congif
+namespace GameConfig
 {
 
 namespace Upgrade{

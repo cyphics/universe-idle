@@ -18,17 +18,17 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   UpgradeCostTableElement click_boost_cinetic_energy;
 
-  click_boost_cinetic_energy.resource = Congif::Upgrade::click_boost_resource;
-  click_boost_cinetic_energy.initial_cost = Congif::Upgrade::click_boost_initial_cost;
-  double click_boost_increase_factor = Congif::Upgrade::click_boost_increase_factor;
+  click_boost_cinetic_energy.resource = GameConfig::Upgrade::click_boost_resource;
+  click_boost_cinetic_energy.initial_cost = GameConfig::Upgrade::click_boost_initial_cost;
+  double click_boost_increase_factor = GameConfig::Upgrade::click_boost_increase_factor;
   std::vector<UpgradeCostTableElement> cost_click_boost;
   cost_click_boost.push_back(click_boost_cinetic_energy);
 
 
   // Build object
   Upgrade click_boost = Upgrade(Upgrade_ID::click_boost, cost_click_boost, click_boost_increase_factor);
-  click_boost.set_availability(Congif::Upgrade::click_boost_availability);
-  click_boost.set_uniqueness(Congif::Upgrade::click_boost_uniqueness);
+  click_boost.set_availability(GameConfig::Upgrade::click_boost_availability);
+  click_boost.set_uniqueness(GameConfig::Upgrade::click_boost_uniqueness);
 
 
   // SMALL BOOST
@@ -36,23 +36,23 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   UpgradeCostTableElement boost_1_cinetic_energy;
 
-  boost_1_cinetic_energy.resource = Congif::Upgrade::boost_1_resource;
-  boost_1_cinetic_energy.initial_cost = Congif::Upgrade::boost_1_initial_cost;
-  double boost_1_increase_factor = Congif::Upgrade::boost_1_increase_factor;
+  boost_1_cinetic_energy.resource = GameConfig::Upgrade::boost_1_resource;
+  boost_1_cinetic_energy.initial_cost = GameConfig::Upgrade::boost_1_initial_cost;
+  double boost_1_increase_factor = GameConfig::Upgrade::boost_1_increase_factor;
   std::vector<UpgradeCostTableElement> cost_boost_1;
   cost_boost_1.push_back(boost_1_cinetic_energy);
 
 
   // Build object
   Upgrade boost_1 = Upgrade(Upgrade_ID::boost_1, cost_boost_1, boost_1_increase_factor);
-  boost_1.set_availability(Congif::Upgrade::boost_1_availability);
+  boost_1.set_availability(GameConfig::Upgrade::boost_1_availability);
 
   // BIG BOOST
   // Build cost table elements
   UpgradeCostTableElement boost_2_cinetic_energy;
-  boost_2_cinetic_energy.resource = Congif::Upgrade::boost_2_resource;
-  boost_2_cinetic_energy.initial_cost = Congif::Upgrade::boost_2_initial_cost;
-  double boost_2_increase_factor = Congif::Upgrade::boost_2_increase_factor;
+  boost_2_cinetic_energy.resource = GameConfig::Upgrade::boost_2_resource;
+  boost_2_cinetic_energy.initial_cost = GameConfig::Upgrade::boost_2_initial_cost;
+  double boost_2_increase_factor = GameConfig::Upgrade::boost_2_increase_factor;
 
   std::vector<UpgradeCostTableElement> cost_boost_2;
   cost_boost_2.push_back(boost_2_cinetic_energy);
@@ -60,7 +60,7 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   // Build object
   Upgrade boost_2 = Upgrade(Upgrade_ID::boost_2, cost_boost_2, boost_2_increase_factor);
-  boost_2.set_availability(Congif::Upgrade::boost_2_availability);
+  boost_2.set_availability(GameConfig::Upgrade::boost_2_availability);
 
   std::vector<Upgrade> vector_of_upgrades = {boost_1, boost_2, click_boost};
 
