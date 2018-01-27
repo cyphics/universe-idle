@@ -156,3 +156,13 @@ const Upgrade& UpgradesManager::get_upgrade(Upgrade_ID upgrade_id) const
     }
   }
 }
+
+bool UpgradesManager::is_available(Upgrade_ID upgrade) const
+{
+  return get_upgrade(upgrade).is_available();
+}
+
+bool UpgradesManager::is_unique(Upgrade_ID upgrade) const
+{
+  return get_upgrade(upgrade).is_unique();
+}

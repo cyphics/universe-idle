@@ -42,7 +42,8 @@ class UpgradesManager{
   Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   std::string get_upgrade_name(Upgrade_ID) const;
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
-
+  bool is_available(Upgrade_ID upgrade) const;
+  bool is_unique(Upgrade_ID upgrade) const;
   int get_upgrade_level(Upgrade_ID) const;
   std::vector<Upgrade_ID> get_available_upgrades() const;
   std::vector<Upgrade_ID> get_all_upgrades() const;

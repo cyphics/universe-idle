@@ -133,6 +133,11 @@ void Upgrade::set_uniqueness(bool uniqueness)
 {
   _uniqueness = uniqueness;
 }
+
+bool Upgrade::is_unique() const
+{
+  return _uniqueness;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
