@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Cyphics</author>
+ <class>UniverseIdleMainWindow</class>
+ <widget class="QMainWindow" name="UniverseIdleMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1113</width>
+    <height>917</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Universe Idle</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="mainGroup">
+      <property name="title">
+       <string>main group</string>
+      </property>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>1051</width>
+         <height>721</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="displayLayout">
+        <item>
+         <widget class="QGroupBox" name="displayGroup">
+          <property name="title">
+           <string>display Group</string>
+          </property>
+          <widget class="QWidget" name="verticalLayoutWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>11</x>
+             <y>29</y>
+             <width>591</width>
+             <height>681</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="infoLayout">
+            <item>
+             <widget class="QGroupBox" name="infoGroup">
+              <property name="title">
+               <string>infoBox</string>
+              </property>
+              <widget class="QWidget" name="formLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>441</width>
+                 <height>81</height>
+                </rect>
+               </property>
+               <layout class="QFormLayout" name="physics_layout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="speed_label">
+                  <property name="text">
+                   <string>Speed :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="speed_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="distance_label">
+                  <property name="text">
+                   <string>Distance traveled :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="distance_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="acceleration_label">
+                  <property name="text">
+                   <string>Acceleration : </string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="time_label">
+                  <property name="text">
+                   <string>Time until destination :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLabel" name="time_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="acceleration_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="formLayoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>140</y>
+                 <width>291</width>
+                 <height>51</height>
+                </rect>
+               </property>
+               <layout class="QFormLayout" name="resources_layout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="cinetic_energy_label">
+                  <property name="text">
+                   <string>Cinetic energy :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="dark_matter_label">
+                  <property name="text">
+                   <string>Dark Matter :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="cinetic_energy_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="dark_matter_value_label">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="verticalLayoutWidget_6">
+           <property name="geometry">
+            <rect>
+             <x>610</x>
+             <y>30</y>
+             <width>421</width>
+             <height>681</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="upgrades_layout">
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>GroupBox</string>
+              </property>
+              <widget class="QWidget" name="gridLayoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>30</y>
+                 <width>341</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <layout class="QGridLayout" name="small_boost_layout">
+                <item row="0" column="3">
+                 <widget class="QLabel" name="small_boost_remaining_time">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="small_boost_button">
+                  <property name="text">
+                   <string>Small boost</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QLabel" name="small_boost_price">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="gridLayoutWidget_3">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>120</y>
+                 <width>341</width>
+                 <height>24</height>
+                </rect>
+               </property>
+               <layout class="QGridLayout" name="big_boost_layout">
+                <item row="0" column="3">
+                 <widget class="QLabel" name="big_boost_remaining_time">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="big_boost_button">
+                  <property name="text">
+                   <string>Small boost</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QLabel" name="big_boost_price">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>890</x>
+         <y>760</y>
+         <width>160</width>
+         <height>80</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="quitLayout"/>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>760</y>
+         <width>160</width>
+         <height>80</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="clickButton">
+          <property name="text">
+           <string>Click!</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1113</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,4 +1,6 @@
 -I/home/cyphics/programmation/c++/universe-idle/include
+-I/home/cyphics/programmation/c++/universe-idle/gui
+-I/home/cyphics/programmation/c++/universe-idle/build/gui_lib_autogen/include/
 -I/usr/include/qt
 -I/usr/include/qt/QtWidgets
 -I/usr/include/qt/QtGui

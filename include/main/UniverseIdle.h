@@ -9,17 +9,15 @@
 #ifndef UNIVERSEIDLE_H
 #define UNIVERSEIDLE_H 1
 
+#include <QApplication>
+#include <QtWidgets/QMainWindow>
 #include "Game.h"
-#include "gui/ui_UniverseIdleGUI.h"
-#include "GameController.h"
+//#include "GameController.h"
 
 class UniverseIdle
 {
  private:
   Game _game;
-  //sf::Time _timer;
-  //sf::Clock _clock;
-  Ui::UniverseIdleMainWindow _gui;
   QMainWindow _window;
 
 
@@ -27,7 +25,7 @@ class UniverseIdle
   UniverseIdle();
   ~UniverseIdle();
   void run();
-  void connect(GameController& controller, Ui::UniverseIdleMainWindow& ui);
+  //void connect(GameController& controller, Ui::UniverseIdleMainWindow& ui);
 
 
 };

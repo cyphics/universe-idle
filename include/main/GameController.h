@@ -17,23 +17,25 @@ using Physics::Time;
 
 class GameController : public QObject
 {
+  Q_OBJECT
  private:
   Game *_my_game;
 
 public:
   GameController(Game *game);
   ~GameController();
-
+  void receive_data(std::string);
+  void update();
  public slots:
   void wait(Time time);
   void click();
 
  signals:
+  void send_data(QString);
 
-  void updateUI(std::vector<std::string> data);
   const Game& get_game() const;
 
-
+  void acceleration(std::string value);
 
 };
 

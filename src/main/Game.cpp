@@ -76,6 +76,7 @@ void Game::wait(Time time)
   state().set_speed(compute_new_speed(time));
   state().set_distance(compute_new_distance(time));
   _resources_manager.gather_resources(time);
+  update_state();
 }
 
 void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
