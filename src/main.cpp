@@ -13,13 +13,13 @@
 int main(int argc, char *argv[])
 {
 
+  std::string arg = "";
 
-  Time time = compute_remaining_time(Units::diameter_universe, Speed(1), Acceleration(1));
+  if (argc > 1) {
+    arg = argv[1];
+  }
 
-
-  std::cout << time.to_string()  << "\n";
-
-  if (std::string(argv[1]) == "gui") {
+  if (arg == "gui") {
     QApplication app(argc, argv);
     UniverseIdle universe;
     universe.run();
