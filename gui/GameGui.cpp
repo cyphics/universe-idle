@@ -55,6 +55,7 @@ void GameGui::update()
   update_update_box(ui.boost_1_widget, Upgrade_ID::boost_1);
   update_update_box(ui.boost_2_widget, Upgrade_ID::boost_2);
   update_update_box(ui.boost_3_widget, Upgrade_ID::click_boost);
+  update_update_box(ui.boost_4_widget, Upgrade_ID::boost_3);
 
   // update_button(ui.boost_1_button, Upgrade_ID::boost_1);
   // ui.boost_1_price->setText(toqstr(_game->manage_upgrades()->get_price_increase_level(Upgrade_ID::boost_1, 1).to_string()));
@@ -86,6 +87,10 @@ void GameGui::on_boost_3_button_clicked()
   _game->buy_upgrade(Upgrade_ID::click_boost, 1);
 }
 
+void GameGui::on_boost_4_button_clicked()
+{
+  _game->buy_upgrade(Upgrade_ID::click_boost, 4);
+}
 
 void GameGui::update_button(QPushButton* button, Upgrade_ID upgrade_id)
 {

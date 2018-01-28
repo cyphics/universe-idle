@@ -62,7 +62,23 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
   Upgrade boost_2 = Upgrade(Upgrade_ID::boost_2, cost_boost_2, boost_2_increase_factor);
   boost_2.set_availability(GameConfig::Upgrade::boost_2_availability);
 
-  std::vector<Upgrade> vector_of_upgrades = {boost_1, boost_2, click_boost};
+
+  // MEGA BOOST
+  // Build cost table elements
+  UpgradeCostTableElement boost_3_cinetic_energy;
+  boost_3_cinetic_energy.resource = GameConfig::Upgrade::boost_3_resource;
+  boost_3_cinetic_energy.initial_cost = GameConfig::Upgrade::boost_3_initial_cost;
+  double boost_3_increase_factor = GameConfig::Upgrade::boost_3_increase_factor;
+
+  std::vector<UpgradeCostTableElement> cost_boost_3;
+  cost_boost_3.push_back(boost_3_cinetic_energy);
+
+
+  // Build object
+  Upgrade boost_3 = Upgrade(Upgrade_ID::boost_3, cost_boost_3, boost_3_increase_factor);
+  boost_3.set_availability(GameConfig::Upgrade::boost_3_availability);
+
+  std::vector<Upgrade> vector_of_upgrades = {boost_1, boost_2, click_boost, boost_3};
 
   return vector_of_upgrades;
 }

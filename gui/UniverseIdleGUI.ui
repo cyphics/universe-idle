@@ -307,6 +307,49 @@
                 </layout>
                </widget>
               </widget>
+              <widget class="QWidget" name="boost_4_widget" native="true">
+               <property name="geometry">
+                <rect>
+                 <x>30</x>
+                 <y>110</y>
+                 <width>361</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <widget class="QWidget" name="horizontalLayoutWidget_4">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>361</width>
+                  <height>31</height>
+                 </rect>
+                </property>
+                <layout class="QHBoxLayout" name="boost_4_layout">
+                 <item>
+                  <widget class="QPushButton" name="boost_4_button">
+                   <property name="text">
+                    <string>Small boost</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="boost_4_remaining_time">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="boost_4_price">
+                   <property name="text">
+                    <string>TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
              </widget>
             </item>
            </layout>
@@ -355,7 +398,7 @@
      <x>0</x>
      <y>0</y>
      <width>1113</width>
-     <height>20</height>
+     <height>13</height>
     </rect>
    </property>
   </widget>
