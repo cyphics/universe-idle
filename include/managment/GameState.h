@@ -35,7 +35,9 @@ class GameState{
 
   // Setters
   void set_distance(Physics::Distance distance);
+  void add_distance(Physics::Distance distance);
   void set_speed(Physics::Speed speed);
+  void add_speed(Physics::Speed speed);
   void set_acceleration(Physics::Acceleration acceleration);
   void increase_time(Physics::Time time);
 };

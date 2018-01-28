@@ -19,7 +19,7 @@ namespace computation{
 
 BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager);
 
-Physics::Acceleration get_current_acceleration(const UpgradesManager* upgrades_manager);
+Physics::Acceleration compute_current_acceleration(const UpgradesManager* upgrades_manager);
 
 }
 

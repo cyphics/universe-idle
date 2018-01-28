@@ -51,6 +51,11 @@ void GameState::set_speed(Speed speed)
   _current_speed = speed;
 }
 
+void GameState::add_speed(Speed speed)
+{
+  _current_speed += speed;
+}
+
 void GameState::set_acceleration(Acceleration acceleration)
 {
   _current_acceleration = acceleration;
@@ -61,7 +66,10 @@ void GameState::increase_time(Time time)
   _current_time += time;
 }
 
-
+void GameState::add_distance(Physics::Distance dist)
+{
+  _traveled_distance += dist;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

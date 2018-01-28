@@ -40,6 +40,12 @@ Speed& Speed::operator-=(const Speed& rhs)
   return *this;
 }
 
+Speed& Speed::operator*=(const int rhs)
+{
+  _numerical_value *= rhs;
+  return *this;
+}
+
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

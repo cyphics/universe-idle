@@ -27,6 +27,7 @@ class Speed : public PhysicalUnit{
   Speed& operator=(const Speed& rhs);
   Speed& operator+=(const Speed& rhs);
   Speed& operator-=(const Speed& rhs);
+  Speed& operator*=(const int rhs);
 
 };
 
@@ -46,6 +47,12 @@ inline Speed operator-(const Speed& lhs, const Speed& rhs){
 inline Speed operator+(const Speed& lhs, const Speed& rhs){
   Speed temp = lhs;
   temp += rhs;
+  return temp;
+}
+
+inline Speed operator*(const Speed& lhs, const int rhs){
+  Speed temp = lhs;
+  temp *= rhs;
   return temp;
 }
 
