@@ -29,6 +29,7 @@ Time compute_remaining_time(Distance distance_to_travel, Speed current_speed, Ac
   BigNum answer_one = numerator_one / denominator;
   BigNum answer_two = numerator_two / denominator;
 
+
   if (answer_one > answer_two) return answer_one;
   else return answer_two;
 }

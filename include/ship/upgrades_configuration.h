@@ -31,7 +31,7 @@ const bool boost_2_availability = true;
 const double boost_2_increase_factor = 1.15;
 const Resource_ID boost_2_resource = Resource_ID::cinetic_energy;
 const BigNum boost_2_initial_cost = 100;
-const BigNum boost_2_base_gain = 10;
+const BigNum boost_2_base_gain = 1;
 
 
 // Mega Boost
@@ -39,7 +39,7 @@ const bool boost_3_availability = true;
 const double boost_3_increase_factor = 1.15;
 const Resource_ID boost_3_resource = Resource_ID::cinetic_energy;
 const BigNum boost_3_initial_cost = 1100;
-const BigNum boost_3_base_gain = 50;
+const BigNum boost_3_base_gain = 8;
 
 
 // Click boost

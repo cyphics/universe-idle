@@ -26,7 +26,7 @@ Game::Game()
   _resources_manager.set_upgrades_manager(&_upgrades_manager);
   _upgrades_manager.set_resources_manager(&_resources_manager);
 
-  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
+  //_resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
 
 }
 
@@ -60,8 +60,11 @@ Distance Game::compute_new_distance(Time time) const
    */
 
   // dist = init_speed * time + 1/2 acceleration * time^2
-  Distance new_dist = state().get_speed().num() * time.num() + 0.5 * state().get_acceleration().num() * time.num() * time.num();
 
+  Distance new_dist = state().get_speed().num() * time.num() \
+                      + 0.5 * state().get_acceleration().num() \
+                      * time.num() * time.num();
+  std::cout << "new dist: " << new_dist.to_string()  << "\n";
   return new_dist;
 }
 
@@ -74,7 +77,7 @@ void Game::wait(Time time)
 
   _game_state.increase_time(time);
   state().set_speed(compute_new_speed(time));
-  state().set_distance(compute_new_distance(time));
+  state().add_distance(compute_new_distance(time));
   _resources_manager.gather_resources(time);
   update_state();
 }
@@ -103,8 +106,11 @@ void Game::click()
   /**
    *
    */
-  std::cout << "CLICKED!!!"  << "\n";
+
   BigNum new_amount = 1;
+  int click_level = manage_upgrades()->get_upgrade_level(Upgrade_ID::click_boost);
+  state().add_speed(Speed(1) *( 1 + ( click_level * 10 ) ));
+  //  std::cout << state().get_speed().to_string() << "\n";
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
 }
 
@@ -120,7 +126,7 @@ const ResourcesManager* Game::manage_resources() const
 
 void Game::update_state()
 {
-  state().set_acceleration(computation::get_current_acceleration(&_upgrades_manager));
+  state().set_acceleration(computation::compute_current_acceleration(&_upgrades_manager));
 
 }
 
