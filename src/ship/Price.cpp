@@ -102,6 +102,14 @@ std::string Price::to_string() const
 
   return output;
 }
+
+Price& Price::operator*=(const double& rhs)
+{
+  for (auto resource : _resources_to_pay ){
+    resource._amount *= rhs;
+  }
+  return *this;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //
