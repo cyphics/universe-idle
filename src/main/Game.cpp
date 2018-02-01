@@ -26,7 +26,7 @@ Game::Game()
   _resources_manager.set_upgrades_manager(&_upgrades_manager);
   _upgrades_manager.set_resources_manager(&_resources_manager);
 
-  //_resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
+  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
 
 }
 
@@ -64,7 +64,6 @@ Distance Game::compute_new_distance(Time time) const
   Distance new_dist = state().get_speed().num() * time.num() \
                       + 0.5 * state().get_acceleration().num() \
                       * time.num() * time.num();
-  std::cout << "new dist: " << new_dist.to_string()  << "\n";
   return new_dist;
 }
 
@@ -108,8 +107,8 @@ void Game::click()
    */
 
   BigNum new_amount = 1;
-  int click_level = manage_upgrades()->get_upgrade_level(Upgrade_ID::click_boost);
-  state().add_speed(Speed(1) *( 1 + ( click_level * 10 ) ));
+  int click_level = manage_upgrades()->get_upgrade_level(Upgrade_ID::unique_upgrade_1);
+  //state().add_speed(Speed(1) *( 1 + ( click_level * 10 ) ));
   //  std::cout << state().get_speed().to_string() << "\n";
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
 }
