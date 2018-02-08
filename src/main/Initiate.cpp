@@ -28,7 +28,8 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                                      GameConfig::Upgrade::unique_upgrade_2_dep);
   // Level A Booster
   Upgrade unique_upgrade_3 = Upgrade(Upgrade_ID::unique_upgrade_3, \
-                                                 GameConfig::Upgrade::unique_upgrade_3_price);
+                                     GameConfig::Upgrade::unique_upgrade_3_price, \
+                                     GameConfig::Upgrade::unique_upgrade_3_dep);
 
 
 
@@ -44,8 +45,9 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   // Level A Cells
   Upgrade increm_upgrade_2 = Upgrade(Upgrade_ID::increm_upgrade_2, \
-                                                           GameConfig::Upgrade::increm_upgrade_2_price, \
-                                                           GameConfig::Upgrade::increm_upgrade_2_increase_factor);
+                                     GameConfig::Upgrade::increm_upgrade_2_price, \
+                                     GameConfig::Upgrade::increm_upgrade_2_increase_factor, \
+                                     GameConfig::Upgrade::increm_upgrade_2_dep);
 
   // ?
   Upgrade increm_upgrade_3 = Upgrade(Upgrade_ID::increm_upgrade_3,\

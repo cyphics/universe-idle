@@ -13,6 +13,7 @@
 #include "main/game_global_variables.h"
 #include "physics/Speed.h"
 #include "ship/resources_helper.h"
+#include "ship/upgrades_configuration.h"
 #include "ship/computations.h"
 
 using Physics::Time;
@@ -26,7 +27,7 @@ Game::Game()
   _resources_manager.set_upgrades_manager(&_upgrades_manager);
   _upgrades_manager.set_resources_manager(&_resources_manager);
 
-  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(10));
+  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, GameConfig::initial_game_resources);
 
 }
 

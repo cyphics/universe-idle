@@ -16,6 +16,8 @@
 namespace GameConfig
 {
 
+const BigNum initial_game_resources = BigNum(500);
+
 namespace Upgrade{
 
 
@@ -30,8 +32,9 @@ const std::vector<Upgrade_ID> increm_upgrade_1_dep = {Upgrade_ID::unique_upgrade
 const double increm_upgrade_2_increase_factor = 1.15;
 const Price increm_upgrade_2_price = Price(Resource_ID::cinetic_energy, BigNum(100));
 const std::vector<Upgrade_ID> increm_upgrade_2_depend = {Upgrade_ID::unique_upgrade_3};
-const double increm_upgrade_2_cinetic_gain = 100;
-const double increm_upgrade_2_acceleration_gain = 100;
+const double increm_upgrade_2_cinetic_gain = 1;
+const double increm_upgrade_2_acceleration_gain = 1;
+const std::vector<Upgrade_ID> increm_upgrade_2_dep = {Upgrade_ID::unique_upgrade_1, Upgrade_ID::unique_upgrade_3};
 
 // ?
 const bool increm_upgrade_3_availability = true;
@@ -52,7 +55,8 @@ const Price unique_upgrade_2_price = Price(Resource_ID::cinetic_energy, BigNum(2
 const std::vector<Upgrade_ID> unique_upgrade_2_dep = {Upgrade_ID::unique_upgrade_1};
 
 // Level A Booster
-const Price unique_upgrade_3_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
+const Price unique_upgrade_3_price = Price(Resource_ID::cinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> unique_upgrade_3_dep = {Upgrade_ID::unique_upgrade_2};
 
 }
 
