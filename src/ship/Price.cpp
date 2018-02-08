@@ -9,6 +9,10 @@
 #include "ship/ResourcesManager.h"
 #include "main/game_global_variables.h"
 
+Price::Price(Resource_ID upgrade_id, BigNum amount)
+{
+  _resources_to_pay.push_back(ResourceAmount(upgrade_id, amount));
+}
 
 bool Price::has_resource_already(Resource_ID resource_id) const
 {
@@ -101,6 +105,14 @@ std::string Price::to_string() const
 
 
   return output;
+}
+
+Price& Price::operator*=(const double& rhs)
+{
+  for (auto resource : _resources_to_pay ){
+    resource._amount *= rhs;
+  }
+  return *this;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

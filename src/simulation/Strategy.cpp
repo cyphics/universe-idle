@@ -24,7 +24,7 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* up
   {
     case Strategy_ID::broken:
       {
-        return Upgrade_ID::boost_1;
+        return Upgrade_ID::increm_upgrade_1;
         break;
       }
     case Strategy_ID::cheapest:

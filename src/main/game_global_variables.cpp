@@ -13,7 +13,15 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
   /**
    * Return a static (unique) const dictionary linking Upgrades_ID to the name of the upgrade
    */
-  static const std::map<Upgrade_ID, std::string> output({ {Upgrade_ID::click_boost, "Click boost"}, {Upgrade_ID::boost_1, "Small boost"}, {Upgrade_ID::boost_2, "Big boost"} , {Upgrade_ID::boost_3, "Mega Boost"} });
+  static const std::map<Upgrade_ID, std::string> output({ \
+      {Upgrade_ID::unique_upgrade_1, "Terminal"}, \
+      {Upgrade_ID::unique_upgrade_2, "Quantum magnetism"}, \
+      {Upgrade_ID::unique_upgrade_3, "Level A booster"}, \
+      {Upgrade_ID::unique_upgrade_4, "Click boost"}, \
+      {Upgrade_ID::unique_upgrade_5, "Click boost"}, \
+      {Upgrade_ID::increm_upgrade_1, "Quantum coil"}, \
+      {Upgrade_ID::increm_upgrade_2, "Level A Energy cell"} , \
+      {Upgrade_ID::increm_upgrade_3, "Mega Boost"} });
 
   return output;
 }

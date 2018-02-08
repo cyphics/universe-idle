@@ -14,18 +14,22 @@ using Physics::Acceleration;
 
 BigNum computation::get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager)
 {
+  // 1 = quantum coils
+  // 2 = Level A Cells
+  // 3 = ?
+  int up_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_1);
+  int up_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_2);
+  int up_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_3);
 
-  int boost_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_1);
-  int boost_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_2);
-  int boost_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_3);
-
+  BigNum new_amount;
   switch (resource_id)
   {
     case Resource_ID::cinetic_energy:
       {
-        return BigNum(boost_1_level * GameConfig::Upgrade::boost_1_base_gain \
-                      + boost_2_level * GameConfig::Upgrade::boost_2_base_gain \
-                      + boost_3_level * GameConfig::Upgrade::boost_3_base_gain);
+        new_amount = up_1_level * GameConfig::Upgrade::increm_upgrade_1_cinetic_gain;
+        new_amount += up_2_level * GameConfig::Upgrade::increm_upgrade_2_cinetic_gain;
+        //+ up_3_level * GameConfig::Upgrade::increm_upgrade_3_base_gain;
+        return new_amount;
         break;
       }
     case Resource_ID::dark_matter:
@@ -44,17 +48,14 @@ Acceleration computation::compute_current_acceleration(const UpgradesManager *up
      Compute acceleration according to bought upgrades.
    */
 
-  int boost_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_1);
-  int boost_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_2);
-  int boost_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::boost_3);
+  int increm_upgrade_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_1);
+  int increm_upgrade_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_2);
+  int increm_upgrade_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_3);
 
-  BigNum accel_num = BigNum(boost_1_level) * GameConfig::Upgrade::boost_1_base_gain + \
-                     BigNum(boost_2_level) * GameConfig::Upgrade::boost_2_base_gain + \
-                     BigNum(boost_3_level) * GameConfig::Upgrade::boost_3_base_gain;
+  BigNum accel_num = BigNum(increm_upgrade_2_level) * GameConfig::Upgrade::increm_upgrade_2_acceleration_gain + \
+                     BigNum(increm_upgrade_3_level) * GameConfig::Upgrade::increm_upgrade_3_acceleration_gain;
 
-  Acceleration current_acceleration(accel_num);
-
-  return current_acceleration;
+  return Acceleration(accel_num);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -30,10 +30,12 @@ class GameGui : public QMainWindow
   void update();
   //void on_
   void on_click_button_clicked();
-  void on_boost_1_button_clicked();
-  void on_boost_2_button_clicked();
-  void on_boost_3_button_clicked();
-  void on_boost_4_button_clicked();
+  void on_increm_upgrade_1_button_clicked();
+  void on_increm_upgrade_2_button_clicked();
+  void on_increm_upgrade_3_button_clicked();
+  void on_unique_upgrade_1_button_clicked();
+  void on_unique_upgrade_2_button_clicked();
+  void on_unique_upgrade_3_button_clicked();
 private:
   void update_update_box(QWidget* widget, Upgrade_ID upgrade_id);
   void update_button(QPushButton* button, Upgrade_ID upgrade_id);
