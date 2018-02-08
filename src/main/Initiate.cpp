@@ -20,13 +20,14 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
   /////////////////////
 
   // Terminal upgrade
-  UniqueUpgrade unique_upgrade_1 = UniqueUpgrade(Upgrade_ID::unique_upgrade_1, \
+  Upgrade unique_upgrade_1 = Upgrade(Upgrade_ID::unique_upgrade_1, \
                                                  GameConfig::Upgrade::unique_upgrade_1_price);
   // Quantum magnetism
-  UniqueUpgrade unique_upgrade_2 = UniqueUpgrade(Upgrade_ID::unique_upgrade_2, \
-                                                 GameConfig::Upgrade::unique_upgrade_2_price);
+  Upgrade unique_upgrade_2 = Upgrade(Upgrade_ID::unique_upgrade_2, \
+                                     GameConfig::Upgrade::unique_upgrade_2_price, \
+                                     GameConfig::Upgrade::unique_upgrade_2_dep);
   // Level A Booster
-  UniqueUpgrade unique_upgrade_3 = UniqueUpgrade(Upgrade_ID::unique_upgrade_3, \
+  Upgrade unique_upgrade_3 = Upgrade(Upgrade_ID::unique_upgrade_3, \
                                                  GameConfig::Upgrade::unique_upgrade_3_price);
 
 
@@ -36,17 +37,18 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
   //////////////////////////
 
   // Quantum coil
-  IncrementalUpgrade increm_upgrade_1 = IncrementalUpgrade(Upgrade_ID::increm_upgrade_1, \
-                                                           GameConfig::Upgrade::increm_upgrade_1_price, \
-                                                           GameConfig::Upgrade::increm_upgrade_1_increase_factor);
+  Upgrade increm_upgrade_1 = Upgrade(Upgrade_ID::increm_upgrade_1, \
+                                     GameConfig::Upgrade::increm_upgrade_1_price, \
+                                     GameConfig::Upgrade::increm_upgrade_1_increase_factor, \
+                                     GameConfig::Upgrade::increm_upgrade_1_dep);
 
   // Level A Cells
-  IncrementalUpgrade increm_upgrade_2 = IncrementalUpgrade(Upgrade_ID::increm_upgrade_2, \
+  Upgrade increm_upgrade_2 = Upgrade(Upgrade_ID::increm_upgrade_2, \
                                                            GameConfig::Upgrade::increm_upgrade_2_price, \
                                                            GameConfig::Upgrade::increm_upgrade_2_increase_factor);
 
   // ?
-  IncrementalUpgrade increm_upgrade_3 = IncrementalUpgrade(Upgrade_ID::increm_upgrade_3,\
+  Upgrade increm_upgrade_3 = Upgrade(Upgrade_ID::increm_upgrade_3,\
                                                            GameConfig::Upgrade::increm_upgrade_3_price, \
                                                            GameConfig::Upgrade::increm_upgrade_3_increase_factor);
 

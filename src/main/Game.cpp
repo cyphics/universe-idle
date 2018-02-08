@@ -73,7 +73,6 @@ void Game::wait(Time time)
   /**
    * Postpone game state to given time
    */
-
   _game_state.increase_time(time);
   state().set_speed(compute_new_speed(time));
   state().add_distance(compute_new_distance(time));

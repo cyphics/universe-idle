@@ -112,7 +112,7 @@ std::vector<Upgrade_ID> UpgradesManager::get_available_upgrades() const
 {
   std::vector<Upgrade_ID> available_upgrades;
   for (auto upgrade : _list_of_upgrades) {
-    if (upgrade.is_available()) {
+    if (is_available(upgrade.get_ID())) {
       available_upgrades.push_back(upgrade.get_ID());
     }
   }
@@ -159,10 +159,29 @@ const Upgrade& UpgradesManager::get_upgrade(Upgrade_ID upgrade_id) const
 
 bool UpgradesManager::is_available(Upgrade_ID upgrade) const
 {
-  return get_upgrade(upgrade).is_available();
+  // If upgrade is unique and already paid, return false.
+  // Otherwise, simply test dependencies
+
+  if (get_upgrade(upgrade).is_unique() && get_upgrade(upgrade).get_current_level() > 0)
+    return false;
+
+  return has_dependencies(upgrade);
+
 }
 
 bool UpgradesManager::is_unique(Upgrade_ID upgrade) const
 {
   return get_upgrade(upgrade).is_unique();
+}
+
+bool UpgradesManager::has_dependencies(Upgrade_ID upgrade_id) const{
+  // If one of the dependencies has a level == 0, it means it hasn't been
+  // bought yet, and therefore is satisfied => false. Otherwise, return true.
+
+  for (auto dep : get_upgrade(upgrade_id).dependencies()) {
+    if (get_upgrade(dep).get_current_level() == 0) {
+      return false;
+    }
+  }
+  return true;
 }
