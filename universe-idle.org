@@ -1,6 +1,7 @@
 * Features
-** TODO Set physical constants and computation functions[0/1]
-- [ ] compute remaining time until destination
+** DONE Set physical constants and computation functions[1/1]
+   CLOSED: [2018-01-29 Mon 13:59]
+- [X] compute remaining time until destination
 
 
 * Messages
@@ -17,7 +18,6 @@ based classes
 - [ ] Time
 
 ** Refactorize
-
 *** TODO Split into dedicated modules [1/2]
 - [X] physics
 - [ ] computaiton
@@ -25,3 +25,23 @@ based classes
 * Testing
 * Useful resources
 https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-and-math-of-incremental-games--cms-24023
+* Design
+** Unique upgrades
+- Access to terminal (15e)
+- Access to window (20e)?
+- First continuous source of energy (magnetism?)
+- Booster Lvl 1
+- Solar panels
+- Generate energy through speed
+- Radad (determite position and remaining time)
+
+** Incremental upgrades
+- First source of energy
+- Lvl 1 energy cells for booster
+** Steps
+-> Terminal
+
+-> First booster (Unique upgrade)
+-> Buy energy cells
+
+Next speed step:
