@@ -33,7 +33,7 @@ const double increm_upgrade_2_increase_factor = 1.15;
 const Price increm_upgrade_2_price = Price(Resource_ID::cinetic_energy, BigNum(100));
 const std::vector<Upgrade_ID> increm_upgrade_2_depend = {Upgrade_ID::unique_upgrade_3};
 const double increm_upgrade_2_cinetic_gain = 1;
-const double increm_upgrade_2_acceleration_gain = 1;
+const double increm_upgrade_2_acceleration_gain = 0.001;
 const std::vector<Upgrade_ID> increm_upgrade_2_dep = {Upgrade_ID::unique_upgrade_1, Upgrade_ID::unique_upgrade_3};
 
 // ?

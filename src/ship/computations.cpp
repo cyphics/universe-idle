@@ -8,7 +8,7 @@
 
 #include "ship/computations.h"
 #include "ship/UpgradesManager.h"
-#include "ship/upgrades_configuration.h"
+#include "main/game_configuration.h"
 
 using Physics::Acceleration;
 

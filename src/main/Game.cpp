@@ -13,7 +13,7 @@
 #include "main/game_global_variables.h"
 #include "physics/Speed.h"
 #include "ship/resources_helper.h"
-#include "ship/upgrades_configuration.h"
+#include "main/game_configuration.h"
 #include "ship/computations.h"
 
 using Physics::Time;

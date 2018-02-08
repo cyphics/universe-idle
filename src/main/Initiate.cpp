@@ -10,7 +10,7 @@
 #include <vector>
 #include "main/initiate.h"
 #include "ship/Upgrade.h"
-#include "ship/upgrades_configuration.h"
+#include "main/game_configuration.h"
 
 std::vector<Upgrade> Init::initiate_upgrades_list()
 {
