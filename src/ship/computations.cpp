@@ -26,8 +26,8 @@ BigNum computation::get_resource_per_second(Resource_ID resource_id, const Upgra
   {
     case Resource_ID::cinetic_energy:
       {
-        new_amount = up_1_level * GameConfig::Upgrade::increm_upgrade_1_resource_gain;
-        new_amount += up_2_level * GameConfig::Upgrade::increm_upgrade_2_resource_gain;
+        new_amount = up_1_level * GameConfig::Upgrade::increm_upgrade_1_cinetic_gain;
+        new_amount += up_2_level * GameConfig::Upgrade::increm_upgrade_2_cinetic_gain;
         //+ up_3_level * GameConfig::Upgrade::increm_upgrade_3_base_gain;
         return new_amount;
         break;
@@ -52,13 +52,10 @@ Acceleration computation::compute_current_acceleration(const UpgradesManager *up
   int increm_upgrade_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_2);
   int increm_upgrade_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_3);
 
-  BigNum accel_num = BigNum(increm_upgrade_1_level) * GameConfig::Upgrade::increm_upgrade_1_base_gain + \
-                     BigNum(increm_upgrade_2_level) * GameConfig::Upgrade::increm_upgrade_2_base_gain + \
-                     BigNum(increm_upgrade_3_level) * GameConfig::Upgrade::increm_upgrade_3_base_gain;
+  BigNum accel_num = BigNum(increm_upgrade_2_level) * GameConfig::Upgrade::increm_upgrade_2_acceleration_gain + \
+                     BigNum(increm_upgrade_3_level) * GameConfig::Upgrade::increm_upgrade_3_acceleration_gain;
 
-  Acceleration current_acceleration(accel_num);
-
-  return current_acceleration;
+  return Acceleration(accel_num);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$
