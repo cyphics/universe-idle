@@ -19,7 +19,6 @@ class Upgrade{
  private:
   Upgrade_ID _upgrade_id;
   Price _initial_cost;
-  std::vector <Resource_ID> _required_resources;
   double _increase_factor;
   int _current_level = 0; // Equals number bought
   bool _uniqueness = false;

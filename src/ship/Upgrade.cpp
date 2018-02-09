@@ -13,22 +13,26 @@
 #include "main/game_global_variables.h"
 #include "ship/Upgrade.h"
 
+// Incremental upgrades constructors
 Upgrade::Upgrade(Upgrade_ID upgrade_id, Price init_cost, double increase_factor)
     : _upgrade_id(upgrade_id), _initial_cost(init_cost), _increase_factor(increase_factor)
 {
   _uniqueness = false;
 }
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, Price init_cost)
-    : _upgrade_id(upgrade_id), _initial_cost(init_cost)
-{
-  _uniqueness = true;
-}
-
 Upgrade::Upgrade(Upgrade_ID upgrade_id, Price initial_price, double increase_factor, std::vector<Upgrade_ID> dependencies)
     : Upgrade(upgrade_id, initial_price, increase_factor)
 {
   _dependencies = dependencies;
+}
+
+
+// Unique upgrades constructors
+Upgrade::Upgrade(Upgrade_ID upgrade_id, Price init_cost)
+    : _upgrade_id(upgrade_id), _initial_cost(init_cost)
+{
+  _uniqueness = true;
+  _increase_factor = 1;
 }
 
 Upgrade::Upgrade(Upgrade_ID upgrade_id, Price initial_price, std::vector<Upgrade_ID> dependencies)
