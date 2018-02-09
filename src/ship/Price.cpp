@@ -109,7 +109,7 @@ std::string Price::to_string() const
 
 Price& Price::operator*=(const double& rhs)
 {
-  for (auto resource : _resources_to_pay ){
+  for (auto &resource : _resources_to_pay ){
     resource._amount *= rhs;
   }
   return *this;
