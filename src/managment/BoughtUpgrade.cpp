@@ -27,8 +27,8 @@ std::string BoughtUpgrade::to_string() const
 {
   std::string output = "";
 
-  int time_box_size = 12;
-  int upgrade_box_size = 15;
+  int time_box_size = 26;
+  int upgrade_box_size = 25;
   int price_box_size = 25;
   int offset = 0;
   std::string time_string = _time.to_string();

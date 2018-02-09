@@ -28,8 +28,9 @@ std::string History::to_string() const
    * Formats the history into a printable string
    */
 
+  int hist_line_length = 80;
   std::string separator;
-  for (int i = 0; i < 56; i++) {
+  for (int i = 0; i < hist_line_length; i++) {
     separator += "-";
   }
   separator += "\n";
