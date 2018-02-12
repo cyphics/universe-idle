@@ -185,3 +185,8 @@ bool UpgradesManager::has_dependencies(Upgrade_ID upgrade_id) const{
   }
   return true;
 }
+
+bool UpgradesManager::is_bought(Upgrade_ID id) const
+{
+  return get_upgrade_level(id) > 0;
+}

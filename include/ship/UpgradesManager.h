@@ -44,11 +44,12 @@ class UpgradesManager{
   bool is_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   bool is_available(Upgrade_ID upgrade) const;
   bool is_unique(Upgrade_ID upgrade) const;
+  bool has_dependencies(Upgrade_ID) const;
+  bool is_bought(Upgrade_ID) const;
   int get_upgrade_level(Upgrade_ID) const;
   std::vector<Upgrade_ID> get_available_upgrades() const;
   std::vector<Upgrade_ID> get_all_upgrades() const;
   Price get_price_increase_level(Upgrade_ID upgrade, int amount_new_levels) const;
-  bool has_dependencies(Upgrade_ID) const;
   void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);
 
   void buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Physics::Time time_when_bought);
