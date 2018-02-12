@@ -31,6 +31,11 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                                      GameConfig::Upgrade::unique_upgrade_3_price, \
                                      GameConfig::Upgrade::unique_upgrade_3_dep);
 
+  // Radar
+  Upgrade unique_upgrade_4 = Upgrade(Upgrade_ID::unique_upgrade_4, \
+                                     GameConfig::Upgrade::unique_upgrade_4_price, \
+                                     GameConfig::Upgrade::unique_upgrade_4_dep);
+
 
 
   //////////////////////////
@@ -64,7 +69,8 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                                              increm_upgrade_3, \
                                              unique_upgrade_1, \
                                              unique_upgrade_2, \
-                                             unique_upgrade_3};
+                                             unique_upgrade_3, \
+                                             unique_upgrade_4};
 
   return vector_of_upgrades;
 }

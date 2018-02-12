@@ -17,8 +17,8 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
       {Upgrade_ID::unique_upgrade_1, "Terminal"}, \
       {Upgrade_ID::unique_upgrade_2, "Quantum magnetism"}, \
       {Upgrade_ID::unique_upgrade_3, "Level A booster"}, \
-      {Upgrade_ID::unique_upgrade_4, "Click boost"}, \
-      {Upgrade_ID::unique_upgrade_5, "Click boost"}, \
+      {Upgrade_ID::unique_upgrade_4, "Radar"}, \
+      {Upgrade_ID::unique_upgrade_5, ""}, \
       {Upgrade_ID::increm_upgrade_1, "Quantum coil"}, \
       {Upgrade_ID::increm_upgrade_2, "Level A Energy cell"} , \
       {Upgrade_ID::increm_upgrade_3, "Mega Boost"} });

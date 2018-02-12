@@ -11,6 +11,7 @@
 #include "physics/constants_physics.h"
 #include "gui_helpers.h"
 #include "UpgradeBox.h"
+#include "ship/computations.h"
 #include "main/game_configuration.h"
 
 using Physics::Time;
@@ -97,10 +98,16 @@ void GameGui::update()
 
   // Set new values in UI
   ui.acceleration_value_label->setText(_acceleration_value);
-  ui.cinetic_energy_value_label->setText(_cinetic_energy_value);
   ui.time_value_label->setText(_remaining_time_value);
   ui.speed_value_label->setText(_speed_value);
   ui.distance_value_label->setText(_distance_value);
+
+
+  QString cin_energy_label = _cinetic_energy_value +\
+                             " (" +\
+                             Ui::toqstr( computation::get_resource_per_second(Resource_ID::cinetic_energy, _game->manage_upgrades()).to_string()) +\
+                             "/s)";
+  ui.cinetic_energy_value_label->setText(cin_energy_label);
 
   update_upgrade_boxes();
 
@@ -116,6 +123,19 @@ void GameGui::on_click_button_clicked()
 
 void GameGui::upgrade_bought(Upgrade_ID id)
 {
+  if (id == Upgrade_ID::unique_upgrade_1) {
+    ui.textBrowser->append(Ui::toqstr(GameConfig::Message::terminal_message));
+  }
+  else if (id == Upgrade_ID::unique_upgrade_2) {
+    ui.textBrowser->append(Ui::toqstr(GameConfig::Message::coil_message));
+  }
+  else if (id == Upgrade_ID::increm_upgrade_1 && _game->manage_upgrades()->get_upgrade_level(Upgrade_ID::increm_upgrade_1) == 1)
+  {
+    ui.textBrowser->append(Ui::toqstr(GameConfig::Message::first_coil_message));
+  }
+  else if (id == Upgrade_ID::unique_upgrade_3)  {
+    ui.textBrowser->append(Ui::toqstr(GameConfig::Message::level_A_booster_message));
+  }
   _game->buy_upgrade(id, 1);
   update_ugprade_boxes_visibility();
 }
