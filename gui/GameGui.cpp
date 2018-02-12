@@ -123,17 +123,17 @@ void GameGui::on_click_button_clicked()
 
 void GameGui::upgrade_bought(Upgrade_ID id)
 {
-  if (id == Upgrade_ID::unique_upgrade_1) {
+  if (id == Upgrade_ID::u_terminal) {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::terminal_message));
   }
-  else if (id == Upgrade_ID::unique_upgrade_2) {
+  else if (id == Upgrade_ID::u_quantum_magnet) {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::coil_message));
   }
-  else if (id == Upgrade_ID::increm_upgrade_1 && _game->manage_upgrades()->get_upgrade_level(Upgrade_ID::increm_upgrade_1) == 1)
+  else if (id == Upgrade_ID::i_quant_coil && _game->manage_upgrades()->get_upgrade_level(Upgrade_ID::i_quant_coil) == 1)
   {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::first_coil_message));
   }
-  else if (id == Upgrade_ID::unique_upgrade_3)  {
+  else if (id == Upgrade_ID::u_level_a_boost)  {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::level_A_booster_message));
   }
   _game->buy_upgrade(id, 1);

@@ -26,25 +26,25 @@ namespace Upgrade{
 
 
 // Quantom coil
-const double increm_upgrade_1_increase_factor = 1.15;
-const Price increm_upgrade_1_price = Price(Resource_ID::cinetic_energy, BigNum(30));
-const std::vector<Upgrade_ID> increm_upgrade_1_depend = {Upgrade_ID::unique_upgrade_2};
-const double increm_upgrade_1_cinetic_gain = 1;
-const std::vector<Upgrade_ID> increm_upgrade_1_dep = {Upgrade_ID::unique_upgrade_1, Upgrade_ID::unique_upgrade_2};
+const double i_quant_coil_increase_factor = 1.15;
+const Price i_quant_coil_price = Price(Resource_ID::cinetic_energy, BigNum(30));
+const std::vector<Upgrade_ID> i_quant_coil_depend = {Upgrade_ID::u_quantum_magnet};
+const double i_quant_coil_cinetic_gain = 1;
+const std::vector<Upgrade_ID> i_quant_coil_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_quantum_magnet};
 
 // Level A Energy cells
-const double increm_upgrade_2_increase_factor = 1.15;
-const Price increm_upgrade_2_price = Price(Resource_ID::cinetic_energy, BigNum(100));
-const std::vector<Upgrade_ID> increm_upgrade_2_depend = {Upgrade_ID::unique_upgrade_3};
-const double increm_upgrade_2_cinetic_gain = 1;
-const double increm_upgrade_2_acceleration_gain = 0.001;
-const std::vector<Upgrade_ID> increm_upgrade_2_dep = {Upgrade_ID::unique_upgrade_1, Upgrade_ID::unique_upgrade_3};
+const double i_level_a_cell_increase_factor = 1.15;
+const Price i_level_a_cell_price = Price(Resource_ID::cinetic_energy, BigNum(100));
+const std::vector<Upgrade_ID> i_level_a_cell_depend = {Upgrade_ID::u_level_a_boost};
+const double i_level_a_cell_cinetic_gain = 1;
+const double i_level_a_cell_acceleration_gain = 0.001;
+const std::vector<Upgrade_ID> i_level_a_cell_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_level_a_boost};
 
 // ?
 const bool increm_upgrade_3_availability = true;
 const double increm_upgrade_3_increase_factor = 1.15;
 const Price increm_upgrade_3_price = Price(Resource_ID::cinetic_energy, BigNum(11000));
-const std::vector<Upgrade_ID> increm_upgrade_3_depend = {Upgrade_ID::unique_upgrade_3};
+const std::vector<Upgrade_ID> increm_upgrade_3_depend = {Upgrade_ID::u_level_a_boost};
 const double increm_upgrade_3_acceleration_gain = 1000;
 
 /////////////////////
@@ -52,19 +52,19 @@ const double increm_upgrade_3_acceleration_gain = 1000;
 /////////////////////
 
 // Terminal
-const Price unique_upgrade_1_price = Price(Resource_ID::cinetic_energy, BigNum(15));
+const Price u_terminal_price = Price(Resource_ID::cinetic_energy, BigNum(15));
 
 // Quantum magnetism
-const Price unique_upgrade_2_price = Price(Resource_ID::cinetic_energy, BigNum(20));
-const std::vector<Upgrade_ID> unique_upgrade_2_dep = {Upgrade_ID::unique_upgrade_1};
+const Price u_quantum_magnet_price = Price(Resource_ID::cinetic_energy, BigNum(20));
+const std::vector<Upgrade_ID> u_quantum_magnet_dep = {Upgrade_ID::u_terminal};
 
 // Level A Booster
-const Price unique_upgrade_3_price = Price(Resource_ID::cinetic_energy, BigNum(150));
-const std::vector<Upgrade_ID> unique_upgrade_3_dep = {Upgrade_ID::unique_upgrade_2};
+const Price u_level_a_boost_price = Price(Resource_ID::cinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> u_level_a_boost_dep = {Upgrade_ID::u_quantum_magnet};
 
 // Radar
-const Price unique_upgrade_4_price = Price(Resource_ID::cinetic_energy, BigNum(1500000));
-const std::vector<Upgrade_ID> unique_upgrade_4_dep = {Upgrade_ID::unique_upgrade_1};
+const Price u_radar_price = Price(Resource_ID::cinetic_energy, BigNum(1500000));
+const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_terminal};
 
 }
 

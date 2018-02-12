@@ -107,7 +107,7 @@ void Game::click()
    */
 
   BigNum new_amount = 1;
-  int click_level = manage_upgrades()->get_upgrade_level(Upgrade_ID::unique_upgrade_1);
+  int click_level = manage_upgrades()->get_upgrade_level(Upgrade_ID::u_terminal);
   //state().add_speed(Speed(1) *( 1 + ( click_level * 10 ) ));
   //  std::cout << state().get_speed().to_string() << "\n";
   _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));

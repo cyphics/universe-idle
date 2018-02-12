@@ -17,17 +17,16 @@ BigNum computation::get_resource_per_second(Resource_ID resource_id, const Upgra
   // 1 = quantum coils
   // 2 = Level A Cells
   // 3 = ?
-  int up_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_1);
-  int up_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_2);
-  int up_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_3);
+  int up_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::i_quant_coil);
+  int up_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::i_level_a_cell);
 
   BigNum new_amount;
   switch (resource_id)
   {
     case Resource_ID::cinetic_energy:
       {
-        new_amount = up_1_level * GameConfig::Upgrade::increm_upgrade_1_cinetic_gain;
-        new_amount += up_2_level * GameConfig::Upgrade::increm_upgrade_2_cinetic_gain;
+        new_amount = up_1_level * GameConfig::Upgrade::i_quant_coil_cinetic_gain;
+        new_amount += up_2_level * GameConfig::Upgrade::i_level_a_cell_cinetic_gain;
         //+ up_3_level * GameConfig::Upgrade::increm_upgrade_3_base_gain;
         return new_amount;
         break;
@@ -48,12 +47,10 @@ Acceleration computation::compute_current_acceleration(const UpgradesManager *up
      Compute acceleration according to bought upgrades.
    */
 
-  int increm_upgrade_1_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_1);
-  int increm_upgrade_2_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_2);
-  int increm_upgrade_3_level = upgrades_manager->get_upgrade_level(Upgrade_ID::increm_upgrade_3);
+  int i_quant_coil_level = upgrades_manager->get_upgrade_level(Upgrade_ID::i_quant_coil);
+  int i_level_a_cell_level = upgrades_manager->get_upgrade_level(Upgrade_ID::i_level_a_cell);
 
-  BigNum accel_num = BigNum(increm_upgrade_2_level) * GameConfig::Upgrade::increm_upgrade_2_acceleration_gain + \
-                     BigNum(increm_upgrade_3_level) * GameConfig::Upgrade::increm_upgrade_3_acceleration_gain;
+  BigNum accel_num = BigNum(i_level_a_cell_level) * GameConfig::Upgrade::i_level_a_cell_acceleration_gain;
 
   return Acceleration(accel_num);
 }
