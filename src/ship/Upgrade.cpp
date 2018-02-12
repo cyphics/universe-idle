@@ -52,9 +52,8 @@ Price Upgrade::get_cost_increase_level(int additional_levels) const
      Return Price
    */
   assert(additional_levels > 0);
-  //assert(_current_level >= 0);
 
-  return _initial_cost * pow(_increase_factor, _current_level + additional_levels);
+  return _initial_cost * pow(_increase_factor, _current_level - 1 + additional_levels);
 }
 
 
@@ -70,7 +69,11 @@ void Upgrade::increase_level(int number_new_levels)
    * Increase current level with <number_levels>
    */
 
-  if (_uniqueness) assert(_current_level == 0);
+  if (_uniqueness && _current_level > 0)
+  {
+    std::cout << "Error, upgrade already bought!"  << "\n";
+    return;
+  }
 
   _current_level += number_new_levels;
 }

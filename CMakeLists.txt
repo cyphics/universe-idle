@@ -56,6 +56,7 @@ add_library(app_lib ${APP_SRC}
 set(
   GUI_SRC
   gui/GameGui.cpp
+  gui/UpgradeBox.cpp
   gui/gui_helpers.cpp
   src/physics/compute_physics.cpp
   )

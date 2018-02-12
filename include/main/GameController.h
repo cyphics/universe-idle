@@ -6,8 +6,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _H
-#define _H 1
+#ifndef GAMECONTROLLER_H
+#define GAMECONTROLLER_H 1
 
 #include <QApplication>
 #include "Game.h"

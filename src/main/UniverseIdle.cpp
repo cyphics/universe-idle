@@ -20,9 +20,10 @@ void UniverseIdle::run()
 {
 
   Game my_game;
-  GameGui a_gui;
+  GameGui a_gui(&my_game);
   QTimer timer;
-  a_gui.set_game(&my_game);
+  //a_gui.build_upgrade_boxes_vector();
+  //a_gui.set_upgrade_boxes();
   a_gui.show();
   QObject::connect(&timer, SIGNAL(timeout()), &a_gui, SLOT(update()));
   timer.start(200);

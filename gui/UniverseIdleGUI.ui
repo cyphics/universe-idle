@@ -159,6 +159,16 @@
                 </item>
                </layout>
               </widget>
+              <widget class="QTextBrowser" name="textBrowser">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>260</y>
+                 <width>531</width>
+                 <height>271</height>
+                </rect>
+               </property>
+              </widget>
              </widget>
             </item>
            </layout>
@@ -169,129 +179,30 @@
              <x>610</x>
              <y>30</y>
              <width>431</width>
-             <height>151</height>
+             <height>251</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="increm_upgrades_layout">
             <item>
              <widget class="QGroupBox" name="IncremUpBox">
               <property name="title">
-               <string>Incremental Upgrades</string>
+               <string>Available technologies</string>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout">
-               <item>
-                <widget class="QWidget" name="increm_upgrade_1_widget" native="true">
-                 <widget class="QWidget" name="horizontalLayoutWidget">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>361</width>
-                    <height>31</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="increm_upgrade_1_layout">
-                   <item>
-                    <widget class="QPushButton" name="increm_upgrade_1_button">
-                     <property name="text">
-                      <string>Small boost</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_1_remaining_time">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_1_price">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="increm_upgrade_2_widget" native="true">
-                 <widget class="QWidget" name="horizontalLayoutWidget">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>361</width>
-                    <height>31</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="increm_upgrade_2_layout">
-                   <item>
-                    <widget class="QPushButton" name="increm_upgrade_2_button">
-                     <property name="text">
-                      <string>Big Boost</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_2_remaining_time">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_2_price">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="increm_upgrade_3_widget" native="true">
-                 <widget class="QWidget" name="horizontalLayoutWidget_3">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>361</width>
-                    <height>31</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="increm_upgrade_3_layout">
-                   <item>
-                    <widget class="QPushButton" name="increm_upgrade_3_button">
-                     <property name="text">
-                      <string>Click boost</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_3_remaining_time">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="increm_upgrade_3_price">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-              </layout>
+              <layout class="QVBoxLayout" name="verticalLayout"/>
              </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>
@@ -299,166 +210,32 @@
            <property name="geometry">
             <rect>
              <x>610</x>
-             <y>200</y>
+             <y>300</y>
              <width>431</width>
-             <height>241</height>
+             <height>411</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="unique_upgrades_layout">
             <item>
              <widget class="QGroupBox" name="unique_upgrades_box">
               <property name="title">
-               <string>Unique Upgrades</string>
+               <string>Searchable technologies</string>
               </property>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_2">
-                 <item>
-                  <widget class="QWidget" name="unique_upgrade_3_widget" native="true">
-                   <property name="minimumSize">
-                    <size>
-                     <width>361</width>
-                     <height>31</height>
-                    </size>
-                   </property>
-                   <widget class="QWidget" name="horizontalLayoutWidget_6">
-                    <property name="geometry">
-                     <rect>
-                      <x>0</x>
-                      <y>0</y>
-                      <width>361</width>
-                      <height>31</height>
-                     </rect>
-                    </property>
-                    <layout class="QHBoxLayout" name="unique_upgrade_3_layout">
-                     <item>
-                      <widget class="QPushButton" name="unique_upgrade_3_button">
-                       <property name="text">
-                        <string>Click boost</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="unique_upgrade_3_remaining_time">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="unique_upgrade_3_price">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <widget class="QWidget" name="unique_upgrade_1_widget" native="true">
-                 <property name="minimumSize">
-                  <size>
-                   <width>361</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <widget class="QWidget" name="horizontalLayoutWidget_4">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>361</width>
-                    <height>31</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="unique_upgrade_1_layout">
-                   <item>
-                    <widget class="QPushButton" name="unique_upgrade_1_button">
-                     <property name="text">
-                      <string>Small boost</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="unique_upgrade_1_remaining_time">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="unique_upgrade_1_price">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="unique_upgrade_2_widget" native="true">
-                 <property name="minimumSize">
-                  <size>
-                   <width>361</width>
-                   <height>31</height>
-                  </size>
-                 </property>
-                 <widget class="QWidget" name="horizontalLayoutWidget_5">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>361</width>
-                    <height>31</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="unique_upgrade_2_layout">
-                   <item>
-                    <widget class="QPushButton" name="unique_upgrade_2_button">
-                     <property name="text">
-                      <string>Big Boost</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="unique_upgrade_2_remaining_time">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="unique_upgrade_2_price">
-                     <property name="text">
-                      <string>TextLabel</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
+              <layout class="QVBoxLayout" name="verticalLayout_3"/>
              </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>

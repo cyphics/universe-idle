@@ -51,8 +51,9 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   // ?
   Upgrade increm_upgrade_3 = Upgrade(Upgrade_ID::increm_upgrade_3,\
-                                                           GameConfig::Upgrade::increm_upgrade_3_price, \
-                                                           GameConfig::Upgrade::increm_upgrade_3_increase_factor);
+                                     GameConfig::Upgrade::increm_upgrade_3_price, \
+                                     GameConfig::Upgrade::increm_upgrade_3_increase_factor, \
+                                     GameConfig::Upgrade::increm_upgrade_3_depend);
 
 
 
