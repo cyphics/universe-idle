@@ -17,12 +17,22 @@
 #include "ship/upgrades_helper.h"
 #include "ship/Price.h"
 
+
+
 namespace GameConfig
 {
 
-const BigNum initial_game_resources = BigNum(100);
+const BigNum initial_game_resources = BigNum(1700);
 
-namespace Upgrade{
+namespace Computations
+{
+
+const double cinetic_push_speed_gain = 0.001;
+
+}
+
+namespace Upgrade
+{
 
 
 // Quantom coil
@@ -58,13 +68,23 @@ const Price u_terminal_price = Price(Resource_ID::cinetic_energy, BigNum(15));
 const Price u_quantum_magnet_price = Price(Resource_ID::cinetic_energy, BigNum(20));
 const std::vector<Upgrade_ID> u_quantum_magnet_dep = {Upgrade_ID::u_terminal};
 
+
+// Radar
+const Price u_radar_price = Price(Resource_ID::cinetic_energy, BigNum(15000));
+const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_terminal};
+
+// Dynamo
+const Price u_dynamo_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_quantum_magnet};
+
 // Level A Booster
 const Price u_level_a_boost_price = Price(Resource_ID::cinetic_energy, BigNum(150));
 const std::vector<Upgrade_ID> u_level_a_boost_dep = {Upgrade_ID::u_quantum_magnet};
 
-// Radar
-const Price u_radar_price = Price(Resource_ID::cinetic_energy, BigNum(1500000));
-const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_terminal};
+// Cinetic push
+const Price u_cinetic_push_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_cinetic_push_dep = {Upgrade_ID::u_quantum_magnet};
+
 
 }
 
