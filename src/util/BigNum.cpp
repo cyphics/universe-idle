@@ -175,20 +175,12 @@ std::string BigNum::to_string() const
   int exposant;
 
 
-  // // First, deal with cases like 1.0000000000001 that should equal 1 and not 1.000
-  // if (fmod(_num_value, 1) < 0.001) {
-  //   double tmp = _num_value;
-  //   tmp += 0.5;
-  //   int int_value = (int)tmp;
-  //   return std::to_string(int_value);
-  // }
-
   // If value is between 0.001 and 9999,
   if (_num_value > 0.001 && _num_value < 9999) {
     mantissa = _num_value;
     exposant = 0;
   }
-  else {
+  else{
     mantissa = get_significand();
     exposant = get_exponant();
   }
@@ -200,7 +192,13 @@ std::string BigNum::to_string() const
   stream << std::fixed << std::setprecision(3) << mantissa;
   final_string = stream.str();
 
-  if (this->get_exponant() > 0)
+  if (this->get_exponant() == 3) {
+    final_string += "K";
+  }
+  else if (this->get_exponant() == 6) {
+    final_string += "M";
+  }
+  else if (this->get_exponant() > 6)
   {
     //final_string += "*10^";
     final_string += "e";
