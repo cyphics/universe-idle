@@ -11,15 +11,18 @@
 
 #include "ship/resources_helper.h"
 #include "physics/Acceleration.h"
+#include "physics/Speed.h"
+#include "main/Game.h"
 
 class BigNum;
 class UpgradesManager;
 
 namespace computation{
 
-BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* upgrades_manager);
+BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* manager);
 
 Physics::Acceleration compute_current_acceleration(const UpgradesManager* upgrades_manager);
+
 
 }
 
