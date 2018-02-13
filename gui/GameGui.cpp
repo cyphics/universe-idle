@@ -76,10 +76,14 @@ void GameGui::set_upgrade_boxes(){
 void GameGui::update_upgrade_boxes()
 {
   for (auto &box : _unique_upgrade_boxes) {
-    box->update_box(_game->manage_upgrades());
+    if (box->isEnabled()) {
+      box->update_box(_game);
+    }
   }
   for (auto &box : _increm_upgrade_boxes) {
-    box->update_box(_game->manage_upgrades());
+    if (box->isEnabled()) {
+      box->update_box(_game);
+    }
   }
 }
 
