@@ -14,7 +14,7 @@ UpgradeBox::UpgradeBox(Upgrade_ID id, Game* game, QWidget *parent)
 {
   _main_layout = new QHBoxLayout(this);
   _button = new QPushButton();
-  _button_name = Ui::toqstr(game->manage_upgrades()->get_upgrade_name(id));
+  _button_name = Ui::toqstr(game->upgrades()->get_upgrade_name(id));
   _price = new QLabel();
   _remaining_time = new QLabel();
 

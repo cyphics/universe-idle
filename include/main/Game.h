@@ -26,8 +26,8 @@ class Game{
   Computer _computer;
   Physics::Time _time_played = Physics::Time(0);
   GameState _game_state;
-  UpgradesManager _upgrades_manager;
-  ResourcesManager _resources_manager;
+  UpgradesManager _upgrades;
+  ResourcesManager _resources;
 
   // Compute game state
   Physics::Speed compute_new_speed(Physics::Time time) const;
@@ -41,8 +41,8 @@ class Game{
   // Getters
   const GameState& state() const;
   GameState& state();
-  const UpgradesManager* manage_upgrades() const;
-  const ResourcesManager* manage_resources() const;
+  const UpgradesManager* upgrades() const;
+  const ResourcesManager* resources() const;
   Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   Physics::Time time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const;
   Physics::Time time_until_in_stock(const Price& price) const;

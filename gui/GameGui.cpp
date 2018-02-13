@@ -36,11 +36,11 @@ GameGui::GameGui(Game* game, QMainWindow *parent)
 
 void GameGui::build_upgrade_boxes_vector()
 {
-   for (auto upgrade_id : _game->manage_upgrades()->get_all_upgrades())
+   for (auto upgrade_id : _game->upgrades()->get_all_upgrades())
    {
      UpgradeBox *a_box = new UpgradeBox(upgrade_id, _game);
 
-     if (_game->manage_upgrades()->is_unique(upgrade_id))
+     if (_game->upgrades()->is_unique(upgrade_id))
      {
        _unique_upgrade_boxes.push_back(a_box);
      }
@@ -91,7 +91,7 @@ void GameGui::update()
   // Get new values
   _acceleration_value = toqstr(_game->state().get_acceleration().to_string());
 
-  _cinetic_energy_value = toqstr(_game->manage_resources()->get_resource_amount(Resource_ID::cinetic_energy).to_string());
+  _cinetic_energy_value = toqstr(_game->resources()->get_resource_amount(Resource_ID::cinetic_energy).to_string());
   _speed_value = toqstr(_game->state().get_speed().to_string());
   _remaining_time_value = toqstr(compute_remaining_time(Units::diameter_universe, _game->state().get_speed(), _game->state().get_acceleration()).to_string());
   _distance_value = toqstr(_game->state().get_distance().to_string());
@@ -129,7 +129,7 @@ void GameGui::upgrade_bought(Upgrade_ID id)
   else if (id == Upgrade_ID::u_quantum_magnet) {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::coil_message));
   }
-  else if (id == Upgrade_ID::i_quant_coil && _game->manage_upgrades()->get_upgrade_level(Upgrade_ID::i_quant_coil) == 1)
+  else if (id == Upgrade_ID::i_quant_coil && _game->upgrades()->get_upgrade_level(Upgrade_ID::i_quant_coil) == 1)
   {
     ui.textBrowser->append(Ui::toqstr(GameConfig::Message::first_coil_message));
   }
@@ -143,13 +143,13 @@ void GameGui::upgrade_bought(Upgrade_ID id)
 void GameGui::update_ugprade_boxes_visibility()
 {
   for (auto box : _unique_upgrade_boxes) {
-    if (_game->manage_upgrades()->is_available(box->get_id()))
+    if (_game->upgrades()->is_available(box->get_id()))
       box->set_box_visibility(true);
     else
       box->set_box_visibility(false);
   }
   for (auto box : _increm_upgrade_boxes) {
-    if (_game->manage_upgrades()->is_available(box->get_id()))
+    if (_game->upgrades()->is_available(box->get_id()))
       box->set_box_visibility(true);
     else
       box->set_box_visibility(false);
