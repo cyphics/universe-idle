@@ -29,10 +29,10 @@ https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-
 ** Unique upgrades
 - Access to terminal (15e)
 - Access to window (20e)?
-- First continuous source of energy (magnetism?)
-- Booster Lvl 1
+- First continuous source of energy (quantum magnetism)
+- Throttle Lvl 1
 - Solar panels
-- Generate energy through speed
+- Generate energy through speed (dynamo)
 - Radad (determite position and remaining time)
 
 ** Incremental upgrades
@@ -45,3 +45,5 @@ https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-
 -> Buy energy cells
 
 Next speed step:
+* Issues
+Refactor:
