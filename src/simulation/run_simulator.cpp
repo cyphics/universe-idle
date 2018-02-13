@@ -23,7 +23,7 @@ void run_simulator(Physics::Time duration, Strategy_ID strategy)
   std::cout << "Simulation complete. Printing results..."  << "\n";
 
   // Print history of upgrades puchased
-  std::cout <<  game.manage_upgrades()->get_purchase_history().to_string() << "\n";
+  std::cout <<  game.upgrades()->get_purchase_history().to_string() << "\n";
 
 }
 

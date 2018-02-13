@@ -41,6 +41,7 @@ set(
   src/ship/Resource.cpp
   src/ship/ResourcesManager.cpp
   src/ship/Upgrade.cpp
+  src/ship/Computer.cpp
   src/ship/UpgradeManager.cpp
   src/simulation/run_simulator.cpp
   src/simulation/Simulate_game.cpp

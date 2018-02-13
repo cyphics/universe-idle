@@ -17,12 +17,13 @@
 #include "managment/GameState.h"
 #include "ship/UpgradesManager.h"
 #include "ship/ResourcesManager.h"
+#include "ship/Computer.h"
 //#include "Distance.h"
 
 
 class Game{
  private:
-
+  Computer _computer;
   Physics::Time _time_played = Physics::Time(0);
   GameState _game_state;
   UpgradesManager _upgrades_manager;
@@ -42,16 +43,22 @@ class Game{
   GameState& state();
   const UpgradesManager* manage_upgrades() const;
   const ResourcesManager* manage_resources() const;
+  Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
+  Physics::Time time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const;
+  Physics::Time time_until_in_stock(const Price& price) const;
+
+  bool is_affordable(Upgrade_ID upgrade, int amount) const;
+  const Computer& compute() const;
+
 
   // Misc
   void update_state();
   void wait(Physics::Time time);
-  bool is_affordable(Upgrade_ID upgrade, int amount);
   void buy_upgrade(Upgrade_ID upgrade, int amount);
+  void gather_resources(Physics::Time time);
 
   void click();
 
-  Physics::Time time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const;
   std::vector<std::string> ui_data();
 };
 

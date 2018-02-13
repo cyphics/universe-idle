@@ -20,31 +20,6 @@ using Physics::Time;
 using Physics::Speed;
 using Physics::Distance;
 
-Game::Game()
-    :_resources_manager(Init::initiate_resources_manager()),
-     _upgrades_manager(Init::initiate_upgrades_manager())
-{
-  _resources_manager.set_upgrades_manager(&_upgrades_manager);
-  _upgrades_manager.set_resources_manager(&_resources_manager);
-
-  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, GameConfig::initial_game_resources);
-
-}
-
-Game::~Game(){}
-
-const GameState& Game::state() const
-{
-/**
- * Returns a constant reference to the state of the game
- */
-  return _game_state;
-}
-
-GameState& Game::state()
-{
-  return _game_state;
-}
 
 Speed Game::compute_new_speed(Time time) const
 {
@@ -69,17 +44,109 @@ Distance Game::compute_new_distance(Time time) const
 }
 
 
+Game::Game()
+    :_resources(Init::initiate_resources_manager()),
+     _upgrades(Init::initiate_upgrades_manager()),
+     _computer(&_upgrades, &_game_state)
+{
+  _resources.add_resource_amount(Resource_ID::cinetic_energy, GameConfig::initial_game_resources);
+}
+
+Game::~Game(){}
+
+const GameState& Game::state() const
+{
+/**
+ * Returns a constant reference to the state of the game
+ */
+  return _game_state;
+}
+
+GameState& Game::state()
+{
+  return _game_state;
+}
+
+const UpgradesManager* Game::upgrades() const
+{
+  return &_upgrades;
+}
+
+const ResourcesManager* Game::resources() const
+{
+  return &_resources;
+}
+
+Physics::Time Game::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const
+{
+  Price price = _upgrades.get_price_increase_level(upgrade, amount);
+  return time_until_in_stock(price);
+}
+
+Physics::Time Game::time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const
+{
+  Time time(0);
+  BigNum current_amount = _resources.get_resource_amount(resource_id);
+  BigNum needed_amount = required_amount - current_amount;
+
+  // Compute
+  if (needed_amount > 0)
+  {
+    BigNum resource_per_second = _computer.resource_per_second(resource_id);
+    time = Time(needed_amount/resource_per_second);
+  }
+  return time;
+}
+
+Physics::Time Game::time_until_in_stock(const Price& price) const
+{
+    Time time(0);
+
+    for (auto resourceAmount : price.get_resources_to_pay())
+    {
+      Time remain_time = time_until_in_stock(resourceAmount._resource_ID, resourceAmount._amount);
+      if (remain_time > time)
+      {
+        time = remain_time;
+      }
+    }
+
+    return time;
+}
+
+bool Game::is_affordable(Upgrade_ID upgrade, int amount) const
+{
+  Price price_upgrade =  _upgrades.get_price_increase_level(upgrade, amount);
+  return _resources.can_be_payed(price_upgrade);
+}
+
+const Computer& Game::compute() const
+{
+  return _computer;
+}
+
+
+void Game::update_state()
+{
+  state().set_acceleration(computation::compute_current_acceleration(&_upgrades));
+
+}
+
+
 void Game::wait(Time time)
 {
   /**
    * Postpone game state to given time
    */
+
   _game_state.increase_time(time);
   state().set_speed(compute_new_speed(time));
   state().add_distance(compute_new_distance(time));
-  _resources_manager.gather_resources(time);
+  gather_resources(time);
+
   update_state();
 }
+
 
 void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
 {
@@ -87,17 +154,33 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
    * Add upgrade if possible
      If not, do nothing
    */
-  if (_upgrades_manager.is_affordable(upgrade, amount))
+  if (is_affordable(upgrade, amount))
   {
-    _upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
+    _upgrades.increase_upgrade_level(upgrade, amount);
+    _resources.pay_price(_upgrades.get_price_increase_level(upgrade, amount));
+    // FIXME: ADD ENTRY TO HISTORY
+    //_upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
   }
   else
   {
-    std::cout << "Upgrade " << _upgrades_manager.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
-    BigNum cost = _upgrades_manager.get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::cinetic_energy);
-    BigNum current_amount = _resources_manager.get_resource_amount(Resource_ID::cinetic_energy);
+    std::cout << "Upgrade " << _upgrades.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
+    BigNum cost = _upgrades.get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::cinetic_energy);
+    BigNum current_amount = _resources.get_resource_amount(Resource_ID::cinetic_energy);
     std::cout << current_amount << " < " << cost  << "\n";
   }
+}
+
+void Game::gather_resources(Physics::Time time)
+{
+    for (auto resource : _resources.get_resources())
+    {
+      BigNum resource_per_second = compute().resource_per_second(resource.get_ID());
+      BigNum new_amount(0);
+      new_amount = BigNum(resource_per_second * time.num());
+
+      _resources.add_resource_amount(resource.get_ID(), new_amount);
+    }
+
 }
 
 void Game::click()
@@ -107,34 +190,20 @@ void Game::click()
    */
   BigNum new_amount = 1;
 
-  _resources_manager.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
+  _resources.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
 
-  if (_upgrades_manager.is_bought(Upgrade_ID::u_cinetic_push)) {
+  if (_upgrades.is_bought(Upgrade_ID::u_cinetic_push)) {
     state().add_speed(Speed(GameConfig::Computations::cinetic_push_speed_gain));
   }
 
 }
 
-const UpgradesManager* Game::manage_upgrades() const
-{
-  return &_upgrades_manager;
-}
 
-const ResourcesManager* Game::manage_resources() const
-{
-  return &_resources_manager;
-}
-
-void Game::update_state()
-{
-  state().set_acceleration(computation::compute_current_acceleration(&_upgrades_manager));
-
-}
 
 std::vector<std::string> Game::ui_data()
 {
   std::vector<std::string> data;
-  data.push_back(_resources_manager.get_resource_amount(Resource_ID::cinetic_energy).to_string());
+  data.push_back(_resources.get_resource_amount(Resource_ID::cinetic_energy).to_string());
 
   return data;
 }

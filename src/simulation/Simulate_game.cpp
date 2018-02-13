@@ -24,6 +24,7 @@ Game simulate_game(Strategy_ID strategy_id, Time duration)
   Game game = Game();
   bool loop = true;
   Time time_to_wait(0);
+
   while (loop)
   {
     // check if time of game is over simulation time
@@ -34,9 +35,9 @@ Game simulate_game(Strategy_ID strategy_id, Time duration)
     {
       // Identify next upgrade according to strategy
 
-      Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, game.manage_upgrades());
+      Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, &game);
 
-      time_to_wait = game.manage_upgrades()->time_until_affordable(upgrade_to_buy, 1);
+      time_to_wait = game.time_until_affordable(upgrade_to_buy, 1);
 
 
 

@@ -23,7 +23,7 @@ ResourcesManager::ResourcesManager(std::vector<Resource> stock_resources)
 }
 
 ResourcesManager::ResourcesManager(const ResourcesManager& original)
-    :_stock_of_resources(original._stock_of_resources),_upgrades_manager(original._upgrades_manager)
+    :_stock_of_resources(original._stock_of_resources)
 {    /**
       * Copy constructor
       */
@@ -36,13 +36,9 @@ ResourcesManager& ResourcesManager::operator=(ResourcesManager& original)
   return original;
 }
 
-void ResourcesManager::set_upgrades_manager(UpgradesManager *upgrades_manager)
-{
-  _upgrades_manager = upgrades_manager;
-}
 
 
-void ResourcesManager::gather_resources(Time elapsed_time)
+void ResourcesManager::gather_resources(Time elapsed_time, Computer* computer)
 {
   /**
    * Compute new resources gathered in given time
@@ -51,7 +47,7 @@ void ResourcesManager::gather_resources(Time elapsed_time)
   // Gather resources one by one
   for (auto resource : _stock_of_resources)
   {
-    BigNum resource_per_second = computation::get_resource_per_second(resource.get_ID(), _upgrades_manager);
+    BigNum resource_per_second = computer->resource_per_second(resource.get_ID());
     BigNum new_amount = BigNum(resource_per_second * elapsed_time.num());
 
     add_resource_amount(resource.get_ID(), new_amount);
@@ -60,52 +56,52 @@ void ResourcesManager::gather_resources(Time elapsed_time)
 
 
 
-Time ResourcesManager::get_time_until_in_stock(const Price& price) const
-{
-  /**
-   * Take a Price as input
-   * Return time to wait to have enough resources to pay price
-   */
-  Time time(0);
+// Time ResourcesManager::get_time_until_in_stock(const Price& price) const
+// {
+//   /**
+//    * Take a Price as input
+//    * Return time to wait to have enough resources to pay price
+//    */
+//   Time time(0);
 
-  for (auto resourceAmount : price.get_resources_to_pay())
-  {
-    // resource is of type ResourceAmount !
+//   for (auto resourceAmount : price.get_resources_to_pay())
+//   {
+//     // resource is of type ResourceAmount !
 
-    Time time_until_in_stock = get_time_until_in_stock(resourceAmount._resource_ID, resourceAmount._amount);
+//     Time time_until_in_stock = get_time_until_in_stock(resourceAmount._resource_ID, resourceAmount._amount);
 
-    if (time_until_in_stock > time)
-    {
-      time = time_until_in_stock;
-    }
+//     if (time_until_in_stock > time)
+//     {
+//       time = time_until_in_stock;
+//     }
 
-  }
+//   }
 
-  return time;
-}
+//   return time;
+// }
 
-Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const
-{
-/*
- * Take resource_ID and amount as input
- * Return time to wait to have indicated amount of resource
- */
+// Time ResourcesManager::get_time_until_in_stock(const Resource_ID& resource_id, BigNum required_amount) const
+// {
+// /*
+//  * Take resource_ID and amount as input
+//  * Return time to wait to have indicated amount of resource
+//  */
 
-  Time time(0);
-  BigNum current_amount = get_resource(resource_id).get_current_amount();
+//   Time time(0);
+//   BigNum current_amount = get_resource(resource_id).get_current_amount();
 
-  BigNum needed_amount = required_amount - current_amount;
+//   BigNum needed_amount = required_amount - current_amount;
 
-  // Compute
-  if (needed_amount > 0)
-  {
-    BigNum resource_per_second = computation::get_resource_per_second(resource_id, _upgrades_manager);
+//   // Compute
+//   if (needed_amount > 0)
+//   {
+//     BigNum resource_per_second = computation::get_resource_per_second(resource_id, _upgrades_manager);
 
-    time = Time(needed_amount/resource_per_second);
-  }
+//     time = Time(needed_amount/resource_per_second);
+//   }
 
-  return time;
-}
+//   return time;
+// }
 
 Resource& ResourcesManager::get_resource(Resource_ID resource_id)
 {
@@ -175,6 +171,26 @@ void ResourcesManager::pay_price(Price price)
 void ResourcesManager::add_resource_amount(Resource_ID resource_id, BigNum amount)
 {
   get_resource(resource_id).add_resource_amount(amount);
+}
+
+bool ResourcesManager::can_be_payed(Price price) const
+{
+  for (auto required_resource : price.get_resources_to_pay())
+  {
+    Resource_ID resource_ID = required_resource._resource_ID;
+    BigNum required_amount = required_resource._amount;
+    BigNum current_amount = get_resource_amount(resource_ID);
+
+    if (current_amount < required_amount) return false;
+  }
+
+  return true;
+
+}
+
+std::vector<Resource> ResourcesManager::get_resources()
+{
+  return _stock_of_resources;
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

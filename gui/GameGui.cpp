@@ -105,7 +105,7 @@ void GameGui::update()
 
   QString cin_energy_label = _cinetic_energy_value +\
                              " (" +\
-                             Ui::toqstr( computation::get_resource_per_second(Resource_ID::cinetic_energy, _game->manage_upgrades()).to_string()) +\
+                             Ui::toqstr( _game->compute().resource_per_second(Resource_ID::cinetic_energy).to_string()) +\
                              "/s)";
   ui.cinetic_energy_value_label->setText(cin_energy_label);
 

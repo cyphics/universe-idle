@@ -35,7 +35,7 @@ class UpgradeBox : public QWidget
 
   Upgrade_ID get_id() const;
 
-  void update_box(const UpgradesManager* upgrades);
+  void update_box(const Game* game);
   void set_box_visibility(bool visible);
   void update_texts(QString price, QString time);
   void set_button_availability(bool available);

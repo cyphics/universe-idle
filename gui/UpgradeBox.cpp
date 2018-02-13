@@ -52,14 +52,15 @@ Upgrade_ID UpgradeBox::get_id() const
   return _upgrade_id;
 }
 
-void UpgradeBox::update_box(const UpgradesManager* upgrades)
+void UpgradeBox::update_box(const Game* game)
 {
 
-  set_button_availability(upgrades->is_affordable(_upgrade_id, 1));
+  set_button_availability(game->is_affordable(_upgrade_id, 1));
   // If upgrade is not unique, upgrade button text
-  if (!upgrades->is_unique(_upgrade_id)) {
 
-    int level = upgrades->get_upgrade_level(_upgrade_id);
+  if (!game->upgrades()->is_unique(_upgrade_id)) {
+
+    int level = game->upgrades()->get_upgrade_level(_upgrade_id);
     if (level > 0) {
       QString name_level;
       name_level += " (";
@@ -72,9 +73,8 @@ void UpgradeBox::update_box(const UpgradesManager* upgrades)
   }
 
   // Set labels
-  _price->setText(Ui::toqstr(upgrades->get_price_increase_level(_upgrade_id, 1).to_string()));
-  _remaining_time->setText(Ui::toqstr(upgrades->time_until_affordable(_upgrade_id, 1).to_string()));
-
+  _price->setText(Ui::toqstr(game->upgrades()->get_price_increase_level(_upgrade_id, 1).to_string()));
+  _remaining_time->setText(Ui::toqstr(game->time_until_affordable(_upgrade_id, 1).to_string()));
 }
 
 

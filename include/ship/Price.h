@@ -10,19 +10,15 @@
 #ifndef PRICE_H
 #define PRICE_H 1
 
-//#include "ResourcesManager.h"
-#include "ship/resources_helper.h"
-
-class ResourcesManager; // To avoid recursive definition
 
 #include <vector>
+#include "ship/resources_helper.h"
 class Price{
  private:
   std::vector<ResourceAmount> _resources_to_pay;
 
  public:
   Price(Resource_ID resource_id, BigNum amount);
-  bool can_be_payed(const ResourcesManager* resources_manager) const;
   bool has_resource_already(Resource_ID) const;
   BigNum get_resource_amount(Resource_ID) const;
   const std::vector<ResourceAmount>& get_resources_to_pay() const;

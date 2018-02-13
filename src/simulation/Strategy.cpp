@@ -14,7 +14,7 @@
 
 using Physics::Time;
 
-Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* upgrades_manager)
+Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const Game* game)
 {
   /**
    * Return the best upgrade to buy according to strategy
@@ -31,9 +31,8 @@ Upgrade_ID strategy::strategy(Strategy_ID strategy_id, const UpgradesManager* up
       {
         Time remaining_time(BigNum(1, 99)); // arbitrarily huge value
         Upgrade_ID good_ID;
-
-        for (auto upgrade_id: upgrades_manager->get_available_upgrades()) {
-          Time buy_time = upgrades_manager->time_until_affordable(upgrade_id, 1);
+        for (auto upgrade_id: game->upgrades()->get_available_upgrades()) {
+          Time buy_time = game->time_until_affordable(upgrade_id, 1);
           if (buy_time < remaining_time)
           {
             remaining_time = buy_time;
