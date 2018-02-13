@@ -22,7 +22,7 @@
 namespace GameConfig
 {
 
-const BigNum initial_game_resources = BigNum(1700);
+const BigNum initial_game_resources = BigNum(40);
 
 namespace Computations
 {
@@ -75,7 +75,7 @@ const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_terminal};
 
 // Dynamo
 const Price u_dynamo_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
-const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_quantum_magnet};
+const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_level_a_boost};
 
 // Level A Booster
 const Price u_level_a_boost_price = Price(Resource_ID::cinetic_energy, BigNum(150));
