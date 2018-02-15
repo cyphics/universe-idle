@@ -5,6 +5,15 @@
 -/G*
 -/bin/
 -/test/include/catch.hpp
+-/universe-idle.pro
+-/universe-idle.org
+-/universe-idle.texg
+-/*catch.hpp
+-/build/
+-/auto/
+-/*#
+-/test/
+-/CMakeLists.txt
 
 # -/bin/
 # -/debug/

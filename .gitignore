@@ -45,3 +45,7 @@ GRTAGS
 GPATH
 Doxyfile
 output
+universe-idle.pdf
+universe-idle.tex
+techtree.graphml
+auto/

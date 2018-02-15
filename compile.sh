@@ -48,3 +48,8 @@ if [ "$1" == run ]
 then
     "$bin_dir"/"$bin_name" $2
 fi
+
+if [ "$1" == gui ]
+then
+    "$bin_dir"/"$bin_name" gui
+fi
