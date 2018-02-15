@@ -42,11 +42,6 @@ void Resource::substract_resource_amount(BigNum amount)
   _amount -=  amount;
 }
 
-BigNum Resource::get_amount_per_second(const UpgradesManager* upgradesManager) const
-{
-  return computation::get_resource_per_second(_resource_id, upgradesManager);
-}
-
 std::string Resource::get_name() const
 {
   return global::resource_name(_resource_id);

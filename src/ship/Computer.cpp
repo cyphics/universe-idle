@@ -42,7 +42,7 @@ BigNum Computer::resource_per_second(Resource_ID resource) const
     default:
       break;
   }
-  return new_amount;
+  return new_amount * GameConfig::global_multiplier;
 
 }
 

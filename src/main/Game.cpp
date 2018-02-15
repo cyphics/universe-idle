@@ -190,10 +190,12 @@ void Game::click()
    */
   BigNum new_amount = 1;
 
-  _resources.add_resource_amount(Resource_ID::cinetic_energy, BigNum(1));
+  _resources.add_resource_amount(Resource_ID::cinetic_energy, BigNum(GameConfig::global_multiplier));
 
   if (_upgrades.is_bought(Upgrade_ID::u_cinetic_push)) {
-    state().add_speed(Speed(GameConfig::Computations::cinetic_push_speed_gain));
+    state().add_speed(Speed(
+        GameConfig::Computations::cinetic_push_speed_gain *
+        GameConfig::global_multiplier));
   }
 
 }

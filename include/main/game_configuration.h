@@ -22,7 +22,8 @@
 namespace GameConfig
 {
 
-const BigNum initial_game_resources = BigNum(40);
+const BigNum initial_game_resources = BigNum(10000);
+const double global_multiplier = 2;
 
 namespace Computations
 {
