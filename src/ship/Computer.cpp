@@ -6,6 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <limits>
 #include "ship/Computer.h"
 #include "ship/resources_helper.h"
 #include "main/game_configuration.h"
@@ -30,7 +31,7 @@ BigNum Computer::resource_per_second(Resource_ID resource) const
         new_amount += u_level_a_cell_level * GameConfig::Upgrade::i_level_a_cell_cinetic_gain;
 
         if (_upgrades->is_bought(Upgrade_ID::u_dynamo)) {
-          new_amount +=  _state->get_speed().num();
+          new_amount += _state->get_speed().num();
         }
         //+ up_3_level * GameConfig::Upgrade::increm_upgrade_3_base_gain;
         break;
@@ -53,11 +54,13 @@ Time Computer::time_until_destination(Physics::Distance destination) const
 
   if (remaining_distance.num() > 0)
     try{
-      return Physics::remaining_time(remaining_distance, _state->get_speed(), _state->get_acceleration());
+      return Physics::remaining_time(remaining_distance,
+                                     _state->get_speed(),
+                                     _state->get_acceleration());
     } catch(std::string e)
     {
-      std::cout << e << "\nReturning null time"<< "\n";
-      return Time(0);
+      std::cout << e << "Returning inifinite time"<< "\n";
+      return Time(std::numeric_limits<double>::infinity());
     }
   else
     return Time(0);
@@ -65,7 +68,6 @@ Time Computer::time_until_destination(Physics::Distance destination) const
 
 Speed Computer::new_speed(Time elapsed_time) const
 {
-  // final_speed = (acceleration * elapsed_time) + initial_speed
   return Speed( ( current_acceleration().num()
                   * elapsed_time.num() )
                 + _state->get_speed().num() );
@@ -82,7 +84,9 @@ Acceleration Computer::current_acceleration() const
   int i_quant_coil_level = _upgrades->get_upgrade_level(Upgrade_ID::i_quant_coil);
   int i_level_a_cell_level = _upgrades->get_upgrade_level(Upgrade_ID::i_level_a_cell);
 
-  BigNum accel_num = ( BigNum(i_level_a_cell_level) * GameConfig::Upgrade::i_level_a_cell_acceleration_gain ) * GameConfig::global_multiplier;
+  BigNum accel_num = ( BigNum(i_level_a_cell_level)
+                       * GameConfig::Upgrade::i_level_a_cell_acceleration_gain )
+                     * GameConfig::global_multiplier;
 
   return Acceleration(accel_num) ;
 }

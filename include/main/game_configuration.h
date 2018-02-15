@@ -25,7 +25,8 @@ namespace GameConfig
 
 const BigNum initial_game_resources = BigNum(10000);
 const double global_multiplier = 2;
-const Physics::Distance final_destination = Physics::Units::diameter_universe;
+//const Physics::Distance final_destination = Physics::Units::diameter_universe;
+const Physics::Distance final_destination = Physics::Units::angstrom;
 
 namespace Computations
 {
