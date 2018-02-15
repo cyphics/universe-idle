@@ -16,8 +16,11 @@
 
 using namespace Physics;
 
-Time compute_remaining_time(Distance distance_to_travel, Speed current_speed, Acceleration acceleration);
-
+namespace Physics
+{
+Time remaining_time(Distance distance_to_travel, Speed current_speed, Acceleration acceleration);
+Distance traveled_distance(Speed init_speed, Time duration, Acceleration acceleration);
+}
 #endif // COMPUTE_PHYSICS_H
 //////////////////////////////////////////////////////////////////////
 // $Log:$

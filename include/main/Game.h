@@ -29,9 +29,6 @@ class Game{
   UpgradesManager _upgrades;
   ResourcesManager _resources;
 
-  // Compute game state
-  Physics::Speed compute_new_speed(Physics::Time time) const;
-  Physics::Distance compute_new_distance(Physics::Time time) const;
 
  public:
   // Constructor

@@ -21,27 +21,6 @@ using Physics::Speed;
 using Physics::Distance;
 
 
-Speed Game::compute_new_speed(Time time) const
-{
-  // final_speed = (acceleration * time) + initial_speed
-  Speed new_speed = (state().get_acceleration().num() * time.num()) + state().get_speed().num();
-
-  return new_speed;
-}
-
-Distance Game::compute_new_distance(Time time) const
-{
-  /**
-   * Return the distance traveled at current speed, during given time
-   */
-
-  // dist = init_speed * time + 1/2 acceleration * time^2
-
-  Distance new_dist = state().get_speed().num() * time.num() \
-                      + 0.5 * state().get_acceleration().num() \
-                      * time.num() * time.num();
-  return new_dist;
-}
 
 
 Game::Game()
@@ -128,8 +107,7 @@ const Computer& Game::compute() const
 
 void Game::update_state()
 {
-  state().set_acceleration(computation::compute_current_acceleration(&_upgrades));
-
+  state().set_acceleration(compute().current_acceleration());
 }
 
 
@@ -140,8 +118,8 @@ void Game::wait(Time time)
    */
 
   _game_state.increase_time(time);
-  state().set_speed(compute_new_speed(time));
-  state().add_distance(compute_new_distance(time));
+  state().set_speed(compute().new_speed(time));
+  state().add_distance(compute().traveled_distance(time));
   gather_resources(time);
 
   update_state();
@@ -192,9 +170,9 @@ void Game::click()
 
   _resources.add_resource_amount(Resource_ID::cinetic_energy, BigNum(GameConfig::global_multiplier));
 
-  if (_upgrades.is_bought(Upgrade_ID::u_cinetic_push)) {
+  if (_upgrades.is_bought(Upgrade_ID::u_cinetic_impulsor)) {
     state().add_speed(Speed(
-        GameConfig::Computations::cinetic_push_speed_gain *
+        GameConfig::Computations::cinetic_impulsor_speed_gain *
         GameConfig::global_multiplier));
   }
 

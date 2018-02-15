@@ -19,9 +19,8 @@ class UpgradesManager;
 
 namespace computation{
 
-BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* manager);
+//BigNum get_resource_per_second(Resource_ID resource_id, const UpgradesManager* manager);
 
-Physics::Acceleration compute_current_acceleration(const UpgradesManager* upgrades_manager);
 
 
 }
