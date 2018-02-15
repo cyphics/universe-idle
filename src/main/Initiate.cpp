@@ -42,9 +42,9 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                             GameConfig::Upgrade::u_dynamo_dep);
 
   // Cinetic push
-  Upgrade u_cinetic_push = Upgrade(Upgrade_ID::u_cinetic_push, \
-                             GameConfig::Upgrade::u_cinetic_push_price, \
-                             GameConfig::Upgrade::u_cinetic_push_dep);
+  Upgrade u_cinetic_impulsor = Upgrade(Upgrade_ID::u_cinetic_impulsor, \
+                             GameConfig::Upgrade::u_cinetic_impulsor_price, \
+                             GameConfig::Upgrade::u_cinetic_impulsor_dep);
 
 
 
@@ -79,7 +79,7 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                                              u_terminal,
                                              u_quantum_magnet,
                                              u_dynamo,
-                                             u_cinetic_push,
+                                             u_cinetic_impulsor,
                                              u_level_a_boost,
                                              u_radar};
 

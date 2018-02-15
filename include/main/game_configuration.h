@@ -16,6 +16,7 @@
 
 #include "ship/upgrades_helper.h"
 #include "ship/Price.h"
+#include "physics/constants_physics.h"
 
 
 
@@ -24,11 +25,12 @@ namespace GameConfig
 
 const BigNum initial_game_resources = BigNum(10000);
 const double global_multiplier = 2;
+const Physics::Distance final_destination = Physics::Units::diameter_universe;
 
 namespace Computations
 {
 
-const double cinetic_push_speed_gain = 0.001;
+const double cinetic_impulsor_speed_gain = 0.001;
 
 }
 
@@ -82,9 +84,9 @@ const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_level_a_boost};
 const Price u_level_a_boost_price = Price(Resource_ID::cinetic_energy, BigNum(150));
 const std::vector<Upgrade_ID> u_level_a_boost_dep = {Upgrade_ID::u_quantum_magnet};
 
-// Cinetic push
-const Price u_cinetic_push_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
-const std::vector<Upgrade_ID> u_cinetic_push_dep = {Upgrade_ID::u_quantum_magnet};
+// Cinetic impulsor
+const Price u_cinetic_impulsor_price = Price(Resource_ID::cinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_cinetic_impulsor_dep = {Upgrade_ID::u_quantum_magnet};
 
 
 }

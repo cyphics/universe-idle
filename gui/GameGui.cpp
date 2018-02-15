@@ -93,11 +93,19 @@ void GameGui::update()
   _game->wait(Time(0.2));
 
   // Get new values
+  // CURRENT ACCELERATION
   _acceleration_value = toqstr(_game->state().get_acceleration().to_string());
 
+  // CURRENT ENERGY
   _cinetic_energy_value = toqstr(_game->resources()->get_resource_amount(Resource_ID::cinetic_energy).to_string());
+
+  // CURRENT SPEED
   _speed_value = toqstr(_game->state().get_speed().to_string());
-  _remaining_time_value = toqstr(compute_remaining_time(Units::diameter_universe, _game->state().get_speed(), _game->state().get_acceleration()).to_string());
+
+  // Time until destination
+  _remaining_time_value = toqstr(_game->compute().time_until_destination(GameConfig::final_destination).to_string());
+
+  // Traveled distance
   _distance_value = toqstr(_game->state().get_distance().to_string());
 
   // Set new values in UI
