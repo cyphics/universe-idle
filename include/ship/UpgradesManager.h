@@ -9,7 +9,7 @@
 #ifndef UPGRADESMANAGER_H
 #define UPGRADESMANAGER_H 1
 
-#include "ship/UpgradesList.h"
+#include "ship/Upgrade.h"
 #include "managment/History.h"
 #include "ship/upgrades_helper.h"
 

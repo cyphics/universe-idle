@@ -9,8 +9,6 @@
 #ifndef INITIATE_H
 #define INITIATE_H 1
 
-#include "ship/UpgradesList.h"
-#include "ship/ResourcesList.h"
 #include "ship/UpgradesManager.h"
 #include "ship/ResourcesManager.h"
 

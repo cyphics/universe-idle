@@ -77,7 +77,6 @@ std::string Price::to_string() const
 
   for (auto resourceAmount: _resources_to_pay)
   {
-    //    output += global::resource_name(resourceAmount._resource_ID);
     //output += " :";
     output += resourceAmount._amount.to_string() + " ";
     output += global::resource_name(resourceAmount._resource_ID);

@@ -7,7 +7,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "managment/BoughtUpgrade.h"
-#include "ship/UpgradesList.h"
 #include "main/game_global_variables.h"
 
 using Physics::Time;
