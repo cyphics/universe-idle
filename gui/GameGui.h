@@ -45,9 +45,9 @@ private:
   void update_update_box(QWidget* widget, Upgrade_ID upgrade_id);
   void update_button(QPushButton* button, Upgrade_ID upgrade_id);
   QString _boost_1_button_name;
-  QString _cinetic_button_name;
+  QString _kinetic_button_name;
   QString _acceleration_value;
-  QString _cinetic_energy_value;
+  QString _kinetic_energy_value;
   QString _speed_value;
   QString _distance_value;
   QString _remaining_time_value;

@@ -130,9 +130,9 @@
                </property>
                <layout class="QFormLayout" name="resources_layout">
                 <item row="0" column="0">
-                 <widget class="QLabel" name="cinetic_energy_label">
+                 <widget class="QLabel" name="kinetic_energy_label">
                   <property name="text">
-                   <string>Cinetic energy :</string>
+                   <string>Kinetic energy :</string>
                   </property>
                  </widget>
                 </item>
@@ -144,7 +144,7 @@
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QLabel" name="cinetic_energy_value_label">
+                 <widget class="QLabel" name="kinetic_energy_value_label">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>

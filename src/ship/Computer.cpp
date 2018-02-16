@@ -25,10 +25,10 @@ BigNum Computer::resource_per_second(Resource_ID resource) const
   BigNum new_amount = 0;
   switch (resource)
   {
-    case Resource_ID::cinetic_energy:
+    case Resource_ID::kinetic_energy:
       {
-        new_amount = u_quant_coil_level * GameConfig::Upgrade::i_quant_coil_cinetic_gain;
-        new_amount += u_level_a_cell_level * GameConfig::Upgrade::i_level_a_cell_cinetic_gain;
+        new_amount = u_quant_coil_level * GameConfig::Upgrade::i_quant_coil_kinetic_gain;
+        new_amount += u_level_a_cell_level * GameConfig::Upgrade::i_level_a_cell_kinetic_gain;
 
         if (_upgrades->is_bought(Upgrade_ID::u_dynamo)) {
           new_amount += _state->get_speed().num();

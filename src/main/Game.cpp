@@ -28,7 +28,7 @@ Game::Game()
      _upgrades(Init::initiate_upgrades_manager()),
      _computer(&_upgrades, &_game_state)
 {
-  _resources.add_resource_amount(Resource_ID::cinetic_energy, GameConfig::initial_game_resources);
+  _resources.add_resource_amount(Resource_ID::kinetic_energy, GameConfig::initial_game_resources);
 }
 
 Game::~Game(){}
@@ -142,8 +142,8 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
   else
   {
     std::cout << "Upgrade " << _upgrades.get_upgrade_name(upgrade) << " (x" << std::to_string(amount) << ")  is too expensive."  << "\n";
-    BigNum cost = _upgrades.get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::cinetic_energy);
-    BigNum current_amount = _resources.get_resource_amount(Resource_ID::cinetic_energy);
+    BigNum cost = _upgrades.get_price_increase_level(upgrade, amount).get_resource_amount(Resource_ID::kinetic_energy);
+    BigNum current_amount = _resources.get_resource_amount(Resource_ID::kinetic_energy);
     std::cout << current_amount << " < " << cost  << "\n";
   }
 }
@@ -168,11 +168,11 @@ void Game::click()
    */
   BigNum new_amount = 1;
 
-  _resources.add_resource_amount(Resource_ID::cinetic_energy, BigNum(GameConfig::global_multiplier));
+  _resources.add_resource_amount(Resource_ID::kinetic_energy, BigNum(GameConfig::global_multiplier));
 
-  if (_upgrades.is_bought(Upgrade_ID::u_cinetic_impulsor)) {
+  if (_upgrades.is_bought(Upgrade_ID::u_kinetic_impulsor)) {
     state().add_speed(Speed(
-        GameConfig::Computations::cinetic_impulsor_speed_gain *
+        GameConfig::Computations::kinetic_impulsor_speed_gain *
         GameConfig::global_multiplier));
   }
 
@@ -183,7 +183,7 @@ void Game::click()
 std::vector<std::string> Game::ui_data()
 {
   std::vector<std::string> data;
-  data.push_back(_resources.get_resource_amount(Resource_ID::cinetic_energy).to_string());
+  data.push_back(_resources.get_resource_amount(Resource_ID::kinetic_energy).to_string());
 
   return data;
 }

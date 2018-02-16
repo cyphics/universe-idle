@@ -42,9 +42,9 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                             GameConfig::Upgrade::u_dynamo_dep);
 
   // Cinetic push
-  Upgrade u_cinetic_impulsor = Upgrade(Upgrade_ID::u_cinetic_impulsor, \
-                             GameConfig::Upgrade::u_cinetic_impulsor_price, \
-                             GameConfig::Upgrade::u_cinetic_impulsor_dep);
+  Upgrade u_cinetic_impulsor = Upgrade(Upgrade_ID::u_kinetic_impulsor, \
+                             GameConfig::Upgrade::u_kinetic_impulsor_price, \
+                             GameConfig::Upgrade::u_kinetic_impulsor_dep);
 
 
 
@@ -90,10 +90,10 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
 std::vector<Resource> Init::initiate_resources_list()
 {
-  Resource cinetic_energy = Resource(Resource_ID::cinetic_energy);
+  Resource kinetic_energy = Resource(Resource_ID::kinetic_energy);
   Resource dark_matter = Resource(Resource_ID::dark_matter);
 
-  std::vector<Resource> vector_of_resources = {cinetic_energy, dark_matter};
+  std::vector<Resource> vector_of_resources = {kinetic_energy, dark_matter};
   return vector_of_resources;
 }
 

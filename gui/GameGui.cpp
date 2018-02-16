@@ -97,7 +97,7 @@ void GameGui::update()
   _acceleration_value = toqstr(_game->state().get_acceleration().to_string());
 
   // CURRENT ENERGY
-  _cinetic_energy_value = toqstr(_game->resources()->get_resource_amount(Resource_ID::cinetic_energy).to_string());
+  _kinetic_energy_value = toqstr(_game->resources()->get_resource_amount(Resource_ID::kinetic_energy).to_string());
 
   // CURRENT SPEED
   _speed_value = toqstr(_game->state().get_speed().to_string());
@@ -115,11 +115,11 @@ void GameGui::update()
   ui.distance_value_label->setText(_distance_value);
 
 
-  QString cin_energy_label = _cinetic_energy_value +\
+  QString kin_energy_label = _kinetic_energy_value +\
                              " (" +\
-                             Ui::toqstr( _game->compute().resource_per_second(Resource_ID::cinetic_energy).to_string()) +\
+                             Ui::toqstr( _game->compute().resource_per_second(Resource_ID::kinetic_energy).to_string()) +\
                              "/s)";
-  ui.cinetic_energy_value_label->setText(cin_energy_label);
+  ui.kinetic_energy_value_label->setText(kin_energy_label);
 
   update_upgrade_boxes();
 
