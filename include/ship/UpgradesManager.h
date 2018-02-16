@@ -46,6 +46,7 @@ class UpgradesManager{
   Price get_price_increase_level(Upgrade_ID upgrade, int amount_new_levels) const;
   void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);
   Upgrade_Type type(Upgrade_ID id) const;
+  std::string get_desc(Upgrade_ID id) const;
 };
 
 

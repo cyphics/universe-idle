@@ -32,27 +32,6 @@ UpgradesManager& UpgradesManager::operator=(UpgradesManager& original)
 }
 
 
-// bool UpgradesManager::is_affordable(Upgrade_ID upgrade, unsigned int amount) const
-// {
-//   /**
-//    * If price of upgrade is lower that amount of resource, return true.
-//    */
-
-//   Price price_upgrade =  get_price_increase_level(upgrade, amount);
-//   return price_upgrade.can_be_payed(_resources_manager);
-// }
-
-// void UpgradesManager::buy_upgrade(Upgrade_ID upgrade, unsigned int amount, Time time_when_bought)
-// {
-//   /**
-//    * Increment level of upgrade, and pay price in resource manager
-//    */
-//   Price price_to_pay = get_price_increase_level(upgrade, amount);
-//   increase_upgrade_level(upgrade, amount);
-//   _resources_manager->pay_price(price_to_pay);
-//   _purchases_history.add_upgrade(upgrade, price_to_pay, time_when_bought);
-// }
-
 const History& UpgradesManager::get_purchase_history() const
 {
   /**
@@ -61,19 +40,6 @@ const History& UpgradesManager::get_purchase_history() const
 
   return _purchases_history;
 }
-
-// Time UpgradesManager::time_until_affordable(Upgrade_ID upgrade, unsigned int amount) const
-// {
-//   /**
-//    * Take an upgrade_id and an amount of levels to increase
-//      Return time until purchase is available
-//    */
-
-//   // For now, only returns price for next level...
-//   Price price = get_price_increase_level(upgrade, 1);
-
-//   return _resources_manager->get_time_until_in_stock(price);
-// }
 
 std::string UpgradesManager::get_upgrade_name(Upgrade_ID upgrade_id) const
 {
@@ -189,4 +155,9 @@ bool UpgradesManager::is_bought(Upgrade_ID id) const
 Upgrade_Type UpgradesManager::type(Upgrade_ID id) const
 {
   return get_upgrade(id).type();
+}
+
+std::string UpgradesManager::get_desc(Upgrade_ID id) const
+{
+  return get_upgrade(id).get_desc();
 }
