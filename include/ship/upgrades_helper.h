@@ -10,11 +10,16 @@
 #ifndef UPGRADES_HELPER_H
 #define UPGRADES_HELPER_H 1
 
-#include <map>
-#include "ship/resources_helper.h"
-
+enum class Upgrade_Type
+{
+  incremental,
+  science,
+  upgrade,
+  structure
+};
 // upgrades_list
-enum class Upgrade_ID {
+enum class Upgrade_ID
+{
   // science
   u_quantum_magnet, // quantum magnetism tech
   u_kinetic_power,
@@ -54,12 +59,9 @@ enum class Upgrade_ID {
   i_solar_satellite
 };
 
-//std::map<Upgrade_ID, std::string> upgrades_name_list();
-
-//std::string upgrade_name(Upgrade_ID upgrade_id);
 
 
 #endif // UPGRADES_HELPER_H
-  //////////////////////////////////////////////////////////////////////
-  // $Log:$
-  //
+//////////////////////////////////////////////////////////////////////
+// $Log:$
+//

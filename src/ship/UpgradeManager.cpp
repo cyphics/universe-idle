@@ -185,3 +185,8 @@ bool UpgradesManager::is_bought(Upgrade_ID id) const
 {
   return get_upgrade_level(id) > 0;
 }
+
+Upgrade_Type UpgradesManager::type(Upgrade_ID id) const
+{
+  return get_upgrade(id).type();
+}

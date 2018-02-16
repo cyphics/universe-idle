@@ -45,7 +45,7 @@ class UpgradesManager{
   std::vector<Upgrade_ID> get_all_upgrades() const;
   Price get_price_increase_level(Upgrade_ID upgrade, int amount_new_levels) const;
   void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);
-
+  Upgrade_Type type(Upgrade_ID id) const;
 };
 
 

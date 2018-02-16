@@ -14,29 +14,29 @@
 #include "ship/Upgrade.h"
 
 // Incremental upgrades constructors
-Upgrade::Upgrade(Upgrade_ID upgrade_id, Price init_cost, double increase_factor)
-    : _upgrade_id(upgrade_id), _initial_cost(init_cost), _increase_factor(increase_factor)
+Upgrade::Upgrade(Upgrade_Type type, Upgrade_ID upgrade_id, Price init_cost, double increase_factor)
+    : _type(type), _upgrade_id(upgrade_id), _initial_cost(init_cost), _increase_factor(increase_factor)
 {
   _uniqueness = false;
 }
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, Price initial_price, double increase_factor, std::vector<Upgrade_ID> dependencies)
-    : Upgrade(upgrade_id, initial_price, increase_factor)
+Upgrade::Upgrade(Upgrade_Type type, Upgrade_ID upgrade_id, Price initial_price, double increase_factor, std::vector<Upgrade_ID> dependencies)
+    : Upgrade(type, upgrade_id, initial_price, increase_factor)
 {
   _dependencies = dependencies;
 }
 
 
 // Unique upgrades constructors
-Upgrade::Upgrade(Upgrade_ID upgrade_id, Price init_cost)
-    : _upgrade_id(upgrade_id), _initial_cost(init_cost)
+Upgrade::Upgrade(Upgrade_Type type, Upgrade_ID upgrade_id, Price init_cost)
+    : _type(type), _upgrade_id(upgrade_id), _initial_cost(init_cost)
 {
   _uniqueness = true;
   _increase_factor = 1;
 }
 
-Upgrade::Upgrade(Upgrade_ID upgrade_id, Price initial_price, std::vector<Upgrade_ID> dependencies)
-    : Upgrade(upgrade_id, initial_price)
+Upgrade::Upgrade(Upgrade_Type type, Upgrade_ID upgrade_id, Price initial_price, std::vector<Upgrade_ID> dependencies)
+    : Upgrade(type, upgrade_id, initial_price)
 {
   _dependencies = dependencies;
 }
@@ -56,7 +56,10 @@ Price Upgrade::get_cost_increase_level(int additional_levels) const
   return _initial_cost * pow(_increase_factor, _current_level - 1 + additional_levels);
 }
 
-
+Upgrade_Type Upgrade::type() const
+{
+  return _type;
+}
 
 int Upgrade::get_current_level() const
 {
