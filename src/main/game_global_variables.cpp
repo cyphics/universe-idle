@@ -44,7 +44,7 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
       {Upgrade_ID::u_quantum_generator, "Quantum generator"},
       {Upgrade_ID::u_compass, "Stellar compass"},
       {Upgrade_ID::u_radar, "Radar"},
-      {Upgrade_ID::u_level_a_boost, "Quantum throttle"},
+      {Upgrade_ID::u_quantum_throttle, "Quantum throttle"},
       {Upgrade_ID::u_porthole, "Porthole"},
           // Upgrades
       {Upgrade_ID::u_kinetic_impulsor, "Kinetic impulsor"},
@@ -60,6 +60,7 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
 
   return output;
 }
+
 
 std::string global::upgrade_name(Upgrade_ID upgrade_id)
 {

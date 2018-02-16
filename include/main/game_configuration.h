@@ -38,13 +38,16 @@ const double kinetic_impulsor_speed_gain = 0.001;
 namespace Upgrade
 {
 
+/////////////////
+// Incremental //
+/////////////////
 
 // Quantom coil
 const double i_quant_coil_increase_factor = 1.15;
 const Price i_quant_coil_price = Price(Resource_ID::kinetic_energy, BigNum(30));
 const std::vector<Upgrade_ID> i_quant_coil_depend = {Upgrade_ID::u_quantum_magnet};
 const double i_quant_coil_kinetic_gain = 1;
-const std::vector<Upgrade_ID> i_quant_coil_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_quantum_magnet};
+const std::vector<Upgrade_ID> i_quant_coil_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_quantum_generator};
 
 // Level A Energy cells
 const double i_level_a_cell_increase_factor = 1.15;
@@ -52,7 +55,7 @@ const Price i_level_a_cell_price = Price(Resource_ID::kinetic_energy, BigNum(100
 const std::vector<Upgrade_ID> i_level_a_cell_depend = {Upgrade_ID::u_level_a_boost};
 const double i_level_a_cell_kinetic_gain = 1;
 const double i_level_a_cell_acceleration_gain = 0.001;
-const std::vector<Upgrade_ID> i_level_a_cell_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_level_a_boost};
+const std::vector<Upgrade_ID> i_level_a_cell_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_quantum_throttle};
 
 // ?
 const bool increm_upgrade_3_availability = true;
@@ -62,32 +65,79 @@ const std::vector<Upgrade_ID> increm_upgrade_3_depend = {Upgrade_ID::u_level_a_b
 const double increm_upgrade_3_acceleration_gain = 1000;
 
 /////////////////////
-// Unique Upgrades //
+//     Upgrades    //
 /////////////////////
 
-// Terminal
-const Price u_terminal_price = Price(Resource_ID::kinetic_energy, BigNum(15));
+// Dynamo
+const Price u_dynamo_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_quanta_expuls};
+
+// Kinetic impulsor
+const Price u_kinetic_impulsor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_kinetic_impulsor_dep = {Upgrade_ID::u_kinetic_power};
+
+
+
+// Superconductor
+const Price u_superconductor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_superconductor_dep = {Upgrade_ID::u_superconductor};
+
+// Quantum conductor
+const Price u_quantum_conductor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
+const std::vector<Upgrade_ID> u_quantum_conductor_dep = {Upgrade_ID::u_kinetic_impulsor};
+
+/////////////
+// Science //
+/////////////
 
 // Quantum magnetism
 const Price u_quantum_magnet_price = Price(Resource_ID::kinetic_energy, BigNum(20));
 const std::vector<Upgrade_ID> u_quantum_magnet_dep = {Upgrade_ID::u_terminal};
 
+// Kinetic power
+const Price u_kinetic_power_price = Price(Resource_ID::kinetic_energy, BigNum(20));
+const std::vector<Upgrade_ID> u_kinetic_power_dep = {Upgrade_ID::u_quantum_magnet};
+
+// Quanta expulsion
+const Price u_quanta_expulsor_price = Price(Resource_ID::kinetic_energy, BigNum(20));
+const std::vector<Upgrade_ID> u_quanta_expulsor_dep = {Upgrade_ID::u_kinetic_power};
+
+
+////////////////
+// Structures //
+////////////////
+
+// Terminal
+const Price u_terminal_price = Price(Resource_ID::kinetic_energy, BigNum(15));
 
 // Radar
 const Price u_radar_price = Price(Resource_ID::kinetic_energy, BigNum(15000));
-const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_terminal};
-
-// Dynamo
-const Price u_dynamo_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
-const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_level_a_boost};
+const std::vector<Upgrade_ID> u_radar_dep = {Upgrade_ID::u_porthole, Upgrade_ID::u_compass};
 
 // Level A Booster
 const Price u_level_a_boost_price = Price(Resource_ID::kinetic_energy, BigNum(150));
 const std::vector<Upgrade_ID> u_level_a_boost_dep = {Upgrade_ID::u_quantum_magnet};
 
-// Kinetic impulsor
-const Price u_kinetic_impulsor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
-const std::vector<Upgrade_ID> u_kinetic_impulsor_dep = {Upgrade_ID::u_quantum_magnet};
+// Compass
+const Price u_compass_price = Price(Resource_ID::kinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> u_compass_dep = {Upgrade_ID::u_quantum_magnet};
+
+// Quantum throttle
+const Price u_quantum_throttle_price = Price(Resource_ID::kinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> u_quantum_throttle_dep = {Upgrade_ID::u_quanta_expuls};
+
+
+// quantum generator
+const Price u_quantum_generator_price = Price(Resource_ID::kinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> u_quantum_generator_dep = {Upgrade_ID::u_quantum_magnet};
+
+// Porthole
+const Price u_porthole_price = Price(Resource_ID::kinetic_energy, BigNum(150));
+const std::vector<Upgrade_ID> u_porthole_dep = {Upgrade_ID::u_terminal};
+
+
+
+
 
 
 }
