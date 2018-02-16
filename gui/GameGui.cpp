@@ -40,13 +40,21 @@ void GameGui::build_upgrade_boxes_vector()
    {
      UpgradeBox *a_box = new UpgradeBox(upgrade_id, _game);
 
-     if (_game->upgrades()->is_unique(upgrade_id))
-     {
-       _unique_upgrade_boxes.push_back(a_box);
+     if (_game->upgrades()->type(upgrade_id) == Upgrade_Type::incremental) {
+       _incremental_boxes.push_back(a_box);
+     }
+     else if (_game->upgrades()->type(upgrade_id) == Upgrade_Type::science) {
+       _science_boxes.push_back(a_box);
+     }
+     else if (_game->upgrades()->type(upgrade_id) == Upgrade_Type::upgrade) {
+       _upgrade_boxes.push_back(a_box);
+     }
+     else if (_game->upgrades()->type(upgrade_id) == Upgrade_Type::structure) {
+       _structure_boxes.push_back(a_box);
      }
      else
      {
-       _increm_upgrade_boxes.push_back(a_box);
+       std::cout << "error! Unrecognized upgrade type."  << "\n";
      }
    }
 }
@@ -54,20 +62,30 @@ void GameGui::build_upgrade_boxes_vector()
 
 void GameGui::set_upgrade_boxes(){
 
-  for (auto &box : _unique_upgrade_boxes)
+  for (auto &box : _upgrade_boxes)
   {
-    // Add box to GUI
-    ui.verticalLayout_3->addWidget(box);
-    // Set connection
+    ui.verticalLayout_5->addWidget(box);
     connect(box, SIGNAL( button_pressed(Upgrade_ID) ),
             this, SLOT(upgrade_bought(Upgrade_ID)));
   }
 
-  for (auto &box : _increm_upgrade_boxes)
+  for (auto &box : _science_boxes)
   {
-    // Add box to GUI
+    ui.verticalLayout_3->addWidget(box);
+    connect(box, SIGNAL( button_pressed(Upgrade_ID) ),
+            this, SLOT(upgrade_bought(Upgrade_ID)));
+  }
+
+  for (auto &box : _structure_boxes)
+  {
+    ui.verticalLayout_4->addWidget(box);
+    connect(box, SIGNAL( button_pressed(Upgrade_ID) ),
+            this, SLOT(upgrade_bought(Upgrade_ID)));
+  }
+
+  for (auto &box : _incremental_boxes)
+  {
     ui.verticalLayout1->addWidget(box);
-    // Set connection
     connect(box, SIGNAL( button_pressed(Upgrade_ID) ),
             this, SLOT(upgrade_bought(Upgrade_ID)));
   }
@@ -75,12 +93,22 @@ void GameGui::set_upgrade_boxes(){
 
 void GameGui::update_upgrade_boxes()
 {
-  for (auto &box : _unique_upgrade_boxes) {
+  for (auto &box : _upgrade_boxes) {
     if (box->isEnabled()) {
       box->update_box(_game);
     }
   }
-  for (auto &box : _increm_upgrade_boxes) {
+  for (auto &box : _science_boxes) {
+    if (box->isEnabled()) {
+      box->update_box(_game);
+    }
+  }
+  for (auto &box : _incremental_boxes) {
+    if (box->isEnabled()) {
+      box->update_box(_game);
+    }
+  }
+  for (auto &box : _structure_boxes) {
     if (box->isEnabled()) {
       box->update_box(_game);
     }
@@ -156,13 +184,25 @@ void GameGui::upgrade_bought(Upgrade_ID id)
 
 void GameGui::update_ugprade_boxes_visibility()
 {
-  for (auto box : _unique_upgrade_boxes) {
+  for (auto box : _upgrade_boxes) {
     if (_game->upgrades()->is_available(box->get_id()))
       box->set_box_visibility(true);
     else
       box->set_box_visibility(false);
   }
-  for (auto box : _increm_upgrade_boxes) {
+  for (auto box : _incremental_boxes) {
+    if (_game->upgrades()->is_available(box->get_id()))
+      box->set_box_visibility(true);
+    else
+      box->set_box_visibility(false);
+  }
+  for (auto box : _science_boxes) {
+    if (_game->upgrades()->is_available(box->get_id()))
+      box->set_box_visibility(true);
+    else
+      box->set_box_visibility(false);
+  }
+  for (auto box : _structure_boxes) {
     if (_game->upgrades()->is_available(box->get_id()))
       box->set_box_visibility(true);
     else

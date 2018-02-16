@@ -54,8 +54,8 @@
               <widget class="QWidget" name="formLayoutWidget">
                <property name="geometry">
                 <rect>
-                 <x>10</x>
-                 <y>30</y>
+                 <x>20</x>
+                 <y>240</y>
                  <width>441</width>
                  <height>81</height>
                 </rect>
@@ -122,36 +122,22 @@
               <widget class="QWidget" name="formLayoutWidget">
                <property name="geometry">
                 <rect>
-                 <x>10</x>
-                 <y>140</y>
+                 <x>20</x>
+                 <y>340</y>
                  <width>291</width>
-                 <height>51</height>
+                 <height>31</height>
                 </rect>
                </property>
                <layout class="QFormLayout" name="resources_layout">
                 <item row="0" column="0">
                  <widget class="QLabel" name="kinetic_energy_label">
                   <property name="text">
-                   <string>Kinetic energy :</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="dark_matter_label">
-                  <property name="text">
-                   <string>Dark Matter :</string>
+                   <string>Cinetic energy :</string>
                   </property>
                  </widget>
                 </item>
                 <item row="0" column="1">
                  <widget class="QLabel" name="kinetic_energy_value_label">
-                  <property name="text">
-                   <string>TextLabel</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="dark_matter_value_label">
                   <property name="text">
                    <string>TextLabel</string>
                   </property>
@@ -163,11 +149,69 @@
                <property name="geometry">
                 <rect>
                  <x>20</x>
-                 <y>260</y>
+                 <y>390</y>
                  <width>531</width>
                  <height>271</height>
                 </rect>
                </property>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>40</y>
+                 <width>531</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="speed_label_2">
+                  <property name="text">
+                   <string>Speed :</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="speed_value_label_2">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox"/>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>80</y>
+                 <width>531</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="speed_label_3">
+                  <property name="text">
+                   <string>Time until destination:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="speed_value_label_3">
+                  <property name="text">
+                   <string>TextLabel</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_2"/>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
@@ -179,14 +223,14 @@
              <x>610</x>
              <y>30</y>
              <width>431</width>
-             <height>251</height>
+             <height>191</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="increm_upgrades_layout">
             <item>
              <widget class="QGroupBox" name="IncremUpBox">
               <property name="title">
-               <string>Available technologies</string>
+               <string>Incremental</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout"/>
              </widget>
@@ -210,22 +254,88 @@
            <property name="geometry">
             <rect>
              <x>610</x>
-             <y>300</y>
+             <y>550</y>
              <width>431</width>
-             <height>411</height>
+             <height>161</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="unique_upgrades_layout">
+           <layout class="QVBoxLayout" name="science_layout">
             <item>
-             <widget class="QGroupBox" name="unique_upgrades_box">
+             <widget class="QGroupBox" name="science_box">
               <property name="title">
-               <string>Searchable technologies</string>
+               <string>Science</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_3"/>
              </widget>
             </item>
             <item>
-             <spacer name="verticalSpacer">
+             <spacer name="science_spacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="verticalLayoutWidget_8">
+           <property name="geometry">
+            <rect>
+             <x>610</x>
+             <y>390</y>
+             <width>431</width>
+             <height>151</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="structures_layout">
+            <item>
+             <widget class="QGroupBox" name="structures_box">
+              <property name="title">
+               <string>Structures</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_4"/>
+             </widget>
+            </item>
+            <item>
+             <spacer name="structures_spacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="verticalLayoutWidget_9">
+           <property name="geometry">
+            <rect>
+             <x>610</x>
+             <y>230</y>
+             <width>431</width>
+             <height>151</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="upgrades_layout">
+            <item>
+             <widget class="QGroupBox" name="upgrades_box">
+              <property name="title">
+               <string>Upgrades</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5"/>
+             </widget>
+            </item>
+            <item>
+             <spacer name="upgrades_spacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>

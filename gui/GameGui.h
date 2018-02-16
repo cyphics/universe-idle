@@ -24,8 +24,10 @@ class GameGui : public QMainWindow
   Q_OBJECT
 
  private:
-  std::vector<UpgradeBox*> _unique_upgrade_boxes;
-  std::vector<UpgradeBox*> _increm_upgrade_boxes;
+  std::vector<UpgradeBox*> _science_boxes;
+  std::vector<UpgradeBox*> _upgrade_boxes;
+  std::vector<UpgradeBox*> _structure_boxes;
+  std::vector<UpgradeBox*> _incremental_boxes;
 
  public:
   explicit GameGui(Game* game, QMainWindow *parent = nullptr);
