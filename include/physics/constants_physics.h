@@ -29,6 +29,9 @@ namespace Units{
 
 // Distance unit definitions
 const static Distance meter = Distance(BigNum(1, 18));
+const static Distance femtometer = meter * pow(10, -15);
+const static Distance picometer = meter * pow(10, -12);
+const static Distance nanometer = meter * pow(10, -9);
 const static Distance kilometer = meter * 1000;
 const static Distance astro_unit = kilometer * 14959787.07;
 const static Distance light_year = astro_unit * 63241;
@@ -36,8 +39,12 @@ const static Distance light_year = astro_unit * 63241;
 const static Distance hubble_length = light_year * 14.4;
 
 // Some other important distances
-const static Distance nanometer = meter * pow(10, -9);
+const static Distance radius_proton = femtometer * 0.8;
+const static Distance radius_gold_nucleus = femtometer * 8.45;
+const static Distance radius_hydrogen = picometer * 25;
+const static Distance radius_carbon = picometer * 60;
 const static Distance angstrom = meter * pow(10, -10);
+const static Distance red_lightwave = nanometer * 700;
 const static Distance diameter_galaxy = light_year * 30000;
 const static Distance space_between_galaxies = light_year * 3000000; // 3 million
 const static Distance diameter_universe = light_year * 91000000000000.0; // 91 billion
