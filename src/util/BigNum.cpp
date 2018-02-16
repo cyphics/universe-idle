@@ -192,6 +192,19 @@ std::string BigNum::to_string() const
   stream << std::fixed << std::setprecision(3) << mantissa;
   final_string = stream.str();
 
+  // Remove trailing 0
+  bool trailing = true;
+  while (trailing) {
+    if (final_string.back() == '0') {
+      final_string = final_string.substr(0, final_string.size()-1);
+    }
+    else
+      trailing = false;
+  }
+  if (final_string.back() == '.') {
+    final_string = final_string.substr(0, final_string.size()-1);
+  }
+
   if (this->get_exponant() == 3) {
     final_string += "K";
   }
