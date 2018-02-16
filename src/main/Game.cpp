@@ -10,7 +10,6 @@
 #include <cmath>
 #include "main/Game.h"
 #include "main/initiate.h"
-#include "main/game_global_variables.h"
 #include "physics/Speed.h"
 #include "ship/resources_helper.h"
 #include "main/game_configuration.h"

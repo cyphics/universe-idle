@@ -6,10 +6,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-//#include <vector>
-//#include <algorithm>
-
-#include "main/game_global_variables.h"
 #include "managment/History.h"
 
 using Physics::Time;
