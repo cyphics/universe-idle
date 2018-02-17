@@ -11,19 +11,19 @@
 
 //#include "Speed.h"
 
-#include "physics/PhysicalUnit.h"
-//#include "BigNum.h"
-//#include "Time.h"
+#include "PhysicalUnit.h"
+#include "constant_distances.h"
 
-class BigNum;
 
 namespace Physics{
 
 class Distance: public PhysicalUnit{
-
+ private:
+  DistanceUnit _unit;
  public:
   Distance(BigNum numerical_value);
-  //Distance(const Time& elapsed_time, const Speed& speed);
+  Distance(BigNum numerical_value, DistanceUnit unit);
+
   ~Distance();
 
   Distance& operator=(const Distance& rhs);

@@ -36,6 +36,7 @@ set(
   src/physics/PhysicalUnit.cpp
   src/physics/Speed.cpp
   src/physics/Time.cpp
+  src/physics/constant_distances.cpp
   src/ship/computations.cpp
   src/ship/Price.cpp
   src/ship/Resource.cpp

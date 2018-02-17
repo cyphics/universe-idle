@@ -16,14 +16,11 @@ Distance::Distance(BigNum num_distance)
     :PhysicalUnit(num_distance)
 {}
 
-// Distance::Distance(const Time& elapsed_time, const Speed& speed)
-//     :PhysicalUnit(elapsed_time.get_numerical_value() * speed)
-// {
-//   /**
-//    * Build a Distance object based on given speed and time spent
-//    */
-// }
-
+Distance::Distance(BigNum num, DistanceUnit unit)
+    :PhysicalUnit(num)
+{
+  _unit = unit;
+}
 Distance::~Distance(){}
 
 Distance& Distance::operator=(const Distance& rhs){
@@ -61,24 +58,28 @@ Distance& Distance::operator*=(const double& rhs){
 std::string Distance::to_string() const
 {
   std::string output = "";
-  if ( *this < Physics::Units::kilometer)
-  {
-    int exposant = _numerical_value.get_exponant() - Physics::Units::meter.num().get_exponant();
-    int mantissa = _numerical_value.get_significand();
-    output += std::to_string(mantissa);
-    output += "e";
-    output += std::to_string(exposant);
-    output += " meters";
-  }
-  else if (*this < Physics::Units::astro_unit)
-  {
-    int exposant = _numerical_value.get_exponant() - Physics::Units::kilometer.num().get_exponant();
-    double mantissa = _numerical_value.get_significand();
-    output += std::to_string(mantissa);
-    output += "e";
-    output += std::to_string(exposant);
-    output += " kilometers";
-  }
+  output += Physics::distance_name(_unit);
+
+  //BigNum num = _numerical_value /
+
+  // if ( *this < Physics::Units::kilometer)
+  // {
+  //   int exposant = _numerical_value.get_exponant() - Physics::Units::meter.num().get_exponant();
+  //   int mantissa = _numerical_value.get_significand();
+  //   output += std::to_string(mantissa);
+  //   output += "e";
+  //   output += std::to_string(exposant);
+  //   output += " meters";
+  // }
+  // else if (*this < Physics::Units::astro_unit)
+  // {
+  //   int exposant = _numerical_value.get_exponant() - Physics::Units::kilometer.num().get_exponant();
+  //   double mantissa = _numerical_value.get_significand();
+  //   output += std::to_string(mantissa);
+  //   output += "e";
+  //   output += std::to_string(exposant);
+  //   output += " kilometers";
+  // }
   return output;
 }
 

@@ -39,7 +39,7 @@ cmake ..
 if [ "$1" == "test" ]
 then
     make check
-    "$project_root"/build/test/bin/*
+    "$project_root"/bin/test_app
     exit 0
 fi
 
