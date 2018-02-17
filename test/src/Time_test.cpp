@@ -10,7 +10,7 @@
 #include "physics/Time.h"
 #include "physics/constants_physics.h"
 
-using Physics::Time;
+using Time;
 
 TEST_CASE( "Time To_string" ) {
   REQUIRE( Time(0).to_string() == "0 seconds");
@@ -22,8 +22,8 @@ TEST_CASE( "Time To_string" ) {
   REQUIRE( Time(3600).to_string() == "1 hours 0 seconds");
   REQUIRE( Time(3540).to_string() == "59 minutes 0 seconds");
   REQUIRE( Time(3661).to_string() == "1 hours 1 minutes 1 seconds");
-  REQUIRE( Time(Physics::Units::day).to_string() == "1 days 0 seconds");
-  REQUIRE( Time(Physics::Units::year).to_string() == "1 years 0 seconds");
+  REQUIRE( Time(Units::day).to_string() == "1 days 0 seconds");
+  REQUIRE( Time(Units::year).to_string() == "1 years 0 seconds");
 
 }
 
