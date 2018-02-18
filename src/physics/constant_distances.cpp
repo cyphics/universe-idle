@@ -42,38 +42,38 @@ std::string Physics::distance_name(DistanceUnit unit)
   return distance_units_names().find(unit)->second;
 }
 
-// std::map<Physics::DistanceUnit, BigNum> Physics::physical_units_values()
-// {
-//   /**
-//    * Return a static (unique) const dictionary linking distance units to their value
-//    */
+std::map<Physics::DistanceUnit, BigNum> Physics::distance_units_values()
+{
+  /**
+   * Return a static (unique) const dictionary linking distance units to their value
+   */
 
-//   // dist_values
+  // dist_values
 
-//   static const std::map<DistanceUnit, BigNum> physical_units_values({
-//       {DistanceUnit::yoctometer, value::yoctometer},
-//       {DistanceUnit::zeptometer, value::zeptometer},
-//       {DistanceUnit::attometer,  value::attometer},
-//       {DistanceUnit::femtometer, value::femtometer},
-//       {DistanceUnit::picometer,  value::picometer},
-//       {DistanceUnit::nanometer,  value::nanometer},
-//       {DistanceUnit::micrometer, value::micrometer},
-//       {DistanceUnit::millimeter, value::millimeter},
-//       {DistanceUnit::meter,      value::meter},
-//       {DistanceUnit::kilometer,  value::kilometer},
-//       {DistanceUnit::lightyear,  value::light_year},
-//       {DistanceUnit::astro_unit, value::astro_unit},
-//           }
-//     );
+  static const std::map<DistanceUnit, BigNum> physical_units_values({
+      {DistanceUnit::yoctometer, value::yoctometer},
+      {DistanceUnit::zeptometer, value::zeptometer},
+      {DistanceUnit::attometer,  value::attometer},
+      {DistanceUnit::femtometer, value::femtometer},
+      {DistanceUnit::picometer,  value::picometer},
+      {DistanceUnit::nanometer,  value::nanometer},
+      {DistanceUnit::micrometer, value::micrometer},
+      {DistanceUnit::millimeter, value::millimeter},
+      {DistanceUnit::meter,      value::meter},
+      {DistanceUnit::kilometer,  value::kilometer},
+      {DistanceUnit::lightyear,  value::light_year},
+      {DistanceUnit::astro_unit, value::astro_unit},
+          }
+    );
 
-//   return physical_units_values;
-// }
+  return physical_units_values;
+}
 
 
-// BigNum Physics::distance_value(DistanceUnit dist)
-// {
-//   return Physics::distance_units_values().find(dist)->second;
-// }
+BigNum Physics::distance_value(DistanceUnit dist)
+{
+  return Physics::distance_units_values().find(dist)->second;
+}
 
 
 

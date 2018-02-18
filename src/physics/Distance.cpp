@@ -58,9 +58,13 @@ Distance& Distance::operator*=(const double& rhs){
 std::string Distance::to_string() const
 {
   std::string output = "";
-  output += Physics::distance_name(_unit);
 
-  //BigNum num = _numerical_value /
+
+  BigNum num = _numerical_value / Physics::distance_value(_unit);
+
+  output += num.to_string();
+  output += " ";
+  output += Physics::distance_name(_unit);
 
   // if ( *this < Physics::Units::kilometer)
   // {
