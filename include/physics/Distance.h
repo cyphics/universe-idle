@@ -33,6 +33,8 @@ class Distance: public PhysicalUnit{
   //Distance& operator*=(const long& rhs);
   Distance& operator*=(const double& rhs);
   std::string to_string() const;
+  void set_unit(Physics::DistanceUnit unit);
+
 };
 
 inline bool operator==(const Distance& lhs, const Distance& rhs){ return lhs.num() == rhs.num(); }

@@ -20,6 +20,7 @@ Distance::Distance(BigNum num, DistanceUnit unit)
     :PhysicalUnit(num)
 {
   _unit = unit;
+  _numerical_value *= Physics::distance_value(_unit);
 }
 Distance::~Distance(){}
 
@@ -87,6 +88,10 @@ std::string Distance::to_string() const
   return output;
 }
 
+void Distance::set_unit(Physics::DistanceUnit unit)
+{
+  _unit = unit;
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$
