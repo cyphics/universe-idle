@@ -188,7 +188,7 @@ std::string BigNum::to_string() const
 
 
 
-  // BUild output
+  // Build output
   stream << std::fixed << std::setprecision(3) << mantissa;
   final_string = stream.str();
 
@@ -211,10 +211,11 @@ std::string BigNum::to_string() const
   else if (this->get_exponant() == 6) {
     final_string += "M";
   }
-  else if (this->get_exponant() > 6)
+  else if (this->get_exponant() > 6 || this->get_exponant() < 0)
   {
-    //final_string += "*10^";
-    final_string += "e";
+
+    final_string += " * 10^";
+    //final_string += "e";
     final_string += std::to_string(get_exponant());
   }
 
