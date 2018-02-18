@@ -163,9 +163,9 @@ void BigNum::factorize()
 }
 
 
-std::string arr[] = {"atto", "femto", "pico", "nano", "micro", "milli", "", "k", "mega", "giga", "tera", "peta", "exa"};
+//std::string arr[] = {"atto", "femto", "pico", "nano", "micro", "milli", "", "k", "mega", "giga", "tera", "peta", "exa"};
 
-const std::vector<std::string> BigNum::_scales(arr, arr + sizeof(arr)/sizeof(std::string));
+//const std::vector<std::string> BigNum::_scales(arr, arr + sizeof(arr)/sizeof(std::string));
 
 std::string BigNum::to_string() const
 {
@@ -236,17 +236,18 @@ std::string BigNum::to_string_human() const
   std::string significand = "";
   std::stringstream stream;
   std::string scale = "";
+
   int numeric_exponant = this->_factorized_form.second;
   int exponant_scale_level = numeric_exponant/3;
   //int exponant_limit = static_cast<int>(_scales.size());
-  int exponant_limit = _scales.size();
+  //int exponant_limit = _scales.size();
 
   // Check if beyond scales
 
-  if (exponant_scale_level > exponant_limit - 1)
-  {
-    return "infinity";
-  }
+  //if (exponant_scale_level > exponant_limit - 1)
+  // {
+  //   return "infinity";
+  // }
 
   // Set significand
   if (numeric_exponant > 3)
@@ -260,7 +261,7 @@ std::string BigNum::to_string_human() const
 
 
   // Set scale from stored labels
-  scale = this->_scales[exponant_scale_level];
+  //scale = this->_scales[exponant_scale_level];
 
 
 

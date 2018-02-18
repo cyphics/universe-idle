@@ -20,7 +20,7 @@ class BigNum
   double _num_value;
   std::pair<double, int> _factorized_form  = std::make_pair(0.0, 0);
 ;
-  static const std::vector<std::string> _scales;
+  //static const std::vector<std::string> _scales;
 
   void factorize();
 
