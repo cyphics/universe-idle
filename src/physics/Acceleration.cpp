@@ -14,7 +14,15 @@ using namespace Physics;
 
 Acceleration::Acceleration(BigNum num_value)
     : PhysicalUnit(num_value)
-{}
+{
+  _unit = DistanceUnit::yoctometer;
+}
+
+Acceleration::Acceleration(BigNum num_value, DistanceUnit unit)
+    : Acceleration(num_value)
+{
+  _unit = unit;
+}
 
 Acceleration::~Acceleration(){}
 
@@ -32,6 +40,10 @@ Acceleration& Acceleration::operator-=(const Acceleration& rhs){
   return *this;
 }
 
+void Acceleration::set_unit(Physics::DistanceUnit unit)
+{
+  _unit = unit;
+}
 
 //////////////////////////////////////////////////////////////////////
 // $Log:$

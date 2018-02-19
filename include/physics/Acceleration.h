@@ -10,20 +10,26 @@
 #define ACCELERATION_H 1
 
 #include "physics/PhysicalUnit.h"
+#include "constant_distances.h"
 
 class BigNum;
 
 namespace Physics{
 
 class Acceleration : public PhysicalUnit{
+ private:
+  Physics::DistanceUnit _unit;
 
  public:
   Acceleration(BigNum num_value);
+  Acceleration(BigNum num_value, DistanceUnit unit);
   ~Acceleration();
 
   Acceleration& operator=(const Acceleration& rhs);
   Acceleration& operator+=(const Acceleration& rhs);
   Acceleration& operator-=(const Acceleration& rhs);
+
+  void set_unit(Physics::DistanceUnit unit);
 
 };
 
