@@ -16,9 +16,7 @@ using Physics::Acceleration;
 
 GameState::GameState()
     :_current_acceleration(0), _current_speed(0), _current_time(0), _traveled_distance(0)
-{
-  std::cout << "Build game state!"  << "\n";
-}
+{}
 
 GameState::~GameState(){}
 
@@ -73,9 +71,11 @@ void GameState::add_distance(Physics::Distance dist)
   _traveled_distance += dist;
 }
 
-void GameState::set_speed_unit(Physics::DistanceUnit unit)
+void GameState::set_unit(Physics::DistanceUnit unit)
 {
   _current_speed.set_unit(unit);
+  _traveled_distance.set_unit(unit);
+  _current_acceleration.set_unit(unit);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

@@ -37,7 +37,7 @@ class GameState{
   void set_distance(Physics::Distance distance);
   void add_distance(Physics::Distance distance);
   void set_speed(Physics::Speed speed);
-  void set_speed_unit(Physics::DistanceUnit unit);
+  void set_unit(Physics::DistanceUnit unit);
   void add_speed(Physics::Speed speed);
   void set_acceleration(Physics::Acceleration acceleration);
   void increase_time(Physics::Time time);

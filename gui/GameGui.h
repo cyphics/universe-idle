@@ -28,6 +28,7 @@ class GameGui : public QMainWindow
   std::vector<UpgradeBox*> _upgrade_boxes;
   std::vector<UpgradeBox*> _structure_boxes;
   std::vector<UpgradeBox*> _incremental_boxes;
+  Physics::Distance _destination;
 
  public:
   explicit GameGui(Game* game, QMainWindow *parent = nullptr);

@@ -11,7 +11,6 @@
 #include "physics/constants_physics.h"
 #include "gui_helpers.h"
 #include "UpgradeBox.h"
-#include "ship/computations.h"
 #include "main/game_configuration.h"
 
 using Physics::Time;
@@ -20,7 +19,7 @@ using Ui::toqstr;
 
 // Constructor
 GameGui::GameGui(Game* game, QMainWindow *parent)
-    : _game(game), QMainWindow(parent)
+    : _game(game), QMainWindow(parent), _destination(GameConfig::final_destination)
 {
   ui.setupUi(this);
   _timer = new QTimer(this);
@@ -38,7 +37,6 @@ GameGui::GameGui(Game* game, QMainWindow *parent)
           this,
           SLOT(change_speed_unit(QString))
           );
-
 }
 
 void GameGui::build_upgrade_boxes_vector()
@@ -138,7 +136,7 @@ void GameGui::update()
   _speed_value = toqstr(_game->state().get_speed().to_string());
 
   // Time until destination
-  _remaining_time_value = toqstr(_game->compute().time_until_destination(GameConfig::final_destination).to_string());
+  _remaining_time_value = toqstr(_game->compute().time_until_destination(_destination).to_string());
 
   // Traveled distance
   _distance_value = toqstr(_game->state().get_distance().to_string());
@@ -228,7 +226,8 @@ void GameGui::fill_combo_box(QComboBox* box)
 void GameGui::change_speed_unit(QString unit_name)
 {
   DistanceUnit new_unit = Physics::distance_unit_from_string(unit_name.toStdString());
-  _game->state().set_speed_unit(new_unit);
+  _game->state().set_unit(new_unit);
+  _destination = Distance(Physics::distance_value(new_unit));
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$
