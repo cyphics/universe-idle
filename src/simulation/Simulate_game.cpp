@@ -36,10 +36,7 @@ Game simulate_game(Strategy_ID strategy_id, Time duration)
       // Identify next upgrade according to strategy
 
       Upgrade_ID upgrade_to_buy = strategy::strategy(strategy_id, &game);
-
       time_to_wait = game.time_until_affordable(upgrade_to_buy, 1);
-
-
 
       // Either time is over -> stop simulation
       if (time_to_wait > duration - game.state().get_time())

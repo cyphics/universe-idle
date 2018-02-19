@@ -10,7 +10,6 @@
 #include "ship/ResourcesManager.h"
 #include "ship/UpgradesManager.h"
 #include "ship/resources_helper.h"
-#include "ship/computations.h"
 
 using Physics::Time;
 

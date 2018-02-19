@@ -182,3 +182,24 @@ Refactor:
 - SSTAR
 * Online resources
 https://gamedevelopment.tutsplus.com/articles/numbers-getting-bigger-the-design-and-math-of-incremental-games--cms-24023
+** SpacePlan
+*** Resources
+- Solar panel: 17->20->23->26->30
+  0.1W/s
+- Potato: 120 -> 138 -> 159
+  1W/s
+- Probetato 680
+8W/s
+- ? 13700
+*** Upgrades:
+- Clear solar panels -> 140
+solar panel * 3
+
+- Kinetic tweak: 200
+click 1->3
+
+- Polished solar panels 15'000
+1W/s
+
+- Kinegen overclock 120'000
+click 3 -> 100

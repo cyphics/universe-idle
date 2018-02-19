@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     return 0;
     }
 
-    Physics::Time duration(1000);
+    Physics::Time duration(10000);
     run_simulator(duration, Strategy_ID::cheapest);
 
     return 0;

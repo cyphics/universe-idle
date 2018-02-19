@@ -7,7 +7,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "ship/Resource.h"
-#include "ship/computations.h"
 #include "main/game_global_variables.h"
 
 
