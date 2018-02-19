@@ -46,6 +46,7 @@ enum class Upgrade_ID
   u_kinetic_impulsor, // the click gives speed
   u_quantum_conductor,
   u_dynamo, // Gives energy from speed
+  u_quantum_synergy,
   u_superconductor,
   u_hyperconductor,
   u_overconductor,

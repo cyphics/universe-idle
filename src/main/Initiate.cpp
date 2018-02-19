@@ -97,9 +97,15 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
 
   Upgrade u_superconductor = Upgrade(Upgrade_Type::upgrade,
                                      Upgrade_ID::u_superconductor,
-                                     GameConfig::Upgrade::u_sueprconductor_desc,
+                                     GameConfig::Upgrade::u_superconductor_desc,
                                      GameConfig::Upgrade::u_superconductor_price,
                                      GameConfig::Upgrade::u_superconductor_dep);
+
+  Upgrade u_quantum_synergy = Upgrade(Upgrade_Type::upgrade,
+                                     Upgrade_ID::u_quantum_synergy,
+                                     GameConfig::Upgrade::u_quantum_synergy_desc,
+                                     GameConfig::Upgrade::u_quantum_synergy_price,
+                                     GameConfig::Upgrade::u_quantum_synergy_dep);
 
   //////////////////////////
   // Incremental Upgrades //
@@ -137,6 +143,7 @@ std::vector<Upgrade> Init::initiate_upgrades_list()
                                              u_kinetic_impulsor,
                                              u_quantum_conductor,
                                              u_dynamo,
+                                             u_quantum_synergy,
                                              u_superconductor,
                                              i_quant_coil,
                                              i_level_a_cell,

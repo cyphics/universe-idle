@@ -27,8 +27,18 @@ BigNum Computer::resource_per_second(Resource_ID resource) const
   {
     case Resource_ID::kinetic_energy:
       {
+
         new_amount = u_quant_coil_level * GameConfig::Upgrade::i_quant_coil_kinetic_gain;
-        new_amount += u_level_a_cell_level * GameConfig::Upgrade::i_level_a_cell_kinetic_gain;
+
+        // quantum conductor effect
+        if (_upgrades->is_bought(Upgrade_ID::u_quantum_conductor)) {
+          new_amount *= GameConfig::Upgrade::u_quantum_conductor_gain;
+        }
+
+        // Add quantum cells
+        if (_upgrades->is_bought(Upgrade_ID::u_quantum_synergy)) {
+          new_amount += u_level_a_cell_level * GameConfig::Upgrade::i_level_a_cell_kinetic_gain;
+        }
 
         if (_upgrades->is_bought(Upgrade_ID::u_dynamo)) {
           new_amount += _state->get_speed().num();
@@ -44,8 +54,29 @@ BigNum Computer::resource_per_second(Resource_ID resource) const
     default:
       break;
   }
+
   return new_amount * GameConfig::global_multiplier;
 
+}
+
+Acceleration Computer::current_acceleration() const
+{
+  /**
+     Compute acceleration according to upgrades.
+  */
+
+  int i_quant_coil_level = _upgrades->get_upgrade_level(Upgrade_ID::i_quant_coil);
+  int i_level_a_cell_level = _upgrades->get_upgrade_level(Upgrade_ID::i_level_a_cell);
+
+  BigNum accel_num = ( BigNum(i_level_a_cell_level)
+                       * GameConfig::Upgrade::i_level_a_cell_acceleration_gain );
+
+  if (_upgrades->is_bought(Upgrade_ID::u_quantum_synergy)) {
+    accel_num += i_quant_coil_level * GameConfig::Upgrade::i_quant_coil_acceleration_gain;
+  }
+
+  accel_num *= GameConfig::global_multiplier;
+  return Acceleration(accel_num) ;
 }
 
 Time Computer::time_until_destination(Physics::Distance destination) const
@@ -75,21 +106,6 @@ Speed Computer::new_speed(Time elapsed_time) const
 
 
 
-Acceleration Computer::current_acceleration() const
-{
-  /**
-     Compute acceleration according to upgrades.
-  */
-
-  int i_quant_coil_level = _upgrades->get_upgrade_level(Upgrade_ID::i_quant_coil);
-  int i_level_a_cell_level = _upgrades->get_upgrade_level(Upgrade_ID::i_level_a_cell);
-
-  BigNum accel_num = ( BigNum(i_level_a_cell_level)
-                       * GameConfig::Upgrade::i_level_a_cell_acceleration_gain )
-                     * GameConfig::global_multiplier;
-
-  return Acceleration(accel_num) ;
-}
 
 Distance Computer::traveled_distance(Time elapsed_time) const
 {

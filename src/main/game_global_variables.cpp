@@ -51,6 +51,7 @@ std::map<Upgrade_ID, std::string> global::upgrades_name_list()
       {Upgrade_ID::u_quantum_conductor, "Quantum conductor"},
       {Upgrade_ID::u_dynamo, "Dynamo"},
       {Upgrade_ID::u_superconductor, "Superconductors"},
+      {Upgrade_ID::u_quantum_synergy, "Quantum synergy"},
           // Incremental
       {Upgrade_ID::i_quant_coil, "Quantum coil"},
       {Upgrade_ID::i_level_a_cell, "Quantum Energy cell"},

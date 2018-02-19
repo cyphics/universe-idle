@@ -23,8 +23,9 @@
 namespace GameConfig
 {
 
-const BigNum initial_game_resources = BigNum(10000);
-const double global_multiplier = 2;
+//const BigNum initial_game_resources = BigNum(65);
+const BigNum initial_game_resources = BigNum(100000);
+const double global_multiplier = 1;
 //const Physics::Distance final_destination = Physics::Units::diameter_universe;
 const Physics::Distance final_destination = Physics::Units::radius_proton;
 
@@ -44,15 +45,16 @@ namespace Upgrade
 
 // Quantom coil
 const double i_quant_coil_increase_factor = 1.15;
-const Price i_quant_coil_price = Price(Resource_ID::kinetic_energy, BigNum(30));
+const Price i_quant_coil_price = Price(Resource_ID::kinetic_energy, BigNum(20));
 const std::vector<Upgrade_ID> i_quant_coil_depend = {Upgrade_ID::u_quantum_magnet};
 const double i_quant_coil_kinetic_gain = 1;
+const double i_quant_coil_acceleration_gain = 0.001;
 const std::vector<Upgrade_ID> i_quant_coil_dep = {Upgrade_ID::u_terminal, Upgrade_ID::u_quantum_generator};
 const std::string i_quant_coil_desc = "+ energy over time";
 
 // Level A Energy cells
 const double i_level_a_cell_increase_factor = 1.15;
-const Price i_level_a_cell_price = Price(Resource_ID::kinetic_energy, BigNum(100));
+const Price i_level_a_cell_price = Price(Resource_ID::kinetic_energy, BigNum(1000));
 const std::vector<Upgrade_ID> i_level_a_cell_depend = {Upgrade_ID::u_level_a_boost};
 const double i_level_a_cell_kinetic_gain = 1;
 const double i_level_a_cell_acceleration_gain = 0.001;
@@ -60,7 +62,6 @@ const std::vector<Upgrade_ID> i_level_a_cell_dep = {Upgrade_ID::u_terminal, Upgr
 const std::string i_level_a_cell_desc = "+ speed";
 
 // ?
-const bool increm_upgrade_3_availability = true;
 const double increm_upgrade_3_increase_factor = 1.15;
 const Price increm_upgrade_3_price = Price(Resource_ID::kinetic_energy, BigNum(11000));
 const std::vector<Upgrade_ID> increm_upgrade_3_depend = {Upgrade_ID::u_level_a_boost};
@@ -76,19 +77,26 @@ const std::vector<Upgrade_ID> u_kinetic_impulsor_dep = {Upgrade_ID::u_kinetic_po
 const std::string u_kinetic_impulsor_desc = "Click now generates energy AND speed";
 
 // Quantum conductor
-const Price u_quantum_conductor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
+const Price u_quantum_conductor_price = Price(Resource_ID::kinetic_energy, BigNum(150));
 const std::vector<Upgrade_ID> u_quantum_conductor_dep = {Upgrade_ID::u_kinetic_impulsor};
 const std::string u_quantum_conductor_desc = "Improve quantum coil effectiveness";
+const double u_quantum_conductor_gain = 3;
 
 // Dynamo
 const Price u_dynamo_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
 const std::vector<Upgrade_ID> u_dynamo_dep = {Upgrade_ID::u_quanta_expuls};
 const std::string u_dynamo_desc = "Energy is now generated from speed";
 
+// Quantum synergy
+const Price u_quantum_synergy_price = Price(Resource_ID::kinetic_energy, BigNum(15000));
+const std::vector<Upgrade_ID> u_quantum_synergy_dep = {Upgrade_ID::u_dynamo};
+const std::string u_quantum_synergy_desc = "Coils generate speed and Cells generate energy";
+
 // Superconductor
 const Price u_superconductor_price = Price(Resource_ID::kinetic_energy, BigNum(1500));
 const std::vector<Upgrade_ID> u_superconductor_dep = {Upgrade_ID::u_superconductor};
-const std::string u_sueprconductor_desc = "Improve energy generation";
+const std::string u_superconductor_desc = "Improve energy generation";
+const double u_superconductor_gain = 10;
 
 
 /////////////
