@@ -14,7 +14,9 @@ using namespace Physics;
 
 Distance::Distance(BigNum num_distance)
     :PhysicalUnit(num_distance)
-{}
+{
+  _unit = DistanceUnit::yoctometer;
+}
 
 Distance::Distance(BigNum num, DistanceUnit unit)
     :PhysicalUnit(num)

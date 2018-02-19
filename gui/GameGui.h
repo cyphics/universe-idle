@@ -41,6 +41,8 @@ class GameGui : public QMainWindow
   //void on_
   void upgrade_bought(Upgrade_ID id);
   void on_click_button_clicked();
+  //void change_speed_unit(Physics::DistanceUnit unit);
+  void change_speed_unit(QString string);
 
 private:
   void update_ugprade_boxes_visibility();
@@ -53,6 +55,7 @@ private:
   QString _speed_value;
   QString _distance_value;
   QString _remaining_time_value;
+  void fill_combo_box(QComboBox* box);
 
   QTimer *_timer;
 

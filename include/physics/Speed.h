@@ -9,18 +9,19 @@
 #ifndef SPEED_CLASS_H
 #define SPEED_CLASS_H 1
 
-#include "physics/PhysicalUnit.h"
-//#include "BigNum.h"
-//#include "Distance.h"
-//#include "Time.h"
+#include "PhysicalUnit.h"
+#include "constant_distances.h"
 
 class BigNum;
 
 namespace Physics{
 
 class Speed : public PhysicalUnit{
+ private:
+  Physics::DistanceUnit _unit;
  public:
   Speed(BigNum num_value);
+  Speed(BigNum num_value, DistanceUnit unit);
   Speed(const Speed&);
   ~Speed();
 
@@ -28,6 +29,9 @@ class Speed : public PhysicalUnit{
   Speed& operator+=(const Speed& rhs);
   Speed& operator-=(const Speed& rhs);
   Speed& operator*=(const int rhs);
+
+  std::string to_string() const;
+  void set_unit(DistanceUnit unit);
 
 };
 

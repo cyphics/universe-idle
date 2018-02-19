@@ -13,7 +13,7 @@
 
 
 
-Time Physics::remaining_time(Distance distance_to_travel, Speed current_speed, Acceleration acceleration)
+Time Physics::remaining_time(const Distance& distance_to_travel,const  Speed& current_speed, const Acceleration& acceleration)
 {
   /*
      Return time it takes to travel distance with given speed and acceleration
@@ -56,7 +56,7 @@ Time Physics::remaining_time(Distance distance_to_travel, Speed current_speed, A
 }
 
 
-Distance Physics::traveled_distance(Speed init_speed, Time duration, Acceleration acceleration)
+Distance Physics::traveled_distance(const Speed& init_speed, const Time& duration, const Acceleration& acceleration)
 {
   /**
    * Return the distance traveled at current speed, during given duration

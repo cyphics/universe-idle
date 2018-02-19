@@ -11,11 +11,16 @@ using namespace Physics;
 
 Speed::Speed(BigNum num_value)
     : PhysicalUnit(num_value)
-{}
+{
+  _unit = DistanceUnit::yoctometer;
+}
 
-// Speed::Speed(const Distance& distance, const Time& time)
-//     : PhysicalUnit(distance.num() * time.num())
-// {}
+Speed::Speed(BigNum num_value, DistanceUnit unit)
+    : Speed(num_value)
+{
+  _unit = unit;
+  _numerical_value *= Physics::distance_value(_unit);
+}
 
 Speed::Speed(const Speed& speed)
     : PhysicalUnit(speed.num())
@@ -46,6 +51,26 @@ Speed& Speed::operator*=(const int rhs)
   return *this;
 }
 
+std::string Speed::to_string() const
+{
+  std::string output = "";
+
+  BigNum num = _numerical_value / Physics::distance_value(_unit);
+
+  output += num.to_string();
+  output += " ";
+  output += Physics::distance_name(_unit);
+  output += "/s";
+
+  return output;
+
+
+}
+
+void Speed::set_unit(DistanceUnit unit)
+{
+  _unit = unit;
+}
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

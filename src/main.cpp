@@ -9,9 +9,14 @@
 int main(int argc, char *argv[])
 {
 
+  // Physics::Speed speed(1, Physics::DistanceUnit::meter);
 
-  Physics::Distance dist(BigNum(12), Physics::DistanceUnit::astro_unit);
-  std::cout << dist.to_string()  << "\n";
+  // std::cout << speed.to_string()  << "\n";
+
+  // speed.set_unit(Physics::DistanceUnit::femtometer);
+
+  // std::cout << speed.to_string()  << "\n";
+
   std::string arg = "";
 
   if (argc > 1) {
@@ -26,7 +31,7 @@ int main(int argc, char *argv[])
     }
 
     Physics::Time duration(1000);
-  run_simulator(duration, Strategy_ID::cheapest);
+    run_simulator(duration, Strategy_ID::cheapest);
 
-  //return 0;
+    return 0;
 }

@@ -28,15 +28,16 @@ class GameState{
   GameState();
   ~GameState();
   // Getters
-  Physics::Distance get_distance() const;
-  Physics::Speed get_speed() const;
-  Physics::Acceleration get_acceleration() const;
-  Physics::Time get_time() const;
+  const Physics::Distance& get_distance() const;
+  const Physics::Speed& get_speed() const;
+  const Physics::Acceleration& get_acceleration() const;
+  const Physics::Time& get_time() const;
 
   // Setters
   void set_distance(Physics::Distance distance);
   void add_distance(Physics::Distance distance);
   void set_speed(Physics::Speed speed);
+  void set_speed_unit(Physics::DistanceUnit unit);
   void add_speed(Physics::Speed speed);
   void set_acceleration(Physics::Acceleration acceleration);
   void increase_time(Physics::Time time);

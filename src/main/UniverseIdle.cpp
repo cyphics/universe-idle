@@ -12,6 +12,7 @@
 //#include "main/GameController.h"
 
 UniverseIdle::UniverseIdle(){
+  std::cout << "Init UniverseIdle"  << "\n";
 }
 
 UniverseIdle::~UniverseIdle(){}
@@ -19,8 +20,7 @@ UniverseIdle::~UniverseIdle(){}
 void UniverseIdle::run()
 {
 
-  Game my_game;
-  GameGui a_gui(&my_game);
+  GameGui a_gui(&_game);
   QTimer timer;
   a_gui.show();
   QObject::connect(&timer, SIGNAL(timeout()), &a_gui, SLOT(update()));

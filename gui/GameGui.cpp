@@ -31,6 +31,13 @@ GameGui::GameGui(Game* game, QMainWindow *parent)
 
   // Initiate visibility
   update_ugprade_boxes_visibility();
+  fill_combo_box(ui.speed_combo_box);
+
+  connect(ui.speed_combo_box,
+          SIGNAL(currentIndexChanged(QString)),
+          this,
+          SLOT(change_speed_unit(QString))
+          );
 
 }
 
@@ -209,6 +216,19 @@ void GameGui::update_ugprade_boxes_visibility()
       box->set_box_visibility(false);
   }
 
+}
+
+void GameGui::fill_combo_box(QComboBox* box)
+{
+  for (auto unit : distance_units) {
+    box->addItem(Ui::toqstr(Physics::distance_name(unit)));
+  }
+}
+
+void GameGui::change_speed_unit(QString unit_name)
+{
+  DistanceUnit new_unit = Physics::distance_unit_from_string(unit_name.toStdString());
+  _game->state().set_speed_unit(new_unit);
 }
 //////////////////////////////////////////////////////////////////////
 // $Log:$

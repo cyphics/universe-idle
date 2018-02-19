@@ -29,8 +29,34 @@ enum class DistanceUnit
   meter,
   kilometer,
   lightyear,
-  astro_unit
+  astro_unit,
+  radius_proton,
+  radius_gold_nucleus,
+  radius_hydrogen,
+  radius_carbon,
+  red_lightwave
 };
+
+static const std::vector<DistanceUnit> distance_units
+{
+  DistanceUnit::yoctometer,
+      DistanceUnit::zeptometer,
+      DistanceUnit::attometer,
+      DistanceUnit::femtometer,
+      DistanceUnit::picometer,
+      DistanceUnit::nanometer,
+      DistanceUnit::micrometer,
+      DistanceUnit::millimeter,
+      DistanceUnit::meter,
+      DistanceUnit::kilometer,
+      DistanceUnit::lightyear,
+      DistanceUnit::astro_unit,
+      DistanceUnit::radius_proton,
+      DistanceUnit::radius_gold_nucleus,
+      DistanceUnit::radius_hydrogen,
+      DistanceUnit::radius_carbon,
+      DistanceUnit::red_lightwave
+      };
 
 namespace value
 {
@@ -63,7 +89,7 @@ std::map<DistanceUnit, std::string> distance_units_names();
 std::string distance_name(DistanceUnit dist);
 std::map<DistanceUnit, BigNum> distance_units_values();
 BigNum distance_value(DistanceUnit dist);
-
+DistanceUnit distance_unit_from_string(std::string);
 
 } // End of Physics namespace
 

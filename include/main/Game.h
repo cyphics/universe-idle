@@ -18,7 +18,7 @@
 #include "ship/UpgradesManager.h"
 #include "ship/ResourcesManager.h"
 #include "ship/Computer.h"
-//#include "Distance.h"
+//#include "physics/constant_distances.h"
 
 
 class Game{
@@ -46,7 +46,6 @@ class Game{
 
   bool is_affordable(Upgrade_ID upgrade, int amount) const;
   const Computer& compute() const;
-
 
   // Misc
   void update_state();

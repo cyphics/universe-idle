@@ -27,6 +27,7 @@ Game::Game()
      _upgrades(Init::initiate_upgrades_manager()),
      _computer(&_upgrades, &_game_state)
 {
+  std::cout << "Init game!"  << "\n";
   _resources.add_resource_amount(Resource_ID::kinetic_energy, GameConfig::initial_game_resources);
 }
 
@@ -186,6 +187,8 @@ std::vector<std::string> Game::ui_data()
 
   return data;
 }
+
+
 //////////////////////////////////////////////////////////////////////
 // $Log:$
 //

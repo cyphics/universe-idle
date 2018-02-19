@@ -18,8 +18,8 @@ using namespace Physics;
 
 namespace Physics
 {
-Time remaining_time(Distance distance_to_travel, Speed current_speed, Acceleration acceleration);
-Distance traveled_distance(Speed init_speed, Time duration, Acceleration acceleration);
+Time remaining_time(const Distance& distance_to_travel,const Speed& current_speed, const Acceleration& acceleration);
+Distance traveled_distance(const Speed& init_speed, const Time& duration, const Acceleration& acceleration);
 }
 #endif // COMPUTE_PHYSICS_H
 //////////////////////////////////////////////////////////////////////
