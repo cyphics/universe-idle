@@ -161,3 +161,8 @@ std::string UpgradesManager::get_desc(Upgrade_ID id) const
 {
   return get_upgrade(id).get_desc();
 }
+
+void UpgradesManager::add_to_history(Upgrade_ID id, int amount, Time time, Price price)
+{
+  _purchases_history.add_upgrade(id, price, time);
+}

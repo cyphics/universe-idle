@@ -13,7 +13,6 @@
 #include "physics/Speed.h"
 #include "ship/resources_helper.h"
 #include "main/game_configuration.h"
-#include "ship/computations.h"
 
 using Physics::Time;
 using Physics::Speed;
@@ -27,7 +26,6 @@ Game::Game()
      _upgrades(Init::initiate_upgrades_manager()),
      _computer(&_upgrades, &_game_state)
 {
-  std::cout << "Init game!"  << "\n";
   _resources.add_resource_amount(Resource_ID::kinetic_energy, GameConfig::initial_game_resources);
 }
 
@@ -134,8 +132,17 @@ void Game::buy_upgrade(Upgrade_ID upgrade, int amount)
    */
   if (is_affordable(upgrade, amount))
   {
+    _upgrades.add_to_history(
+        upgrade, amount,
+        _game_state.get_time(),
+        _upgrades.get_price_increase_level(upgrade, amount)
+                             );
+
     _upgrades.increase_upgrade_level(upgrade, amount);
+
     _resources.pay_price(_upgrades.get_price_increase_level(upgrade, amount));
+
+
     // FIXME: ADD ENTRY TO HISTORY
     //_upgrades_manager.buy_upgrade(upgrade, amount, state().get_time());
   }

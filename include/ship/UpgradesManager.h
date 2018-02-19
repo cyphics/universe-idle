@@ -47,6 +47,7 @@ class UpgradesManager{
   void increase_upgrade_level(Upgrade_ID upgrade, int amount_new_levels);
   Upgrade_Type type(Upgrade_ID id) const;
   std::string get_desc(Upgrade_ID id) const;
+  void add_to_history(Upgrade_ID id, int amount, Physics::Time time, Price price);
 };
 
 
