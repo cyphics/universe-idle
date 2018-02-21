@@ -34,7 +34,12 @@ enum class DistanceUnit
   radius_gold_nucleus,
   radius_hydrogen,
   radius_carbon,
-  red_lightwave
+  red_lightwave,
+  diameter_adn_helix,
+  diameter_hair,
+  diameter_galaxy,
+  space_between_galaxies,
+  diameter_universe
 };
 
 static const std::vector<DistanceUnit> distance_units
@@ -55,7 +60,11 @@ static const std::vector<DistanceUnit> distance_units
       DistanceUnit::radius_gold_nucleus,
       DistanceUnit::radius_hydrogen,
       DistanceUnit::radius_carbon,
-      DistanceUnit::red_lightwave
+      DistanceUnit::diameter_adn_helix,
+      DistanceUnit::diameter_hair,
+      DistanceUnit::diameter_galaxy,
+      DistanceUnit::space_between_galaxies,
+      DistanceUnit::diameter_universe
       };
 
 namespace value
@@ -80,6 +89,8 @@ const static BigNum radius_hydrogen = picometer * 25;
 const static BigNum radius_carbon = picometer * 60;
 const static BigNum angstrom = meter * pow(10, -10);
 const static BigNum red_lightwave = nanometer * 700;
+const static BigNum diameter_adn_helix = nanometer * 2;
+const static BigNum diameter_hair = micrometer * 75;
 const static BigNum diameter_galaxy = light_year * 30000;
 const static BigNum space_between_galaxies = light_year * 3000000; // 3 million
 const static BigNum diameter_universe = light_year * 91000000000000.0; // 91 billion

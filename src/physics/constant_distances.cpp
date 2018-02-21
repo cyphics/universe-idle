@@ -19,23 +19,29 @@ std::map<Physics::DistanceUnit, std::string> Physics::distance_units_names()
   // dist_names
 
   static const std::map<DistanceUnit, std::string> physics_units_name_list({
-      {DistanceUnit::yoctometer,          "yoctometer"},
-      {DistanceUnit::zeptometer,          "zeptometer"},
-      {DistanceUnit::attometer,           "attometer"},
-      {DistanceUnit::femtometer,          "femtometer"},
-      {DistanceUnit::picometer,           "picometer"},
-      {DistanceUnit::nanometer,           "nanometer"},
-      {DistanceUnit::micrometer,          "micrometer"},
-      {DistanceUnit::millimeter,          "millimeter"},
-      {DistanceUnit::meter,               "meter"},
-      {DistanceUnit::kilometer,           "kilometer"},
-      {DistanceUnit::lightyear,           "lightyear"},
-      {DistanceUnit::astro_unit,          "astonomical unit"},
-      {DistanceUnit::radius_proton,       "Proton radius"},
-      {DistanceUnit::radius_gold_nucleus, "Gold nucleus radius"},
-      {DistanceUnit::radius_hydrogen,     "Hydrogen radius"},
-      {DistanceUnit::radius_carbon,       "Carbon radius"},
-      {DistanceUnit::red_lightwave,       "Red lightwave"},
+      {DistanceUnit::yoctometer,              "yoctometer"},
+      {DistanceUnit::zeptometer,              "zeptometer"},
+      {DistanceUnit::attometer,               "attometer"},
+      {DistanceUnit::femtometer,              "femtometer"},
+      {DistanceUnit::picometer,               "picometer"},
+      {DistanceUnit::nanometer,               "nanometer"},
+      {DistanceUnit::micrometer,              "micrometer"},
+      {DistanceUnit::millimeter,              "millimeter"},
+      {DistanceUnit::meter,                   "meter"},
+      {DistanceUnit::kilometer,               "kilometer"},
+      {DistanceUnit::astro_unit,              "astonomical unit"},
+      {DistanceUnit::lightyear,               "lightyear"},
+      {DistanceUnit::radius_proton,           "Proton radius"},
+      {DistanceUnit::radius_gold_nucleus,     "Gold nucleus radius"},
+      {DistanceUnit::radius_hydrogen,         "Hydrogen radius"},
+      {DistanceUnit::radius_carbon,           "Carbon radius"},
+      {DistanceUnit::red_lightwave,           "Red lightwave"},
+      {DistanceUnit::diameter_adn_helix,      "Diameter of the ADN helix"},
+      {DistanceUnit::diameter_hair,           "Diameter of a hair"},
+      {DistanceUnit::diameter_galaxy,         "Diameter of a galaxy"},
+      {DistanceUnit::space_between_galaxies,  "Space between galaxies"},
+      {DistanceUnit::diameter_universe,       "Diameter of the Universe"},
+
 
           }
     );
@@ -81,6 +87,11 @@ std::map<Physics::DistanceUnit, BigNum> Physics::distance_units_values()
       {DistanceUnit::radius_hydrogen, value::radius_hydrogen},
       {DistanceUnit::radius_carbon, value::radius_carbon},
       {DistanceUnit::red_lightwave, value::red_lightwave},
+      {DistanceUnit::diameter_adn_helix, value::diameter_adn_helix},
+      {DistanceUnit::diameter_hair, value::diameter_hair},
+      {DistanceUnit::diameter_galaxy, value::diameter_galaxy},
+      {DistanceUnit::space_between_galaxies, value::space_between_galaxies},
+      {DistanceUnit::diameter_universe, value::diameter_universe},
           }
     );
 
@@ -102,8 +113,8 @@ Physics::DistanceUnit Physics::distance_unit_from_string(std::string name)
       return elem.first;
   }
 
-
 std::cout << "Error, DistanceUnit key not found from value " << name  << "\n";
+return Physics::DistanceUnit::meter;
 }
 
 //////////////////////////////////////////////////////////////////////
