@@ -1,2 +1,2 @@
 # universe-idle
-Incremental game to travel across the entire universe
+Incremental game that makes you travel from one "edge" of the universe to the other.
