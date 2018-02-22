@@ -13,10 +13,11 @@
 #include <QApplication>
 #include <QtWidgets>
 #include <QTimer>
+#include <map>
 #include "ui_UniverseIdleGUI.h"
 #include "main/Game.h"
 #include "UpgradeBox.h"
-
+#include "main/game_configuration.h"
 
 
 class GameGui : public QMainWindow
@@ -28,6 +29,8 @@ class GameGui : public QMainWindow
   std::vector<UpgradeBox*> _upgrade_boxes;
   std::vector<UpgradeBox*> _structure_boxes;
   std::vector<UpgradeBox*> _incremental_boxes;
+  std::map<Physics::DistanceUnit, QLabel*> _milestones;
+
   Physics::Distance _destination;
 
  public:
@@ -49,6 +52,7 @@ private:
   void update_ugprade_boxes_visibility();
   void update_update_box(QWidget* widget, Upgrade_ID upgrade_id);
   void update_button(QPushButton* button, Upgrade_ID upgrade_id);
+  void update_milestones();
   QString _boost_1_button_name;
   QString _kinetic_button_name;
   QString _acceleration_value;
@@ -57,6 +61,7 @@ private:
   QString _distance_value;
   QString _remaining_time_value;
   void fill_combo_box(QComboBox* box);
+  void fill_milestones(QFormLayout* layout);
 
   QTimer *_timer;
 

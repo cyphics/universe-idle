@@ -27,7 +27,7 @@
          <x>10</x>
          <y>30</y>
          <width>1051</width>
-         <height>721</height>
+         <height>771</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="displayLayout">
@@ -42,7 +42,7 @@
              <x>11</x>
              <y>29</y>
              <width>591</width>
-             <height>681</height>
+             <height>731</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="infoLayout">
@@ -54,8 +54,8 @@
               <widget class="QWidget" name="formLayoutWidget">
                <property name="geometry">
                 <rect>
-                 <x>20</x>
-                 <y>240</y>
+                 <x>10</x>
+                 <y>70</y>
                  <width>441</width>
                  <height>81</height>
                 </rect>
@@ -122,8 +122,8 @@
               <widget class="QWidget" name="formLayoutWidget">
                <property name="geometry">
                 <rect>
-                 <x>20</x>
-                 <y>340</y>
+                 <x>10</x>
+                 <y>410</y>
                  <width>291</width>
                  <height>31</height>
                 </rect>
@@ -148,8 +148,8 @@
               <widget class="QTextBrowser" name="textBrowser">
                <property name="geometry">
                 <rect>
-                 <x>20</x>
-                 <y>390</y>
+                 <x>10</x>
+                 <y>450</y>
                  <width>531</width>
                  <height>271</height>
                 </rect>
@@ -158,8 +158,8 @@
               <widget class="QWidget" name="horizontalLayoutWidget">
                <property name="geometry">
                 <rect>
-                 <x>20</x>
-                 <y>40</y>
+                 <x>10</x>
+                 <y>20</y>
                  <width>531</width>
                  <height>31</height>
                 </rect>
@@ -168,14 +168,7 @@
                 <item>
                  <widget class="QLabel" name="speed_label_2">
                   <property name="text">
-                   <string>Speed :</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="speed_value_label_2">
-                  <property name="text">
-                   <string>TextLabel</string>
+                   <string>Scale:</string>
                   </property>
                  </widget>
                 </item>
@@ -184,34 +177,16 @@
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="horizontalLayoutWidget_2">
+              <widget class="QWidget" name="formLayoutWidget_2">
                <property name="geometry">
                 <rect>
-                 <x>20</x>
-                 <y>80</y>
-                 <width>531</width>
-                 <height>31</height>
+                 <x>10</x>
+                 <y>160</y>
+                 <width>441</width>
+                 <height>241</height>
                 </rect>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="speed_label_3">
-                  <property name="text">
-                   <string>Time until destination:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="speed_value_label_3">
-                  <property name="text">
-                   <string>TextLabel</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_2"/>
-                </item>
-               </layout>
+               <layout class="QFormLayout" name="milestones_layout"/>
               </widget>
              </widget>
             </item>
@@ -357,9 +332,9 @@
        <property name="geometry">
         <rect>
          <x>890</x>
-         <y>760</y>
+         <y>819</y>
          <width>160</width>
-         <height>80</height>
+         <height>21</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="quitLayout"/>
@@ -368,9 +343,9 @@
        <property name="geometry">
         <rect>
          <x>490</x>
-         <y>760</y>
+         <y>809</y>
          <width>160</width>
-         <height>80</height>
+         <height>31</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="click_button_layout">

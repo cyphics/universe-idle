@@ -67,6 +67,23 @@ static const std::vector<DistanceUnit> distance_units
       DistanceUnit::diameter_universe
       };
 
+static const std::vector<DistanceUnit> milestones
+{
+  DistanceUnit::radius_proton,
+      DistanceUnit::radius_gold_nucleus,
+      DistanceUnit::radius_hydrogen,
+      DistanceUnit::radius_carbon,
+      DistanceUnit::diameter_adn_helix,
+      DistanceUnit::diameter_hair,
+      DistanceUnit::meter,
+      DistanceUnit::kilometer,
+      DistanceUnit::astro_unit,
+      DistanceUnit::lightyear,
+      DistanceUnit::diameter_galaxy,
+      DistanceUnit::space_between_galaxies,
+      DistanceUnit::diameter_universe
+      };
+
 namespace value
 {
 const static BigNum yoctometer = BigNum(1);

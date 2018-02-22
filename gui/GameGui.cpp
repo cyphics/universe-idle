@@ -32,6 +32,10 @@ GameGui::GameGui(Game* game, QMainWindow *parent)
   update_ugprade_boxes_visibility();
   fill_combo_box(ui.speed_combo_box);
 
+  // Milestones
+  fill_milestones(ui.milestones_layout);
+
+
   connect(ui.speed_combo_box,
           SIGNAL(currentIndexChanged(QString)),
           this,
@@ -155,6 +159,7 @@ void GameGui::update()
   ui.kinetic_energy_value_label->setText(kin_energy_label);
 
   update_upgrade_boxes();
+  update_milestones();
 
 }
 
@@ -220,6 +225,29 @@ void GameGui::fill_combo_box(QComboBox* box)
 {
   for (auto unit : distance_units) {
     box->addItem(Ui::toqstr(Physics::distance_name(unit)));
+  }
+}
+
+void GameGui::fill_milestones(QFormLayout* layout)
+{
+  int i = 0;
+  for (auto milestone: Physics::milestones) {
+    QLabel* label = new QLabel(Ui::toqstr( Physics::distance_name(milestone)));
+    QLabel* field = new QLabel("Empty");
+    _milestones.insert(std::make_pair(milestone, field));
+    layout->setWidget(i, QFormLayout::FieldRole, field);
+    layout->setWidget(i, QFormLayout::LabelRole, label);
+    i++;
+  }
+}
+
+void GameGui::update_milestones()
+{
+  int i = 0;
+  for (auto milestone: Physics::milestones) {
+    Time remaining_time = _game->compute().time_until_destination(Physics::distance_value(milestone));
+    QString new_value = Ui::toqstr(remaining_time.to_string());
+    _milestones.find(milestone)->second->setText(new_value);
   }
 }
 
